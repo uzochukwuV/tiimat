@@ -1,4 +1,4 @@
-document.getElementById("menu").addEventListener("click", function(e){
+document.getElementById("menu").addEventListener("focus", function(e){
     e.preventDefault();
    
     
@@ -9,7 +9,7 @@ document.getElementById("menu").addEventListener("click", function(e){
     
 })
 
-document.getElementById("menu").addEventListener("body", (e)=> {
+document.getElementById("menu").addEventListener("click", (e)=> {
 
     e.preventDefault();
     var menubar = document.getElementById("menubar");
