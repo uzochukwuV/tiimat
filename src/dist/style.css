@@ -4,6 +4,16 @@
     transition: all 0.3s;
 }
 
+
+
+body {
+    --bg-color : #fff;
+    --primary: #000;
+    --secondary: rgb(31 41 55);
+
+}
+
+
 .animateIn {
     display: block;
     animation: animateIn .5s ease 0s  forwards;
@@ -30,3 +40,10 @@ background-size: 10px 10px;
     }
 }
 
+.main-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-image:  linear-gradient(#20243d66, #20243d66);
+    background-clip: border-box;
+    background: #000000;
+}
