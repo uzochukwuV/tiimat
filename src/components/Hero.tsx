@@ -1,4 +1,4 @@
-import React from "react";
+
 import hero2 from "../assets/hero-2.png";
 import hero3 from "../assets/hero-3.svg";
 import Icon1 from "../assets/icons/icon-1.png";
