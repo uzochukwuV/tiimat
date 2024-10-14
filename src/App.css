@@ -2,13 +2,14 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  
 }
 
 #hero-img {
   background: url("./assets/hero-1.png");
-  background-size: contain !important;
-  background-position: -6px 0;
+  background-repeat: no-repeat !important;
+  background-size: contain;
+  background-position: right top;
 }
 
 
