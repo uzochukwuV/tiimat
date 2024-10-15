@@ -1,20 +1,57 @@
 
 import './App.css'
-import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import { createBrowserRouter, RouterProvider} from "react-router-dom"
+import { Layout } from './Layout'
+import Course from './pages/course'
 
-function App() {
+function Home() {
 
   return (
     <>
-     <section className=' absolute top-0 left-0 right-0 bg-black min-h-screen'>
-     <Navbar />
      <Hero />
      <About />
-     </section>
     </>
   )
 }
+
+
+
+
+const App = () => {
+  
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <Layout  />
+      ),
+      children: [
+        {
+          path: "",
+          element: <Home />
+        },
+        {
+          path: "/course",
+          element: <Course />
+        }
+      ]
+    },
+    {
+      path: "*",
+      element: <br />,
+    },
+  ]);
+
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
+};
+
+
+
 
 export default App
