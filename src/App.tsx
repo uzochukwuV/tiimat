@@ -5,6 +5,8 @@ import About from './components/About'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import { Layout } from './Layout'
 import Course from './pages/course'
+import { Footer } from './components/Footer'
+import Faculty from './components/Faculty'
 
 function Home() {
 
@@ -12,6 +14,8 @@ function Home() {
     <>
      <Hero />
      <About />
+     <Faculty />
+     <Footer />
     </>
   )
 }
