@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import Banner from "./Banner";
 
 
