@@ -1,6 +1,5 @@
 
 import FacultyTwo from "../assets/faculty/chart.jpg"
-import BG from "../assets/svg/bg.svg";
 const About = () => {
   return (
     <>
