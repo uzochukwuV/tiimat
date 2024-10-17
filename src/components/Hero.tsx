@@ -9,7 +9,7 @@ import Icon5 from "../assets/icons/icon-.png";
 
 const Hero = () => {
   return (
-    <section className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 lg:px-24 z-10 font-normal ">
+    <section className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 xl:px-24 z-10 font-normal ">
       {/* <div className=" absolute  right-0 h-[60vh] md:h-[85%] w-[80%] bg1 rounded-s-full rounded-b-full"></div> */}
       <div className=" absolute  left-0 h-[70vh] md:h-[85%] w-[95%] md:w-80% bg1 opacity-5 rounded-s-full rounded-b-full"></div>
       <div className=" h-[80vh] grid grid-rows-2 grid-flow-col pt-6 md:pt-0  gap-6 md:flex flex-row-reverse md:items-center  ">

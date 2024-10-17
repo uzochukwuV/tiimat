@@ -2,7 +2,7 @@
 
 const Faculty = () => {
   return (
-    <div className=' min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 pb-8'>
+    <div className=' min-h-screen px-6 sm:px-10 md:px-16 xl:px-24 pb-8'>
         <div className=' h-full flex flex-col-reverse md:flex-row justify-between gap-8'>
         <div className=" flex-1">
   <ul className="flex flex-col w-full ">

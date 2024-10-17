@@ -33,7 +33,7 @@ const Course = () => {
   }
   return (
     <>
-      <div className=" md:h-[600px] bg-gradient-to-b from-transparent to-teal-400 flex justify-center  flex-col">
+      <div id="course" className=" md:h-[600px] bg-gradient-to-b from-transparent to-teal-400 flex justify-center  flex-col">
         <div className=" px-6 sm:px-12 md:px-16 pt-32 pb-12 md:pb-0 lg:px-24 flex flex-col-reverse md:grid grid-cols-6 lg:gap-8 md:pt-8">
           <div className=" flex justify-between flex-col gap-4 items-start col-span-4">
             <p className=" bg-[var(--primary-color)] text-white text-xs  md:text-sm py-1 px-4 rounded-xl">
@@ -65,7 +65,7 @@ const Course = () => {
           </div>
         </div>
       </div>
-      <div className=" min-h-screen h-full md:h-[600px] px-6 md:px-16  lg:px-24 py-12">
+      <div className=" min-h-screen h-full md:h-[600px] px-6 md:px-16  xl:px-24 py-12">
         <div className="h-full rounded-3xl bg-[var(--surface)] p-4 sm:p-6 md:p-8 lg:p-12">
           <div className="border-b-2 border-b-slate-600 py-2">
             <h3 className="text-[var(--text-primary)] font-semibold text-xl sm:text-xl md:text-xl lg:text-3xl">

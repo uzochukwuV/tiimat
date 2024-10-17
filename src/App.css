@@ -57,3 +57,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .faculty-bg{
   background:url("https://images.pexels.com/photos/3184163/pexels-photo-3184163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 }
+
+.about-bg {
+  background: url("https://images.pexels.com/photos/8199170/pexels-photo-8199170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}

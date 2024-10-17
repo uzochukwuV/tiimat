@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
    
         <footer className="relative w-full pb-20 pt-12 bg-[var(--surface)]">
-  <div className="w-full px-6 sm:px-10 md:px-16 lg:px-24 mx-auto">
+  <div className="w-full px-6 sm:px-10 md:px-16 xl:px-24 mx-auto">
     <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2 text-center md:text-start">
       <h5 className="mb-6 text-xl font-semibold text-[var(--text-tertiary)]">
       <img src={Logo1} alt='Tiimat' width={50} className=' mx-auto md:mx-0' /> <br/> Tiimat Solutions

@@ -59,7 +59,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="min-h-screen py-16 px-6 sm:px-10 md:px-16 lg:px-24">
+      <div className="min-h-screen py-16 px-6 sm:px-10 md:px-16 xl:px-24">
         <div className="h-full">
           <div className="space-y-16 ">
                 {/* <h2 className="text-[var(--text-primary)] bg-red-300 font-semibold text-center text-3xl font-edu">Business, Tech and Multimedia <br></br> Solutions</h2> */}
