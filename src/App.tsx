@@ -5,8 +5,11 @@ import About from './components/About'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import { Layout } from './Layout'
 import Course from './pages/course'
-import { Footer } from './components/Footer'
+import FacultyPage from './pages/Faculty'
+
 import Faculty from './components/Faculty'
+import AboutPage from './pages/About'
+import ContactPage from './pages/Contact'
 
 function Home() {
 
@@ -15,7 +18,6 @@ function Home() {
      <Hero />
      <About />
      <Faculty />
-     <Footer />
     </>
   )
 }
@@ -39,6 +41,18 @@ const App = () => {
         {
           path: "/course",
           element: <Course />
+        },
+        {
+          path: "/faculty",
+          element: <FacultyPage />
+        },
+        {
+          path: "/about-us",
+          element: <AboutPage />
+        },
+        {
+          path: "/contact-us",
+          element: <ContactPage />
         }
       ]
     },

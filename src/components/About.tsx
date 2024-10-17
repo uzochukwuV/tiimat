@@ -1,13 +1,17 @@
 
 import FacultyTwo from "../assets/faculty/chart.jpg"
+import BG from "../assets/svg/bg.svg";
 const About = () => {
   return (
     <>
-      <div className=" h-screen mt-24 px-6 sm:px-10 md:px-16 lg:px-24">
-        <div className='h-full flex flex-col gap-12 justify-between font-["Nunito"]'>
+      <div className=" min-h-screen  mt-24 px-6 sm:px-10 md:px-16 lg:px-24  relative">
+      <div className=" absolute  left-0 h-full w-full  opacity-5 bg ">
+        {/* <img src={BG} alt="hjh" className=" h-full w-full object-cover" /> */}
+      </div>
+        <div className='h-full flex flex-col gap-12 py-8 justify-between font-["Nunito"]'>
           <div className=" ">
-            <div className="*:text-start  max-w-2xl space-y-4">
-              <h2 className="text-[var(--text-primary)] text-4xl md:text-6xl ">
+            <div className="*:text-start  max-w-2xl space-y-2">
+              <h2 className="text-[var(--text-primary)] text-4xl md:text-5xl ">
                 Manage and Scale <br /> Your Business
               </h2>
               <p className='text-[var(--text-secondary)] font-["Nunito"] text-sm md:text-base'>
@@ -21,9 +25,9 @@ const About = () => {
             </div>
           </div>
           <div className=" flex justify-end">
-            <div className="*:text-end  max-w-2xl space-y-4 me-0">
+            <div className="*:text-end  max-w-2xl space-y-2 me-0">
               <h2
-                className="text-[var(--text-primary)] text-4xl "
+                className="text-[var(--text-primary)] text-4xl md:text-5xl "
                 style={{ fontFamily: "Nunito" }}
               >
                 Build Revolutionizing <br /> <span className=" text-[var(--primary-color)]">Softwares</span>
@@ -39,8 +43,8 @@ const About = () => {
             </div>
           </div>
           <div className=" ">
-            <div className="*:text-start  max-w-2xl space-y-4">
-              <h2 className="text-[var(--text-primary)] text-4xl ">
+            <div className="*:text-start  max-w-2xl space-y-2">
+              <h2 className="text-[var(--text-primary)] text-4xl md:text-5xl ">
                 Make Your Imaginations  <br /> Reality
               </h2>
               <p className="text-[var(--text-secondary)] text-sm md:text-base">

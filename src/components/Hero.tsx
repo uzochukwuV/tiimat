@@ -9,8 +9,10 @@ import Icon5 from "../assets/icons/icon-.png";
 
 const Hero = () => {
   return (
-    <section className=" relative min-h-screen flex flex-col h-full pt-16 sm:px-10 md:px-16 lg:px-24 z-10 font-normal ">
-      <div className=" h-screen grid grid-rows-2 grid-flow-col pt-4  gap-6 md:flex flex-row-reverse md:items-center  ">
+    <section className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 lg:px-24 z-10 font-normal ">
+      {/* <div className=" absolute  right-0 h-[60vh] md:h-[85%] w-[80%] bg1 rounded-s-full rounded-b-full"></div> */}
+      <div className=" absolute  left-0 h-[70vh] md:h-[85%] w-[95%] md:w-80% bg1 opacity-5 rounded-s-full rounded-b-full"></div>
+      <div className=" h-[80vh] grid grid-rows-2 grid-flow-col pt-6 md:pt-0  gap-6 md:flex flex-row-reverse md:items-center  ">
         <div
           id="hero-img"
           className="img relative bg-contain bg-no-repeat md:bg-center md:w-[50%] md:bg-cover md:h-[60%] flex justify-end items-center flex-1  "
@@ -34,7 +36,7 @@ const Hero = () => {
           />
         </div>
         <div className="write-up flex flex-col gap-4 *:text-start px-6 py-8 md:px-0 flex-1">
-          <h2 className=" text-[#f2f2f2] text-3xl md:text-4xl lg:text-6xl">
+          <h2 className=" text-[var(--text-primary)] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             Bridging the Gap{" "}
             <span className=" text-[var(--primary-color)]">Between</span> Tech
             And Seamless Innovation
@@ -54,40 +56,38 @@ const Hero = () => {
               How it Works
             </button>
           </div>
-          <div className="text-[var(--text-tertiary)] mt-12">
-            <p>Companies trust us</p>
-          </div>
+          
         </div>
         <div className=" absolute bottom-0 left-0 right-0 px-6 ">
           <div className=" flex justify-between items-center max-w-5xl mx-auto">
             <img
               src={Icon1}
               alt="icon-1"
-              className=" w-[50px] inline-block opacity-60 "
+              className=" w-[50px] inline-block "
               style={{ zIndex: 10 }}
             />
             <img
               src={Icon2}
               alt="icon-2"
-              className=" w-[50px] inline-block opacity-60 "
+              className=" w-[50px] inline-block "
               style={{ zIndex: 10 }}
             />
             <img
               src={Icon3}
               alt="icon-3"
-              className=" w-[50px] inline-block opacity-60 "
+              className=" w-[50px] inline-block "
               style={{ zIndex: 10 }}
             />
             <img
               src={Icon4}
               alt="icon-4"
-              className=" w-[50px] inline-block opacity-60 "
+              className=" w-[50px] inline-block "
               style={{ zIndex: 10 }}
             />
             <img
               src={Icon5}
               alt="icon-5"
-              className=" w-[50px] inline-block opacity-60 "
+              className=" w-[50px] inline-block "
               style={{ zIndex: 10 }}
             />
           </div>

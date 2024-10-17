@@ -2,19 +2,49 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
+import { useEffect, useLayoutEffect, useState } from "react";
+import Banner from "./Banner";
 
 
 const Navbar = () => {
   const location = useLocation()
-  var bodyHasDark = document.querySelector("body")?.classList.contains("dark")
+  const [ bodyHasDark, setDark] = useState(false);
+  const [ sidebarHasShow, setShow] = useState(false);
+
+
+  useLayoutEffect(() => {
+    console.log("running .....");
+    
+    document.querySelector("#sidebar")?.classList.replace("show", "hide")
+     setDark(document.querySelector("body")?.classList.contains("dark")!);
+    setShow(document.querySelector("#sidebar")?.classList.contains("show")!);
+  }, [])
+
+
+
+  
+  
   const toggleTheme = ()=> {
       var body = document.querySelector("body");
       body?.classList.toggle("dark")
+      setDark(document.querySelector("body")?.classList.contains("dark")!);
   }
+
+  const toggleSidebar = ()=> {
+    var sidebar = document.querySelector("#sidebar");
+    if(sidebar?.classList.contains("show")){
+      sidebar.classList.replace("show", "hide")
+    }else{
+      sidebar?.classList.replace("hide", "show")
+    }
+    setShow(document.querySelector("#sidebar")?.classList.contains("show")!);
+}
   return (
-    <div>
-        <nav className={` box fixed top-0 left-0 right-0 z-50 pt-4 pb-2 px-6 sm:px-10 md:px-16 lg:px-24 backdrop:blur-md ${location.pathname.includes("course")? "bg-[var(--background)]/60": "bg-[var(--background)] shadow-sm"} `}>
-            <div className=' w-full h-auto flex justify-between items-center text-[var(--text-primary)]'>
+    <div className=" h-20">
+      
+        <nav className={` box fixed top-0 left-0 right-0 z-50  backdrop:blur-md ${location.pathname.includes("course")? "bg-[var(--background)]  shadow-md": "bg-[var(--background)] shadow-sm"} `}>
+        <Banner />
+            <div className=' w-full h-auto flex justify-between items-center text-[var(--text-primary)] pt-4 pb-2 px-6 sm:px-10 md:px-16 lg:px-24'>
                 <div className="logo flex gap-1">
                   <Link to={"/"}>
                      {
@@ -23,25 +53,61 @@ const Navbar = () => {
                   </Link>
                   
                 </div>
-                <div className=" fixed">
-
+                <div id="sidebar" className="hide transition-all duration-700 -z-10 delay-75 fixed top-20 left-0 right-0 bottom-0 bg-[var(--surface)]/90 backdrop-blur-2xl">
+                     <div className="h-full flex items-start px-6 gap-8 flex-col pt-12 *:text-lg *:font-medium ">
+                        <Link to={"/"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                          <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Home</div>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                        </Link>
+                        <Link to={"/faculty"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                          <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Faculty</div>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                        </Link>
+                        <Link to={"/about-us"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                          <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >About Us</div>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                        </Link>
+                        <Link to={"/contact-us"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                          <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Contact Us</div>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                        </Link>
+                     </div>
                 </div>
-                <div className="hidden md:flex gap-6 md:ga-12 lg:gap-16 lg:text-lg items-center">
+                <div className="hidden md:flex gap-6 md:ga-12 lg:gap-16 text-sm items-center">
+                <div>
+                      <Link to={"/"} >Home</Link>
+                    </div>
                     <div>
-                      <Link to={"/course"} >Faculty</Link>
+                      <Link to={"/faculty"} >Faculty</Link>
                     </div>
                     
-                    <div>About Us</div>
-                    <div>Contact Us</div>
                     <div>
-                      <button className=' border px-6 py-2 bg-transparent border-[var(--primary-color)]'>
+                    <Link to={"/about-us"} >About Us</Link>
+                    </div>
+                    <div>
+                    <Link to={"/contact-us"} >Contact Us</Link>
+                    </div>
+                    
+                    <div className=" space-x-4 flex items-center">
+                    <button className=" bg-[var(--surface)] px-4 py-2 rounded-md" onClick={toggleTheme}>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--icon)" ><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+                  </button>
+                      <button className=' focus:bg-[var(--primary-color)] hover:bg-[var(--primary-color)] text-sm border px-4 py-2 rounded-md bg-transparent border-[var(--primary-color)]'>
                       See Courses
                       </button>
                     </div>
+                    
                 </div>
-                <div className="menu md:hidden">
-                  <button onClick={toggleTheme}>dark</button>
-                  <p>Menu</p>
+                <div className="menu md:hidden flex gap-3">
+                  <button className=" bg-[var(--surface)] rounded-md" onClick={toggleTheme}>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--icon)" ><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+                  </button>
+                  <button onClick={toggleSidebar} className=" bg-transparent">
+                    {
+                      sidebarHasShow ? (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--icon)"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>):
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--icon)"><path d="M160-360v-80h640v80H160Zm0-160v-80h640v80H160Z"/></svg>
+                    }
+                  </button>
                 </div>
             </div>
         </nav>
