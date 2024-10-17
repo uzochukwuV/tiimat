@@ -10,6 +10,7 @@ import FacultyPage from './pages/Faculty'
 import Faculty from './components/Faculty'
 import AboutPage from './pages/About'
 import ContactPage from './pages/Contact'
+import NotFound from './NotFound'
 
 function Home() {
 
@@ -58,7 +59,7 @@ const App = () => {
     },
     {
       path: "*",
-      element: <br />,
+      element: <NotFound />,
     },
   ]);
 
