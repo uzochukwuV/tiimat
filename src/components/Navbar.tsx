@@ -26,6 +26,7 @@ const Navbar = () => {
       }
   }, [location])
 
+  
   useEffect(()=> {
    
     if(sidebarHasShow == true && document.querySelector("#sidebar")?.classList.contains("show")){

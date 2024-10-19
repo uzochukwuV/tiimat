@@ -6,10 +6,15 @@ import Icon2 from "../assets/icons/icon-2.png";
 import Icon3 from "../assets/icons/icon-3.png";
 import Icon4 from "../assets/icons/icon-4.png";
 import Icon5 from "../assets/icons/icon-.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  useGSAP(()=> {
+    gsap.fromTo("#h-1", {x:-200, opacity:0, duration:1000, ease:"back.in", delay:300, scrollTrigger:"#app"}, {x:0, opacity:1})
+  }, [])
   return (
-    <section className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 xl:px-24 z-10 font-normal ">
+    <section  className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 xl:px-24 z-10 font-normal ">
       {/* <div className=" absolute  right-0 h-[60vh] md:h-[85%] w-[80%] bg1 rounded-s-full rounded-b-full"></div> */}
       <div className=" absolute  left-0 h-[70vh] md:h-[85%] w-[95%] md:w-80% bg1 opacity-5 rounded-s-full rounded-b-full"></div>
       <div className=" h-[80vh] grid grid-rows-2 grid-flow-col pt-6 md:pt-0  gap-6 md:flex flex-row-reverse md:items-center  ">
@@ -36,7 +41,7 @@ const Hero = () => {
           />
         </div>
         <div className="write-up flex flex-col gap-4 *:text-start px-6 py-8 md:px-0 flex-1">
-          <h2 className=" text-[var(--text-primary)] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+          <h2 id="h-1" className=" text-[var(--text-primary)] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             Bridging the Gap{" "}
             <span className=" text-[var(--primary-color)]">Between</span> Tech
             And Seamless Innovation

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Connect = () => {
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
   
     if(modal)
   return (
