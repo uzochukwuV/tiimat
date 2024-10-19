@@ -77,8 +77,8 @@ function FacultyPage() {
                     return (
                       <Link
                         to={`${course.url}#course`}
-                        replace
-                        target="_blank"
+                      
+                        
                         key={`course-${i}`}
                         className=" text-[var(--text-secondary)] hover:scale-[102%] cursor-pointer hover:text-white border-b border-dashed flex justify-between items-center"
                       >

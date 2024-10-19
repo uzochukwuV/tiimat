@@ -1,9 +1,10 @@
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./Banner";
+
 
 
 const Navbar = () => {
@@ -12,17 +13,30 @@ const Navbar = () => {
   const [ sidebarHasShow, setShow] = useState(false);
 
 
-  useLayoutEffect(() => {
-    console.log("running .....");
+
+  useEffect(() => {
+  
     
     document.querySelector("#sidebar")?.classList.replace("show", "hide")
      setDark(document.querySelector("body")?.classList.contains("dark")!);
     setShow(document.querySelector("#sidebar")?.classList.contains("show")!);
-  }, [])
+    
+      return ()=> {
+        
+      }
+  }, [location])
 
-
-
+  useEffect(()=> {
+   
+    if(sidebarHasShow == true && document.querySelector("#sidebar")?.classList.contains("show")){
+      document.querySelector("#sidebar")?.classList.replace("show", "hide");
+    
+      
+    }
+    document.body.scrollIntoView()
+  },[location.pathname])
   
+
   
   const toggleTheme = ()=> {
       var body = document.querySelector("body");
@@ -53,21 +67,25 @@ const Navbar = () => {
                   </Link>
                   
                 </div>
-                <div id="sidebar" className="hide transition-all duration-700 -z-10 delay-75 fixed top-24 left-0 right-0 bottom-0 bg-[var(--surface)]/90 backdrop-blur-2xl">
+                <div id="sidebar" className="hide transition-all pt-16 duration-700 -z-10 delay-75 fixed top-0 left-0 right-[20%] bottom-0 bg-[var(--surface)]/90 backdrop-blur-2xl">
+                <div className="logo flex gap-1 ps-8 h-20">
+                  
+                  
+                </div>
                      <div className="h-full flex items-start px-6 gap-8 flex-col pt-12 *:text-lg *:font-medium ">
                         <Link to={"/"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
                           <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Home</div>
                           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
                         </Link>
-                        <Link to={"/faculty"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                        <Link to={"/faculty#"} nonce="u" suppressHydrationWarning preventScrollReset={false} viewTransition  className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
                           <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Faculty</div>
                           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
                         </Link>
-                        <Link to={"/about-us"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                        <Link to={"/about-us#"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
                           <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >About Us</div>
                           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
                         </Link>
-                        <Link to={"/contact-us"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
+                        <Link to={"/contact-us#"} className="link w-full py-4 rounded-md bg-[var(--surface)] px-4 hover:bg-transparent hover:border-[var(--surface)] border border-transparent group flex justify-between items-center">
                           <div  className=" text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" >Contact Us</div>
                           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--text-secondary)"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
                         </Link>
@@ -78,14 +96,14 @@ const Navbar = () => {
                       <Link to={"/"} >Home</Link>
                     </div>
                     <div>
-                      <Link to={"/faculty"} >Faculty</Link>
+                      <Link to={"/faculty#"} >Faculty</Link>
                     </div>
                     
                     <div>
-                    <Link to={"/about-us"} >About Us</Link>
+                    <Link to={"/about-us#"} >About Us</Link>
                     </div>
                     <div>
-                    <Link to={"/contact-us"} >Contact Us</Link>
+                    <Link to={"/contact-us#"} >Contact Us</Link>
                     </div>
                     
                     <div className=" space-x-4 flex items-center">

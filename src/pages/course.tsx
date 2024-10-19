@@ -33,7 +33,7 @@ const Course = () => {
   }
   return (
     <>
-      <div id="course" className=" md:h-[600px] bg-gradient-to-b from-transparent to-teal-400 flex justify-center  flex-col">
+      <div id="course" className=" md:h-[600px] bg-gradient-to-b from-transparent via-indigo-200 to-stone-400 flex justify-center  flex-col">
         <div className=" px-6 sm:px-12 md:px-16 pt-32 pb-12 md:pb-0 lg:px-24 flex flex-col-reverse md:grid grid-cols-6 lg:gap-8 md:pt-8">
           <div className=" flex justify-between flex-col gap-4 items-start col-span-4">
             <p className=" bg-[var(--primary-color)] text-white text-xs  md:text-sm py-1 px-4 rounded-xl">
@@ -50,7 +50,7 @@ const Course = () => {
               <button className=" font-semibold text-lg backdrop-blur-md backdrop-opacity-60 bg-[var(--primary-color)] w-20 h-8 md:w-32 md:h-12  rounded-md">
                 Apply
               </button>
-              <p className="text-[var(--text-tertiary)] font-semibold text-lg">N 230,000</p>
+              <p className="text-[var(--text-tertiary)] *:text-2xl font-semibold text-white">N <span className=" line-through">290,000</span> N <span>230,000</span></p>
               <img
                 src={Flutter}
                 alt=""
@@ -65,7 +65,7 @@ const Course = () => {
           </div>
         </div>
       </div>
-      <div className=" min-h-screen h-full md:h-[600px] px-6 md:px-16  xl:px-24 py-12">
+      <div className=" min-h-[650px] h-full md:h-[600px] px-6 md:px-16  xl:px-24 py-12">
         <div className="h-full rounded-3xl bg-[var(--surface)] p-4 sm:p-6 md:p-8 lg:p-12">
           <div className="border-b-2 border-b-slate-600 py-2">
             <h3 className="text-[var(--text-primary)] font-semibold text-xl sm:text-xl md:text-xl lg:text-3xl">
@@ -73,7 +73,7 @@ const Course = () => {
             </h3>
           </div>
           <div className=" py-4">
-            <p className=" text-[var(--text-tertiary)] text-xs sm:text-sm   md:text-lg">
+            <p className=" text-[var(--text-tertiary)] text-xs sm:text-sm   md:text-lg tracking-wide leading-5" >
               In this Flutter Development Course, you will embark on a journey
               to master Flutter, Google’s revolutionary open-source framework
               that allows you to build highly efficient, natively compiled
@@ -92,7 +92,7 @@ const Course = () => {
               navigation, and backend integration.
             </p>
           </div>
-          <div className=" py-4 *:py-1 *:px-4 *:bg-slate-800 *:rounded-2xl flex justify-start gap-3 flex-wrap *:text-[var(--text-tertiary)]">
+          <div style={{scrollbarWidth:"none"}} className=" py-4 *:py-1 *:px-4 *:bg-[var(--background)] *:rounded-2xl flex justify-start gap-3 overflow-scroll *:whitespace-nowrap scroll-smooth  *:text-[var(--text-tertiary)]">
             <div>Dart Programing</div>
             <div>Flutter Development</div>
             <div>Firebase Integration</div>

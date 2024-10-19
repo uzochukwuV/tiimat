@@ -53,7 +53,7 @@ const Hero = () => {
               Start Innovating Now
             </button>
             <button className="bg-transparent hover:outline-0 focus:autline-0">
-              How it Works
+              Get Connected
             </button>
           </div>
           
