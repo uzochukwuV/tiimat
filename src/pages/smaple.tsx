@@ -3,13 +3,15 @@ import Course1 from "../assets/course1.jpg";
 import ReactSVG from "../assets/react.svg";
 import Icon4 from "../assets/icons/icon-4.png";
 import Icon2 from "../assets/icons/icon-2.png";
+import { data } from "../services/data";
 
 const Sample = () => {
   return (
     <>
       <section className=" w-full min-h-screen py-12">
         <div
-          className="course-hero min-h-[800px] h-full bg-no-repeat bg-cover bg-left-top flex flex-col px-2 gap-20 justify-center "
+        id="sample" 
+          className="course-hero backdrop-blur-lg backdrop:opacity-15 shadow-2xl  min-h-[800px] h-full pb-20 bg-no-repeat bg-cover bg-left-top flex flex-col px-2 gap-20 justify-center "
           style={{
             // background: "url('../../public/bg.svg')",
             background: 'url("../../public/bg.svg")',
@@ -19,7 +21,7 @@ const Sample = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className=" min-h-[800px] md:min-h-[600px]  h-full flex flex-col md:flex-row md:items-center px-2 gap-20 justify-center items-center">
+          <div className=" min-h-[800px] pb-20 md:min-h-[400px]  h-full flex flex-col md:flex-row md:items-center px-2 gap-20 justify-center items-center">
             <div className=" flex justify-center items-center text-center md:text-start md:items-start md:max-w-[50%] flex-col gap-4 px-4">
               <h2 className=" text-4xl md:text-5xl xl:text-6xl  leading-10 text-[var(--text-primary)] font-extrabold font-['Nunito']">
                 Learn Modern Web <br /> Development
@@ -87,14 +89,14 @@ const Sample = () => {
               </div>
             </div>
             {/*  */}
-            <div className=" h-[700px]"></div>
+            {/* <div className=" h-[700px]"></div> */}
           </div>
 
           {/*  */}
         </div>
         <div className=" flex flex-col gap-6 py-8 md:py-12">
           <div className=" *:text-center px-6 flex justify-end max-w-xl mx-auto  items-center text-center flex-col gap-2">
-            <p className=" text-sm text-[var(--text-primary)] font-extrabold font-['Nunito']">
+            <p className=" pt-6 text-sm text-[var(--text-primary)] font-extrabold font-['Nunito']">
               Courses
             </p>
             <p className=" text-2xl sm:text-3xl   leading-10 text-[var(--text-primary)] font-extrabold font-['Nunito']">
@@ -106,93 +108,68 @@ const Sample = () => {
             </p>
           </div>
           <div className=" px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-[1240px]">
-            {/* 1  */}
-            <div className=" shadow rounded-xl">
-              <div className=" relative">
+          
+            {
+              data.curriculum.map((week)=> {
+                return (
+                  <div className=" shadow rounded-xl">
+              <div className=" relative min-h-10">
                 <p className=" text-white sm:text-sm bg-black px-4 py-1 absolute top-2 left-2 text-[9px] rounded-full">
                   {" "}
-                  Week One
+                  Week {week.week}
                 </p>
-                <img
+                {/* <img
                   src={Course1}
                   alt=""
                   className=" rounded-xl h-auto w-full object-cover"
-                />
+                /> */}
               </div>
               <div className="py-[2em] px-[1em] space-y-4">
                 <p className=" text-xl sm:text-3xl  leading-10 text-[var(--text-primary)] font-extrabold font-['Nunito']">
-                  Introduction{" "}
+                  {week.name}{" "}
                 </p>
-                <p className=" text-black">wjhdbjwhb</p>
-                <p className=" sm:text-base text-[11px] text-[var(--text-tertiary)]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident quae placeat a. Corporis atque blanditiis iste
-                  aliquid.
-                </p>
-                {/* <div>
+                
+                <div className=" space-y-2">
+                {
+                  week.topics.map((topic)=> {
+                    return (
+                      <div>
                     <div>
-                        <label htmlFor="first" className=" text-black content-start before:bg-red-400">Introduction to Html</label>
+                        <label htmlFor="first" className=" list-topic text-[var(--text-tertiary)] content-start before:bg-red-400">{topic}</label>
                         <input type="checkbox" name="" id="first" className=" checkbox hidden" />
                         <p className=" text-black">
-                            Lorem ipsum dolor 
+                          
                         </p>
                     </div>
-                </div> */}
+                </div> 
+                    )
+                  })
+                }
+                </div>
+                
               </div>
             </div>
-
-            {/* 2 */}
-            <div className=" shadow rounded-xl">
-              <div className=" relative">
-                <p className=" text-white sm:text-sm bg-black px-4 py-1 absolute top-2 left-2 text-[9px] rounded-full">
-                  {" "}
-                  Week One
-                </p>
-                <img
-                  src={Course1}
-                  alt=""
-                  className=" rounded-xl h-auto w-full object-cover"
-                />
-              </div>
-              <div className="py-[2em] px-[1em] space-y-4">
-                <p className=" text-xl sm:text-3xl  leading-10 text-[var(--text-primary)] font-extrabold font-['Nunito']">
-                  Introduction{" "}
-                </p>
-                <p className=" text-black">wjhdbjwhb</p>
-                <p className=" sm:text-base text-[11px] text-[var(--text-tertiary)]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident quae placeat a. Corporis atque blanditiis iste
-                  aliquid.
-                </p>
-                {/* <div>
-                    <div>
-                        <label htmlFor="first" className=" text-black content-start before:bg-red-400">Introduction to Html</label>
-                        <input type="checkbox" name="" id="first" className=" checkbox hidden" />
-                        <p className=" text-black">
-                            Lorem ipsum dolor 
-                        </p>
-                    </div>
-                </div> */}
-              </div>
-            </div>
+                )
+              })
+            }
             {/* 3 */}
           </div>
         </div>
         {/* new */}
-        <div className=" px-4">
-          <div className=" min-h-[400px]">
-            <div>
+        <div className=" px-4 md:px-6">
+          <div className=" min-h-[400px] flex flex-col md:px-24 md:flex-row md:gap-6 md:items-center ">
+            <div className=" flex-1">
             <img
                   src={Course1}
                   alt=""
                   className=" rounded-xl h-auto w-full object-cover"
                 />
             </div>
-            <div className=" space-y-4">
+            <div className=" flex justify-between flex-col items-start py-6 flex-1 gap-6 ">
               <h4 className="text-3xl  leading-10 text-[var(--text-primary)] font-extrabold font-['Nunito']">
                 Beginner Friendly
               </h4>
-              <p className=" sm:text-base text-[11px] text-[var(--text-tertiary)]">
+              <p className=" max-w-md sm:text-base text-[11px] text-[var(--text-tertiary)]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Provident quae placeat a. Corporis atque blanditiis iste
                 aliquid.

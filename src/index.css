@@ -103,3 +103,27 @@ button:hover {
   height: max-content;
   display: block;
 }
+.list-topic{
+  position: relative;
+  padding-left: 24px;
+}
+
+.list-topic::after {
+  content: "✨"; 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+
+  
+  
+}
+
+@media screen and (min-width: 760px) {
+  #sample {
+    background-position: 50% 5% !important;
+    background-size: 270vw !important;
+  }
+}
