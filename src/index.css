@@ -9,7 +9,7 @@
 
 
 :root {
-  font-family: "Raleway","Afacad Flux", "Nunito","Edu AU VIC WA NT Guides", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:"Nunito", "Raleway","Afacad Flux", "Edu AU VIC WA NT Guides", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -92,4 +92,14 @@ button:hover {
 
 .font-edu {
   font-family: "Edu AU VIC WA NT Guides";
+}
+.checkbox + p{
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.checkbox:checked + p {
+  height: max-content;
+  display: block;
 }

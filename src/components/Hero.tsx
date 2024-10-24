@@ -1,63 +1,66 @@
 
-import hero2 from "../assets/hero-2.png";
-import hero3 from "../assets/hero-3.svg";
+
 import Icon1 from "../assets/icons/icon-1.png";
 import Icon2 from "../assets/icons/icon-2.png";
 import Icon3 from "../assets/icons/icon-3.png";
 import Icon4 from "../assets/icons/icon-4.png";
 import Icon5 from "../assets/icons/icon-.png";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import H1 from "../assets/young.png";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const Hero = () => {
-  useGSAP(()=> {
-    gsap.fromTo("#h-1", {x:-200, opacity:0, duration:1000, ease:"back.in", delay:300, scrollTrigger:"#app"}, {x:0, opacity:1})
-  }, [])
+  const navigate = useNavigate()
+  
+ 
   return (
-    <section  className=" relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 xl:px-24 z-10 font-normal ">
-      {/* <div className=" absolute  right-0 h-[60vh] md:h-[85%] w-[80%] bg1 rounded-s-full rounded-b-full"></div> */}
+    <section  className=" trigger relative min-h-screen flex flex-col h-full sm:px-10 md:px-16 xl:px-24 z-10 font-normal ">
+      {/*  */}
+      
       <div className=" absolute  left-0 h-[70vh] md:h-[85%] w-[95%] md:w-80% bg1 opacity-5 rounded-s-full rounded-b-full"></div>
       <div className=" h-[80vh] grid grid-rows-2 grid-flow-col pt-6 md:pt-0  gap-6 md:flex flex-row-reverse md:items-center  ">
         <div
-          id="hero-img"
-          className="img relative bg-contain bg-no-repeat md:bg-center md:w-[50%] md:bg-cover md:h-[60%] flex justify-end items-center flex-1  "
+          // id="hero-img"
+          className="img relative bg-contain bg-no-repeat md:bg-center md:w-[50%] md:bg-cover md:h-[60%] flex justify-start items-center flex-1  "
         >
           <div
             className="absolute top-0 left-0 right-0 bottom-0 flex items-end justify-center"
             style={{ zIndex: -1 }}
           >
-            <img
+            {/* <img
               src={hero3}
               alt="hero-2"
               className=" absolute bottom-0 right-32 md:right-44 lg:right-64 h-20 z-20 me-6 "
-            />
+            /> */}
           </div>
 
           <img
-            src={hero2}
+            src={H1}
             alt="hero-2"
-            className=" sm:me-0 w-[18rem] md:w-[20rem]"
-            style={{ zIndex: 10 }}
+            className=" object-cover w-full bg-center bg-origin-content backdrop-blur-sm scale-110 "
+            style={{ zIndex: 10, }}
           />
         </div>
         <div className="write-up flex flex-col gap-4 *:text-start px-6 py-8 md:px-0 flex-1">
-          <h2 id="h-1" className=" text-[var(--text-primary)] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-            Bridging the Gap{" "}
-            <span className=" text-[var(--primary-color)]">Between</span> Tech
-            And Seamless Innovation
+          <h2 id="h-1" className=" translate-x-0 text-[var(--text-primary)] font-semibold text-3xl md:text-4xl lg:text-5xl">
+            <span className=" text-[var(--primary-color)]"> Innovative</span>  Education{" "} and
+            <span className=" text-[var(--primary-color)]"> Global </span>  
+            Empowerment <span className=" text-[var(--primary-color)]"> </span>
           </h2>
-          <p className=" *:text-[var(--text-secondary)] text-sm md:text-base lg:text-lg">
-            <span>Tech doesnt have to feel like a different language.</span>
+          <p id="h-2" className="  translate-x-0  *:text-[var(--text-secondary)] text-sm md:text-base lg:text-lg">
+            <span>To empower individuals and communities globally through innovative education</span>
             <span>
               We build schematiq to make sure tech works for you, your business
               and your future
             </span>
           </p>
-          <div className=" pt-4 *:py-2 *:min-w-[180px] *:px-4 *:text-sm *:text-[var(--text-primary)] *:md:text-base flex gap-4 ">
-            <button className=" bg-[var(--primary-color)]">
-              Start Innovating Now
+          <div id="h-3" className="  translate-x-0 pt-4 *:py-2 *:min-w-[180px] *:px-4 *:text-sm  *:md:text-base flex gap-4 ">
+            <button onClick={()=> navigate("/faculty")} className=" hover:scale-95 hover:opacity-90 bg-[var(--primary-color)] text-[var(--background)] rounded-md">
+              Browse Programmes
             </button>
-            <button className="bg-transparent hover:outline-0 focus:autline-0">
+            <button onClick={()=> navigate("/contact-us")} className="bg-transparent hover:scale-95 hover:outline-0 text-[var(--text-primary)]  focus:autline-0 rounded-md hover:bg-blue-50/35 hover:backdrop-blur-md">
               Get Connected
             </button>
           </div>

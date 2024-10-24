@@ -4,18 +4,20 @@ import Hero from './components/Hero'
 import About from './components/About'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import { Layout } from './Layout'
-import Course from './pages/course'
+// import Course from './pages/course'
 import FacultyPage from './pages/Faculty'
 
 import Faculty from './components/Faculty'
 import AboutPage from './pages/About'
 import ContactPage from './pages/Contact'
 import NotFound from './NotFound'
+import Sample from './pages/smaple'
 
 function Home() {
 
   return (
     <>
+    
      <Hero />
      <About />
      <Faculty />
@@ -41,7 +43,7 @@ const App = () => {
         },
         {
           path: "/course",
-          element: <Course />
+          element: <Sample />
         },
         {
           path: "/faculty",

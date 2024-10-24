@@ -1,17 +1,22 @@
 
 import FacultyTwo from "../assets/faculty/chart.jpg"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const About = () => {
+  useGSAP(()=> {
+    gsap.from(".slideIn", {x:-400, opacity:0, duration:2, delay:"5s" })
+  }, [])
   return (
     <>
-      <div className=" min-h-screen  mt-24 px-6 sm:px-10 md:px-16 lg:px-24  relative">
+      <div className=" min-h-screen h-full flex flex-col  mt-24 px-6 sm:px-10 md:px-16 lg:px-24  relative">
       <div className=" absolute  left-0 h-full w-full  opacity-5 bg ">
         {/* <img src={BG} alt="hjh" className=" h-full w-full object-cover" /> */}
       </div>
-        <div className='h-full flex flex-col gap-12 py-8 justify-between font-["Nunito"]'>
-          <div className=" ">
+        <div className='h-full relative  flex-1 py-16  flex flex-col justify-between font-["Nunito"]'>
+          <div className=" slideIn opacity-100 translate-x-0">
             <div className="*:text-start  max-w-2xl space-y-2">
               <h2 className="text-[var(--text-primary)] text-4xl md:text-5xl ">
-                Manage and Scale <br /> Your Business
+                Our Vision <br /> 
               </h2>
               <p className='text-[var(--text-secondary)] font-["Nunito"] text-sm md:text-base'>
                 Discover a new era of efficiency and collaboration with our
@@ -29,7 +34,7 @@ const About = () => {
                 className="text-[var(--text-primary)] text-4xl md:text-5xl "
                 style={{ fontFamily: "Nunito" }}
               >
-                Build Revolutionizing <br /> <span className=" text-[var(--primary-color)]">Softwares</span>
+                Our <span className=" text-[var(--primary-color)]">Goal</span>
               </h2>
               <p className="text-[var(--text-secondary)] text-sm md:text-base">
                 Discover a new era of efficiency and collaboration with our
@@ -41,10 +46,10 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className=" ">
+          <div className="slideIn ">
             <div className="*:text-start  max-w-2xl space-y-2">
               <h2 className="text-[var(--text-primary)] text-4xl md:text-5xl ">
-                Make Your Imaginations  <br /> Reality
+               Tiimat Solutions
               </h2>
               <p className="text-[var(--text-secondary)] text-sm md:text-base">
                 Discover a new era of efficiency and collaboration with our
@@ -65,29 +70,29 @@ const About = () => {
                 <div className=" space-y-8">
                   <h3 className=" font-medium text-3xl">Faculties</h3>
                   <div className=" space-y-8 md:space-y-0 md:flex gap-6">
-                  <div className=" space-y-6 p-4 bg-[var(--surface)] rounded-xl">
+                  <div className=" space-y-6   bg-[var(--surface)] rounded-xl">
                     <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-xl" />
+                        <img src={FacultyTwo} alt="" className=" rounded-t-xl" />
                     </div>
-                    <div className=" space-y-2">
+                    <div className=" space-y-2 px-4 pb-4">
                       <h3 className=" font-medium text-lg text-[var(--text-tertiary)]">Faculty of Management</h3>
                       <p className=" text-[var(--text-secondary)]">Get Globally Certified in Business Management and Book Keeping</p>
                     </div>
                   </div>
-                  <div className=" space-y-6 p-4 bg-[var(--surface)] rounded-xl">
+                  <div className=" space-y-6   bg-[var(--surface)] rounded-xl">
                     <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-xl" />
+                        <img src={FacultyTwo} alt="" className=" rounded-t-xl" />
                     </div>
-                    <div className=" space-y-2">
+                    <div className=" space-y-2 px-4 pb-4">
                       <h3 className=" font-medium text-lg text-[var(--text-tertiary)]">Faculty of Computer Technology</h3>
                       <p className=" text-[var(--text-secondary)]">Get Globally Certified in Business Management and Book Keeping</p>
                     </div>
                   </div>
-                  <div className=" space-y-6 p-4 bg-[var(--surface)] rounded-xl">
+                  <div className=" space-y-6    bg-[var(--surface)] rounded-xl">
                     <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-xl" />
+                        <img src={FacultyTwo} alt="" className=" rounded-t-xl" />
                     </div>
-                    <div className=" space-y-2">
+                    <div className=" space-y-2 px-4 pb-4">
                       <h3 className=" font-medium text-lg text-[var(--text-tertiary)]">Faculty of Multimedia Technology</h3>
                       <p className=" text-[var(--text-secondary)]">Get Globally Certified in Business Management and Book Keeping</p>
                     </div>

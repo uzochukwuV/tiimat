@@ -33,11 +33,11 @@ const Course = () => {
   }
   return (
     <>
-      <div id="course" className=" md:h-[600px] bg-gradient-to-b from-transparent via-indigo-200 to-stone-400 flex justify-center  flex-col">
+      <div id="course" className=" md:h-[600px] bg-indigo-800  backdrop-blur-md to-[var(--surface)] flex justify-center  flex-col">
         <div className=" px-6 sm:px-12 md:px-16 pt-32 pb-12 md:pb-0 lg:px-24 flex flex-col-reverse md:grid grid-cols-6 lg:gap-8 md:pt-8">
           <div className=" flex justify-between flex-col gap-4 items-start col-span-4">
             <p className=" bg-[var(--primary-color)] text-white text-xs  md:text-sm py-1 px-4 rounded-xl">
-              Course 001
+              App Develoment
             </p>
             <h2 className=" text-[var(--text-primary)] font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
               Flutter Application Development
@@ -48,7 +48,7 @@ const Course = () => {
             </p>
             <div className=" flex justify-start items-center gap-6 *:text-sm">
               <button className=" font-semibold text-lg backdrop-blur-md backdrop-opacity-60 bg-[var(--primary-color)] w-20 h-8 md:w-32 md:h-12  rounded-md">
-                Apply
+                Get Registered
               </button>
               <p className="text-[var(--text-tertiary)] *:text-2xl font-semibold text-white">N <span className=" line-through">290,000</span> N <span>230,000</span></p>
               <img
