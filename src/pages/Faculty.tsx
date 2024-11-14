@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 function FacultyPage() {
  
-  const loader = useLoaderData()
+  const loader = useLoaderData() as [];
 
   return (
     <div className=" min-h-screen h-full antialiased">
