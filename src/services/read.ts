@@ -11,7 +11,7 @@ export const getFaculties = async () => {
         const courses = res.courses;
        
 
-        var v = courses.map(async(c)=>{
+        const v = courses.map(async(c:any)=>{
             const coursedoc = await getDoc(c)
             return {data:coursedoc.data(), id:coursedoc.id};
         })

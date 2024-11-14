@@ -3,7 +3,7 @@ import {
   FormEvent,
   useState,
 } from "react";
-import {  updateCourse } from "../services/read";
+// import {  updateCourse } from "../services/read";
 import { useLoaderData } from "react-router-dom";
 
 function EditCourse() {
@@ -11,7 +11,7 @@ function EditCourse() {
   const [onChange, setchange] = useState("") as any;
   const [price, setprice] = useState("") as any;
   const [desc, setdesc] = useState("") as any;
-  const loader = useLoaderData();
+  const loader = useLoaderData() as [];
 
   
 
@@ -49,7 +49,7 @@ function EditCourse() {
           id=""
           className="px-4 h-14 w-full mb-8 block bg-slate-50"
         >
-          {loader.map((f: any) => {
+          {loader!.map((f: any) => {
             return (
               <option key={f.id} value={f.id}>
                 {" "}

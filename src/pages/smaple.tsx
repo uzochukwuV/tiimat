@@ -7,7 +7,7 @@ import CourseModal from "../components/course/CourseModal";
 import { data } from "../services/data";
 
 const Sample = () => {
-  const res = useLoaderData() as unknown;
+  const res = useLoaderData() as {name?:string, price?:string, description?:string};
   
   
   return (
