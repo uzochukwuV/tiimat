@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  font-family:"Comfortaa","Anta", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  
+}
+
+body {
+  --primary-color: #646cff;
+  --text-primary: #f2f2f2;
+  --text-secondary: #b2b2b2;
+  --text-tertiary: #f2f2f2;
+  --background: #101014;
+  --surface: #202028;
+  --icon : #f9f9f9;
+}
+
+body.dark {
+  --primary-color: #646cff;
+  --text-primary: #020202;
+  --text-secondary: #fff;
+  --text-tertiary: #121212;
+  --background: hsl(210, 10%, 98%);
+  --surface: #f9f9f9;
+  --icon : #202028;
+}
+
+
+* {
+  transition: all 0.1s;
+}
+
+a {
+  font-weight: 400;
+  /* color: #646cff; */
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--primary-color);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+button:hover {
+  border-color: #646cff;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.font-edu {
+  font-family: "Edu AU VIC WA NT Guides";
+}
+.checkbox + p{
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.checkbox:checked + p {
+  height: max-content;
+  display: block;
+}
+.list-topic{
+  position: relative;
+  padding-left: 24px;
+}
+
+.list-topic::after {
+  content: "~"; 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: start; 
+}
+
+@media screen and (min-width: 760px) {
+  #sample {
+    background-position: 50% 5% !important;
+    background-size: 270vw !important;
+  }
+}
+
+.btn {
+  height: 45px;
+  
+
+}
+
+.m-hero {
+  transform: translateZ(200px) translate3d(3px);
+}
+
+.container {
+  display: block;
+  padding: 24px 12px;
+  min-height: 100vh;
+  height: 100%;
+
+}
+
+
+
+
