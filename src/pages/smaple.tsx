@@ -40,8 +40,10 @@ const Sample = () => {
             {res?.data.description || ""}
             </p>
           </div>
-          <div className=" px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-[1240px]">
-          
+          <div className=" relative px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-[1240px]">
+          <div className=" h-24 backdrop-blur-sm bg-gradient-to-b from-transparent to-black/20 shadow-xl z-50 absolute bottom-0 left-0 right-0 grid place-items-center">
+                    <button className=" text-white bg-indigo-700 font-bold  rounded-xl h-14 px-8 border-0">Request Full Curriculum</button>
+                </div>
             { res.curriculum[0] !== null &&
               res.curriculum?.map((cur: {data?:any, id?:any})=> {
                 return (
@@ -57,7 +59,8 @@ const Sample = () => {
                   className=" rounded-xl h-auto w-full object-cover"
                 /> */}
               </div>
-              <div className=" px-[1em] space-y-4">
+              <div className=" relative px-[1em] space-y-4">
+                
                 <p className=" text-2xl sm:text-3xl  leading-10 text-black font-extrabold ">
                   {cur.data?.title}{" "}
                 </p>
