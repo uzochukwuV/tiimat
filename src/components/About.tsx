@@ -1,5 +1,7 @@
 
 import FacultyTwo from "../assets/landing/tiimat/multimedia.jpg"
+import Com from '../assets/landing/tiimat/com.jpg'
+import Lap from '../assets/landing/tiimat/laptopx.jpg'
 
 const About = () => {
  
@@ -9,7 +11,7 @@ const About = () => {
       <div className=" absolute  left-0 h-full w-full  opacity-5 bg ">
         {/* <img src={BG} alt="hjh" className=" h-full w-full object-cover" /> */}
       </div>
-        <div className='h-full text-white relative  flex-1 py-16  flex flex-col justify-between '>
+        <div className='h-full text-white relative  flex-1 py-16  flex flex-col justify-around '>
           <div className=" slideIn opacity-100 translate-x-0">
             <div className="*:text-start  max-w-2xl space-y-2">
               <h2 className=" text-4xl text-blue-600 md:text-5xl ">
@@ -25,8 +27,8 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className=" flex justify-end">
-            <div className="*:text-end  max-w-2xl space-y-2 me-0">
+          <div className=" flex">
+            <div className="*  max-w-2xl space-y-2 me-0">
               <h2
                 className=" text-4xl md:text-5xl "
                 
@@ -69,7 +71,7 @@ const About = () => {
                   <div className=" space-y-8 md:space-y-0 md:flex gap-6">
                   <div className=" space-y-6    rounded-xl shadow bg-white">
                     <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-t-xl" />
+                        <img src={Lap} alt="" className=" rounded-t-xl" />
                     </div>
                     <div className=" space-y-2 px-4 pb-4">
                       <h3 className=" font-medium text-xl leading-4  text-black">Management</h3>
@@ -79,7 +81,7 @@ const About = () => {
                   </div>
                   <div className=" space-y-6    rounded-xl shadow bg-white">
                     <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-t-xl" />
+                        <img src={Com} alt="" className=" rounded-t-xl" />
                     </div>
                     <div className=" space-y-2 px-4 pb-4">
                       <h3 className=" font-medium text-xl  leading-4  text-black"> Computer Technology</h3>

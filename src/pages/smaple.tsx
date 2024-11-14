@@ -37,13 +37,13 @@ const Sample = () => {
               What You Will Learn{" "}
             </p>
             <p className=" text-sm sm:text-base ">
-            {res?.description || ""}
+            {res?.data.description || ""}
             </p>
           </div>
           <div className=" px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-[1240px]">
           
             { res.curriculum[0] !== null &&
-              res.curriculum?.map((cur)=> {
+              res.curriculum?.map((cur: {data?:any, id?:any})=> {
                 return (
                   <div className=" space-y-4 mt-4">
               <div className=" relative">
@@ -59,12 +59,12 @@ const Sample = () => {
               </div>
               <div className=" px-[1em] space-y-4">
                 <p className=" text-2xl sm:text-3xl  leading-10 text-black font-extrabold ">
-                  {cur.data.title}{" "}
+                  {cur.data?.title}{" "}
                 </p>
                 
                 <div className=" space-y-2">
                 {
-                  cur.data.topics.split("@").map((topic)=> {
+                  cur.data?.topics.split("@").map((topic: string)=> {
                     return (
                       <div>
                     <div>

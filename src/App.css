@@ -42,11 +42,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 .animate-in {
-  transform: translateY(760px);
+  transform: translateY(1200px);
   animation: SlideUp 1.5s ease 10s  forwards;
 }
 .animate-in-fast {
-  transform: translateY(760px);
+  transform: translateY(1200px);
   animation: SlideUp 1s ease-out 0.3s  forwards;
 }
 

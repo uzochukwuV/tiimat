@@ -1,5 +1,5 @@
-import { ChangeEvent, FormEvent,  useEffect, useState } from "react"
-import { addCurriculum, getAllCourse } from "../services/read";
+import { ChangeEvent, FormEvent, useState } from "react"
+import { addCurriculum } from "../services/read";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -9,7 +9,7 @@ function AddCurriculum() {
     const [onChange, setchange] = useState("") as any;
     const [courseName, setCourseName] = useState("") as any;
     const [topics, setTopic] = useState("") as any;
-    const loader = useLoaderData()
+    const loader = useLoaderData() as [];
    
     
 
@@ -48,7 +48,7 @@ function AddCurriculum() {
             <label htmlFor="topics">Choose Course to add Curriculum</label>
                 <select onChange={selectChange} value={onChange} name="" id="" className=" px-4 h-14 w-full mb-8 block bg-slate-50">
                     {
-                        loader.map((f:any)=>{
+                        loader!.map((f:any)=>{
                             return (
                             <option key={f.id} value={f.id}> {f.data.name} </option>
                             )
