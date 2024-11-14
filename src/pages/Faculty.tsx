@@ -1,5 +1,5 @@
 
-import FacultyTwo from "../assets/landing/tiimat/timothy-hales-bennett-OwvRB-M3GwE-unsplash.jpg";
+import FacultyTwo from "../assets/landing/tiimat/com.jpg";
 
 
 import { Link, useLoaderData } from "react-router-dom";
