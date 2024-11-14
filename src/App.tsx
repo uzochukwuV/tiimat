@@ -34,35 +34,35 @@ const App = () => {
         {
           path: "/course/:id",
           element: <Sample />,
-          loader: async ({ request, params }) => {
-            return await getCourse(params.id);
+          loader: async ({ params }) => {
+            return await getCourse(params.id as string);
           },
         },
         {
           path: "/faculty",
           element: <FacultyPage />,
         },
-        // {
-        //   path: "/about-us",
-        //   element: <AboutPage />,
-        // },
-        // {
-        //   path: "/contact-us",
-        //   element: <ContactPage />,
-        // },
+        {
+          path: "/about-us",
+          element: <AboutPage />,
+        },
+        {
+          path: "/contact-us",
+          element: <ContactPage />,
+        },
       ],
     },
     {
       path:"admin/course/add",
       element: <AddCourse />,
-      loader: async ({ request, params }) => {
+      loader: async () => {
         return await getAllCourse();
       },
     },
     {
       path:"admin/course/edit",
       element: <EditCourse />,
-      loader: async ({ request, params }) => {
+      loader: async () => {
         return await getAllCourse();
       },
     },

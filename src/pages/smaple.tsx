@@ -7,8 +7,8 @@ import CourseModal from "../components/course/CourseModal";
 import { data } from "../services/data";
 
 const Sample = () => {
-  const res = useLoaderData()
-  console.log(res);
+  const res = useLoaderData() as unknown;
+  
   
   return (
     <>

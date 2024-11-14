@@ -1,4 +1,4 @@
-import {addDoc, arrayUnion, collection, doc, DocumentData, DocumentReference, getDoc, getDocs, QuerySnapshot, updateDoc} from "firebase/firestore";
+import {addDoc, arrayUnion, collection, doc, getDoc, getDocs, updateDoc} from "firebase/firestore";
 import {db} from "../firebase"
 
 
@@ -51,6 +51,8 @@ export const addCourse = async(document:string, value:string)=>{
     const update = await updateDoc(docref, {
         courses: arrayUnion(create)
     })
+    console.log(update);
+    
     const res = await getDoc((docref))
 
 
@@ -83,6 +85,8 @@ export const updateCourse = async(document:string, price:string, desc:string)=>{
         price: price,
         description:desc,
     });
+    console.log(update);
+    
 
     const res = await getDoc(docref)
 

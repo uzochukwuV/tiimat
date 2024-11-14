@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, FormEventHandler, useEffect, useState } from "react"
+import { ChangeEvent, FormEvent,  useEffect, useState } from "react"
 import { addCourse, getFaculties } from "../services/read";
 
 

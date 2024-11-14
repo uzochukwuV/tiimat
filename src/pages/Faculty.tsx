@@ -2,7 +2,7 @@
 import FacultyTwo from "../assets/landing/tiimat/timothy-hales-bennett-OwvRB-M3GwE-unsplash.jpg";
 import {  useEffect, useState } from "react";
 import { getFaculties } from "../services/read";
-import { DocumentData } from "firebase/firestore";
+
 import { Link } from "react-router-dom";
 
 function FacultyPage() {

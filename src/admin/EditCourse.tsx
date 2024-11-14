@@ -18,10 +18,10 @@ function EditCourse() {
   const UpdateCourse = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    updateCourse(onChange,price,desc).then((e)=>{
-      console.log();
+    // updateCourse(onChange,price,desc).then(()=>{
+    //   console.log();
       
-    })
+    // })
   };
 
   const selectChange = (e: ChangeEvent<HTMLSelectElement>) => {
