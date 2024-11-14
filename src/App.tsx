@@ -9,9 +9,10 @@ import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
 import Landing from "./pages/Landing";
-import { getAllCourse, getCourse } from "./services/read";
+import { getAllCourse, getCourse, getFaculties } from "./services/read";
 import EditCourse from "./admin/EditCourse";
 import AddCourse from "./admin/AddCourse";
+import AddCurriculum from "./admin/AddCurriculum";
 
 function Home() {
   return (
@@ -41,6 +42,9 @@ const App = () => {
         {
           path: "/faculty",
           element: <FacultyPage />,
+          loader: async () => {
+            return await getFaculties();
+          },
         },
         {
           path: "/about-us",
@@ -62,6 +66,13 @@ const App = () => {
     {
       path:"admin/course/edit",
       element: <EditCourse />,
+      loader: async () => {
+        return await getAllCourse();
+      },
+    },
+    {
+      path:"admin/course/edit/curriculum",
+      element: <AddCurriculum />,
       loader: async () => {
         return await getAllCourse();
       },

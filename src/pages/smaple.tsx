@@ -1,15 +1,13 @@
 
 
-
-// import Icon2 from "../assets/icons/icon-2.png";
 import { useLoaderData } from "react-router-dom";
 import CourseModal from "../components/course/CourseModal";
-import { data } from "../services/data";
 
 const Sample = () => {
-  const res = useLoaderData() as {name?:string, price?:string, description?:string};
+  const res = useLoaderData() as {data?:any, curriculum?:any, id?:string};
+  console.log(res.data.name);
   
-  
+  // return ""
   return (
     <>
       <section>
@@ -20,9 +18,9 @@ const Sample = () => {
           <div className=" relative bg-black h-72 border-b-2 border-['dotted'] ">
               <div className=" p-6 flex flex-col justify-center h-full">
                 <p className=" text-[#eee] font-bold">Course</p>
-                  <h1 className=" text-white text-3xl font-bold ">{res?.name} Programme Info</h1>
+                  <h1 className=" text-white text-3xl font-bold ">{res?.data?.name} Programme Info</h1>
                   <div className=" absolute bottom-6 left-6">
-                    <p className=" text-white font-bold text-xl font-['Anta']"><span className="line-through">N</span> {res?.price || ""}</p>
+                    <p className=" text-white font-bold text-xl font-['Anta']"><span className="line-through">N</span> {res?.data.price || "no price set"}</p>
                   </div>
               </div>
           </div>
@@ -35,17 +33,17 @@ const Sample = () => {
         <div className=" flex flex-col gap-6 mt-4 md:py-12">
           <div className=" *:text-center px-6 flex justify-end max-w-xl mx-auto  items-center text-center flex-col gap-2">
             
-            <p className=" text-2xl sm:text-3xl   leading-10 text-white font-extrabold ">
+            <p className=" text-2xl sm:text-3xl   leading-10 text-black font-extrabold ">
               What You Will Learn{" "}
             </p>
-            <p className=" text-sm sm:text-base text-[var(--text-tertiary)]">
+            <p className=" text-sm sm:text-base ">
             {res?.description || ""}
             </p>
           </div>
           <div className=" px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-[1240px]">
           
-            {
-              data.curriculum.map((week)=> {
+            { res.curriculum[0] !== null &&
+              res.curriculum?.map((cur)=> {
                 return (
                   <div className=" space-y-4 mt-4">
               <div className=" relative">
@@ -61,12 +59,12 @@ const Sample = () => {
               </div>
               <div className=" px-[1em] space-y-4">
                 <p className=" text-2xl sm:text-3xl  leading-10 text-black font-extrabold ">
-                  {week.name}{" "}
+                  {cur.data.title}{" "}
                 </p>
                 
                 <div className=" space-y-2">
                 {
-                  week.topics.map((topic)=> {
+                  cur.data.topics.split("@").map((topic)=> {
                     return (
                       <div>
                     <div>

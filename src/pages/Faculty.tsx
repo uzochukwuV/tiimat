@@ -1,36 +1,13 @@
 
 import FacultyTwo from "../assets/landing/tiimat/timothy-hales-bennett-OwvRB-M3GwE-unsplash.jpg";
-import {  useEffect, useState } from "react";
-import { getFaculties } from "../services/read";
 
-import { Link } from "react-router-dom";
+
+import { Link, useLoaderData } from "react-router-dom";
 
 function FacultyPage() {
-  const [facultyData, setFaculty] = useState([]);
+ 
+  const loader = useLoaderData()
 
-  const fetchFaculty = async ()=>{
-    const data = await getFaculties();
-    return data
-    
-  }
-  
-
-  
-  // const addCourseToFaculty = async ()=>{
-  //   const data = await addCourse("iprne4Rk3ra2HLRgChBN", "UI/UX");
-  //   console.log(data);
-    
-  // }
-  useEffect(()=>{
-
-     fetchFaculty().then((data: any)=>{
-      
-    
-    
-      setFaculty(data as any);
-  })
-    
-  }, [])
   return (
     <div className=" min-h-screen h-full antialiased">
       <div className="relative clear-start h-[80vh] faculty-bg bg-cover bg-top bg-blend-screen bg-no-repeat">
@@ -58,7 +35,7 @@ function FacultyPage() {
         </h1>
 
         <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {facultyData!.map((program: any , index: any) => {
+          {loader!.map((program: any , index: any) => {
             return (
               <div
                 key={`faculty-${index}`}
