@@ -1,6 +1,31 @@
+import { useState } from "react"
+import { sendMessage } from "../../services/read";
 
 
 function LandingModal() {
+    const [formState, setFormState] = useState({}) as any;
+    const [ishidden, sethidden] = useState(false)
+
+    const submitForm = (e)=> {
+        console.log(formState);
+        sendMessage("Connect", formState.name, formState.email, formState.phone)
+            .then((e)=>{
+                alert("message sent")
+                sethidden(true)
+            })
+    }
+
+    const onChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+        e.preventDefault()
+
+        setFormState((prev:any)=> {
+            return {...prev,  [e.target.name]: e.target.value}
+    })
+    }
+
+    if(ishidden) {
+        return ""
+    };
    
     return (<>
     <input type="checkbox" className=" hidden" id="modal" />
@@ -20,18 +45,18 @@ function LandingModal() {
                     <div className=" space-y-3">
                         <div>
                             <label htmlFor="name">Your Full Name</label>
-                            <input type="text"  id="name" placeholder="John Doe" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input onChange={onChange} value={formState.name || ""} type="text" name="name"  id="name" placeholder="John Doe" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Your Email</label>
-                            <input type="email"  id="name" placeholder="Johndoe@gmail.com" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input onChange={onChange} value={formState.email || ""} type="email"  id="email" name="email" placeholder="Johndoe@gmail.com" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Phone Number</label>
-                            <input type="text"  id="name" placeholder="+234 XXXXXXXXX" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input onChange={onChange} value={formState.phone || ""} type="text"  id="phone" name="phone" placeholder="+234 XXXXXXXXX" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <button className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
+                            <button onClick={submitForm} className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
                         </div>
                     </div>
                 </div>

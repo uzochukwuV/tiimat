@@ -1,6 +1,27 @@
+import { useState } from "react";
+import { sendMessage } from "../services/read";
 
 
 export const Footer = () => {
+  const [formState, setFormState] = useState({}) as any;
+    
+
+    const submitForm = (e)=> {
+        console.log(formState);
+        sendMessage("Subscription", "", formState.email)
+            .then((e)=>{
+                alert("message sent")
+                sethidden(true)
+            })
+    }
+
+    const onChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+      e.preventDefault()
+
+      setFormState((prev:any)=> {
+          return {...prev,  [e.target.name]: e.target.value}
+  })
+  }
   return (
    <footer className=" relative px-4">
 
@@ -8,8 +29,8 @@ export const Footer = () => {
             <div className=" space-y-2 mb-12">
               <p className=" text-sm">Email would be enough though</p>
                <div className=" flex gap-2 focus-within:border rounded-xl bg-[var(--background)]">
-               <input type="text" placeholder="Your Email" className=" px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]" />
-               <button className=" bg-black hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center" >Send <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#fff" width="20" height="20" viewBox="0 0 48 48">
+               <input value={formState.email || ""} onChange={onChange} type="text" name="email" placeholder="Your Email" className=" px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]" />
+               <button onClick={submitForm} className=" bg-black hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center" >Send <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#fff" width="20" height="20" viewBox="0 0 48 48">
 <path d="M 5.4453125 4.0019531 A 1.50015 1.50015 0 0 0 4.109375 6.0644531 L 11.380859 24 L 4.109375 41.935547 A 1.50015 1.50015 0 0 0 6.1699219 43.841797 L 43.169922 25.341797 A 1.50015 1.50015 0 0 0 43.169922 22.658203 L 6.1699219 4.1582031 A 1.50015 1.50015 0 0 0 5.4453125 4.0019531 z M 8.3828125 8.6191406 L 39.146484 24 L 8.3828125 39.380859 L 14.011719 25.5 L 27.5 25.5 A 1.50015 1.50015 0 1 0 27.5 22.5 L 14.011719 22.5 L 8.3828125 8.6191406 z"></path>
 </svg></span></button>
                {/* <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/filled-sent.png" alt="filled-sent"/> */}

@@ -114,3 +114,34 @@ export const addCurriculum = async (
 
   return res.data();
 };
+
+
+export const sendMessage = async (
+
+    title: string,
+    name?: string,
+    email?:string,
+    phone?:string,
+    location?:string,
+    info?:string
+  ) => {
+    
+  
+    const createMessage = await addDoc(collection(db, "Message"), {
+      title: title,
+      name: name || "",
+      email: email || "",
+      phone: phone || "",
+      location: location || "",
+      info: info || "",
+    });
+    console.log(createMessage);
+    
+    const docref = collection(db, "Message");
+  
+    const res = await getDocs(docref);
+    console.log(res.docs);
+    
+    return res.docs;
+  };
+  
