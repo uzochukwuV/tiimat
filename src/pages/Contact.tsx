@@ -1,5 +1,27 @@
+import { useState } from "react";
+import { sendMessage } from "../services/read";
 
 const ContactPage = () => {
+    const [formState, setFormState] = useState({}) as any;
+    
+
+    const submitForm = (e)=> {
+        console.log(formState);
+        sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
+            .then((e)=>{
+                alert("message sent")
+                
+            })
+    }
+
+    const onChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+        e.preventDefault()
+
+        setFormState((prev:any)=> {
+            return {...prev,  [e.target.name]: e.target.value}
+    })
+    }
+
   return (
     <div className=" h-screen">
       <div className="h-full  ">
@@ -16,26 +38,26 @@ const ContactPage = () => {
                     <div className=" space-y-3">
                         <div>
                             <label htmlFor="name">Your Full Name</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input type="text" name="name" onChange={onChange} value={formState.name || ''}  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Your Email</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input type="email" name="email" onChange={onChange} value={formState.email || ''}   id="email" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Your Phone Number</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input type="text" name="phone" onChange={onChange} value={formState.phone || ''}   id="phone" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Course of Interest</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input type="text" name="info" onChange={onChange} value={formState.info || ''}   id="info" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
                             <label htmlFor="name">Your Location</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input type="text" name="location" onChange={onChange} value={formState.location || ''}   id="location" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <button className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
+                            <button onClick={submitForm} className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
                         </div>
                     </div>
                 </div>

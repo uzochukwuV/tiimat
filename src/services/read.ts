@@ -11,8 +11,12 @@ import { db } from "../firebase";
 
 export const getFaculties = async () => {
   const data = await getDocs(collection(db, "Faculty"));
+  console.log(data);
+  
   const edata = data.docs.map(async (d) => {
     const res = d.data();
+    console.log(res);
+    
     const courses = res.courses;
 
     const v = courses.map(async (c: any) => {
@@ -27,7 +31,7 @@ export const getFaculties = async () => {
     return result;
   });
   const alldata = await Promise.all(edata);
-  console.log(alldata);
+  
 
   return alldata;
 };
