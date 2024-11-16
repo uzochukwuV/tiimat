@@ -1,7 +1,32 @@
+import { useState } from "react";
+import { sendMessage } from "../../services/read";
 
 
 function CourseModal() {
-   
+    const [formState, setFormState] = useState({}) as any;
+    const [ishidden, sethidden] = useState(false)
+
+    const submitForm = ()=> {
+        
+        console.log(formState);
+        sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
+            .then(()=>{
+                alert("message sent")
+                sethidden(true)
+            })
+    }
+
+    const onChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+        e.preventDefault()
+
+        setFormState((prev:any)=> {
+            return {...prev,  [e.target.name]: e.target.value}
+    })
+    }
+
+    if(ishidden) {
+        return ""
+    };
     return (<>
     <input type="checkbox" className=" hidden" id="cmodal" />
     <section id="lmodal" className="animate-in-fast z-50 fixed top-0 left-0 right-0 bottom-0 bg-black/20 ">
@@ -22,22 +47,26 @@ function CourseModal() {
                     <div className=" space-y-3">
                         <div>
                             <label htmlFor="name">Your Full Name</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <input value={formState.name || ""} onChange={onChange} type="text" name="name"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <label htmlFor="name">Your Email</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <label htmlFor="email">Your Email</label>
+                            <input value={formState.email || ""} onChange={onChange} type="email"  name="email"  id="email" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <label htmlFor="name">Course of Interest</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <label htmlFor="phone">Your phone</label>
+                            <input value={formState.phone || ""} onChange={onChange} type="text"  name="phone" id="phone" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <label htmlFor="name">Your Location</label>
-                            <input type="text"  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                            <label htmlFor="info">Course of Interest</label>
+                            <input value={formState.info || ""} onChange={onChange} type="text" name="phone"  id="info" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <button className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
+                            <label htmlFor="location">Your Location</label>
+                            <input value={formState.location || ""} onChange={onChange} type="text" name="location"  id="location" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
+                        </div>
+                        <div>
+                            <button onClick={submitForm} className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
                         </div>
                     </div>
                 </div>

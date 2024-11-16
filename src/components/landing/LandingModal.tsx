@@ -6,10 +6,10 @@ function LandingModal() {
     const [formState, setFormState] = useState({}) as any;
     const [ishidden, sethidden] = useState(false)
 
-    const submitForm = (e)=> {
+    const submitForm = ()=> {
         console.log(formState);
         sendMessage("Connect", formState.name, formState.email, formState.phone)
-            .then((e)=>{
+            .then(()=>{
                 alert("message sent")
                 sethidden(true)
             })
