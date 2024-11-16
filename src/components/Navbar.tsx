@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
 import { useEffect, useState } from "react";
-import Banner from "./Banner";
+// import Banner from "./Banner";
 import { getFaculties } from "../services/read";
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
             : "bg-[var(--background)] shadow-sm"
         } `}
       >
-        <Banner />
+        {/* <Banner /> */}
         <div className=" w-full h-auto flex justify-between items-center text-[var(--text-primary)] pt-4 pb-2 px-6 sm:px-10 md:px-16 xl:px-24">
           <div className="logo flex gap-1">
             <Link to={"/"}>

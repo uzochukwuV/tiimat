@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { sendMessage } from "../services/read";
+import { Link } from "react-router-dom";
 
 
 export const Footer = () => {
@@ -64,13 +65,13 @@ export const Footer = () => {
 </svg>
             </div>
           </div>
-          <div className="  bg-[var(--background)] rounded-xl font-medium">
+          <div className=" footer-link  bg-[var(--background)] rounded-xl font-medium">
               <div className="grid gap-4 p-8 row-gap-6 col-gap-8  grid-cols-2">
                 <div>
                   <span className=" text-black font-medium text-xl mb-4 block">Solutions</span>
-                  <ul className=" text-sm space-y-1 text-[#999]">
+                  <ul className="  text-sm space-y-1 text-[#999]">
                     <li className=" hover:underline underline-offset-2">Programs</li>
-                    <li>Faculties</li>
+                    <li><Link to={"/faculty"}>Faculties</Link></li>
                     <li>Courses</li>
                     <li>Programs</li>
                   </ul>
@@ -78,9 +79,9 @@ export const Footer = () => {
                 <div>
                 <span className=" text-black font-medium text-xl mb-4 block">Company</span>
                   <ul className=" text-sm space-y-1 text-[#999]">
-                    <li>Home</li>
-                    <li>Contact Us</li>
-                    <li>About Us</li>
+                    <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/contact-us"}>Conatct Us</Link></li>
+                    <li><Link to={"/about-us"}>About Us</Link></li>
                     <li>Privacy Policy</li>
                   </ul>
                 </div>
