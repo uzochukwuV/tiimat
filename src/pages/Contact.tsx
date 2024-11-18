@@ -5,10 +5,10 @@ const ContactPage = () => {
     const [formState, setFormState] = useState({}) as any;
     
 
-    const submitForm = (e)=> {
+    const submitForm = ()=> {
         console.log(formState);
         sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
-            .then((e)=>{
+            .then(()=>{
                 alert("message sent")
                 
             })

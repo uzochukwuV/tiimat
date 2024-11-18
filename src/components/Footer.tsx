@@ -7,12 +7,12 @@ export const Footer = () => {
   const [formState, setFormState] = useState({}) as any;
     
 
-    const submitForm = (e)=> {
+    const submitForm = ()=> {
         console.log(formState);
         sendMessage("Subscription", "", formState.email)
-            .then((e)=>{
+            .then(()=>{
                 alert("message sent")
-                sethidden(true)
+                
             })
     }
 
