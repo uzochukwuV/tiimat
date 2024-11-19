@@ -23,19 +23,19 @@ const ContactPage = () => {
     }
 
   return (
-    <div className=" h-screen">
-      <div className="h-full  ">
+    <div className=" min-h-screen py-8">
+      <div className="h-full  max-w-3xl mx-auto border rounded-xl ">
       <div className=" h-full pt-12">
             <div autoFocus className=" relative mx-2  flex-1 bg-white rounded-t-xl shadow">
                 
                 
                 </div>
-                <div className="h-full p-6 space-y-4">
+                <div className="h-full px-6 space-y-4">
                     <div>
-                    <h3 className="text-black font-bold text-3xl font-['Anta'] pb-1">TIIMAT SOLUTIONS</h3>
+                    <h3 className="text-black font-bold text-3xl pb-1">TIIMAT SOLUTIONS</h3>
                     <p className="text-[#333] font-semibold">Connect with us</p>
                     </div>
-                    <div className=" space-y-3">
+                    <div className=" space-y-3 pb-6">
                         <div>
                             <label htmlFor="name">Your Full Name</label>
                             <input type="text" name="name" onChange={onChange} value={formState.name || ''}  id="name" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />

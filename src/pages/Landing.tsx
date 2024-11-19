@@ -33,20 +33,20 @@ export default function Landing() {
                             className=" block top-0 bottom-0 left-0 right-0 h-full w-full object-cover absolute"
                         /> 
                         <div className=" z-10 min-h-[250px]  text-pretty p-4 flex flex-col max-w-2xl text-white md:min-h-[400px] translate-y-10 md:justify-start md:items-start md:gap-4 md:ps-12">
-                            <h2 className=" fromBottom text-zinc-100 font-semibold md:text-5xl text-3xl tracking-tight leading-snug ">
+                            <h2 className=" fromBottom text-zinc-100 font-medium md:text-5xl text-3xl tracking-tight leading-snug ">
                                 Kickstart Your <br /> Career Journey With <br />{" "}
-                                <span className=" font-['Anta'] leading-snug tracking-2 block text-extrabold text-indigo-800 text-4xl uppercase md:text-6xl">
+                                <span className="py-1 leading-snug tracking-2 block font-extrabold text-indigo-800 text-4xl uppercase md:text-6xl">
                                     Tiimat Solutions
                                 </span>
                             </h2>
-                            <p className=" fromBottom block mb-4 text-sm text-zinc-300">
+                            <p className=" fromBottom block mb-4 text-xs md:text-sm text-zinc-300">
                                 Delivering high-quality, innovative educational programs that
                                 empower individuals with the skills and knowledge to drive
                                 meaningful change and impact in a globally connected world.
                             </p>
-                            <Link to={"/faculty"} className="fromBottom group hover:translate-y-2 transition duration-500 hover:text-white px-12 bg-gradient-to-l from-black to-indigo-900 hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center">
+                            <Link to={"/faculty"} className="fromBottom text-xs md:text-sm group hover:translate-y-2 transition duration-500 hover:text-white px-12 bg-indigo-700 hover:bg-gradient-to-l from-black to-indigo-900 hover:opacity-70 px-4 h-10 md:h-14 rounded-xl text-white flex gap-1 justify-center items-center">
                                 Explore our Programmes{" "}
-                                <span className="group-hover:translate-x-4 transition duration-500 delay-200">
+                                <span className="group-hover:translate-x-2 transition duration-500 delay-200">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         x="0px"
