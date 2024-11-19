@@ -22,9 +22,9 @@ export default function Landing() {
     },[])
     return (
         <>
-            <section id="hero" className=" ">
+            <section id="hero" className="  ">
                 <div className="relative  h-full">
-                    <div className="relative h-[760px] md:h-screen flex pb-12  gap-6 flex-col justify-end  items-start md:justify-center md:items-start">
+                    <div className="relative flex pb-12  gap-6 flex-col justify-end  items-start md:justify-center md:items-start">
                         <img
                             src={"https://cdn.pixabay.com/photo/2020/06/04/11/10/bulb-5258341_1280.jpg"}
                             alt=""
@@ -84,6 +84,7 @@ export default function Landing() {
                         <About />
                         <ViewPrograms />
                     </div>
+                    
                 </div>
                 <LandingModal />
             </section>

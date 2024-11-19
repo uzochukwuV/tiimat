@@ -67,7 +67,7 @@ const About = () => {
           <div className="h-full ">
                 {/* <h2 className=" bg-red-300 font-semibold text-center text-3xl font-edu">Business, Tech and Multimedia <br></br> Solutions</h2> */}
                 <div className="w-full s">
-                  <h3 className=" font-medium text-3xl text-center pb-6">Faculties</h3>
+                  {/* <h3 className=" font-medium text-3xl text-center pb-6">Faculties</h3> */}
                   <div className=" space-y-8 md:space-y-0 gap-6 pace-y-8 md:grid md:grid-cols-3">
                   <div className=" space-y-6 fromRight    rounded-xl shadow bg-white">
                     <div>

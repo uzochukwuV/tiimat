@@ -10,7 +10,7 @@ export const Layout = () => {
   return (
     <>
     
-     <section id="app" className=' absolute top-0 left-0 right-0 bg-[var(--background)] min-h-screen'>
+     <section id="app" className=' overflow-hidden absolute top-0 left-0 right-0 bg-[var(--background)] min-h-screen'>
     <Navbar />
      <Outlet />
      {
