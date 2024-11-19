@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default function ViewPrograms() {
     return (
         <>
-        <div className="relative md:mx-16  rounded-3xl h-[400px] mb-8 ">
+        <div className="relative mx-4 md:mx-16  rounded-3xl h-[400px] mb-8 ">
                         
                         <img src={"https://cdn.pixabay.com/photo/2022/01/25/12/16/laptop-6966045_1280.jpg"} alt="" width={500} height={200} className=" block  h-[400px] object-cover  w-full absolute rounded-3xl" />
                         

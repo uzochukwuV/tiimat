@@ -24,7 +24,7 @@ export default function Landing() {
         <>
             <section id="hero" className="  ">
                 <div className="relative  h-full">
-                    <div className="relative flex pb-12  gap-6 flex-col justify-end  items-start md:justify-center md:items-start">
+                    <div className="relative h-screen md:h-[540px] flex pb-12  gap-6 flex-col justify-end  items-start md:justify-center md:items-start">
                         <img
                             src={"https://cdn.pixabay.com/photo/2020/06/04/11/10/bulb-5258341_1280.jpg"}
                             alt=""

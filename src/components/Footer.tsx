@@ -26,7 +26,7 @@ export const Footer = () => {
   return (
    <footer className=" relative px-4 border-t shadow">
 
-      <div className="  space-y-4 px-4 md:grid md:grid-cols-2 gap-12 rounded-2xl h-full">
+      <div className="  space-y-4 md:px-12 md:grid md:grid-cols-2 gap-12 rounded-2xl h-full">
             <div className="space-y-4 flex-1 pt-12  md:px-6 max-w-[500px] ">
             <div className=" space-y-2 mb-12">
               <p className=" text-sm">Email would be enough though</p>
