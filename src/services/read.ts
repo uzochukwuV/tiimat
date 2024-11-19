@@ -44,6 +44,7 @@ export const addCourse = async (document: string, value: string) => {
   const update = await updateDoc(docref, {
     courses: arrayUnion(create),
   });
+ console.log(update);
  
 
   const res = await getDoc(docref);
@@ -88,6 +89,8 @@ export const updateCourse = async (
     price: price,
     description: desc,
   });
+  console.log(update);
+  
 
 
   const res = await getDoc(docref);
@@ -112,6 +115,8 @@ export const addCurriculum = async (
   const update = await updateDoc(docref, {
     curriculum: arrayUnion(create),
   });
+  console.log(update);
+  
 
 
   const res = await getDoc(docref);
@@ -139,6 +144,9 @@ export const sendMessage = async (
       location: location || "",
       info: info || "",
     });
+
+    console.log(createMessage);
+    
     
     
     const docref = collection(db, "Message");

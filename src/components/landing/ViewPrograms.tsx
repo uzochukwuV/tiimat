@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import darkwave from  "../../assets/landing/tiimat/wave-dark.jpg"
+// import darkwave from  "../../assets/landing/tiimat/wave-dark.jpg"
 
 export default function ViewPrograms() {
     return (

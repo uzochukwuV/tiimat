@@ -1,5 +1,5 @@
 import ViewPrograms from "../components/landing/ViewPrograms";
-import t from "../assets/landing/tiimat/iphonex.jpg";
+// import t from "../assets/landing/tiimat/iphonex.jpg";
 import IconCard from "../components/landing/IconCard";
 
 import About from "../components/About";
