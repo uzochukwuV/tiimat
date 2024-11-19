@@ -23,23 +23,23 @@
   
 }
 
-body {
+body.dark {
   --primary-color: #646cff;
-  --text-primary: #f2f2f2;
-  --text-secondary: #b2b2b2;
-  --text-tertiary: #f2f2f2;
-  --background: #101014;
-  --surface: #202028;
+  --text-primary: #222222;
+  --text-secondary: #efecec;
+  --text-tertiary: #b4b2b2;
+  --background: #fff;
+  --surface: #f4edff;
   --icon : #f9f9f9;
 }
 
-body.dark {
+body {
   --primary-color: #646cff;
   --text-primary: #020202;
   --text-secondary: #fff;
   --text-tertiary: #121212;
   --background: #ffffff;
-  --surface: #f9f9f9;
+  --surface: #f4edff;
   --icon : #202028;
 }
 
@@ -179,3 +179,6 @@ button:hover {
 
 
 
+html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
+  visibility: hidden;
+}
