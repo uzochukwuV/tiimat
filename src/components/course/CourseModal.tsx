@@ -1,17 +1,27 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { sendMessage } from "../../services/read";
+
 
 
 function CourseModal() {
     const [formState, setFormState] = useState({}) as any;
     const [ishidden, sethidden] = useState(false)
-
+    
+    useEffect(()=>{
+        const sessionStorage = window.sessionStorage.getItem("modalM");
+        if(sessionStorage === "true"){
+            sethidden(true)
+        }
+    
+    }, [])
     const submitForm = ()=> {
         
         console.log(formState);
         sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
             .then(()=>{
                 alert("message sent")
+                window.sessionStorage.setItem("modalM", "true")
                 sethidden(true)
             })
     }
@@ -23,14 +33,25 @@ function CourseModal() {
             return {...prev,  [e.target.name]: e.target.value}
     })
     }
+    const changeLocalstorage =(e:React.ChangeEvent<HTMLInputElement>)=>{
+        window.sessionStorage.setItem("modalM", `${e.target!.checked || "true"}`)
+        sethidden(true)
+    }
+    const changeLocalstoragediv =()=>{
+        window.sessionStorage.setItem("modalM", `${"true"}`)
+        sethidden(true)
+    }
 
     if(ishidden) {
         return ""
     };
     return (<>
-    <input type="checkbox" className=" hidden" id="cmodal" />
-    <section id="lmodal" className="animate-in-fast z-50 fixed top-0 left-0 right-0 bottom-0 bg-black/20 ">
-        <div className=" h-full flex items-end">
+    <input type="checkbox" onChange={changeLocalstorage} checked={ishidden} className=" hidden" id="cmodal" />
+    <section id="lmodal" className="animate-in-fast z-50 fixed top-0 left-0 right-0 bottom-0 md:bottom-10 md:left-1/2 bg-black/20 ">
+        <div className=" h-full flex flex-col  justify-end">
+            <div onClick={changeLocalstoragediv} className="flex-1">
+
+            </div>
             <div autoFocus className=" relative h-[75vh] flex-1 bg-white rounded-t-xl shadow">
                 <div><div className=" w-[20%] bg-indigo-800 h-2 mx-auto mt-1 mb-4 rounded-full"></div>
                 <label htmlFor="cmodal" className=" absolute block right-2 -translate-y-2 top-0">

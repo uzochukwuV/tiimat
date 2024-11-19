@@ -18,7 +18,7 @@ const Navbar = () => {
 
     getFaculties()
       .then((data)=>{
-        console.log(data);
+
         
         setFaculty(data)
       })
@@ -74,7 +74,8 @@ const Navbar = () => {
             <div className="h-full flex items-start px-6 gap-2 flex-col pt-12 *:text-lg *:font-medium  ">
               <Link
                 to={"/"}
-                className="link w-full border-b py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group flex justify-between items-center"
+                
+                className={"link w-full border-b py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group flex justify-between items-center "+ location.pathname === "/"? " rounded-md backdrop-blur-md ":"" }
               >
                 <div className=" text-black group-hover:text-[var(--text-primary)]">
                   Home
@@ -94,7 +95,7 @@ const Navbar = () => {
                 </div>
                   {
                     faculty?.map((data:any)=>{
-                      return <div className=" flex justify-between items-center px-6 border-t h-14">
+                      return <div key={data.name} className=" flex justify-between items-center px-6 border-t h-14">
                       {data?.name}
                   </div>
                     })
@@ -121,19 +122,19 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex gap-6 md:gap-8 lg:gap-12 text-sm items-center">
-            <div className=" bg-transparent hover:outline-0 focus:autline-0 rounded-md hover:bg-blue-50/35 hover:backdrop-blur-md h-8 grid  w-24">
-              <Link to={"/"} className=" hover:text-white h-full w-full grid place-content-center">Home</Link>
+          <div className="hidden md:flex gap-6 md:gap-8 lg:gap-12 *:text-sm *:md:text-base *:font-bold items-center">
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/"? " font-bold bg-gray-100":""}`}>
+              <Link to={"/"} className=" h-full w-full grid place-content-center">Home</Link>
             </div>
-            <div className=" bg-transparent hover:outline-0 focus:autline-0 rounded-md hover:bg-blue-50/35 hover:backdrop-blur-md h-8 grid  w-24">
-              <Link to={"/faculty#"} className=" hover:text-white h-full w-full grid place-content-center">Faculty</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/faculty"? " font-bold bg-gray-100":""}`}>
+              <Link to={"/faculty#"} className=" h-full w-full grid place-content-center">Faculty</Link>
             </div>
 
-            <div className=" bg-transparent hover:outline-0 focus:autline-0 rounded-md hover:bg-blue-50/35 hover:backdrop-blur-md h-8 grid  w-24">
-              <Link to={"/about-us#"} className=" hover:text-white h-full w-full grid place-content-center">About Us</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/about-us"? " font-bold bg-gray-100":""}`}>
+              <Link to={"/about-us#"} className=" h-full w-full grid place-content-center">About Us</Link>
             </div>
-            <div className=" bg-transparent hover:outline-0 focus:autline-0 rounded-md hover:bg-blue-50/35 hover:backdrop-blur-md h-8 grid  w-24">
-              <Link to={"/contact-us#"} className=" hover:text-white h-full w-full grid place-content-center">Contact Us</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/contact-us"? " font-bold bg-gray-100":""}`}>
+              <Link to={"/contact-us#"} className=" h-full w-full grid place-content-center">Contact Us</Link>
             </div>
 
             <div className=" space-x-4 flex items-center">

@@ -5,13 +5,21 @@ import IconCard from "../components/landing/IconCard";
 import About from "../components/About";
 import { Link } from "react-router-dom";
 import LandingModal from "../components/landing/LandingModal";
+import sc from "scrollreveal";
+import { useEffect } from "react";
 
 
 export default function Landing() {
+    useEffect(()=>{
+        sc().reveal(".reveal-0",  {duration:1000, delay: 200 })
+        sc().reveal(".reveal-1",  {duration:1000, delay: 400,easing: 'cubic-bezier(0.5, 0, 0, 1)' })
+        sc().reveal(".reveal-2",  {duration:1000, delay: 600, scale:1 })
+        sc().reveal(".reveal-3",  {duration:1000, delay: 800 })
+        sc().reveal(".reveal-4",  {duration:1000, delay: 1000 })
+    },[])
     return (
         <>
-       
-            <section id="hero">
+            <section id="hero" className=" ">
                 <div className="relative  h-full">
                     <div className="relative h-[760px] md:h-screen flex pb-12  gap-6 flex-col justify-end  items-start md:justify-center md:items-center">
                         <img
@@ -22,18 +30,18 @@ export default function Landing() {
                             className=" block top-0 bottom-0 left-0 right-0 h-full w-full object-cover absolute"
                         /> 
                         <div className=" z-10 min-h-[250px]  text-pretty p-4 flex flex-col max-w-2xl text-white md:min-h-[400px] md:items-center md:justify-center md:text-center md:gap-4">
-                            <h2 className=" text-zinc-100 font-semibold md:text-5xl text-3xl tracking-tight leading-snug ">
+                            <h2 className=" reveal-1 text-zinc-100 font-semibold md:text-5xl text-3xl tracking-tight leading-snug ">
                                 Kickstart Your <br /> Career Journey With <br />{" "}
                                 <span className=" font-['Anta'] leading-snug tracking-2 block text-extrabold text-indigo-800 text-4xl uppercase md:text-6xl">
                                     Tiimat Solutions
                                 </span>
                             </h2>
-                            <p className=" block mb-4 text-sm text-zinc-300">
+                            <p className=" reveal-2 block mb-4 text-sm text-zinc-300">
                                 Delivering high-quality, innovative educational programs that
                                 empower individuals with the skills and knowledge to drive
                                 meaningful change and impact in a globally connected world.
                             </p>
-                            <Link to={"/faculty"} className=" bg-gradient-to-l from-black to-indigo-900 hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center">
+                            <Link to={"/faculty"} className=" reveal-3 bg-gradient-to-l from-black to-indigo-900 hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center">
                                 Explore our Programmes{" "}
                                 <span>
                                     <svg
@@ -53,12 +61,14 @@ export default function Landing() {
                     </div>
                     <div className=" p-4">
                         <div className=" md:grid md:grid-cols-2">
-                            <IconCard name="Experienced Faculty" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgUlEQVR4nN2VPUsDQRCG38JPiLndjVYKKv4AK0P+gYWFYmunnRDEQkQUZhYTW8WQIppaExu/NcH432TNnlkuueTuMIUuDBw3e+9z8+4wC/z7pUA5Ba4r6JoCZYcA0DUJ/jShQLUhAOjOBwjw7TAAOQm+txVsJray3wYF2m4DeCexleEbaESA845NrxJcyoA2TM7sSON0SYI/IgNsHHigBQWuBN7/hMkJ8JYCNaxww4hnoFd6WZQ1EAG6UeD3bkEqTOEskwJNS3AxkG8p8B6QHw+zMAArzCrQlStihP18Ckczbk6AdhF3GZ+jAiToMgngOWBD0UCseMAieooNEKC3sMPtES9JKig7AucCJ8vzoIk57E+aZwm6cPKlBAC96vR1ujt/6HUOWa/HBpiWlODmIHsU+BqojMYS90BCQletyCDIo4fjxUjC/jzqiOpqu5Jvu8r24B9MW0roNQUm20WtSPdFYFw0TSX9f4nG3G4beF8kuVxUnG/8eRQ6sPA73/yt9QWIWfgNn95TxgAAAABJRU5ErkJggg==" alt="customer-insight" /> </IconCard>
-                            <IconCard name="industrial partnership" ><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
-                                <g fill-opacity="0.74118" fill="#120080" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style={{ mixBlendMode: 'normal' }}><g transform="scale(8,8)"><path d="M16,3c-6.143,0 -11.28867,4.28839 -12.63867,10.02539l0.01563,-0.00586l11.55859,-3.33008c1.809,-0.527 2.82081,-0.60478 4.13281,-0.42578c1.888,0.318 2.74441,1.30086 3.19141,2.88086l0.56445,1.96875c0.427,1.461 0.05153,2.63294 -1.23047,3.83594c-1.004,0.904 -1.62117,1.27152 -3.20117,1.72852l-4.82031,1.38086l11.47852,1.41211l0.50586,1.77734l-2.50391,0.69727l-14.93555,-1.93945l1.16992,4.10547c1.962,1.191 4.25489,1.88867 6.71289,1.88867c7.168,0 13,-5.832 13,-13c0,-7.168 -5.832,-13 -13,-13zM18.03906,11.73047c-0.53543,-0.00586 -1.27359,0.12969 -2.30859,0.42969l-9.86133,2.83008l1.5,5.16992l10.37109,-3c2.41,-0.69 2.60055,-1.22953 2.31055,-2.26953l-0.58984,-2.06055c-0.2,-0.6875 -0.52949,-1.08984 -1.42188,-1.09961zM3.00781,16.13281c0.025,2.448 0.73445,4.72973 1.93945,6.67773z"></path></g></g>
-                            </svg></IconCard>
-                            <IconCard name="Modern Facility"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+UlEQVR4nO1W30tUQRg9lWI/bPfO7KpJkgRSUYIPFRH9CT1ED0EPBYIaSRj5kpTamWuakEVtRrEUPURUmKYRVpb9b/HtnWFvu3Pv7paCD34wsHvv9+N853wzc4Ft26rWCuY12K9g5hW4omDWFLiowUcKvJwFA+ebxaySZxrmsfhEvmZZYiXHfjzINVCaOwOYqzbJ76QVwKwGmLwQLX5L89XgjwC8IrlrFL+0S4HGBv4KwLt5TJ1UGMsCxWYNdimEZzUMK4qsa/CeRnhG2IjyjGVz4KkAZlyB6xEQw1QQCrwWJeRKgIm+dKCm4JhQCM+ltRVgqs/KKLkHE5zudyuYn7I0eDw5HZtiDHxVYG9a8XJzUyeE1agGD3kAmBtWr1vJaYrNCpy2xVdy4LEo+VhWgbcVzJIGFyRXN7i7MlrDjNrYYQ/C8LUFkNi9ghmyCT5nwB551gYeUOA7z5C+bANbPSzILLzyMMDSJHdhdE8SAI1wQXzy4JHoP7s0+NEWnW/FnTahV4Fvo2fh805wr4uX325uPADMqrzsQaGlFgDRXUAomE+2+JN4IQvEssJnrik5D9zseOjlG3npdPVLwMFqqvnQB7odMx0B+N4BlJnIYfK0laDoY2DE0jMSDZsZko6jrmXrsEmW/P77ebE5CXAe050aYUkiDTOnYGYsK9ernLMYP2wPDDlyn1afZmYgqVA1U+F5DWbKc+KkK601jemD3kAN3ow5LkU6s9fujoV6imuEF+0AvujA3L4IUGkwF20joynhIy0a5nt80nOYOFpmIS6H3zKgLu8CU3DnQSzPbA36zLKbdBu0VI8ccdo7wPYA5oMbUjkPHJPCTC0Aw54bLVUOH+2ic0z7tfKFxP5UAIhNugNQS44k2u1Z4Zr4IpddmnxVJp3WK0ecdvkwkQ+WCsZ2oFHTMAONyFFB+z9t4f+WI057PbumbovfA8lyyDdkY+dG3ea7Byrl2CDaN04ObJbpRDk8l8xmmPLLMZt2M26wsaFredu2tP0Bv5zHFlV+0UUAAAAASUVORK5CYII=" alt="handshake-heart" /></IconCard>
-                            <IconCard name="Student Support Service"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR4nN2UTUscQRCGX4kfB8Xp7lU8LCaRBJNcIhj0n4gexYQQ4wfBHARdqJqsB8VTLgGDi5cFlxBEWYmu2f1vUnQP26OzYw+5JClomOmqfp+qmuoB/muLsDtlQJsafKLBLQ2+0OCaAq1r0OM/kD4aMIg3NaitwZ0eq63AawANFhSnfoV4X0QM+EqBPpZALxPhEiovNHhVfPKuwAeFIBr03orTj1FUn3X3LSB5j0BPFfjUQdaCxA12yq7XN2Og6TQ4DfC+0bW0UqH6JCT7d1aItu77+B5ATLIPrkKDvtlgeh0KMKi8ci39HgDgpgRP4HDY349AswlAntOnaFBaqsG/ZQByAQr0y2a5MXSnsnp3PKmeUfkHN3VHwMKjnAoSoeqkv28QN7z5b0Ug5fuf4+uQl8RiDoC3XT+X0wCadxCZsI5GfOxDDGhFg8+6VfQwe4moLZfIYK981y+iIp5UYsBvXWKdRHwMX970BLjgzy74MMtvIUkl3PQBCLFx0IgG/bTjWpnJipHMNfhSWlMYYA/QkvsWn8LiCwIiVKfcoVqeoL8MqBEMkIvmDp6HAES8hHguGACgL/nnIwdQRPDBLHXG+rsB+FfsFtLC2EbHCqkFAAAAAElFTkSuQmCC" alt="customer-support" /></IconCard>
+                            {
+                                [<IconCard  name="Experienced Faculty" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgUlEQVR4nN2VPUsDQRCG38JPiLndjVYKKv4AK0P+gYWFYmunnRDEQkQUZhYTW8WQIppaExu/NcH432TNnlkuueTuMIUuDBw3e+9z8+4wC/z7pUA5Ba4r6JoCZYcA0DUJ/jShQLUhAOjOBwjw7TAAOQm+txVsJray3wYF2m4DeCexleEbaESA845NrxJcyoA2TM7sSON0SYI/IgNsHHigBQWuBN7/hMkJ8JYCNaxww4hnoFd6WZQ1EAG6UeD3bkEqTOEskwJNS3AxkG8p8B6QHw+zMAArzCrQlStihP18Ckczbk6AdhF3GZ+jAiToMgngOWBD0UCseMAieooNEKC3sMPtES9JKig7AucCJ8vzoIk57E+aZwm6cPKlBAC96vR1ujt/6HUOWa/HBpiWlODmIHsU+BqojMYS90BCQletyCDIo4fjxUjC/jzqiOpqu5Jvu8r24B9MW0roNQUm20WtSPdFYFw0TSX9f4nG3G4beF8kuVxUnG/8eRQ6sPA73/yt9QWIWfgNn95TxgAAAABJRU5ErkJggg==" alt="customer-insight" /> </IconCard>
+                                   , <IconCard name="industrial partnership" ><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                                        <g fillOpacity="0.74118" fill="#120080" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" style={{ mixBlendMode: 'normal' }}><g transform="scale(8,8)"><path d="M16,3c-6.143,0 -11.28867,4.28839 -12.63867,10.02539l0.01563,-0.00586l11.55859,-3.33008c1.809,-0.527 2.82081,-0.60478 4.13281,-0.42578c1.888,0.318 2.74441,1.30086 3.19141,2.88086l0.56445,1.96875c0.427,1.461 0.05153,2.63294 -1.23047,3.83594c-1.004,0.904 -1.62117,1.27152 -3.20117,1.72852l-4.82031,1.38086l11.47852,1.41211l0.50586,1.77734l-2.50391,0.69727l-14.93555,-1.93945l1.16992,4.10547c1.962,1.191 4.25489,1.88867 6.71289,1.88867c7.168,0 13,-5.832 13,-13c0,-7.168 -5.832,-13 -13,-13zM18.03906,11.73047c-0.53543,-0.00586 -1.27359,0.12969 -2.30859,0.42969l-9.86133,2.83008l1.5,5.16992l10.37109,-3c2.41,-0.69 2.60055,-1.22953 2.31055,-2.26953l-0.58984,-2.06055c-0.2,-0.6875 -0.52949,-1.08984 -1.42188,-1.09961zM3.00781,16.13281c0.025,2.448 0.73445,4.72973 1.93945,6.67773z"></path></g></g>
+                                    </svg></IconCard>,
+                                    <IconCard name="Modern Facility"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+UlEQVR4nO1W30tUQRg9lWI/bPfO7KpJkgRSUYIPFRH9CT1ED0EPBYIaSRj5kpTamWuakEVtRrEUPURUmKYRVpb9b/HtnWFvu3Pv7paCD34wsHvv9+N853wzc4Ft26rWCuY12K9g5hW4omDWFLiowUcKvJwFA+ebxaySZxrmsfhEvmZZYiXHfjzINVCaOwOYqzbJ76QVwKwGmLwQLX5L89XgjwC8IrlrFL+0S4HGBv4KwLt5TJ1UGMsCxWYNdimEZzUMK4qsa/CeRnhG2IjyjGVz4KkAZlyB6xEQw1QQCrwWJeRKgIm+dKCm4JhQCM+ltRVgqs/KKLkHE5zudyuYn7I0eDw5HZtiDHxVYG9a8XJzUyeE1agGD3kAmBtWr1vJaYrNCpy2xVdy4LEo+VhWgbcVzJIGFyRXN7i7MlrDjNrYYQ/C8LUFkNi9ghmyCT5nwB551gYeUOA7z5C+bANbPSzILLzyMMDSJHdhdE8SAI1wQXzy4JHoP7s0+NEWnW/FnTahV4Fvo2fh805wr4uX325uPADMqrzsQaGlFgDRXUAomE+2+JN4IQvEssJnrik5D9zseOjlG3npdPVLwMFqqvnQB7odMx0B+N4BlJnIYfK0laDoY2DE0jMSDZsZko6jrmXrsEmW/P77ebE5CXAe050aYUkiDTOnYGYsK9ernLMYP2wPDDlyn1afZmYgqVA1U+F5DWbKc+KkK601jemD3kAN3ow5LkU6s9fujoV6imuEF+0AvujA3L4IUGkwF20joynhIy0a5nt80nOYOFpmIS6H3zKgLu8CU3DnQSzPbA36zLKbdBu0VI8ccdo7wPYA5oMbUjkPHJPCTC0Aw54bLVUOH+2ic0z7tfKFxP5UAIhNugNQS44k2u1Z4Zr4IpddmnxVJp3WK0ecdvkwkQ+WCsZ2oFHTMAONyFFB+z9t4f+WI057PbumbovfA8lyyDdkY+dG3ea7Byrl2CDaN04ObJbpRDk8l8xmmPLLMZt2M26wsaFredu2tP0Bv5zHFlV+0UUAAAAASUVORK5CYII=" alt="handshake-heart" /></IconCard>
+                                    ,<IconCard name="Student Support Service"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR4nN2UTUscQRCGX4kfB8Xp7lU8LCaRBJNcIhj0n4gexYQQ4wfBHARdqJqsB8VTLgGDi5cFlxBEWYmu2f1vUnQP26OzYw+5JClomOmqfp+qmuoB/muLsDtlQJsafKLBLQ2+0OCaAq1r0OM/kD4aMIg3NaitwZ0eq63AawANFhSnfoV4X0QM+EqBPpZALxPhEiovNHhVfPKuwAeFIBr03orTj1FUn3X3LSB5j0BPFfjUQdaCxA12yq7XN2Og6TQ4DfC+0bW0UqH6JCT7d1aItu77+B5ATLIPrkKDvtlgeh0KMKi8ci39HgDgpgRP4HDY349AswlAntOnaFBaqsG/ZQByAQr0y2a5MXSnsnp3PKmeUfkHN3VHwMKjnAoSoeqkv28QN7z5b0Ug5fuf4+uQl8RiDoC3XT+X0wCadxCZsI5GfOxDDGhFg8+6VfQwe4moLZfIYK981y+iIp5UYsBvXWKdRHwMX970BLjgzy74MMtvIUkl3PQBCLFx0IgG/bTjWpnJipHMNfhSWlMYYA/QkvsWn8LiCwIiVKfcoVqeoL8MqBEMkIvmDp6HAES8hHguGACgL/nnIwdQRPDBLHXG+rsB+FfsFtLC2EbHCqkFAAAAAElFTkSuQmCC" alt="customer-support" /></IconCard>].map((card, e)=><div key={e} className={`reveal-${e}`} >{card}</div>)
+                            }
                         </div>
                         
                         <About />

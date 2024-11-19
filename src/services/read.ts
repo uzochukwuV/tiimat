@@ -11,11 +11,11 @@ import { db } from "../firebase";
 
 export const getFaculties = async () => {
   const data = await getDocs(collection(db, "Faculty"));
-  console.log(data);
+ 
   
   const edata = data.docs.map(async (d) => {
     const res = d.data();
-    console.log(res);
+    
     
     const courses = res.courses;
 
@@ -44,7 +44,7 @@ export const addCourse = async (document: string, value: string) => {
   const update = await updateDoc(docref, {
     courses: arrayUnion(create),
   });
-  console.log(update);
+ 
 
   const res = await getDoc(docref);
 
@@ -81,18 +81,18 @@ export const updateCourse = async (
   price: string,
   desc: string
 ) => {
-  console.log(document);
+
 
   const docref = doc(db, "Course", document);
   const update = await updateDoc(docref, {
     price: price,
     description: desc,
   });
-  console.log(update);
+
 
   const res = await getDoc(docref);
 
-  console.log(res.data());
+
 
   return res.data();
 };
@@ -103,7 +103,7 @@ export const addCurriculum = async (
   topics: string
 ) => {
   const docref = doc(db, "Course", document);
-  console.log(document);
+  
 
   const create = await addDoc(collection(db, "Curriculum"), {
     title: title,
@@ -112,7 +112,7 @@ export const addCurriculum = async (
   const update = await updateDoc(docref, {
     curriculum: arrayUnion(create),
   });
-  console.log(update);
+
 
   const res = await getDoc(docref);
 
@@ -139,12 +139,12 @@ export const sendMessage = async (
       location: location || "",
       info: info || "",
     });
-    console.log(createMessage);
+    
     
     const docref = collection(db, "Message");
   
     const res = await getDocs(docref);
-    console.log(res.docs);
+    
     
     return res.docs;
   };

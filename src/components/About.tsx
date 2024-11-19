@@ -12,8 +12,8 @@ const About = () => {
         {/* <img src={BG} alt="hjh" className=" h-full w-full object-cover" /> */}
       </div>
         <div className='h-full text-white relative  flex-1 py-16 gap-8  flex flex-col md:flex-row justify-around '>
-          <div className=" slideIn opacity-100 translate-x-0">
-            <div className="*:text-start  max-w-2xl space-y-2">
+          <div className="reveal-2  opacity-100 translate-x-0">
+            <div className="*:text-start  max-w-2xl space-y-2  ">
               <h2 className=" text-4xl md:text-5xl ">
                 Our Vision <br /> 
               </h2>
@@ -27,7 +27,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className=" flex">
+          <div className=" reveal-3  flex">
             <div className="*  max-w-2xl space-y-2 me-0">
               <h2
                 className=" text-4xl md:text-5xl "
@@ -45,7 +45,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="slideIn ">
+          <div className="reveal-4  ">
             <div className="*:text-start  max-w-2xl space-y-2">
               <h2 className=" text-4xl text-white md:text-5xl ">
                Tiimat 
@@ -69,7 +69,7 @@ const About = () => {
                 <div className="w-full s">
                   <h3 className=" font-medium text-3xl text-center pb-6">Faculties</h3>
                   <div className=" space-y-8 md:space-y-0 gap-6 pace-y-8 md:grid md:grid-cols-3">
-                  <div className=" space-y-6    rounded-xl shadow bg-white">
+                  <div className=" space-y-6 reveal-1    rounded-xl shadow bg-white">
                     <div>
                         <img src={Lap} alt="" className=" rounded-t-xl max-h-[200px] w-full object-cover" />
                     </div>
@@ -79,7 +79,7 @@ const About = () => {
                       <a href="" className=" text-blue-600 ">View more ...</a>
                     </div>
                   </div>
-                  <div className=" space-y-6    rounded-xl shadow bg-white">
+                  <div className=" space-y-6 reveal-2    rounded-xl shadow bg-white">
                     <div>
                         <img src={Com} alt="" className=" rounded-t-xl max-h-[200px] w-full object-cover" />
                     </div>
@@ -89,7 +89,7 @@ const About = () => {
                       <a href="" className=" text-blue-600 ">View more ...</a>
                     </div>
                   </div>
-                  <div className=" space-y-6     rounded-xl shadow bg-white">
+                  <div className=" space-y-6 reveal-3    rounded-xl shadow bg-white">
                     <div>
                         <img src={FacultyTwo} alt="" className=" rounded-t-xl max-h-[200px] w-full object-cover" />
                     </div>

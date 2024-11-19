@@ -38,7 +38,7 @@ body.dark {
   --text-primary: #020202;
   --text-secondary: #fff;
   --text-tertiary: #121212;
-  --background: hsl(210, 10%, 98%);
+  --background: #ffffff;
   --surface: #f9f9f9;
   --icon : #202028;
 }
@@ -163,6 +163,19 @@ button:hover {
   83.33% {background-position: 0% 100%,50% 100%,100% 0%  }
 }
 
+
+.slideIn {
+  transform: translateX(-500px);
+  opacity: 0;
+  animation: SlideIn 2s ease 0.5s forwards;
+}
+
+@keyframes SlideIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 
 

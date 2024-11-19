@@ -26,7 +26,8 @@ export const Footer = () => {
   return (
    <footer className=" relative px-4">
 
-      <div className=" bg-white space-y-4 p-4 rounded-2xl min-h-[70vh] h-full">
+      <div className=" bg-white space-y-4 p-4 md:grid md:grid-cols-2 gap-12 rounded-2xl min-h-[70vh] h-full">
+            <div className="space-y-4 flex-1 ">
             <div className=" space-y-2 mb-12">
               <p className=" text-sm">Email would be enough though</p>
                <div className=" flex gap-2 focus-within:border rounded-xl bg-[var(--background)]">
@@ -65,7 +66,8 @@ export const Footer = () => {
 </svg>
             </div>
           </div>
-          <div className=" footer-link  bg-[var(--background)] rounded-xl font-medium">
+            </div>
+          <div className=" flex-1 footer-link  bg-[var(--background)] rounded-xl font-medium">
               <div className="grid gap-4 p-8 row-gap-6 col-gap-8  grid-cols-2">
                 <div>
                   <span className=" text-black font-medium text-xl mb-4 block">Solutions</span>
@@ -96,12 +98,13 @@ export const Footer = () => {
                 </div>
               </div>
           </div>
-          <div className=" text-center space-y-3">
+          
+      </div>
+      <div className=" text-center space-y-3 py-6">
             <h2 className=" text-center text-xl font-bold">TIIMAT</h2>
             <p className=" text-sm text-[#999] text-center">Innovating Education for global Impact through cutting edge spaced learning and real world practicals</p>
             <p className=" text-xs text-[#999] text-center">@ighofoweexperience</p>
           </div>
-      </div>
    </footer> 
   )
 }
