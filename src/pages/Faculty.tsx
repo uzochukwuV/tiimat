@@ -54,7 +54,7 @@ function FacultyPage() {
                   </h3>
                   
 
-                  {program.courses.map((course:any, i:any) => {
+                  {program.courses[0] && program.courses.map((course:any, i:any) => {
                     return (
                       <Link
                         to={`/course/${course.id}`}

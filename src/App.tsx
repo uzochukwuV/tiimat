@@ -13,6 +13,7 @@ import { getAllCourse, getCourse, getFaculties } from "./services/read";
 import EditCourse from "./admin/EditCourse";
 import AddCourse from "./admin/AddCourse";
 import AddCurriculum from "./admin/AddCurriculum";
+import AddFaculty from "./admin/AddFaculty";
 
 function Home() {
   return (
@@ -76,6 +77,11 @@ const App = () => {
       loader: async () => {
         return await getAllCourse();
       },
+    },
+    {
+      path:"admin/faculty/add",
+      element: <AddFaculty />,
+     
     },
     {
       path: "*",

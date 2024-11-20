@@ -3,10 +3,15 @@ import {Outlet, useNavigation} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
+// configDotenv()
 
 export const Layout = () => {
-  
+ 
   const navigate = useNavigation()
+  console.log(import.meta.env.VITE_API_KEY);
+  console.log(import.meta.env.VITE_APP_ID)
+  
+  
   return (
     <>
     

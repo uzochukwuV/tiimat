@@ -9,20 +9,45 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
+export const addFaculty = async ( name: string, description:string) => {
+  const docref= collection(db, "Faculty")
+  const create = await addDoc(docref, {
+    name: name,
+    description:description
+  });
+  console.log(create);
+  
+  
+ 
+
+  const res = await getDocs(docref);
+
+  return res.docs;
+};
+
 export const getFaculties = async () => {
   const data = await getDocs(collection(db, "Faculty"));
  
+  console.log(data.docs.map(
+
+    ()=> ""
+  ));
   
   const edata = data.docs.map(async (d) => {
     const res = d.data();
+    console.log(d.id);
+    
     
     
     const courses = res.courses;
-
-    const v = courses.map(async (c: any) => {
-      const coursedoc = await getDoc(c);
-      return { data: coursedoc.data(), id: coursedoc.id };
-    });
+    let v=[null];
+    if(courses){
+       v = courses.map(async (c: any) => {
+        const coursedoc = await getDoc(c);
+        return { data: coursedoc.data(), id: coursedoc.id };
+      });
+    }
+    
 
     const pro = await Promise.all(v);
 
@@ -32,7 +57,8 @@ export const getFaculties = async () => {
   });
   const alldata = await Promise.all(edata);
   
-
+  console.log(alldata);
+  
   return alldata;
 };
 

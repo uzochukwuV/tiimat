@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent,  useEffect, useState } from "react"
 import { addCourse, getFaculties } from "../services/read";
+import { Link } from "react-router-dom";
 
 
 
@@ -43,13 +44,22 @@ function AddCourse() {
 
     return (
         <>
+        <div className=" flex justify-end gap-2 z-50 absolute top-20 *:text-blue-400 *:underline">
+        <Link to={"/admin/course/edit/curriculum"} >Edit curriculum</Link>
+        <Link to={"/admin/course/add"} >Add Course</Link>
+        <Link to={"/admin/course/edit/"} >Edit course</Link>
+        <Link to={"/admin/faculty/add"} >Add Faculty(dont add) </Link>
+        
+        </div>
          <h1 className=" -translate-y-8 text-3xl">Add course</h1>
             <form onSubmit={addcoursetofaculty} method="post">
                 <select onChange={selectChange} value={onChange} name="" id="" className=" px-4 h-14 w-full mb-8 block bg-slate-50">
                     {
                         faculty.map((f:any)=>{
                             return (
-                            <option key={f.id} value={f.id}> {f.name} </option>
+                            <option key={f.id}  value={f.id}> <div className="bg-black h-24 py-6 px-4 block">
+                              
+                              {f.name} </div></option>
                             )
                         })
                     }
