@@ -182,3 +182,11 @@ button:hover {
 html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
   visibility: hidden;
 }
+
+#cl:checked #root{
+  --back:red;
+}
+
+#cl #root{
+  --back:blue;
+}

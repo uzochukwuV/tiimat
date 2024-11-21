@@ -6,36 +6,28 @@ import {
   getDoc,
   getDocs,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const addFaculty = async ( name: string, description:string) => {
+export const addFaculty = async ( name: string, description:string, img:string) => {
   const docref= collection(db, "Faculty")
   const create = await addDoc(docref, {
     name: name,
-    description:description
+    description:description,
+    image:img
   });
   console.log(create);
-  
-  
- 
-
   const res = await getDocs(docref);
-
   return res.docs;
 };
 
 export const getFaculties = async () => {
   const data = await getDocs(collection(db, "Faculty"));
- 
-  console.log(data.docs.map(
-
-    ()=> ""
-  ));
   
   const edata = data.docs.map(async (d) => {
     const res = d.data();
-    console.log(d.id);
+    
     
     
     
@@ -51,18 +43,19 @@ export const getFaculties = async () => {
 
     const pro = await Promise.all(v);
 
-    const result = { id: d.id, name: d.data().name, courses: pro };
+    const result = { id: d.id, name: d.data().name, data:d.data(), courses: pro };
 
     return result;
   });
   const alldata = await Promise.all(edata);
   
-  console.log(alldata);
   
   return alldata;
 };
 
 export const addCourse = async (document: string, value: string) => {
+  console.log(document);
+  
   const docref = doc(db, "Faculty", document);
   const create = await addDoc(collection(db, "Course"), {
     name: value,
@@ -94,7 +87,25 @@ export const getCourse = async (document: string) => {
   const result = { data: res, curriculum: pro, id: data.id };
 
   return result;
-} ;
+};
+
+export const getFaculty = async (document: string) => {
+  const docref = doc(db, "Faculty", document);
+  const data = await getDoc(docref);
+  const res = data.data();
+
+
+  const v =   res?.courses?.map(async (c: any) => {
+    const coursedoc = await getDoc(c);
+    return { data: coursedoc.data(), id: coursedoc.id };
+  }) || [null];
+
+  const pro = await Promise.all(v);
+
+  const result = { data: res, courses: pro, id: data.id };
+
+  return result;
+};
 
 export const getAllCourse = async () => {
   const docref = collection(db, "Course");
@@ -103,10 +114,18 @@ export const getAllCourse = async () => {
   return data.docs.map((c) => ({ id: c.id, data: c.data() }));
 };
 
+export const getAllSemester = async () => {
+  const docref = collection(db, "Semester");
+  const data = await getDocs(docref);
+
+  return data.docs.map((c) => ({ id: c.id, data: c.data() }));
+};
+
 export const updateCourse = async (
   document: string,
   price: string,
-  desc: string
+  desc: string,
+  image:string
 ) => {
 
 
@@ -114,6 +133,7 @@ export const updateCourse = async (
   const update = await updateDoc(docref, {
     price: price,
     description: desc,
+    image:image
   });
   console.log(update);
   
@@ -126,12 +146,37 @@ export const updateCourse = async (
   return res.data();
 };
 
+export const addSemester = async (
+  document: string,
+  name: string,
+  description: string
+) => {
+  const docref = doc(db, "Course", document);
+  
+
+  const create = await addDoc(collection(db, "Semester"), {
+    name: name,
+    description: description,
+  });
+
+  const update = await updateDoc(docref, {
+    semesters: arrayUnion(create),
+  });
+  console.log(update);
+  
+
+
+  const res = await getDoc(docref);
+
+  return res.data();
+};
+
 export const addCurriculum = async (
   document: string,
   title: string,
   topics: string
 ) => {
-  const docref = doc(db, "Course", document);
+  const docref = doc(db, "Semester", document);
   
 
   const create = await addDoc(collection(db, "Curriculum"), {
@@ -183,3 +228,45 @@ export const sendMessage = async (
     return res.docs;
   };
   
+
+  export const deleteFaculty = async (document:string)=>{
+    const docref = doc(db, "Faculty", document);
+    try {
+      await deleteDoc(docref);
+      return true
+    } catch (error) {
+      return false
+    }
+
+  }
+
+  export const deleteCourse = async (document:string)=>{
+    const docref = doc(db, "Course", document);
+    try {
+      await deleteDoc(docref);
+      return true
+    } catch (error) {
+      return false
+    }
+
+  }
+
+
+
+  export const getSemester = async (document: string) => {
+    const docref = doc(db, "Semester", document);
+    const data = await getDoc(docref);
+    const res = data.data();
+  
+  
+    const v =   res?.curriculum?.map(async (c: any) => {
+      const coursedoc = await getDoc(c);
+      return { data: coursedoc.data(), id: coursedoc.id };
+    }) || [null];
+  
+    const pro = await Promise.all(v);
+  
+    const result = { data: res, curriculum: pro, id: data.id };
+  
+    return result;
+  };

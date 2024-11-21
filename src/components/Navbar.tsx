@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
 import { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [bodyHasDark, setDark] = useState(false);
   const [sidebarHasShow, setShow] = useState(false);
   const [faculty, setFaculty] = useState() as any;
+  const navigator = useNavigation();
 
   useEffect(() => {
     document.querySelector("#sidebar")?.classList.replace("show", "hide");
@@ -123,18 +124,18 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden  md:flex gap-6 md:gap-8 lg:gap-12 *:text-sm *:md:text-base *:font-bold items-center">
-            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/"? " font-bold bg-gray-100":""}`}>
-              <Link to={"/"} className=" h-full w-full grid place-content-center">Home</Link>
+            <div className={`  *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/"? " font-bold bg-indigo-200":""}`}>
+              <Link to={"/"} className={` h-full w-full grid place-content-center`}>Home</Link>
             </div>
-            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/faculty"? " font-bold bg-gray-100":""}`}>
-              <Link to={"/faculty#"} className=" h-full w-full grid place-content-center">Faculty</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/faculty"? " font-bold bg-indigo-200":""}`}>
+              <Link to={"/faculty#"} className={` h-full w-full grid place-content-center`}>Faculty</Link>
             </div>
 
-            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/about-us"? " font-bold bg-gray-100":""}`}>
-              <Link to={"/about-us#"} className=" h-full w-full grid place-content-center">About Us</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/about-us"? " font-bold bg-indigo-200":""}`}>
+              <Link to={"/about-us#"} className={` h-full w-full grid place-content-center`}>About Us</Link>
             </div>
-            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/contact-us"? " font-bold bg-gray-100":""}`}>
-              <Link to={"/contact-us#"} className=" h-full w-full grid place-content-center">Contact Us</Link>
+            <div className={` bg-transparent *:hover:text-indigo-700 hover:scale-[1.08] hover:bg-gray-100 hover:outline-0 focus:autline-0 rounded-md  hover:backdrop-blur-md min-h-8 md:px-4 md:py-2 grid  min-w-24  ${ location.pathname === "/contact-us"? " font-bold bg-indigo-200":""}`}>
+              <Link to={"/contact-us#"} className={` h-full w-full grid place-content-center`}>Contact Us</Link>
             </div>
 
             <div className=" space-x-4 flex items-center">

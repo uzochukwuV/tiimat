@@ -1,11 +1,8 @@
 
-import FacultyTwo from "../assets/landing/tiimat/com.jpg";
-
-
 import { Link, useLoaderData } from "react-router-dom";
 
 function FacultyPage() {
- 
+
   const loader = useLoaderData() as [];
 
   return (
@@ -35,47 +32,37 @@ function FacultyPage() {
         </h1>
 
         <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {loader!.map((program: any , index: any) => {
+          {loader!.map((program: any, index: any) => {
             return (
-              <div
+              <Link
+              to={`/faculty/${program.id}`}
                 key={`faculty-${index}`}
-                className=" space-y-6 flex-1 p-4 bg-[var(--surface)] rounded-xl "
+                className=" space-y-6 flex-1 p-4 h-[400px] bg-[url(https://img.freepik.com/free-photo/african-american-young-programmer-wearing-headphone-while-typing-security-codes-business-website-working-rmeote-from-home-employee-programming-software-application-software-screen_482257-28569.jpg?ga=GA1.1.1574708294.1731893172&semt=ais_hybrid)] bg-cover bg-top rounded-xl "
               >
                 <div>
-                  <img
-                    src={FacultyTwo}
-                    alt=""
-                    className=" h-52 w-full rounded-xl hover:bg-left-top bg-center bg-cover"
-                  />
+
                 </div>
                 <div className=" space-y-2">
-                  <h3 className=" font-medium text-lg text-[var(--text-tertiary)]">
+                  <h3 className=" font-medium text-2xl text-white ">
                     {program.name}
                   </h3>
-                  
 
-                  {program.courses[0] && program.courses.map((course:any, i:any) => {
+
+                 <div>
+                 {program.courses[0] && program.courses.map((course: any, i: any) => {
                     return (
                       <Link
                         to={`/course/${course.id}`}
                         key={`course-${i}`}
-                        className=" text-[#333] hover:scale-[102%] cursor-pointer hover:text-white border-b border-dashed flex justify-between items-center"
+                        className=" text-white hover:translate-x-2 cursor-pointer hover:text-white flex justify-between items-center"
                       >
                         <span>{course.data.name}</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="24px"
-                          viewBox="0 -960 960 960"
-                          width="24px"
-                          fill="#4e4e4e"
-                        >
-                          <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
-                        </svg>
                       </Link>
                     );
                   })}
+                 </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

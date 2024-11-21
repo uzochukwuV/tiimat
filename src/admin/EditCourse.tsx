@@ -1,38 +1,53 @@
 import {
   ChangeEvent,
   FormEvent,
+  useEffect,
   useState,
 } from "react";
-// import {  updateCourse } from "../services/read";
+import {  updateCourse } from "../services/read";
 import { Link, useLoaderData } from "react-router-dom";
+import { deleteCourse } from "../services/read";
 
 function EditCourse() {
   
-  const [onChange, setchange] = useState("") as any;
-  const [price, setprice] = useState("") as any;
-  const [desc, setdesc] = useState("") as any;
-  const loader = useLoaderData() as [];
+  const [onChange, setchange] = useState("");
+  const [price, setprice] = useState("");
+  const [desc, setdesc] = useState("");
+  const [image, setImage] = useState("");
+  const loader = useLoaderData() as any[];
+  const [loading, setLoading] = useState(false) ;
 
-  
+  useEffect(()=>{
+    console.log(loader![0].id);
+    setchange(loader![0].id)
+},[])
 
   const UpdateCourse = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // updateCourse(onChange,price,desc).then(()=>{
-    //   console.log();
+    setLoading(true)
+    updateCourse(onChange,price,desc,image).then((e)=>{
+      console.log(e);
       
-    // })
+    })
+    setLoading(false)
   };
 
   const selectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
-    setchange(e.target.value);
+    setchange(e.target.value)
+
   };
   const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+    
     if (e.target.name === "price") {
+      
       setprice(e.target.value);
-    } else {
+    } else if(e.target.name === "image") {
+      setImage(e.target.value)
+     
+    }else{
+    
       setdesc(e.target.value);
     }
   };
@@ -46,7 +61,7 @@ function EditCourse() {
         </div>
       <h1 className=" -translate-y-8 text-3xl">Edit course</h1>
       <form onSubmit={UpdateCourse} method="post">
-        <p> choose Course</p>
+        <p> Choose Course</p>
         <select
           onChange={selectChange}
           value={onChange}
@@ -76,12 +91,22 @@ function EditCourse() {
           value={desc}
           onChange={updateValue}
           type="text"
+          name="description"
           placeholder="Description"
+          className=" px-6 flex-1  w-[80vw] block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
+        />
+        <input
+          value={image}
+          onChange={updateValue}
+          type="text"
+          name="image"
+          placeholder="image Link"
           className=" px-6 flex-1  w-[80vw] block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
         />
 
         <button
           type="submit"
+          disabled={loading}
           className=" mt-4 bg-black hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center"
         >
           Add{" "}

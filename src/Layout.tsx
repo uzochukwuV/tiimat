@@ -8,8 +8,7 @@ import { Footer } from "./components/Footer";
 export const Layout = () => {
  
   const navigate = useNavigation()
-  console.log(import.meta.env.VITE_API_KEY);
-  console.log(import.meta.env.VITE_APP_ID)
+ 
   
   
   return (
