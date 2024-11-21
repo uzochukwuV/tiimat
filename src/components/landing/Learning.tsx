@@ -1,3 +1,11 @@
+const data = [
+    "Learn from seasoned professionals and industry experts passionate about mentoring and empowering the next generation of innovators.",
+    "Our programs emphasize practical, project-based learning to equip you with real-world skills and a competitive edge in the job market.",
+    "Stay ahead of the curve with courses designed around the latest technologies, trends, and industry standards.",
+    "Join a vibrant community of learners and innovators who inspire and support each other’s growth.",
+    "High-quality education at competitive tuition rates, ensuring great value for your investment in your future."
+]
+
 function Learning() {
     return <>
     <div className=" py-6 relative fromScale px-6 md:px-24">
@@ -7,6 +15,14 @@ function Learning() {
             </div>
             <div className="md:py-6 md:py-12">
                 <h2 className=" text-2xl font-bold fromRight ">Start Learning with Us</h2>
+                <div className=" mt-6">
+                    <ol className=" space-y-4 text-sm font-medium text-[#333]">
+                        {data.map((e)=>
+
+                            <li className=" ps-6 before:content-[''] before:absolute before:top-1 relative before:bg-indigo-400 before:h-4 before:w-4 before:rounded-full before:shadow-md before:-translate-x-6">{e}</li>
+                        )}
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
