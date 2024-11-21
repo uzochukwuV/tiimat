@@ -6,7 +6,7 @@ import {
 } from "react";
 import {  updateCourse } from "../services/read";
 import { Link, useLoaderData } from "react-router-dom";
-import { deleteCourse } from "../services/read";
+
 
 function EditCourse() {
   

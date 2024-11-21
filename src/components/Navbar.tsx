@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import Logo2 from "../assets/logo-3.png";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ const Navbar = () => {
   const [bodyHasDark, setDark] = useState(false);
   const [sidebarHasShow, setShow] = useState(false);
   const [faculty, setFaculty] = useState() as any;
-  const navigator = useNavigation();
+ 
 
   useEffect(() => {
     document.querySelector("#sidebar")?.classList.replace("show", "hide");
