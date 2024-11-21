@@ -90,7 +90,7 @@ export const Footer = () => {
                 <div>
                 <span className=" text-black font-medium text-xl mb-4 block">Company</span>
                   <ul className=" text-sm space-y-1 text-[#999]">
-                  <Link to={"/admin/course/add"} >Company 1</Link>
+                  <Link to={"/admin"} >Company 1</Link>
                     <li>Contact Us</li>
                     <li>About Us</li>
                     <li>Privacy Policy</li>

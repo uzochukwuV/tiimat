@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +8,7 @@
 
 
 :root {
-  font-family:"Comfortaa","Anta", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:"Inter","Anta", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 14px;
@@ -183,10 +183,3 @@ html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
   visibility: hidden;
 }
 
-#cl:checked #root{
-  --back:red;
-}
-
-#cl #root{
-  --back:blue;
-}
