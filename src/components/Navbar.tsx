@@ -76,33 +76,27 @@ const Navbar = () => {
               <Link
                 to={"/"}
                 
-                className={"link w-full border-b py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group flex justify-between items-center "+ location.pathname === "/"? " rounded-md backdrop-blur-md ":"" }
+                className={"link w-full border-b-2 py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group flex justify-between items-center "+ location.pathname === "/"? " rounded-md backdrop-blur-md ":"" }
               >
-                <div className=" text-black group-hover:text-[var(--text-primary)]">
+                <div className="  text-black group-hover:text-[var(--text-primary)]">
                   Home
                 </div>
                 
               </Link>
-              <Link
-                to={"/faculty#"}
-                nonce="u"
-                suppressHydrationWarning
-                preventScrollReset={false}
-                viewTransition
-                className="link w-full border-b overflow-hidden py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group "
+              <details
+                className="link mt-2 w-full before:content-[''] border-b overflow-hidden py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group "
               >
-                <div className="flex justify-between pb-4 items-center text-black group-hover:text-[var(--text-primary)]">
-                  Faculty
-                </div>
+                 <summary>Faculty</summary> 
+                
                   {
                     faculty?.map((data:any)=>{
-                      return <div key={data.name} className=" flex justify-between items-center px-6 border-t h-14">
+                      return <Link to={`faculty/${data.id}`} key={data.name} className=" flex justify-between items-center px-6 border-t h-14">
                       {data?.name}
-                  </div>
+                  </Link>
                     })
                   }
                   
-              </Link>
+              </details>
               <Link
                 to={"/about-us#"}
                 className="link w-full border-b py-4 rounded-md hover:bg-transparent hover:border-[var(--surface)] group flex justify-between items-center"
@@ -154,7 +148,7 @@ const Navbar = () => {
                   height="24px"
                   viewBox="0 -960 960 960"
                   width="24px"
-                  fill="var(--icon)"
+                  fill="#222"
                 >
                   <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                 </svg>
@@ -164,7 +158,7 @@ const Navbar = () => {
                   height="24px"
                   viewBox="0 -960 960 960"
                   width="24px"
-                  fill="var(--icon)"
+                  fill="#333"
                 >
                   <path d="M160-360v-80h640v80H160Zm0-160v-80h640v80H160Z" />
                 </svg>

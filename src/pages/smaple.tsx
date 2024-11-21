@@ -8,6 +8,7 @@ import { getSemester } from "../services/read";
 const Sample = () => {
   const res = useLoaderData() as {data?:any, semesters?:any, id?:string};
 
+  console.log(res);
   
   // return ""
   return (
