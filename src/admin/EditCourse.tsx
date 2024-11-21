@@ -18,7 +18,7 @@ function EditCourse() {
   const [loading, setLoading] = useState(false) ;
 
   useEffect(()=>{
-    console.log(loader![0].id);
+    
     setchange(loader![0].id)
 },[])
 

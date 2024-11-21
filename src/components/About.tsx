@@ -1,10 +1,24 @@
 
-import FacultyTwo from "../assets/landing/tiimat/multimedia.jpg"
-import Com from '../assets/landing/tiimat/com.jpg'
-import Lap from '../assets/landing/tiimat/laptopx.jpg'
+import { useEffect, useState } from "react";
+import { getFaculties } from "../services/read";
+import { Link } from "react-router-dom";
 
 const About = () => {
- 
+
+  const [data, setData] = useState(null) as any;
+  const [loading, setLoading] = useState(false)
+  
+  
+  useEffect(()=>{
+    setLoading(true)
+    getFaculties()
+      .then((data)=>{
+        console.log(data);
+        setData(data)
+        setLoading(false)
+      })
+      
+  },[])
   return (
     <> 
       <div className="h-full flex flex-col bg-black rounded-xl  mt-12 px-6 sm:px-10 mx-4 md:mx-20 relative">
@@ -69,36 +83,35 @@ const About = () => {
                 <div className="w-full s">
                   {/* <h3 className=" font-medium text-3xl text-center pb-6">Faculties</h3> */}
                   <div className=" space-y-8 md:space-y-0 gap-6 pace-y-8 md:grid md:grid-cols-3">
-                  <div className=" space-y-6    rounded-xl  bg-[var(--surface)]">
-                    <div>
-                        <img src={Lap} alt="" className=" rounded-t-xl h-full max-h-[200px] w-full object-cover" />
-                    </div>
-                    <div className=" space-y-2 fromRight px-4 pb-4">
-                      <h3 className=" font-medium text-xl leading-4  text-black">Management</h3>
-                      <p className=" text-[#111] pb-6 text-sm">Get Globally Certified in Business Management and Book Keeping</p>
-                      <a href="" className=" text-blue-600 ">View more ...</a>
-                    </div>
-                  </div>
-                  <div className=" space-y-6     rounded-xl  bg-[var(--surface)]">
-                    <div>
-                        <img src={Com} alt="" className=" rounded-t-xl h-full max-h-[200px] w-full object-cover" />
+                  
+                  {
+                    loading && <div className=" space-y-6     rounded-xl  bg-[var(--surface)]">
+                    <div className=" h-[200px]  bg-slate-50">
+                        
                     </div>
                     <div className=" fromLeft space-y-2 px-4 pb-4">
-                      <h3 className=" font-medium text-xl  leading-4  text-black"> Computer Technology</h3>
-                      <p className=" text-[#111] pb-6 text-sm">Web and app Development at your finger tips, Learn from the professionals</p>
-                      <a href="" className=" text-blue-600 ">View more ...</a>
+                      <h3 className=" font-medium text-xl  leading-4  text-black"> </h3>
+                      <p className=" text-[#111] pb-6 text-sm"></p>
+                      <a href="" className=" text-blue-600 "></a>
                     </div>
                   </div>
-                  <div className=" space-y-6     rounded-xl  bg-[var(--surface)]">
-                    <div>
-                        <img src={FacultyTwo} alt="" className=" rounded-t-xl h-full max-h-[200px] w-full object-cover" />
+                  }
+                  { !loading &&
+                    data?.map((e:any)=> {
+                      console.log(e);
+                      
+                      return <div className=" space-y-6 rounded-xl  bg-[var(--surface)]">
+                      <div className="h-[200px]  bg-slate-50">
+                          <img src={e.data.image} alt="" className=" rounded-t-xl h-full  w-full object-cover" />
+                      </div>
+                      <div className="  space-y-2 px-4 pb-4">
+                        <h3 className=" font-medium text-xl  leading-4 text-black">{e.data.name}</h3>
+                        <p className=" text-[#111] pb-6 text-sm">{e.data.description.slice(0,201)}......</p>
+                        <Link to={`/faculty/${e.id}`} className=" text-blue-600 ">View more ...</Link>
+                      </div>
                     </div>
-                    <div className=" fromBottom space-y-2 px-4 pb-4">
-                      <h3 className=" font-medium text-xl  leading-4 text-black">Multimedia Technology</h3>
-                      <p className=" text-[#111] pb-6 text-sm">Get Globally Certified in Business Management and Book Keeping</p>
-                      <a href="" className=" text-blue-600 ">View more ...</a>
-                    </div>
-                  </div>
+                    })
+                  }
                   </div>
                 </div>
           </div>
