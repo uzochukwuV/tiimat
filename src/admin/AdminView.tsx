@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { deleteCourse, deleteFaculty, getAllCourse, getCoursesInFaculty } from "../services/read";
+import { deleteCourse, deleteFaculty, getCoursesInFaculty } from "../services/read";
 import { useEffect, useState } from "react";
 
 function AdminView() {

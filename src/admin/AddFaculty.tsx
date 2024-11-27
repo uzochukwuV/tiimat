@@ -15,9 +15,7 @@ function AddFaculty() {
       const addcoursetofaculty = (e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
 
-        addFaculty(facultyName, facultyDesc, facultyImg).then((data)=>{
-            console.log(data);
-            alert("Faculty Added")
+        addFaculty(facultyName, facultyDesc, facultyImg).then(()=>{
             setFacultyDesc("")
             setFacultyImg("")
             setFacultyName("")
