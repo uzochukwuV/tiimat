@@ -1,5 +1,4 @@
 import About from "../components/About"
-import Tutors from "../components/Tutors"
 
 
 const AboutPage = () => {

@@ -1,7 +1,7 @@
-import { ChangeEvent, FormEvent,  useEffect, useState } from "react"
+import { ChangeEvent,   useEffect, useState } from "react"
 import { addCourse, getFaculties, getAllCourse } from "../services/read";
 import { Link } from "react-router-dom";
-import useSWR from "swr";
+// import useSWR from "swr";
 
 
 
@@ -37,7 +37,7 @@ function AddCourse() {
       const updateForm=(e:ChangeEvent<HTMLInputElement>)=>{
         e.preventDefault()
         const {name, value} = e.target
-        setFormState((prev)=>{
+        setFormState((prev:any)=>{
           return {...prev, [name]:value}
         })
       }

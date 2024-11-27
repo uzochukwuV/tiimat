@@ -5,20 +5,20 @@ import IconCard from "../components/landing/IconCard";
 import About from "../components/About";
 import { Link } from "react-router-dom";
 import LandingModal from "../components/landing/LandingModal";
-import sc from "scrollreveal";
+// import sc from "scrollreveal";
 import { useEffect } from "react";
 import Learning from "../components/landing/Learning";
 
 
 export default function Landing() {
     useEffect(()=>{
-        sc().reveal(".reveal-0",  {duration:1000, delay: 200, distance:"80px", origin:"top" })
-        sc().reveal(".reveal-1",  {duration:1000, delay: 400,easing: 'cubic-bezier(0.5, 0, 0, 1)', distance:"80px", origin:"top" })
-        sc().reveal(".fromTop", {duration:1000, delay: 200, distance:"80px", origin:"top" })
-        sc().reveal(".fromBottom", {duration:1000, delay: 200, distance:"80px", origin:"bottom" })
-        sc().reveal(".fromLeft", {duration:1000, delay: 200, distance:"80px", origin:"left" })
-        sc().reveal(".fromRight", {duration:1000, delay: 200, distance:"80px", origin:"right" })
-        sc().reveal(".fromScale", {duration:1000, delay: 200, distance:"80px", origin:"right", scale:1 })
+        // sc().reveal(".reveal-0",  {duration:1000, delay: 200, distance:"80px", origin:"top" })
+        // sc().reveal(".reveal-1",  {duration:1000, delay: 400,easing: 'cubic-bezier(0.5, 0, 0, 1)', distance:"80px", origin:"top" })
+        // sc().reveal(".fromTop", {duration:1000, delay: 200, distance:"80px", origin:"top" })
+        // sc().reveal(".fromBottom", {duration:1000, delay: 200, distance:"80px", origin:"bottom" })
+        // sc().reveal(".fromLeft", {duration:1000, delay: 200, distance:"80px", origin:"left" })
+        // sc().reveal(".fromRight", {duration:1000, delay: 200, distance:"80px", origin:"right" })
+        // sc().reveal(".fromScale", {duration:1000, delay: 200, distance:"80px", origin:"right", scale:1 })
     },[])
     return (
         <>
