@@ -1,46 +1,94 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { getCoursesInFaculty } from "../services/read";
 
 export const sampleContext = createContext(null!) as any;
 function FacultyItem() {
     const loader = useLoaderData() as any;
-    const [context, setContext] = useState({name:"Victor"});
-    console.log(loader.courses);
+    console.log(loader);
     
     
     return <>
-        <sampleContext.Provider value={{context, setx:setContext}} >
+       
         <section>
-            <div className={`relative p-12`}>
-                <div className={` md:h-[240px] h-[420px]   bg-[url(${loader?.data.image})] bg-cover bg-center h-full rounded-xl w-full  `}>
+            <div className={`relative p-6 md:p-12`}>
+                <div
+                     style={{background:`url(${loader?.image})`, backgroundSize:"fill"}}
+                className={` md:h-[240px] h-[160px] grid place-items-center   bg-[url(${loader?.image})] bg-cover bg-center rounded-xl w-full  `}>
                     <div className=" z-20 w-full h-full rounded-xl px-6 bg-blue-600/20 items-center flex justify-start">
                         <div className=" max-w-xl mx-auto">
-                        <h2 className=" text-white font-bold text-center mb-4 text-4xl md:text-5xl"> {loader?.data.name}</h2>
-                        <p className=" text-gray-100 font-bold text-center text-xs">{loader?.data.description.slice(0,201)}.....</p>
+                        <h2 className=" text-white font-bold text-center mb-4 text-4xl md:text-5xl"> {loader?.name}</h2>
+                       
                         </div>
                     </div>
-                    {/* <img src={`${loader?.data.image}`} alt="" /> */}
+                  
                 </div>
                 <div className=" h-12 border-b"></div>
                 <div className=" py-6">
                     
                     <h3 className=" text-xl mb-4 text-[var(--back)]">Description</h3>
-                    <p>{loader?.data.description}</p>
+                    <p>{loader?.description}</p>
                 </div>
-                <div>
+                <div className=" min-h-[500px]">
                     <h3 className=" text-xl mb-4 text-[var(--back)]">Courses</h3>
                     <div>
-                        {loader.courses.map((e:any)=> {
-                            return <Link to={`/course/${e.id}`} style={{background:`${e.data.image} cover`}}  className={`inline-block bg-[url(${e.data.image})]  max-w-xl h-24  hover:shadow text-indigo-800 font-bold hover:text-indigo-900 px-12 grid place-items-center rounded border`}>
-                                {e.data.name}
-                            </Link>
-                        })}
+                       <CorseItemComponent id={loader.id}  />
                     </div>
                 </div>
             </div>
         </section>
-        </sampleContext.Provider>
     </>
+}
+
+
+
+
+const CorseItemComponent = ({id}:{id:string})=>{
+    const [courses, setCourses] = useState([])
+    const [loading, setloading] = useState(false)
+    useEffect(()=>{
+        setloading(true)
+        getCoursesInFaculty(id)
+            .then((data:any)=>{
+                console.log(data);
+                
+                setCourses(data)
+                setloading(false)
+            })
+    }, [id])
+    if(loading) return <>
+        {loading && courses.length <1 &&  [1,2,3,4,5,6,7].map(()=><div
+
+className="h-10 relative flex-1 hover:scale-[1.03] flex items-center gap-6 bg-slate-50 w-full rounded-xl min-w-md ">
+   <div>
+   <div  className="mask bg-slate-100 rounded-xl h-10 "></div>
+   </div>
+   <div>
+       <h2 className=" h-2 px-8 bg-slate-100">{""}</h2>
+   </div>
+</div>) }
+    </>
+    return (
+    <div className=" relative space-y-6 sm:space-y-0 sm:grid grid-cols-2 lg:grid-cols-3  gap-6">
+        
+        {
+            courses.map((data:any)=>{
+                return (
+                    <Link
+                    to={`/course/${data.id}`}
+                     className=" relative hover:scale-[1.03] w-full flex items-center gap-6 bg-slate-50 w-full h-20 sm:h-24 md:h-32 rounded-xl min-w-[320px] ">
+                        <div className="">
+                        <img src={data.image} alt=""  className="mask relative w-32 h-20 sm:h-24 md:h-32 rounded-xl object-cover "/>
+                        </div>
+                        <div>
+                            <h2>{data.name}</h2>
+                        </div>
+                    </Link>
+                )
+            })
+        }
+    </div>
+    )
 }
 
 

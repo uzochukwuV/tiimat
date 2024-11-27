@@ -25,19 +25,19 @@ const ContactPage = () => {
     }
 
   return (
-    <div className=" min-h-screen py-8 bg-[url(https://img.freepik.com/premium-photo/african-american-young-developer-wearing-headset-while-typing-security-codes_482257-26782.jpg?ga=GA1.1.1574708294.1731893172&semt=ais_hybrid)] bg-cover">
-      <div className="h-full  max-w-2xl my-8  backdrop-blur-3xl shadow-xl mx-6 backdrop-opacity-60  mx-auto shadow-md rounded-xl ">
+    <div className=" min-h-screen py-8  bg-cover">
+      <div className="h-full  max-w-2xl my-8 border   mx-6 backdrop-opacity-60  mx-auto rounded-xl ">
       <div className=" h-full z-50 pt-12">
-            <div autoFocus className=" relative mx-2  flex-1 rounded-t-xl shadow">
+            <div autoFocus className=" relative mx-2  flex-1 rounded-t-xl ">
                 
                 
                 </div>
                 <form className="h-full px-6 space-y-4">
                     <div>
-                    <h3 className=" text-3xl pb-1 text-white">TIIMAT SOLUTIONS</h3>
+                    <h3 className=" text-3xl pb-1 text-black">TIIMAT SOLUTIONS</h3>
                     <p className="text-[#ddd]">Connect with us</p>
                     </div>
-                    <div className=" *:text-[#fdfdfd] space-y-3 pb-6">
+                    <div className=" *:text-[#000] space-y-3 pb-6">
                         <div>
                             <label htmlFor="name">Your Full Name</label>
                             <input type="text" required name="name" onChange={onChange} value={formState.name || ''}  id="name" placeholder="" className="w-full px-6 bg-transparent flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />

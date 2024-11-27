@@ -33,34 +33,20 @@ function FacultyPage() {
 
         <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loader!.map((program: any, index: any) => {
+         
+            
             return (
               <Link
               to={`/faculty/${program.id}`}
                 key={`faculty-${index}`}
-                className=" space-y-6 flex-1 p-4 h-[400px] bg-[url(https://img.freepik.com/free-photo/african-american-young-programmer-wearing-headphone-while-typing-security-codes-business-website-working-rmeote-from-home-employee-programming-software-application-software-screen_482257-28569.jpg?ga=GA1.1.1574708294.1731893172&semt=ais_hybrid)] bg-cover bg-top rounded-xl "
+                style={{background:`url(${program.image})`}}
+                className={` space-y-6 flex-1 p-4 h-[120px] grid place-items-center bg-[url(${program.image})] bg-cover bg-top rounded-xl `}
               >
-                <div>
-
-                </div>
-                <div className=" space-y-2">
+      
+                <div className="">
                   <h3 className=" font-medium text-2xl text-white ">
                     {program.name}
                   </h3>
-
-
-                 <div>
-                 {program.courses[0] && program.courses.map((course: any, i: any) => {
-                    return (
-                      <Link
-                        to={`/course/${course.id}`}
-                        key={`course-${i}`}
-                        className=" text-white hover:translate-x-2 cursor-pointer hover:text-white flex justify-between items-center"
-                      >
-                        <span>{course.data.name}</span>
-                      </Link>
-                    );
-                  })}
-                 </div>
                 </div>
               </Link>
             );

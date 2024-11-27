@@ -1,6 +1,6 @@
 
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CourseModal from "../components/course/CourseModal";
 import { useEffect, useState } from "react";
 import { getSemester } from "../services/read";
@@ -16,9 +16,9 @@ const Sample = () => {
       <section>
         <div
         id="sample" 
-          className=""
+          className=" p-6 md:p-12"
         >
-          <div className={` relative bg-[url()] bg-cover bg-slate-300  h-72 border-b-2 `} style={{background:`url(${res?.data.image!})`, backgroundSize:"cover" , backgroundPosition:"center"}}>
+          <div className={` rounded-xl relative bg-[url()] bg-cover bg-slate-300  h-72 border-b-2 `} style={{background:`url(${res?.data.image!})`, backgroundSize:"cover" , backgroundPosition:"center"}}>
               <div className=" p-6 flex flex-col justify-center h-full">
                 <p className=" text-[#eee] font-bold">Course</p>
                 
@@ -45,11 +45,12 @@ const Sample = () => {
             </p>
           </div>
           <div className=" relative px-4 min-h-32 h-full md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto w-full max-w-[1240px]">
-          <div className=" py-12 w-full translate-y-1/2 backdrop-blur-sm bg-gradient-to-b from-transparent to-black/20 shadow-xl z-50 absolute bottom-0 left-0 right-0 grid place-items-center">
-                    <button className=" text-white bg-indigo-700 font-bold  rounded-xl h-14 px-8 border-0">Request Full Curriculum</button>
+          <div className="mx-6 py-12 w-full translate-y-1/2 backdrop-blur-sm bg-gradient-to-b from-transparent to-black/20  z-50 absolute bottom-0 left-0 right-0 grid place-items-center">
+                    <Link to="mailto:timat@gmail.com" className=" text-white bg-indigo-700 grid place-items-center font-bold  rounded-xl h-14 px-8 border-0">Request Full Curriculum</Link>
                 </div>
             
             {
+               res.data.semesters&&
               res.data.semesters!.map((data:any)=> <Curriculum id={data.id}  />)
             }
             {/* 3 */}
@@ -70,9 +71,7 @@ const Sample = () => {
                 Beginner Friendly
               </h4>
               <p className=" max-w-md sm:text-base text-[11px] text-white px-4 text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident quae placeat a. Corporis atque blanditiis iste
-                aliquid.
+              Our programs offer beginner-friendly courses that are designed to introduce fundamental concepts in a clear and approachable way.
               </p>
               <label
                 htmlFor="cmodal"

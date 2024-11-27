@@ -18,7 +18,9 @@ function AddFaculty() {
         addFaculty(facultyName, facultyDesc, facultyImg).then((data)=>{
             console.log(data);
             alert("Faculty Added")
-            
+            setFacultyDesc("")
+            setFacultyImg("")
+            setFacultyName("")
         })
       }
 

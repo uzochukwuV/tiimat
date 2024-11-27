@@ -13,7 +13,6 @@ const About = () => {
     setLoading(true)
     getFaculties()
       .then((data)=>{
-        console.log(data);
         setData(data)
         setLoading(false)
       })
@@ -21,12 +20,12 @@ const About = () => {
   },[])
   return (
     <> 
-      <div className="h-full flex flex-col bg-black rounded-xl  mt-12 px-6 sm:px-10 mx-4 md:mx-20 relative">
+      <div className="h-full flex flex-col bg-black rounded-xl  mt-12 px-6 sm:px-10 mx-4 md:mx-10 relative">
       <div className=" position-full absolute   rounded-xl  left-0 h-full w-full  opacity-50" style={{background:"url('https://cdn.pixabay.com/photo/2021/02/18/12/00/student-6027004_1280.jpg')", backgroundSize:"cover", backgroundPosition:"0 -50vw", backgroundRepeat:"no-repeat"}}>
         {/* <img src={BG} alt="hjh" className=" h-full w-full object-cover" /> */}
         </div>
         <div className='h-full text-white relative  rounded-xl flex-1 py-16 gap-8  flex flex-col md:flex-row justify-around '>
-          <div className="fromRight opacity-100 translate-x-0">
+          <div className=" opacity-100 translate-x-0">
             <div className="*:text-start  max-w-2xl space-y-2  ">
               <h2 className=" text-3xl md:text-4xl ">
                 Our Vision <br /> 
@@ -41,7 +40,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className=" fromLeft  flex">
+          <div className="   flex">
             <div className="*  max-w-2xl space-y-2 me-0">
               <h2
                 className=" text-3xl md:text-4xl "
@@ -59,7 +58,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="fromBottom  ">
+          <div className="  ">
             <div className="*:text-start  max-w-2xl space-y-2">
               <h2 className=" text-3xl text-white md:text-4xl ">
                Tiimat 
@@ -76,7 +75,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className=" py-16 px-6 sm:px-10 md:px-16 xl:px-24">
+      <div className=" py-16 px-6 sm:px-10 md:px-10 xl:px-24">
         <div className="h-full">
           <div className="h-full ">
                 {/* <h2 className=" bg-red-300 font-semibold text-center text-3xl font-edu">Business, Tech and Multimedia <br></br> Solutions</h2> */}
@@ -85,28 +84,30 @@ const About = () => {
                   <div className=" space-y-8 md:space-y-0 gap-6 pace-y-8 md:grid md:grid-cols-3">
                   
                   {
-                    loading && <div className=" space-y-6     rounded-xl  bg-[var(--surface)]">
+                    loading && [1,2,3].map(()=><div className=" animate-pulse space-y-6     rounded-xl  bg-[var(--surface)]">
                     <div className=" h-[200px]  bg-slate-50">
                         
                     </div>
                     <div className=" fromLeft space-y-2 px-4 pb-4">
-                      <h3 className=" font-medium text-xl  leading-4  text-black"> </h3>
-                      <p className=" text-[#111] pb-6 text-sm"></p>
-                      <a href="" className=" text-blue-600 "></a>
+                      <h3 className=" bg-slate-50 h-2 font-medium text-xl  leading-4  text-black"> </h3>
+                      <p className=" bg-slate-50 h-2 text-[#111] pb-6 text-sm"></p>
+                      <a href="" className="bg-slate-50 h-2 text-blue-600 "></a>
                     </div>
-                  </div>
+                  </div>)
                   }
                   { !loading &&
                     data?.map((e:any)=> {
                       console.log(e);
                       
                       return <div className=" space-y-6 rounded-xl  bg-[var(--surface)]">
+                      <Link to={`/faculty/${e.id}`} >
                       <div className="h-[200px]  bg-slate-50">
-                          <img src={e.data.image} alt="" className=" rounded-t-xl h-full  w-full object-cover" />
-                      </div>
+                          <img src={e.image} alt="" className=" rounded-t-xl h-full  w-full object-cover" />
+                          </div>
+                      </Link>
                       <div className="  space-y-2 px-4 pb-4">
-                        <h3 className=" font-medium text-xl  leading-4 text-black">{e.data.name}</h3>
-                        <p className=" text-[#111] pb-6 text-sm">{e.data.description.slice(0,201)}......</p>
+                        <h3 className=" font-medium text-xl  leading-4 text-black">{e.name}</h3>
+                        <p className=" text-[#111] pb-6 text-sm">{e.description.slice(0,180)}......</p>
                         <Link to={`/faculty/${e.id}`} className=" text-blue-600 ">View more ...</Link>
                       </div>
                     </div>
