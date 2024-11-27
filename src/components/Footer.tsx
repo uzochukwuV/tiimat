@@ -1,12 +1,18 @@
-import { useState } from "react";
-import { sendMessage } from "../services/read";
+import { useEffect, useState } from "react";
+import { getAllCourse, sendMessage } from "../services/read";
 import { Link } from "react-router-dom";
 
 
 export const Footer = () => {
   const [formState, setFormState] = useState({}) as any;
+  const [courses, setCourses] = useState([]) as any;
     
-
+    useEffect(()=>{
+      getAllCourse()
+        .then((data)=>{
+          setCourses(data)
+        })
+    },[])
     const submitForm = ()=> {
         console.log(formState);
         sendMessage("Subscription", "", formState.email)
@@ -69,31 +75,23 @@ export const Footer = () => {
             </div>
           <div className=" flex-1 footer-link  bg-[var(--background)] rounded-xl font-medium">
               <div className="grid gap-4 p-8 row-gap-6 col-gap-8  grid-cols-2">
+                
                 <div>
-                  <span className=" text-black font-medium text-xl mb-4 block">Solutions</span>
-                  <ul className="  text-sm space-y-1 text-[#999]">
-                    <li className=" hover:underline underline-offset-2">Programs</li>
-                    <li><Link to={"/faculty"}>Faculties</Link></li>
-                    <li>Courses</li>
-                    <li>Programs</li>
-                  </ul>
-                </div>
-                <div>
-                <span className=" text-black font-medium text-xl mb-4 block">Company</span>
-                  <ul className=" text-sm space-y-1 text-[#999]">
+                <span className=" text-black font-normal mb-4 block">Company</span>
+                  <ul className=" text-sm space-y-1 text-[#444]">
                     <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/contact-us"}>Conatct Us</Link></li>
+                    <li><Link to={"/faculty"}>Faculties</Link></li>
+                    <li><Link to={"/contact-us"}>Contact Us</Link></li>
                     <li><Link to={"/about-us"}>About Us</Link></li>
-                    <li>Privacy Policy</li>
+                    
                   </ul>
                 </div>
                 <div>
-                <span className=" text-black font-medium text-xl mb-4 block">Company</span>
-                  <ul className=" text-sm space-y-1 text-[#999]">
-                  <Link to={"/admin"} >Company 1</Link>
-                    <li>Contact Us</li>
-                    <li>About Us</li>
-                    <li>Privacy Policy</li>
+                <span className=" text-black font-normal mb-4 block">Departments</span>
+                  <ul className=" text-sm space-y-1 text-[#444]">
+                    {
+                      courses.map((course:any)=><li><Link to={`/course/${course.id}`}>{course.name}</Link></li>)
+                    }
                   </ul>
                 </div>
               </div>
