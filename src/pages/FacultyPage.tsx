@@ -13,11 +13,12 @@ function FacultyItem() {
         <section>
             <div className={`relative p-6 md:p-12`}>
                 <div
-                     style={{background:`url(${loader?.image})`, backgroundSize:"fill"}}
-                className={` md:h-[240px] h-[160px] grid place-items-center   bg-[url(${loader?.image})] bg-cover bg-center rounded-xl w-full  `}>
+                    
+                className={` md:h-[240px] h-[160px] grid place-items-center relative   rounded-xl w-full  `}>
+                    <img src={loader?.image} alt="" className="w-full h-full  absolute bottom-0 top-0 rounded-xl left-0 right-0 object-cover" />
                     <div className=" z-20 w-full h-full rounded-xl px-6 bg-blue-600/20 items-center flex justify-start">
                         <div className=" max-w-xl mx-auto">
-                        <h2 className=" text-white font-bold text-center mb-4 text-4xl md:text-5xl"> {loader?.name}</h2>
+                        <h2 className=" text-white font-bold text-center mb-4 text-4xl md:text-5xl z-50"> {loader?.name}</h2>
                        
                         </div>
                     </div>
