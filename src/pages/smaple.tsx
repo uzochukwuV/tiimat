@@ -1,9 +1,9 @@
 
 
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import CourseModal from "../components/course/CourseModal";
 import { useEffect, useState } from "react";
-import { getAllCurriculum, getAllCurriculumInSemester, getAllSemesterInCourse, getSemester } from "../services/read";
+import { getAllCurriculum, getAllCurriculumInSemester, getAllSemesterInCourse } from "../services/read";
 
 const Sample = () => {
   const res = useLoaderData() as any;
@@ -101,6 +101,7 @@ const Curriculum =({id}:any)=> {
           setLoading(false)
         })
   },[id])
+  if(loading) "....."
   return  data.map((curriculum:any)=>{
     return  <div className=" py-8">
     <h3 className=" mb-4 font-bold">{curriculum.name}</h3>

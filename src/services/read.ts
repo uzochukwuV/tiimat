@@ -1,6 +1,5 @@
 import {
   addDoc,
-  arrayUnion,
   collection,
   doc,
   getDoc,
@@ -187,7 +186,7 @@ export const sendMessage = async (
   location?: string,
   info?: string
 ) => {
-  const createMessage = await addDoc(collection(db, "Message"), {
+  await addDoc(collection(db, "Message"), {
     title: title,
     name: name || "",
     email: email || "",
