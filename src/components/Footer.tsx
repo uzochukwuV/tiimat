@@ -83,6 +83,7 @@ export const Footer = () => {
                     <li><Link to={"/faculty"}>Faculties</Link></li>
                     <li><Link to={"/contact-us"}>Contact Us</Link></li>
                     <li><Link to={"/about-us"}>About Us</Link></li>
+                    <li><Link to={"/admin/course/semester/add"} >Go to admin</Link></li>
                     
                   </ul>
                 </div>

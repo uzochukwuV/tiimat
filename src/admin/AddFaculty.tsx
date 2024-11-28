@@ -39,11 +39,7 @@ function AddFaculty() {
 
     return (
         <>
-        <div className=" flex justify-end gap-2 z-50 absolute top-20 *:text-blue-400 *:underline">
-        <Link to={"/admin/course/edit/curriculum"} >Edit curriculum</Link>
-        <Link to={"/admin/course/add"} >Add Course</Link>
-        <Link to={"/admin/course/edit/"} >Edit course</Link>
-        </div>
+        
          <h1 className=" -translate-y-8 text-3xl">Add Faculty</h1>
             <form onSubmit={addcoursetofaculty} method="post">
                 

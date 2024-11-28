@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { addCurriculum } from "../services/read";
-import { Link, useLoaderData } from "react-router-dom";
+import { addCurriculum, delCur } from "../services/read";
+import {  useLoaderData } from "react-router-dom";
 
 
 
@@ -13,8 +13,9 @@ function AddCurriculum() {
    
     
     useEffect(()=>{
-      console.log(loader![0].id);
-      setchange(loader![0].id)
+      console.log(loader);
+      
+    setchange(loader![0]?.id)
   },[])
 
    
@@ -46,11 +47,7 @@ function AddCurriculum() {
 
     return (
         <>
-        <div className=" flex justify-end gap-2 z-50 absolute top-20 *:text-blue-400 *:underline">
-        <Link to={"/admin/course/edit/curriculum"} >Edit curriculum</Link>
-        <Link to={"/admin/course/add"} >Add Course</Link>
-        <Link to={"/admin/course/edit/"} >Edit course</Link>
-        </div>
+       
          <h1 className=" -translate-y-8 text-3xl">Add Curriculum</h1>
             <form onSubmit={addCurriculumToCourse} method="post">
             <label htmlFor="topics">Choose Course to add Curriculum</label>
@@ -73,6 +70,16 @@ function AddCurriculum() {
                {/* <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/filled-sent.png" alt="filled-sent"/> */}
               
             </form>
+
+            {
+              loader.map((data)=>{
+                return <div>
+                    <p>{data?.data.title}</p>
+                    <p>{data?.data.semesterId||"no id"}</p>
+                    <button onClick={()=>delCur(data?.id)}>del </button>
+                </div>
+              })
+            }
         </>
     )
 }

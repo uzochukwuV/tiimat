@@ -17,6 +17,7 @@ import AddFaculty from "./admin/AddFaculty";
 import AdminView from "./admin/AdminView";
 import FacultyItem from "./pages/FacultyPage";
 import AddSemester from "./admin/AddSemester";
+import { AdminLayout } from "./admin/layout";
 
 function Home() {
   return (
@@ -68,45 +69,52 @@ const App = () => {
       ],
     },
     {
-      path:"admin/course/add",
-      element: <AddCourse />,
-      loader: async () => {
-        return await getAllCourse();
-      },
-    },
-    {
-      path:"admin/course/edit",
-      element: <EditCourse />,
-      loader: async () => {
-        return await getAllCourse();
-      },
-    },
-    {
-      path:"admin/course/semester/add",
-      element: <AddSemester />,
-      loader: async () => {
-        return await getAllCourse();
-      },
-    },
-    {
-      path:"admin/course/edit/curriculum",
-      element: <AddCurriculum />,
-      loader: async () => {
-        return await getAllSemester();
-      },
-    },
-    {
-      path:"admin/faculty/add",
-      element: <AddFaculty />,
-      
-    },
-    {
       path:"admin/",
-      element: <AdminView />,
-      loader: async () => {
-        return await getFaculties();
-      },
-     
+      element: <AdminLayout />,
+      children:[
+        {
+          path:"",
+          element: <AdminView />,
+          loader: async () => {
+            return await getFaculties();
+          },
+         
+        },
+        {
+          path:"course/add",
+          element: <AddCourse />,
+          loader: async () => {
+            return await getAllCourse();
+          },
+        },
+        {
+          path:"course/edit",
+          element: <EditCourse />,
+          loader: async () => {
+            return await getAllCourse();
+          },
+        },
+        {
+          path:"course/semester/add",
+          element: <AddSemester />,
+          loader: async () => {
+            return await getAllCourse();
+          },
+        },
+        {
+          path:"course/edit/curriculum",
+          element: <AddCurriculum />,
+          loader: async () => {
+            return await getAllSemester();
+          },
+        },
+        {
+          path:"faculty/add",
+          element: <AddFaculty />,
+          
+        },
+        
+      ]
     },
     {
       path: "*",

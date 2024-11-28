@@ -7,30 +7,13 @@ function AdminView() {
 
   if (!loader) return ".............";
 
-  return <div className="absolute top-0 right-0 left-0 bottom-0 flex flex-col ">
-    <div className="h-14">
-
-    </div>
-    <div className="sm:grid sm:grid-cols-4 w-full flex-1 ">
-      <div className=" col-span-1  sm:ps-12 *:text-sm space-x-3 *:bg-blue-50 *:rounded-xl *:px-6 *:py-2 space-y-4 *:block flex md:flex-col flex-wrap ">
-        <></>
-        <Link to={"/admin/course/edit/curriculum"} >Edit curriculum</Link>
-        <Link to={"/admin/course/add"} >Add Course</Link>
-        <Link to={"/admin/course/edit/"} >Edit course</Link>
-        <Link to={"/admin/faculty/add"} >Add Faculty(dont add) </Link>
-        <Link to={"/admin"}>Admin</Link>
-      </div>
-      <div className=" col-span-3 px-6">
-        <h2 className=" mb-4 text2xl">All faculties</h2>
-        <AllFaculty data={loader} />
-        <h2 className=" mt-24 mb-4 text2xl">All Courses</h2>
-        
-        {loader.map((data)=> <FacultyCourses key={data.id} data={data.id} />)}
-      </div>
-    </div>
-  </div>
-
-
+  return <div className=" col-span-3 px-6 py-8">
+  <h2 className=" mb-4 text-2xl font-bold">All faculties</h2>
+  <AllFaculty data={loader} />
+  <h2 className=" mt-24 mb-4 text2xl">All Courses</h2>
+  
+  {loader.map((data)=> <FacultyCourses key={data.id} data={data.id} />)}
+</div>
 }
 
 function AllFaculty({data}:any) {
