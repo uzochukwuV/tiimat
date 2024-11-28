@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { addCurriculum, delSemester } from "../services/read";
+import { addCurriculum } from "../services/read";
 import {  useLoaderData } from "react-router-dom";
 
 

@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import { deleteCourse, deleteFaculty, getCoursesInFaculty } from "../services/read";
 import { useEffect, useState } from "react";
 

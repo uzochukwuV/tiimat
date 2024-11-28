@@ -5,7 +5,7 @@ import {
   useState,
 } from "react";
 import {  updateCourse } from "../services/read";
-import { Link, useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 
 
 function EditCourse() {

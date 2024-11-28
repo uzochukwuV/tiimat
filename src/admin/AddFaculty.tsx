@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import {  addFaculty } from "../services/read";
-import { Link } from "react-router-dom";
 
 
 
