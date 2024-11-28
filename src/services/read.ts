@@ -166,7 +166,7 @@ export const addCurriculum = async (
   topics: string
 ) => {
   try {
-    await addDoc(collection(db, SEMESTER), {
+    await addDoc(collection(db, CURRICULUM), {
       title: title,
       topics: topics,
       semesterId:document
@@ -258,10 +258,8 @@ export const getAllSemesterInCourse= async (document: string) => {
 export const getAllCurriculumInSemester =async (document: string) => {
   try {
     const ref = collection(db, CURRICULUM);
-    const q = query(ref, where("semesterId", "!=", document))
+    const q = query(ref, where("semesterId", "==", document))
     const res= (await getDocs(q));
-    console.log(res.docs);
-    
     return res.docs.map((data)=>{
       return {...data.data(), id: data.id}
     })
@@ -275,7 +273,20 @@ export const getAllCurriculum=async()=>{
   return (await getDocs(collection(db,CURRICULUM))).docs.map((data)=>data.data())
 }
 
-export const delCur=async(id:string)=>{
+export const delSemester=async(id:string)=>{
+  console.log("deleting ", id);
+  
+  try {
+    const docdel = await deleteDoc(doc(db, SEMESTER, id));
+    console.log(docdel);
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+
+export const delCurriculum=async(id:string)=>{
   console.log("deleting ", id);
   
   try {

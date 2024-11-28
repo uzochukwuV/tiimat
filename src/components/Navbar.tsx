@@ -52,8 +52,8 @@ const Navbar = () => {
       <nav
         className={` box fixed top-0 left-0 right-0 z-50  backdrop:blur-md ${
           location.pathname.includes("course")
-            ? "bg-[var(--background)]  shadow-md"
-            : "bg-[var(--background)] shadow-sm"
+            ? "bg-[var(--background)] border-b "
+            : "bg-[var(--background)] "
         } `}
       >
         {/* <Banner /> */}

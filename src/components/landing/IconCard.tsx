@@ -6,7 +6,7 @@ function IconCard(props:PropsWithChildren & {name:string}) {
         <>
         <div className="relative">
                         {/* Experienced faculty, modern facility, industrial partnership, student suppport service */}
-                        <div className=" h-[130px] mb-12 m-4 rounded-xl flex flex-col gap-4 bg-[--surface] p-4">
+                        <div className=" h-[130px] mb-12 m-4 rounded-xl flex flex-col gap-4 bg-zinc-50 p-4">
                             <div className=" flex gap-6 justify-start items-center">
                                 <span className="">
                                 

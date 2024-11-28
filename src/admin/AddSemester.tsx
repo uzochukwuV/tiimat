@@ -25,7 +25,7 @@ function AddSemester() {
       const selectChange =(e:ChangeEvent<HTMLSelectElement>)=>{
         e.preventDefault()
         setchange(e.target.value);
-        console.log(onChange);
+        console.log(e.target.value);
         
       }
       const updateName=(e:ChangeEvent<HTMLInputElement>)=>{

@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { addCurriculum, delCur } from "../services/read";
+import { addCurriculum, delSemester } from "../services/read";
 import {  useLoaderData } from "react-router-dom";
 
 
@@ -71,15 +71,15 @@ function AddCurriculum() {
               
             </form>
 
-            {
+            {/* {
               loader.map((data)=>{
-                return <div>
-                    <p>{data?.data.title}</p>
-                    <p>{data?.data.semesterId||"no id"}</p>
-                    <button onClick={()=>delCur(data?.id)}>del </button>
+                return <div id={data.id} className=" grid grid-cols-2 mt-6">
+                    <p>{data?.data.name}</p>
+                    <p>{data?.data.courseId||"no id"}</p>
+                    <button onClick={()=>delSemester(data?.id)} className=" btn border bg-red-200">del </button>
                 </div>
               })
-            }
+            } */}
         </>
     )
 }

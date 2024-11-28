@@ -25,17 +25,13 @@ const ContactPage = () => {
     }
 
   return (
-    <div className=" min-h-screen py-8  bg-cover">
+    <div className=" min-h-screen py-8 bg-zinc-50  bg-cover">
       <div className="h-full  max-w-2xl my-8 border   mx-6 backdrop-opacity-60  mx-auto rounded-xl ">
-      <div className=" h-full z-50 pt-12">
-            <div autoFocus className=" relative mx-2  flex-1 rounded-t-xl ">
-                
-                
-                </div>
-                <form className="h-full px-6 space-y-4">
+      <div className=" h-full z-50 pt-12 bg-white rounded-xl">
+                <form className="h-full bg-white px-6 space-y-4 ">
                     <div>
-                    <h3 className=" text-3xl pb-1 text-black">TIIMAT SOLUTIONS</h3>
-                    <p className="text-[#ddd]">Connect with us</p>
+                    <h3 className=" text-3xl pb-1 text-[#020202]">TIIMAT SOLUTIONS</h3>
+                    <p className="text-[#020202]">Connect with us</p>
                     </div>
                     <div className=" *:text-[#000] space-y-3 pb-6">
                         <div>

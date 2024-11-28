@@ -99,7 +99,7 @@ const About = () => {
                     data?.map((e:any)=> {
                       console.log(e);
                       
-                      return <div className=" space-y-6 rounded-xl  bg-[var(--surface)]">
+                      return <div className=" space-y-6 rounded-xl  bg-zinc-50">
                       <Link to={`/faculty/${e.id}`} >
                       <div className="h-[200px]  bg-slate-50">
                           <img src={e.image} alt="" className=" rounded-t-xl h-full  w-full object-cover" />
