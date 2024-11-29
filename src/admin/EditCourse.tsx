@@ -56,7 +56,7 @@ function EditCourse() {
     <>
     
       <h1 className=" -translate-y-8 text-3xl">Edit course</h1>
-      <form onSubmit={UpdateCourse} method="post">
+      <form onSubmit={UpdateCourse}>
         <p> Choose Course</p>
         <select
           onChange={selectChange}
