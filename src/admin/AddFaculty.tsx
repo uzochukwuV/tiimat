@@ -40,7 +40,7 @@ function AddFaculty() {
         <>
         
          <h1 className=" -translate-y-8 text-3xl">Add Faculty</h1>
-            <form onSubmit={addcoursetofaculty} method="post">
+            <form onSubmit={addcoursetofaculty}>
                 
                 <p>Faculty Name</p>
                 <input value={facultyName} onChange={updateName} type="text" placeholder="Faculty name" className="w-[80vw] mb-4 px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]" />
