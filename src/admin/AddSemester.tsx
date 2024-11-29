@@ -43,7 +43,7 @@ function AddSemester() {
         <>
         
          <h1 className=" -translate-y-8 text-3xl">Add Semester</h1>
-            <form onSubmit={addSemesterToCourse} method="post">
+            <form onSubmit={addSemesterToCourse} >
             <label htmlFor="topics">Choose Course to add Semester</label>
                 <select onChange={selectChange} value={onChange} name="" id="" className=" px-4 h-14 w-full mb-8 block bg-slate-50">
                     {
