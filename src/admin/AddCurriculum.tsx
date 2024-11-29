@@ -49,7 +49,7 @@ function AddCurriculum() {
         <>
        
          <h1 className=" -translate-y-8 text-3xl">Add Curriculum</h1>
-            <form onSubmit={addCurriculumToCourse} method="post">
+            <form onSubmit={addCurriculumToCourse}>
             <label htmlFor="topics">Choose Course to add Curriculum</label>
                 <select onChange={selectChange} value={onChange} name="" id="" className=" px-4 h-14 w-full mb-8 block bg-slate-50">
                     {
