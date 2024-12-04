@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 // import Banner from "./Banner";
 import { getFaculties } from "../services/read";
 
+
 const Navbar = () => {
   const location = useLocation();
   const [bodyHasDark, setDark] = useState(false);

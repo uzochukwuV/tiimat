@@ -1,5 +1,8 @@
 import { ChangeEvent,   useEffect, useState } from "react"
 import { addCourse, getFaculties, getAllCourse } from "../services/read";
+import { useLoaderData } from "react-router-dom";
+import { DataTable } from "./data/data-table";
+import { Course, courseColumns } from "./data/columns";
 // import useSWR from "swr";
 
 
@@ -105,3 +108,11 @@ function AddCourse() {
 }
 
 export default AddCourse;
+
+
+export function CourseAdmin() {
+  const loader = useLoaderData() as Course[];
+  return (<>
+      <DataTable columns={courseColumns} data={loader} />
+  </>)
+}

@@ -44,6 +44,18 @@ export const getFaculties = async () => {
   }
 };
 
+export const getAdminFacultyData = async () => {
+  try {
+    const res = await getDocs(collection(db, FACULTY));
+    return res.docs.map((data)=>{
+      return {...data.data(), id: data.id}
+    })
+  } catch (error) {
+    console.log(error);
+    
+  }
+};
+
 export const getCoursesInFaculty = async (document:string) => {
 try {
   const ref = collection(db, COURSE );

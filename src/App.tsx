@@ -11,13 +11,15 @@ import Sample from "./pages/smaple";
 import Landing from "./pages/Landing";
 import { getAllCourse, getAllSemester, getCourse, getFaculties, getFaculty } from "./services/read";
 import EditCourse from "./admin/EditCourse";
-import AddCourse from "./admin/AddCourse";
+import AddCourse, {CourseAdmin} from "./admin/AddCourse";
 import AddCurriculum from "./admin/AddCurriculum";
-import AddFaculty from "./admin/AddFaculty";
+import AddFaculty, { FacultyAdmin } from "./admin/AddFaculty";
 import AdminView from "./admin/AdminView";
 import FacultyItem from "./pages/FacultyPage";
 import AddSemester from "./admin/AddSemester";
 import { AdminLayout } from "./admin/layout";
+import {Dashboard} from "./admin/Dashboard"
+import { SidebarProvider } from "./components/ui/sidebar";
 
 function Home() {
   return (
@@ -67,6 +69,26 @@ const App = () => {
           element: <ContactPage />,
         },
       ],
+    },
+    {
+      path:"dashboard/",
+      element: <Dashboard />,
+      children:[
+        {
+          path:"",
+          element:<FacultyAdmin />,
+          loader: async()=>{
+            return await getFaculties()
+          }
+        },
+        {
+          path:"course",
+          element:<CourseAdmin />,
+          loader: async()=>{
+            return getAllCourse()
+          }
+        }
+      ]
     },
     {
       path:"admin/",
@@ -124,7 +146,9 @@ const App = () => {
 
   return (
     <div>
+      <SidebarProvider>
       <RouterProvider router={router} />
+      </SidebarProvider>
     </div>
   );
 };

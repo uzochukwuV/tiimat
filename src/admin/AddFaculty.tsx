@@ -1,5 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import {  addFaculty } from "../services/read";
+import { DataTable } from "./data/data-table";
+import { Faculty, facultyColums } from "./data/columns";
+import { useLoaderData } from "react-router-dom";
 
 
 
@@ -57,3 +60,11 @@ function AddFaculty() {
 }
 
 export default AddFaculty;
+
+
+export function FacultyAdmin() {
+  const loader = useLoaderData() as Faculty[];
+  return (<>
+      <DataTable columns={facultyColums} data={loader} />
+  </>)
+}
