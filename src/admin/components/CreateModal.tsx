@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
+import { LoaderCircle } from "lucide-react"
 
 export function CreateModel({data, action}:any) {
   const [open, setOpen] = React.useState(false)
@@ -74,20 +75,21 @@ export function CreateModel({data, action}:any) {
 
 function ProfileForm({ className, data, action }: React.ComponentProps<"form"> & {data:any, action:any}) {
   const [formState, setFormState] = React.useState(data)
+  const [loading, setLoading] = React.useState(false)
   const keys = Object.keys(data)
   console.log(keys)
   const handleSubmit=async(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    console.log(formState);
+    setLoading(true)
+
     
-    const res = await action({payload:formState});
-    console.log(res);
-    
-    if(res.error){
-      toast("An error Occured, please try again or check your internet")
-    }else{
-      toast("Update Successfull")
-    }
+try {
+  await action({payload:formState});
+  toast("Update Successfull")
+} catch (error) {
+  toast("An error Occured, please try again or check your internet")
+}
+setLoading(false)
   }
 
   const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -107,7 +109,7 @@ function ProfileForm({ className, data, action }: React.ComponentProps<"form"> &
         </div>
         })
       }
-      <Button type="submit">Save changes</Button>
+      <Button disabled={loading} type="submit">Save changes  {loading && <LoaderCircle />} </Button>
     </form>
   )
 }
