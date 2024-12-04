@@ -87,7 +87,7 @@ export const deleteAdminCurriculum= async({payload}:{payload:any})=>{
     console.log(payload)
     try {
         const alldocs = payload.map((item:any)=> {
-            return deleteDoc(doc(db, COURSE, item.id))
+            return deleteDoc(doc(db, CURRICULUM, item.id))
         })
         return await Promise.all(alldocs)
     } catch (error) {
