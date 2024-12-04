@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { LoaderCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export function UpdateModal({ data, action }: any) {
   const [open, setOpen] = React.useState(false);
@@ -83,7 +83,7 @@ function ProfileForm({
   const [formState, setFormState] = React.useState(data);
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,7 +92,7 @@ function ProfileForm({
     try {
       await action({ payload: formState });
       toast("Update Successfull");
-      navigate(0);
+      // navigate(0);
     } catch (error) {
       toast("An error Occured, please try again or check your internet");
     }

@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { LoaderCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export function CreateModal({ data, action, optionInput, id }: any) {
   const [open, setOpen] = React.useState(false);
@@ -92,7 +92,7 @@ function CreateForm({
   const [formState, setFormState] = React.useState({...data}) as any;
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log("input", optionInput)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -102,7 +102,7 @@ function CreateForm({
     try {
       await action({ payload: formState });
       toast("Created Successfull");
-        navigate(0)
+        // navigate(0)
     } catch (error) {
       toast("An error Occured, please try again or check your internet");
     }

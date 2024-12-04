@@ -77,7 +77,10 @@ export const deleteAdminCourses= async({payload}:{payload:any})=>{
 
 export const createAdminCurriculum= async({payload}:any)=>{
     try {
-        await addDoc(collection(db, CURRICULUM), payload)
+        await addDoc(collection(db, CURRICULUM), {
+            ...payload,
+            createdAt: new Date()
+        })
     } catch (error) {
         throw error
     }

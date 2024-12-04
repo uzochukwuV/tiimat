@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { addCurriculum, getAllSemester } from "../services/read";
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import { Curriculum, curriculumColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
 import { createAdminCurriculum, deleteAdminCurriculum } from "@/services/actions";
@@ -93,7 +93,7 @@ export default AddCurriculum;
 
 export function CurriculumAdmin() {
   const loader = useLoaderData() as Curriculum[];
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [option, setOption] = useState({})
 

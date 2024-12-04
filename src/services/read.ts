@@ -8,6 +8,7 @@ import {
   deleteDoc,
   query,
   where,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -282,7 +283,8 @@ export const getAllCurriculumInSemester =async (document: string) => {
 };
 
 export const getAllCurriculum=async()=>{
-  return (await getDocs(collection(db,CURRICULUM))).docs.map((data)=>{
+  const q = query(collection(db,CURRICULUM), orderBy("createdAt"))
+  return (await getDocs(q)).docs.map((data)=>{
     return {...data.data(), id: data.id}
   })
 }
