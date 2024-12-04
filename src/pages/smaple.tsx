@@ -30,7 +30,7 @@ const Sample = () => {
                 
                   <h1 className=" text-white text-3xl font-bold z-50 ">{res?.name} Programme Info</h1>
                   <div className=" z-20 mt-10">
-                    <p className=" text-indigo-700 font-bold text-2xl"><span className="line-through">N</span> {res.price || "no price set"}</p>
+                    <p className=" text-[#2f2f2f] font-bold text-5xl"><span className="line-through">N</span> {res.price || "no price set"}</p>
                   </div>
               </div>
           </div>
@@ -132,8 +132,8 @@ function CurriculumItem({params}:any) {
         })
   },[params])
     if(loading) "loading ......."
-      return data.map((item:any)=>(
-        <div className=" space-y-4 mt-4">
+      return data.map((item:any, i:any)=>(
+        <div id={i} className=" space-y-4 mt-4">
     <div className=" relative">
     </div>
     <div className=" relative space-y-4">
