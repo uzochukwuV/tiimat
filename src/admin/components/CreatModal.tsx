@@ -21,17 +21,25 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { LoaderCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export function CreateModal({ data, action }: any) {
+export function CreateModal({ data, action, optionInput, id }: any) {
   const [open, setOpen] = React.useState(false);
   // const isDesktop = useMediaQuery("(min-width: 768px)")
   const isDesktop = true;
-
+  
+  console.log("input", optionInput)
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
@@ -45,7 +53,7 @@ export function CreateModal({ data, action }: any) {
               Create new Item here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
-          <CreateForm data={data} action={action} />
+          <CreateForm data={data} action={action} optionInput={optionInput} id={id} />
         </DialogContent>
       </Dialog>
     );
@@ -63,7 +71,7 @@ export function CreateModal({ data, action }: any) {
             Create new item here. Click save when you're done.
           </DrawerDescription>
         </DrawerHeader>
-        <CreateForm data={data} action={action} className="px-4" />
+        <CreateForm data={data} action={action} optionInput={optionInput} id={id} className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
@@ -78,11 +86,14 @@ function CreateForm({
   className,
   data,
   action,
-}: React.ComponentProps<"form"> & { data: any; action: any }) {
-  const [formState, setFormState] = React.useState(data);
+  id,
+  optionInput
+}: React.ComponentProps<"form"> & { data: any; action: any, optionInput?:any, id?:string }) {
+  const [formState, setFormState] = React.useState({...data}) as any;
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
   const navigate = useNavigate();
+  console.log("input", optionInput)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -105,11 +116,35 @@ function CreateForm({
       return { ...prev, [name]: value };
     });
   };
+  const handleChangeSelect = (value:any) => {
+    setFormState((prev: any) => {
+      return { ...prev, [id!] : value };
+    });
+  };
   return (
     <form
       onSubmit={handleSubmit}
       className={cn("grid items-start gap-4", className)}
     >
+      {
+        optionInput && (
+          <Select onValueChange={handleChangeSelect} >
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Theme" color="white" className="text-black" />
+  </SelectTrigger>
+  <SelectContent>
+    {
+      optionInput.map((input:any)=>(
+        <SelectItem key={input.id} value={input.id}>
+          <p className=" text-black">{input.name|| input.title}</p>
+        </SelectItem>
+      ))
+    }
+   
+  </SelectContent>
+</Select>
+        )
+      }
       {keys.map((item) => {
         return (
           <div key={item} className="grid gap-2">

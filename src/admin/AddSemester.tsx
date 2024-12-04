@@ -1,5 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from "react"
-import { addSemester } from "../services/read";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react"
+import { addSemester, getAllCourse } from "../services/read";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Trimester, trimesterColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
@@ -81,6 +81,15 @@ export default AddSemester;
 export function TrimesterAdmin() {
   const loader = useLoaderData() as Trimester[];
   const navigate = useNavigate()
+
+  const [option, setOption] = useState({})
+
+  useEffect(()=>{
+    getAllCourse()
+      .then((data:any)=>{
+        setOption(data)
+      })
+  }, [])
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
     try {
@@ -95,6 +104,6 @@ export function TrimesterAdmin() {
   }
   
   return (<>
-      <DataTable columns={trimesterColumns} data={loader} deleteItems={handleDelete} create={createAdminTimester} />
+      <DataTable columns={trimesterColumns} data={loader} deleteItems={handleDelete} create={createAdminTimester} optionInput={option} id="courseId"  />
   </>)
 }

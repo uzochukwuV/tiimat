@@ -115,6 +115,14 @@ export default AddCourse;
 
 export function CourseAdmin() {
   const loader = useLoaderData() as Course[];
+  const [faculty, setfaculty] = useState({})
+
+  useEffect(()=>{
+    getFaculties()
+      .then((data:any)=>{
+        setfaculty(data)
+      })
+  }, [])
   const navigate = useNavigate()
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
@@ -129,6 +137,6 @@ export function CourseAdmin() {
    
   }
   return (<>
-      <DataTable columns={courseColumns} data={loader} create={createAdminCourse} deleteItems={handleDelete} />
+      <DataTable columns={courseColumns} data={loader} create={createAdminCourse} deleteItems={handleDelete} optionInput={faculty} id="facultyId" />
   </>)
 }

@@ -36,7 +36,9 @@ export function DataTable<TData, TValue>({
   data,
   create,
   deleteItems,
-}: DataTableProps<TData, TValue> & {create?: any, deleteItems?:any}) {
+  optionInput,
+  id
+}: DataTableProps<TData, TValue> & {create?: any, deleteItems?:any, optionInput?:any, id?:any}) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [rowSelection, setRowSelection] = React.useState({});
   const table = useReactTable({
@@ -83,7 +85,7 @@ export function DataTable<TData, TValue>({
                 );
                 })}
                 <TableHead role="none" className=" flex absolute right-0 top-2 gap-4">
-                  <CreateModal key={table.getHeaderGroups()[0].id} data={dataItem} action={create} />
+                  <CreateModal key={table.getHeaderGroups()[0].id} data={dataItem} action={create} optionInput={optionInput} id={id} />
                    {
                     Object.keys(rowSelection).length >0 &&  <Button className=" bg-red-700 hover:bg-red-900 text-white" onClick={(e)=>{
                       e.preventDefault()

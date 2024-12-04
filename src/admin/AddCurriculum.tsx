@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { addCurriculum } from "../services/read";
+import { addCurriculum, getAllSemester } from "../services/read";
 import {  useLoaderData, useNavigate } from "react-router-dom";
 import { Curriculum, curriculumColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
@@ -94,6 +94,15 @@ export default AddCurriculum;
 export function CurriculumAdmin() {
   const loader = useLoaderData() as Curriculum[];
   const navigate = useNavigate()
+
+  const [option, setOption] = useState({})
+
+  useEffect(()=>{
+    getAllSemester()
+      .then((data:any)=>{
+        setOption(data)
+      })
+  }, [])
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
     try {
@@ -107,6 +116,6 @@ export function CurriculumAdmin() {
    
   }
   return (<>
-      <DataTable columns={curriculumColumns} data={loader} create={createAdminCurriculum} deleteItems={handleDelete} />
+      <DataTable columns={curriculumColumns} data={loader} create={createAdminCurriculum} deleteItems={handleDelete} optionInput={option} id="semesterId" />
   </>)
 }
