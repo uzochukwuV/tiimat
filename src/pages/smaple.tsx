@@ -30,7 +30,7 @@ const Sample = () => {
                 
                   <h1 className=" text-white text-3xl font-bold z-50 ">{res?.name} Programme Info</h1>
                   <div className=" z-20 mt-10">
-                    <p className=" text-[#2f2f2f] font-bold text-5xl"><span className="line-through">N</span> {res.price || "no price set"}</p>
+                    <p className=" text-[#f2f2f2] font-bold text-5xl"><span className="line-through">N</span> {res.price || "no price set"}</p>
                   </div>
               </div>
           </div>
