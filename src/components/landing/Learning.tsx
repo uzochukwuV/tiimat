@@ -14,12 +14,12 @@ function Learning() {
 
             </div>
             <div className="md:py-6 md:py-12">
-                <h2 className=" text-2xl font-bold fromRight ">Start Learning with Us</h2>
+                <h2 className=" text-2xl font-bold text-[#0c0c54] fromRight ">Start Learning with Us</h2>
                 <div className=" mt-6">
                     <ol className=" space-y-4 text-sm font-medium text-[#333]">
                         {data.map((e)=>
 
-                            <li className=" ps-6 before:content-[''] before:absolute before:top-1 relative before:bg-indigo-400 before:h-4 before:w-4 before:rounded-full before:shadow-md before:-translate-x-6">{e}</li>
+                            <li className=" ps-6 before:content-[''] before:absolute before:top-1 relative before:bg-[#0c0c54] before:h-2 before:w-2 before:rounded-full before:shadow-md before:-translate-x-6">{e}</li>
                         )}
                     </ol>
                 </div>
