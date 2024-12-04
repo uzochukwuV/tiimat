@@ -46,7 +46,7 @@ export function UpdateModal({ data, action }: any) {
               Make changes to your profile here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
-          <ProfileForm data={data} action={action} />
+          <ProfileForm data={data} action={action} setOpen={setOpen} />
         </DialogContent>
       </Dialog>
     );
@@ -64,7 +64,7 @@ export function UpdateModal({ data, action }: any) {
             Make changes to your profile here. Click save when you're done.
           </DrawerDescription>
         </DrawerHeader>
-        <ProfileForm data={data} action={action} className="px-4" />
+        <ProfileForm data={data} action={action} setOpen={setOpen} className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
@@ -79,7 +79,8 @@ function ProfileForm({
   className,
   data,
   action,
-}: React.ComponentProps<"form"> & { data: any; action: any }) {
+  setOpen,
+}: React.ComponentProps<"form"> & { data: any; action: any, setOpen:any }) {
   const [formState, setFormState] = React.useState(data);
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
@@ -97,6 +98,7 @@ function ProfileForm({
       toast("An error Occured, please try again or check your internet");
     }
     setLoading(false);
+    setOpen(false)
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
