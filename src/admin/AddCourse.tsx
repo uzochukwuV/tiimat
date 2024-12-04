@@ -1,6 +1,6 @@
 import { ChangeEvent,   useEffect, useState } from "react"
 import { addCourse, getFaculties, getAllCourse } from "../services/read";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { DataTable } from "./data/data-table";
 import { Course, courseColumns } from "./data/columns";
 import { createAdminCourse } from "@/services/actions";
@@ -123,13 +123,13 @@ export function CourseAdmin() {
         setfaculty(data)
       })
   }, [])
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
     try {
       await deleteAdminCourses({payload:payload})
       toast("Item deleted Successfully")
-      navigate(0)
+      // navigate(0)
     } catch (error) {
       console.log(error)
       toast("Item delete error try again")

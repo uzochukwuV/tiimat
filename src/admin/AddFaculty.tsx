@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react"
 import {  addFaculty } from "../services/read";
 import { DataTable } from "./data/data-table";
 import { Faculty, facultyColums } from "./data/columns";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import {  createAdminFaculty, deleteAdminCurriculum } from "@/services/actions";
 import { toast } from "sonner";
 
@@ -66,13 +66,13 @@ export default AddFaculty;
 
 export function FacultyAdmin() {
   const loader = useLoaderData() as Faculty[];
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
     try {
       await deleteAdminCurriculum({payload:payload})
       toast("Item deleted Successfully")
-      navigate(0)
+      // navigate(0)
     } catch (error) {
       console.log(error)
       toast("Item delete error try again")

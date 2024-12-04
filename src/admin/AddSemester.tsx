@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { addSemester, getAllCourse } from "../services/read";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { Trimester, trimesterColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
 import { createAdminTimester, deleteAdminTrimester } from "@/services/actions";
@@ -80,7 +80,7 @@ export default AddSemester;
 
 export function TrimesterAdmin() {
   const loader = useLoaderData() as Trimester[];
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [option, setOption] = useState({})
 
@@ -95,7 +95,7 @@ export function TrimesterAdmin() {
     try {
       await deleteAdminTrimester({payload:payload})
       toast("Item deleted Successfully")
-      navigate(0)
+      // navigate(0)
     } catch (error) {
       console.log(error)
       toast("Item delete error try again")
