@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { addSemester } from "../services/read";
 import { useLoaderData } from "react-router-dom";
+import { Trimester, trimesterColumns } from "./data/columns";
+import { DataTable } from "./data/data-table";
 
 
 
@@ -71,3 +73,12 @@ function AddSemester() {
 }
 
 export default AddSemester;
+
+
+
+export function TrimesterAdmin() {
+  const loader = useLoaderData() as Trimester[];
+  return (<>
+      <DataTable columns={trimesterColumns} data={loader} />
+  </>)
+}

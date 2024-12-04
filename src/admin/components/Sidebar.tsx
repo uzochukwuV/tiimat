@@ -26,7 +26,7 @@ const items = [
   },
   {
     title: "Trimesters",
-    url: "#",
+    url: "/dashboard/trimester",
     icon: Calendar,
   },
   {

@@ -16,7 +16,7 @@ import AddCurriculum from "./admin/AddCurriculum";
 import AddFaculty, { FacultyAdmin } from "./admin/AddFaculty";
 import AdminView from "./admin/AdminView";
 import FacultyItem from "./pages/FacultyPage";
-import AddSemester from "./admin/AddSemester";
+import AddSemester, { TrimesterAdmin } from "./admin/AddSemester";
 import { AdminLayout } from "./admin/layout";
 import {Dashboard} from "./admin/Dashboard"
 import { SidebarProvider } from "./components/ui/sidebar";
@@ -86,6 +86,13 @@ const App = () => {
           element:<CourseAdmin />,
           loader: async()=>{
             return getAllCourse()
+          }
+        },
+        {
+          path:"trimester",
+          element: <TrimesterAdmin />,
+          loader: async ()=>{
+            return getAllSemester()
           }
         }
       ]
