@@ -1,21 +1,21 @@
 
 import {
-    addDoc,
-    collection,
+    // addDoc,
+    // collection,
     doc,
-    getDoc,
-    getDocs,
+    // getDoc,
+    // getDocs,
     updateDoc,
-    deleteDoc,
-    query,
-    where,
+    // deleteDoc,
+    // query,
+    // where,
   } from "firebase/firestore";
   import { db } from "../firebase";
   
   const COURSE ="Course"
   const FACULTY= "Faculty"
   const SEMESTER="Semester"
-  const CURRICULUM="Curriculum"
+//   const CURRICULUM="Curriculum"
 
 export const editAdminCourse=async({payload}:any)=>{
     console.log(payload);

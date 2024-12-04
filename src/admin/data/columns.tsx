@@ -16,7 +16,7 @@ import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { CreateModel } from "../components/CreateModal"
 import { editAdminCourse, editAdminFaculty } from "@/services/actions"
-import { toast } from "sonner"
+// import { toast } from "sonner"
 
  
 // This type is used to define the shape of our data.
