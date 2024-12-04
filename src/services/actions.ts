@@ -79,7 +79,7 @@ export const createAdminCurriculum= async({payload}:any)=>{
     try {
         await addDoc(collection(db, CURRICULUM), {
             ...payload,
-            createdAt: new Date()
+            createdAt: (new Date()).toUTCString()
         })
     } catch (error) {
         throw error
@@ -101,7 +101,10 @@ export const deleteAdminCurriculum= async({payload}:{payload:any})=>{
 
 export const createAdminTimester= async({payload}:any)=>{
     try {
-        await addDoc(collection(db, SEMESTER), payload)
+        await addDoc(collection(db, SEMESTER), {
+            ...payload,
+            createdAt: (new Date()).toUTCString()
+        })
     } catch (error) {
         throw error
     }

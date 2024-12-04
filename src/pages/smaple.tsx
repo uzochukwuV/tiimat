@@ -108,6 +108,7 @@ const Curriculum =({id}:any)=> {
         })
   },[id])
   if(loading) "....."
+  if(data)
   return  data.map((curriculum:any)=>{
     return  <div className=" py-8 px-10 bg-white rounded-xl max-w-3xl mx-auto">
     <h3 className=" mb-4 font-bold text-cente text-[#0c0c0c] text-center">{curriculum.name}</h3>

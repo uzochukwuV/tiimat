@@ -130,7 +130,8 @@ export const getAllCourse = async () => {
 
 export const getAllSemester = async () => {
   const docref = collection(db, SEMESTER);
-  const data = await getDocs(docref);
+  const q= query(docref, orderBy("createdAt"))
+  const data = await getDocs(q);
 
   return data.docs.map((c) => ({ id: c.id, ...c.data() }));
 };
@@ -253,7 +254,7 @@ export const getSemester = async (document: string) => {
 export const getAllSemesterInCourse= async (document: string) => {
   try {
     const ref = collection(db, SEMESTER);
-    const q = query(ref, where("courseId", "==", document))
+    const q = query(ref, where("courseId", "==", document), orderBy("createdAt"))
     const res= (await getDocs(q));
     console.log(res.docs.map((data)=>{
       return {...data.data(), id: data.id}
@@ -271,7 +272,7 @@ export const getAllSemesterInCourse= async (document: string) => {
 export const getAllCurriculumInSemester =async (document: string) => {
   try {
     const ref = collection(db, CURRICULUM);
-    const q = query(ref, where("semesterId", "==", document))
+    const q = query(ref, where("semesterId", "==", document), orderBy("createdAt"))
     const res= (await getDocs(q));
     return res.docs.map((data)=>{
       return {...data.data(), id: data.id}
