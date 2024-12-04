@@ -53,7 +53,7 @@ export function CreateModal({ data, action, optionInput, id }: any) {
               Create new Item here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
-          <CreateForm data={data} action={action} optionInput={optionInput} id={id} />
+          <CreateForm data={data} action={action} optionInput={optionInput} id={id} setOpen={setOpen} />
         </DialogContent>
       </Dialog>
     );
@@ -70,8 +70,8 @@ export function CreateModal({ data, action, optionInput, id }: any) {
           <DrawerDescription>
             Create new item here. Click save when you're done.
           </DrawerDescription>
-        </DrawerHeader>
-        <CreateForm data={data} action={action} optionInput={optionInput} id={id} className="px-4" />
+        </DrawerHeader> 
+        <CreateForm data={data} action={action} optionInput={optionInput} id={id} setOpen={setOpen} className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
@@ -87,8 +87,9 @@ function CreateForm({
   data,
   action,
   id,
-  optionInput
-}: React.ComponentProps<"form"> & { data: any; action: any, optionInput?:any, id?:string }) {
+  optionInput,
+  setOpen
+}: React.ComponentProps<"form"> & { data: any; action: any, optionInput?:any, id?:string, setOpen:any }) {
   const [formState, setFormState] = React.useState({...data}) as any;
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
@@ -107,6 +108,7 @@ function CreateForm({
       toast("An error Occured, please try again or check your internet");
     }
     setLoading(false);
+    setOpen(false)
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
