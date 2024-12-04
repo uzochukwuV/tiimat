@@ -91,7 +91,7 @@ function CreateForm({
     try {
       await action({ payload: formState });
       toast("Created Successfull");
-      //   navigate(0)
+        navigate(0)
     } catch (error) {
       toast("An error Occured, please try again or check your internet");
     }

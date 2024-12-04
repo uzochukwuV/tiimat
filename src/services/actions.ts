@@ -116,3 +116,24 @@ export const deleteAdminTrimester= async({payload}:{payload:any})=>{
         throw error
     }
 }
+
+
+export const createAdminFaculty= async({payload}:any)=>{
+    try {
+        await addDoc(collection(db, FACULTY), payload)
+    } catch (error) {
+        throw error
+    }
+}
+
+export const deleteAdminFaculty= async({payload}:{payload:any})=>{
+    console.log(payload)
+    try {
+        const alldocs = payload.map((item:any)=> {
+            return deleteDoc(doc(db, FACULTY, item.id))
+        })
+        return await Promise.all(alldocs)
+    } catch (error) {
+        throw error
+    }
+}
