@@ -9,10 +9,10 @@ import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
 import Landing from "./pages/Landing";
-import { getAllCourse, getAllSemester, getCourse, getFaculties, getFaculty } from "./services/read";
+import { getAllCourse, getAllCurriculum, getAllSemester, getCourse, getFaculties, getFaculty } from "./services/read";
 import EditCourse from "./admin/EditCourse";
 import AddCourse, {CourseAdmin} from "./admin/AddCourse";
-import AddCurriculum from "./admin/AddCurriculum";
+import AddCurriculum, { CurriculumAdmin } from "./admin/AddCurriculum";
 import AddFaculty, { FacultyAdmin } from "./admin/AddFaculty";
 import AdminView from "./admin/AdminView";
 import FacultyItem from "./pages/FacultyPage";
@@ -93,6 +93,12 @@ const App = () => {
           element: <TrimesterAdmin />,
           loader: async ()=>{
             return getAllSemester()
+          }
+        },{
+          path:"curriculum",
+          element:<CurriculumAdmin />,
+          loader: async ()=>{
+            return getAllCurriculum()
           }
         }
       ]

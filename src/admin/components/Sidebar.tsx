@@ -31,7 +31,7 @@ const items = [
   },
   {
     title: "Curriculum",
-    url: "#",
+    url: "/dashboard/curriculum",
     icon: Book,
   },
   {

@@ -15,7 +15,7 @@ import {
   const COURSE ="Course"
   const FACULTY= "Faculty"
   const SEMESTER="Semester"
-//   const CURRICULUM="Curriculum"
+  const CURRICULUM="Curriculum"
 
 export const editAdminCourse=async({payload}:any)=>{
     console.log(payload);
@@ -38,6 +38,14 @@ export const editAdminFaculty=async({payload}:any)=>{
 export const editTrimesterFaculty=async({payload}:any)=>{
     try {
        return await updateDoc(doc(db, SEMESTER, payload.id), payload);
+    } catch (error) {
+        return {error}
+    }
+}
+
+export const editAdminCurriculum=async({payload}:any)=>{
+    try {
+       return await updateDoc(doc(db, CURRICULUM, payload.id), payload);
     } catch (error) {
         return {error}
     }

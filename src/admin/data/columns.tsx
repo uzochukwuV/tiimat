@@ -15,7 +15,7 @@ import {
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { CreateModel } from "../components/CreateModal"
-import { editAdminCourse, editAdminFaculty } from "@/services/actions"
+import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
 // import { toast } from "sonner"
 
  
@@ -281,7 +281,7 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
     accessorKey: "description",
     header: "description",
     cell:({row})=> {
-      const value = row.getValue<string>("description").slice(0, 100);
+      const value = row.getValue<string>("description") || "error";
 
       return <div className="" >{value}</div>
     }
@@ -314,6 +314,99 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
           </DropdownMenuContent>
         </DropdownMenu>
         <CreateModel data={payment} action={editAdminCourse} />
+        </div>
+      )
+    },
+  },
+]
+
+
+
+export type Curriculum = {
+  id: string
+  title: string
+  topics: string,
+}
+
+
+
+
+export const curriculumColumns: ColumnDef<Curriculum>[]=[
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+  
+  {
+    accessorKey: "title",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Title
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    accessorKey: "topics",
+    header: "topics",
+    cell:({row})=> {
+      const value = row.getValue<string>("topics") || "error";
+
+      return <div className="" >{value}</div>
+    }
+  },
+  
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      const payment = row.original
+ 
+      return (
+        <div className="flex gap-2">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild >
+            <Button  variant="ghost" className="h-8 w-8 p-0 hover:bg-slate-200">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className=" bg-white text-black">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              
+            >
+              Create
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Update</DropdownMenuItem>
+            <DropdownMenuItem>Delete</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <CreateModel data={payment} action={editAdminCurriculum} />
         </div>
       )
     },

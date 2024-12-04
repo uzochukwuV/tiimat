@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { addCurriculum } from "../services/read";
 import {  useLoaderData } from "react-router-dom";
+import { Curriculum, curriculumColumns } from "./data/columns";
+import { DataTable } from "./data/data-table";
 
 
 
@@ -85,3 +87,11 @@ function AddCurriculum() {
 }
 
 export default AddCurriculum;
+
+
+export function CurriculumAdmin() {
+  const loader = useLoaderData() as Curriculum[];
+  return (<>
+      <DataTable columns={curriculumColumns} data={loader} />
+  </>)
+}

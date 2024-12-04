@@ -78,6 +78,8 @@ export default AddSemester;
 
 export function TrimesterAdmin() {
   const loader = useLoaderData() as Trimester[];
+  console.log(loader);
+  
   return (<>
       <DataTable columns={trimesterColumns} data={loader} />
   </>)

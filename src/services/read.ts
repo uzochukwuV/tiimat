@@ -131,7 +131,7 @@ export const getAllSemester = async () => {
   const docref = collection(db, SEMESTER);
   const data = await getDocs(docref);
 
-  return data.docs.map((c) => ({ id: c.id, data: c.data() }));
+  return data.docs.map((c) => ({ id: c.id, ...c.data() }));
 };
 
 export const updateCourse = async (
@@ -282,7 +282,9 @@ export const getAllCurriculumInSemester =async (document: string) => {
 };
 
 export const getAllCurriculum=async()=>{
-  return (await getDocs(collection(db,CURRICULUM))).docs.map((data)=>data.data())
+  return (await getDocs(collection(db,CURRICULUM))).docs.map((data)=>{
+    return {...data.data(), id: data.id}
+  })
 }
 
 export const delSemester=async(id:string)=>{
