@@ -1,9 +1,12 @@
 import { ChangeEvent,   useEffect, useState } from "react"
 import { addCourse, getFaculties, getAllCourse } from "../services/read";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { DataTable } from "./data/data-table";
 import { Course, courseColumns } from "./data/columns";
+import { createAdminCourse } from "@/services/actions";
 // import useSWR from "swr";
+import { deleteAdminCourses } from "@/services/actions";
+import { toast } from "sonner";
 
 
 
@@ -112,7 +115,20 @@ export default AddCourse;
 
 export function CourseAdmin() {
   const loader = useLoaderData() as Course[];
+  const navigate = useNavigate()
+  const handleDelete=async ( payload:any)=>{
+    console.log(payload)
+    try {
+      await deleteAdminCourses({payload:payload})
+      toast("Item deleted Successfully")
+      navigate(0)
+    } catch (error) {
+      console.log(error)
+      toast("Item delete error try again")
+    }
+   
+  }
   return (<>
-      <DataTable columns={courseColumns} data={loader} />
+      <DataTable columns={courseColumns} data={loader} create={createAdminCourse} deleteItems={handleDelete} />
   </>)
 }

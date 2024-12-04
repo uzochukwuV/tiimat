@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
-import { CreateModel } from "../components/CreateModal"
+import { UpdateModal } from "../components/UpdateModal"
 import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
 // import { toast } from "sonner"
 
@@ -112,7 +112,7 @@ export const facultyColums: ColumnDef<Faculty>[] = [
             {/* <DropdownMenuItem>View payment details</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
-        <CreateModel data={payment} action={editAdminFaculty} />
+        <UpdateModal data={payment} action={editAdminFaculty} />
         </div>
       )
     },
@@ -222,7 +222,7 @@ export const courseColumns: ColumnDef<Course>[]=[
             <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <CreateModel data={payment} action={editAdminCourse} />
+        <UpdateModal data={payment} action={editAdminCourse} />
         </div>
       )
     },
@@ -313,7 +313,7 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
             <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <CreateModel data={payment} action={editAdminCourse} />
+        <UpdateModal data={payment} action={editAdminCourse} />
         </div>
       )
     },
@@ -406,7 +406,7 @@ export const curriculumColumns: ColumnDef<Curriculum>[]=[
             <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <CreateModel data={payment} action={editAdminCurriculum} />
+        <UpdateModal data={payment} action={editAdminCurriculum} />
         </div>
       )
     },

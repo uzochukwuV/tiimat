@@ -1,8 +1,10 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { addCurriculum } from "../services/read";
-import {  useLoaderData } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import { Curriculum, curriculumColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
+import { createAdminCurriculum, deleteAdminCurriculum } from "@/services/actions";
+import { toast } from "sonner";
 
 
 
@@ -91,7 +93,20 @@ export default AddCurriculum;
 
 export function CurriculumAdmin() {
   const loader = useLoaderData() as Curriculum[];
+  const navigate = useNavigate()
+  const handleDelete=async ( payload:any)=>{
+    console.log(payload)
+    try {
+      await deleteAdminCurriculum({payload:payload})
+      toast("Item deleted Successfully")
+      navigate(0)
+    } catch (error) {
+      console.log(error)
+      toast("Item delete error try again")
+    }
+   
+  }
   return (<>
-      <DataTable columns={curriculumColumns} data={loader} />
+      <DataTable columns={curriculumColumns} data={loader} create={createAdminCurriculum} deleteItems={handleDelete} />
   </>)
 }
