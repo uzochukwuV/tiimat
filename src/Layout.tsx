@@ -1,34 +1,36 @@
-import {Outlet, useNavigation} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { useEffect, useState } from "react";
+import { getAllCourse, getFaculties } from "./services/read";
 
-// configDotenv()
+
 
 export const Layout = () => {
- 
-  const navigate = useNavigation()
- 
-  
-  
+  const [courses, setCourses] = useState([]) as any;
+  const [faculty, setFaculty] = useState() as any;
+  useEffect(() => {
+    getAllCourse()
+      .then((data) => {
+        setCourses(data)
+      })
+    getFaculties()
+      .then((data) => {
+        setFaculty(data)
+      })
+  }, [])
+
+
   return (
     <>
-    
-     <section id="app" className=' overflow-hidden absolute top-0 left-0 right-0 bg-[var(--background)] min-h-screen'>
-    <Navbar />
-     <Outlet />
-     {
-     navigate.state === "loading" ? 
-<>
-      <div className=" fixed z-50  top-0 left-0 right-0 bottom-0 grid place-items-center">
-      <div className="loader"></div> 
-      </div>
-</>
-     :""
-     }
-     <Footer />
-     </section>
-     
+
+      <section id="app" className=' overflow-hidden absolute top-0 left-0 right-0 bg-[var(--background)] min-h-screen'>
+        <Navbar faculty={faculty} />
+        <Outlet />
+        <Footer courses={courses} />
+      </section>
+
     </>
   )
 }

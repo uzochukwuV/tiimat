@@ -1,28 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../assets/logo-1.png";
 import { useEffect, useState } from "react";
-// import Banner from "./Banner";
-import { getFaculties } from "../services/read";
 
 
-const Navbar = () => {
+
+const Navbar = ({faculty}:any) => {
   const location = useLocation();
   const [bodyHasDark, setDark] = useState(false);
   const [sidebarHasShow, setShow] = useState(false);
-  const [faculty, setFaculty] = useState() as any;
+  
  
 
   useEffect(() => {
     document.querySelector("#sidebar")?.classList.replace("show", "hide");
     setDark(document.querySelector("body")?.classList.contains("dark")!);
     setShow(document.querySelector("#sidebar")?.classList.contains("show")!);
-
-    getFaculties()
-      .then((data)=>{
-
-        
-        setFaculty(data)
-      })
 
     return () => {};
   }, [location]);

@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
-import { getAllCourse, sendMessage } from "../services/read";
+import { useState } from "react";
+import { sendMessage } from "../services/read";
 import { Link } from "react-router-dom";
 
 
-export const Footer = () => {
+export const Footer = ({courses}:any) => {
   const [formState, setFormState] = useState({}) as any;
-  const [courses, setCourses] = useState([]) as any;
+  
     
-    useEffect(()=>{
-      getAllCourse()
-        .then((data)=>{
-          setCourses(data)
-        })
-    },[])
     const submitForm = ()=> {
         console.log(formState);
         sendMessage("Subscription", "", formState.email)

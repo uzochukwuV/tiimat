@@ -9,13 +9,14 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateModal } from "../components/UpdateModal"
 import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
+import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
+import { toast } from "sonner"
 // import { toast } from "sonner"
 
  
@@ -103,13 +104,17 @@ export const facultyColums: ColumnDef<Faculty>[] = [
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Del
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Update</DropdownMenuItem>
-            {/* <DropdownMenuItem>View payment details</DropdownMenuItem> */}
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.name}`)
+              if(confirmDelete){
+                deleteFaculty(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
+              
+             }}
+            >Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminFaculty} />
@@ -213,13 +218,17 @@ export const courseColumns: ColumnDef<Course>[]=[
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => alert(payment.description)}
-            >
-              Create
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Update</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.name}`)
+              if(confirmDelete){
+                deleteCourse(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
+              
+             }}
+            >Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminCourse} />
@@ -304,13 +313,17 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => alert(payment.description)}
-            >
-              Create
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Update</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.name}`)
+              if(confirmDelete){
+                delSemester(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
+              
+             }}
+            >Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminCourse} />
@@ -396,14 +409,21 @@ export const curriculumColumns: ColumnDef<Curriculum>[]=[
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+           
+            
+            
             <DropdownMenuItem
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.title}`)
+              if(confirmDelete){
+                delCurriculum(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
               
-            >
-              Create
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Update</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+             }}
+            >Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminCurriculum} />
