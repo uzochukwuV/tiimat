@@ -1,45 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo-2.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tiimat Solutions | Impacting Globally</title>
-    
-  </head>
-  <body class=" dark">
-   
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Function to handle adding the 'visible' class to elements in view
-function animateOnScroll() {
-  const elements = document.querySelectorAll('.animated'); // Select all elements to animate
 
-  const options = {
-    root: null, // Use the viewport as the root
-    rootMargin: '0px', // No margin for trigger area
-    threshold: 0.5, // Trigger when 50% of the element is in view
-  };
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo-2.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiimat Solutions | Impacting Globally</title>
+  <link
+  rel="stylesheet"
+  type="text/css"
+  charset="UTF-8"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+/>
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add 'visible' class to trigger the animation when the element is in view
-        entry.target.classList.add('hidden');
-        observer.unobserve(entry.target); // Stop observing after the animation triggers
-      }
-    });
-  }, options);
+</head>
 
-  elements.forEach(element => {
-    observer.observe(element); // Start observing each element
-  });
-}
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    // Function to handle adding the 'visible' class to elements in view
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animated'); // Select all elements to animate
 
-// Call the function to start observing elements when the page loads
-document.addEventListener('DOMContentLoaded', animateOnScroll);
+      const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px', // No margin for trigger area
+        threshold: 0.5, // Trigger when 50% of the element is in view
+      };
 
-    </script>
-  </body>
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add 'visible' class to trigger the animation when the element is in view
+            entry.target.classList.add('hidden');
+            observer.unobserve(entry.target); // Stop observing after the animation triggers
+          }
+        });
+      }, options);
+
+      elements.forEach(element => {
+        observer.observe(element); // Start observing each element
+      });
+    }
+
+    // Call the function to start observing elements when the page loads
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+  </script>
+</body>
+
 </html>

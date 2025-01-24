@@ -20,11 +20,14 @@ import AddSemester, { TrimesterAdmin } from "./admin/AddSemester";
 import { AdminLayout } from "./admin/layout";
 import {Dashboard} from "./admin/Dashboard"
 import { SidebarProvider } from "./components/ui/sidebar";
+import HomeScreen from "./screen/Home";
+import Departments from "./screen/Departments";
 
 function Home() {
   return (
     <>
-      <Landing />
+      {/* <Landing /> */}
+      <HomeScreen />
     </>
   );
 }
@@ -38,6 +41,10 @@ const App = () => {
         {
           path: "",
           element: <Home />,
+        },
+        {
+          path:"/departments",
+          element:<Departments />
         },
         {
           path: "/course/:id",

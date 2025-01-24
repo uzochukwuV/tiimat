@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+  <g id="ic-fintech" transform="translate(-1.5 -1.5)">
+    <g id="Circle" transform="translate(2 2)">
+      <g id="Group_6845" data-name="Group 6845">
+        <path id="Path_14314" data-name="Path 14314" d="M29,56A27,27,0,1,1,56,29,27.031,27.031,0,0,1,29,56Z" transform="translate(-2 -2)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Icons" transform="translate(13.01 12.286)">
+      <g id="Group_6855" data-name="Group 6855">
+        <path id="Path_14315" data-name="Path 14315" d="M52.738,64.31l10.436-5.755L73.611,64.31" transform="translate(-47.632 -50.876)" fill="none" stroke="#00aaaf" stroke-width="1"/>
+        <rect id="Rectangle_1815" data-name="Rectangle 1815" width="29.606" height="2.427" transform="translate(0.74 13.386)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        <g id="Group_6846" data-name="Group 6846" transform="translate(0.74 27.553)">
+          <rect id="Rectangle_1816" data-name="Rectangle 1816" width="7.053" height="3.824" fill="none" stroke="#1e1f21" stroke-width="1"/>
+          <rect id="Rectangle_1817" data-name="Rectangle 1817" width="7.053" height="3.824" transform="translate(22.553)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        </g>
+        <g id="Group_6847" data-name="Group 6847" transform="translate(7.894 30.51)">
+          <line id="Line_810" data-name="Line 810" x1="15.297" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        </g>
+        <g id="Group_6848" data-name="Group 6848" transform="translate(7.894 28.287)">
+          <line id="Line_811" data-name="Line 811" x1="15.297" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        </g>
+        <path id="Path_14316" data-name="Path 14316" d="M52.2,48.487l15.543,8.907H36.662Z" transform="translate(-36.662 -44.006)" fill="none" stroke="#1e1f21" stroke-linejoin="bevel" stroke-width="1"/>
+        <line id="Line_812" data-name="Line 812" y1="3.494" transform="translate(15.543 0.894)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        <g id="Group_6849" data-name="Group 6849" transform="translate(15.543)">
+          <path id="Path_14317" data-name="Path 14317" d="M85.593,37.392V34.381H90.22l-.668,1.506.668,1.506Z" transform="translate(-85.593 -34.381)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+        </g>
+        <g id="Group_6854" data-name="Group 6854" transform="translate(2.797 17.349)">
+          <g id="Group_6850" data-name="Group 6850">
+            <line id="Line_813" data-name="Line 813" y2="8.656" fill="none" stroke="#1e1f21" stroke-width="1"/>
+            <line id="Line_814" data-name="Line 814" y2="8.656" transform="translate(2.541)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+          </g>
+          <g id="Group_6851" data-name="Group 6851" transform="translate(7.65)">
+            <line id="Line_815" data-name="Line 815" y2="8.656" fill="none" stroke="#1e1f21" stroke-width="1"/>
+            <line id="Line_816" data-name="Line 816" y2="8.656" transform="translate(2.541)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+          </g>
+          <g id="Group_6852" data-name="Group 6852" transform="translate(15.3)">
+            <line id="Line_817" data-name="Line 817" y2="8.656" fill="none" stroke="#1e1f21" stroke-width="1"/>
+            <line id="Line_818" data-name="Line 818" y2="8.656" transform="translate(2.541)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+          </g>
+          <g id="Group_6853" data-name="Group 6853" transform="translate(22.95)">
+            <line id="Line_819" data-name="Line 819" y2="8.656" fill="none" stroke="#1e1f21" stroke-width="1"/>
+            <line id="Line_820" data-name="Line 820" y2="8.656" transform="translate(2.541)" fill="none" stroke="#1e1f21" stroke-width="1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

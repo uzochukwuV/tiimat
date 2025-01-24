@@ -1,5 +1,5 @@
+import { sendMessage } from "@/services/read";
 import { useState } from "react";
-import { sendMessage } from "../services/read";
 import { Link } from "react-router-dom";
 
 
@@ -24,15 +24,15 @@ export const Footer = ({courses}:any) => {
   })
   }
   return (
-   <footer className=" relative px-4 border-t shadow">
+   <footer className=" relative bg-[#F6F8F9]  px-4 py-24 border-t shadow">
 
       <div className="  space-y-4 md:px-12 md:grid md:grid-cols-2 gap-12 rounded-2xl h-full">
             <div className="space-y-4 flex-1 pt-12  md:px-6 max-w-[500px] ">
             <div className=" space-y-2 mb-12">
-              <p className=" text-sm">Email would be enough though</p>
+              <p className=" text-lg text-[#222]">Email would be enough though</p>
                <div className=" flex gap-2 focus-within:border rounded-xl bg-[var(--background)]">
-               <input value={formState.email || ""} onChange={onChange} type="text" name="email" placeholder="Your Email" className=" px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--surface)]" />
-               <button onClick={submitForm} className=" bg-black hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center" >Send <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#fff" width="20" height="20" viewBox="0 0 48 48">
+               <input value={formState.email || ""} onChange={onChange} type="text" name="email" placeholder="Your Email" className=" px-6 flex-1 block relative rounded-xl  h-20 bg-white " />
+               <button onClick={submitForm} className=" bg-black hover:opacity-70 px-4 h-20 rounded-xl text-white flex gap-1 justify-center items-center" >Send <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#fff" width="20" height="20" viewBox="0 0 48 48">
 <path d="M 5.4453125 4.0019531 A 1.50015 1.50015 0 0 0 4.109375 6.0644531 L 11.380859 24 L 4.109375 41.935547 A 1.50015 1.50015 0 0 0 6.1699219 43.841797 L 43.169922 25.341797 A 1.50015 1.50015 0 0 0 43.169922 22.658203 L 6.1699219 4.1582031 A 1.50015 1.50015 0 0 0 5.4453125 4.0019531 z M 8.3828125 8.6191406 L 39.146484 24 L 8.3828125 39.380859 L 14.011719 25.5 L 27.5 25.5 A 1.50015 1.50015 0 1 0 27.5 22.5 L 14.011719 22.5 L 8.3828125 8.6191406 z"></path>
 </svg></span></button>
                {/* <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/filled-sent.png" alt="filled-sent"/> */}
@@ -67,26 +67,26 @@ export const Footer = ({courses}:any) => {
             </div>
           </div>
             </div>
-          <div className=" flex-1 footer-link  bg-[var(--background)] rounded-xl font-medium">
+          <div className=" flex-1 footer-link  rounded-xl font-medium">
               <div className="grid gap-4 p-8 row-gap-6 col-gap-8  grid-cols-2">
                 
                 <div>
-                <span className=" text-black font-normal mb-4 block">Company</span>
+                <span className=" text-black font-semibold text-xl mb-4 block">Company</span>
                   <ul className=" text-sm space-y-1 text-[#444]">
-                    <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/faculty"}>Faculties</Link></li>
-                    <li><Link to={"/contact-us"}>Contact Us</Link></li>
-                    <li><Link to={"/about-us"}>About Us</Link></li>
-                    <li><Link to={"/admin/course/semester/add"} >Go to admin</Link></li>
-                    <li><Link to={"/dashboard"} >Dashboard</Link></li>
+                    <li><Link to={"/"}  className=" text-[#333] font-medium text-lg">Home</Link></li>
+                    <li><Link to={"/faculty"} className=" text-[#333] font-medium text-lg">Faculties</Link></li>
+                    <li><Link to={"/contact-us"} className=" text-[#333] font-medium text-lg">Contact Us</Link></li>
+                    <li><Link to={"/about-us"} className=" text-[#333] font-medium text-lg">About Us</Link></li>
+                    <li><Link to={"/admin/course/semester/add"} className=" text-[#333] font-medium text-lg" >Go to admin</Link></li>
+                    <li><Link to={"/dashboard"} className=" text-[#333] font-medium text-lg" >Dashboard</Link></li>
                     
                   </ul>
                 </div>
                 <div>
-                <span className=" text-black font-normal mb-4 block">Departments</span>
+                <span className=" text-black font-semibold text-xl mb-4 block">Departments</span>
                   <ul className=" text-sm space-y-1 text-[#444]">
                     {
-                      courses.map((course:any)=><li><Link to={`/course/${course.id}`}>{course.name}</Link></li>)
+                      courses.map((course:any)=><li><Link to={`/course/${course.id}`} className=" text-[#333] font-medium text-lg">{course.name}</Link></li>)
                     }
                   </ul>
                 </div>
@@ -95,9 +95,9 @@ export const Footer = ({courses}:any) => {
           
       </div>
       <div className=" text-center space-y-3 py-6">
-            <h2 className=" text-center text-xl font-bold">TIIMAT</h2>
-            <p className=" text-sm text-[#999] text-center">Innovating Education for global Impact through cutting edge spaced learning and real world practicals</p>
-            <p className=" text-xs text-[#999] text-center">@ighofoweexperience</p>
+            <h2 className=" text-center text-xl font-bold">The Ighowofe Institution Of Management And Technology</h2>
+            <p className=" text-sm text-[#333] text-center">Innovating Education for global Impact through cutting edge spaced learning and real world practicals</p>
+            <p className=" text-xs text-[#333] text-center">@ighofoweexperience</p>
           </div>
    </footer> 
   )

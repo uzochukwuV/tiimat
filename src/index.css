@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +7,7 @@
 
 
 :root {
-  font-family:"Inter","Anta", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 14px;
@@ -70,10 +69,6 @@ body {
 
 
 
-* {
-  transition: all 0.1s;
-  border-color: #eee;
-}
 
 a {
   font-weight: 400;
@@ -142,7 +137,7 @@ button:hover {
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: start; 
+  align-items: start;
 }
 
 @media screen and (min-width: 760px) {
@@ -170,7 +165,7 @@ button:hover {
 
 }
 
-/* HTML: <div class="loader"></div> */
+
 .loader {
   width: 45px;
   aspect-ratio: .75;
@@ -205,7 +200,6 @@ button:hover {
 }
 
 
-
 html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
   visibility: hidden;
 }
@@ -214,7 +208,7 @@ html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
 
 @layer base {
   :root {
-    --background:0 0% 100%;
+    --background:240 10% 3.9%;
     --foreground:240 10% 3.9%;
     --card:0 0% 100%;
     --card-foreground:240 10% 3.9%;

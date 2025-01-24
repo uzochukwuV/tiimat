@@ -44,7 +44,7 @@ export default function Landing() {
                                 empower individuals with the skills and knowledge to drive
                                 meaningful change and impact in a globally connected world.
                             </p>
-                            <Link to={"/faculty"} className="fromBottom text-xs md:text-sm group hover:translate-y-2 transition duration-500 hover:text-white px-16 bg-indigo-700 hover:bg-gradient-to-l from-black to-indigo-900 hover:opacity-70 px-4 h-10 md:h-12 rounded-xl text-white flex gap-1 justify-center items-center">
+                            <Link to={"/faculty"} className="fromBottom text-xs md:text-sm group hover:translate-y-2 transition duration-500 hover:text-white px-16 bg-indigo-700 hover:bg-gradient-to-l from-black to-indigo-900 hover:opacity-70  h-10 md:h-12 rounded-xl text-white flex gap-1 justify-center items-center">
                                 Explore our Programmes{" "}
                                 <span className="group-hover:translate-x-2 transition duration-500 delay-200">
                                     <svg
