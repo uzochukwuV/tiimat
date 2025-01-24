@@ -3,6 +3,7 @@ import Img from "../../assets/logo-1.png"
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { ChevronDown } from "lucide-react";
 import Menu from "../../assets/ic-nav-menu-w.svg"
+import { Link } from "react-router-dom";
 
 
 function Navigation() {
@@ -58,7 +59,7 @@ function Navigation() {
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-xl leading-10 font-medium text-[#f2f2f2] hover:text-white" >
                 <NavigationMenu.Trigger>
-                  Departments
+                  <Link to={"/departments"} >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-xl leading-10 font-medium text-[#f2f2f2] hover:text-white" >

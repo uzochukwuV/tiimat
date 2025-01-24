@@ -59,7 +59,7 @@ function Departments() {
                     <p className=" text-[#333] font-medium text-2xl ">We work with ambitious teams to design, build, and maintain digital products that make news.</p>
                 </div>
             </section>
-            <section className="py-24 max-w-[1200px] mx-auto antialiased">
+            <section className="py-24  max-w-[1200px] mx-auto antialiased">
                 <div>
                     <h2 className=" font-bold text-4xl mb-8">Let us take you on a Journey</h2>
                     <div className=" grid grid-cols-2 gap-24 transform">
@@ -81,7 +81,7 @@ function Departments() {
                     </div>
                 </div>
             </section>
-            <section className="py-24 max-w-[1200px] mx-auto antialiased">
+            <section className="py-24 max-w-[1200px]  mx-auto antialiased">
                 <div className=" max-w-3xl mb-12">
                     <h3 className="font-medium text-2xl text-[#222] mb-4"> Explore Our Diverse Departments</h3>
                     <p className=" text-[#333] font-medium">Our departments are thoughtfully structured under specialized faculties, offering a wide range of in-person courses designed to equip students with industry-relevant skills, practical expertise, and a pathway to professional success.</p>

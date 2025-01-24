@@ -8,7 +8,6 @@ import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
-import Landing from "./pages/Landing";
 import { getAllCourse, getAllCurriculum, getAllSemester, getCourse, getFaculties, getFaculty } from "./services/read";
 import EditCourse from "./admin/EditCourse";
 import AddCourse, {CourseAdmin} from "./admin/AddCourse";
