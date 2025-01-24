@@ -6,7 +6,6 @@ import Management from "../assets/ic-fintech.svg"
 import ProjectManagement from "../assets/ic-real-estate.svg"
 import CyberSecurity from "../assets/ic-security.svg"
 import Quote from "../assets/ic-quote.svg"
-import Faq from "./ui/Faq"
 
 
 function HomeScreen() {
@@ -127,19 +126,7 @@ function HomeScreen() {
                     </div>
                 </div>
             </section>
-            <section className=" min-h-[600px] py-32">
-                <div className=" h-full px-6 md:px-0  max-w-[900px] w-full  mx-auto">
-                    <div className="w-full h-full grid md:grid-cols-2 gap-12">
-                            <div>
-                                <h3 className="md:text-3xl text-xl font-semibold mb-4 text-black">Join Tiimat</h3>
-                                <Faq />
-                            </div>
-                            <div className=" h-full">
-                                <img src="https://cdn.pixabay.com/photo/2021/02/1/12/800/student-6027004_1280.jpg" className=" rounded-3xl object-cover " alt="" />
-                            </div>
-                    </div>
-                </div>
-            </section>
+            
             <section></section>
         </div>
     )

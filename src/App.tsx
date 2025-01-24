@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./Layout";
 // import Course from './pages/course'
 import FacultyPage from "./pages/Faculty";
-import AboutPage from "./pages/About";
+// import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
@@ -21,6 +21,7 @@ import {Dashboard} from "./admin/Dashboard"
 import { SidebarProvider } from "./components/ui/sidebar";
 import HomeScreen from "./screen/Home";
 import Departments from "./screen/Departments";
+import AboutUs from "./screen/AboutUs";
 
 function Home() {
   return (
@@ -67,8 +68,8 @@ const App = () => {
           },
         },
         {
-          path: "/about-us",
-          element: <AboutPage />,
+          path: "/about",
+          element: <AboutUs />,
         },
         {
           path: "/contact-us",
