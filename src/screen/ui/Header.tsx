@@ -66,7 +66,7 @@ function Navigation() {
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  About Us
+                  <Link to={"/about"} >About Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-xl leading-10 font-medium " >

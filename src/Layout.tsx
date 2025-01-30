@@ -5,7 +5,7 @@ import { getAllCourse } from "./services/read";
 import Navigation from "./screen/ui/Header";
 import { Footer } from "./screen/ui/Footer";
 import Faq from "./screen/ui/Faq";
-
+import FaqImage from "./assets/dept/faq.avif"
 
 
 export const Layout = () => {
@@ -25,14 +25,14 @@ export const Layout = () => {
         <Navigation />
         <Outlet />
         <section className="  py-24">
-                <div className=" h-full px-6 md:px-0  max-w-[900px] w-full  mx-auto">
-                    <div className="w-full h-full grid md:grid-cols-2 gap-12">
-                            <div>
+                <div className=" h-full px-6 md:px-0  max-w-[1200px] w-full  mx-auto">
+                    <div className="w-full h-full grid md:grid-cols-12 gap-12">
+                            <div className=" col-span-6 flex flex-col justify-center">
                                 <h3 className="md:text-3xl text-xl font-semibold mb-4 text-black">Join Tiimat</h3>
                                 <Faq />
                             </div>
-                            <div className=" h-full">
-                                <img src="https://cdn.pixabay.com/photo/2021/02/1/12/800/student-6027004_1280.jpg" className=" rounded-3xl object-cover " alt="" />
+                            <div className=" h-full col-span-6">
+                                <img src={FaqImage} className=" rounded-3xl object-cover w-full h-full " alt="" />
                             </div>
                     </div>
                 </div>

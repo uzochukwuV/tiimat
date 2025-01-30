@@ -34,7 +34,8 @@ function HomeScreen() {
                     </div>
                 </div>
                 <div className="">
-                    <video autoPlay={true} loop={true} playsInline={true} className="myVideo h-[80vh] object-cover w-screen" poster="https://chigisoft.com/_nuxt/bg-bg.6f9096ee.svg" ><source data-v-423ee4fe="" src="https://chigisoft.com/_nuxt/Chigisoft_2.28e5818c.mp4" type="video/mp4" /></video>
+                    <video autoPlay={true} loop={true} playsInline={true} className="myVideo h-[80vh] object-cover w-screen"
+                     poster="https://cdn.pixabay.com/photo/2020/04/25/12/14/circle-5090539_960_720.jpg" ><source data-v-423ee4fe="" src="https://cdn.pixabay.com/video/2024/01/24/198018-906226540_large.mp4" type="video/mp4" /></video>
                 </div>
             </section>
             <section className=' bg-[#F6F8F9] min-h-screen py-12 md:py-24'>

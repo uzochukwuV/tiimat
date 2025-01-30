@@ -55,7 +55,7 @@ function AboutUs() {
         <div className=" text-pretty bg-[#F6F8F9]">
             <section className=" py-24 max-w-[1200px] mx-auto antialiased">
                 <div className="  space-y-4 mt-24 max-w-xl">
-                    <h2 className=" text-[#222] font-bold text-4xl ">One Stop Tiimat Solution</h2>
+                    {/* <h2 className=" text-[#222] font-bold text-4xl ">One Stop Tiimat Solution</h2> */}
                     <p className=" text-[#333] font-medium text-2xl "></p>
                     
                 </div>
