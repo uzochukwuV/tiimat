@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button"
+
 import Services from "../assets/bg-services.svg"
-import DataAnalytics from "../assets/dept/datics.jpg"
-import { Clock2 } from "lucide-react"
+
 import { HoverEffect } from "./ui/Cards"
 
 export const projects = [

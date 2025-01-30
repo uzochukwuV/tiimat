@@ -43,7 +43,7 @@ const Sample = () => {
         <div className=" flex flex-col gap-6 mt-4 md:py-12 bg-zinc-50">
           <div className=" *:text-center px-6 flex justify-end max-w-3xl mx-auto  items-center text-center flex-col gap-2">
             
-            <p className=" text-2xl sm:text-3xl text-[#0c0c0c]   leading-10 text-black font-extrabold ">
+            <p className=" text-2xl sm:text-3xl    leading-10 text-black font-extrabold ">
               What You Will Learn{" "}
             </p>
             <p className=" text-sm sm:text-base text-[#5c5c5c] ">
@@ -64,7 +64,7 @@ const Sample = () => {
         <div className=" px-4 md:px-6 ">
           <div className=" min-h-[240px] relative flex flex-col md:px-24 md:flex-row md:gap-6 md:items-center ">
             
-            <div className=" bg-black/40 my-6 relative backdrop-blur-xl  h-full rounded-xl flex gap-4 flex-col items-center justify-center py-6 mb-8 flex-1 gap-6 ">
+            <div className=" bg-black/40 my-6 relative backdrop-blur-xl  h-full rounded-xl flex gap-4 flex-col items-center justify-center py-6 mb-8 flex-1">
             <div className="absolute rounded-full blur-2xl w-40 h-32 bg-blue-600 opacity-40 left-20 "></div>
             <div className="absolute rounded-full blur-2xl w-40 h-32 bg-blue-600 opacity-40 right-40 "></div>
             <div className="absolute rounded-full blur-2xl w-40 h-32 bg-blue-600 opacity-40 bottom-0 left-64 "></div>
@@ -112,7 +112,7 @@ const Curriculum =({id}:any)=> {
   return  data.map((curriculum:any)=>{
     return  <div className=" py-8 px-10 bg-white rounded-xl max-w-3xl mx-auto">
     <h3 className=" mb-4 font-bold text-cente text-[#0c0c0c] text-center">{curriculum.name}</h3>
-    <h3 className=" text-sm text-center text-[#5c5c5c] text-center">{curriculum.description}</h3>
+    <h3 className=" text-sm  text-[#5c5c5c] text-center">{curriculum.description}</h3>
     <CurriculumItem params={curriculum.id} />
   </div>
   })
@@ -138,7 +138,7 @@ function CurriculumItem({params}:any) {
     </div>
     <div className=" relative space-y-4">
       
-      <p className=" text-xl sm:text-sm text-[#0c0c0c]  md:text-base leading-10 text-black font-extrabold ">
+      <p className=" text-xl sm:text-sm   md:text-base leading-10 text-black font-extrabold ">
         {item?.title}{" "}
       </p>
       
