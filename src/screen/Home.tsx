@@ -6,7 +6,7 @@ import Management from "../assets/ic-fintech.svg"
 import ProjectManagement from "../assets/ic-real-estate.svg"
 import CyberSecurity from "../assets/ic-security.svg"
 import Quote from "../assets/ic-quote.svg"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 function HomeScreen() {

@@ -1,9 +1,8 @@
 
-import { useEffect, useState } from "react"
 import Services from "../assets/bg-services.svg"
 
 import { HoverEffect } from "./ui/Cards"
-import { getCoursesInFaculty, getFaculties } from "@/services/read"
+
 import { useLoaderData } from "react-router-dom";
 
 function Departments() {

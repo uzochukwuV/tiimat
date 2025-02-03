@@ -1,6 +1,5 @@
-import { getAllCurriculum, getAllSemesterInCourse } from '@/services/read';
-import React, { useEffect } from 'react'
-import { useLoaderData, useParams } from 'react-router-dom'
+
+import { useLoaderData } from 'react-router-dom'
 
 function Course() {
     const res = useLoaderData() as any;
