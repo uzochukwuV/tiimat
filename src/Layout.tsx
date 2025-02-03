@@ -24,7 +24,7 @@ export const Layout = () => {
       <section id="app" className=' overflow-hidden absolute top-0 left-0 right-0 bg-[var(--background)] min-h-screen'>
         <Navigation />
         <Outlet />
-        <section className="  py-24">
+        <section className=" sm:px-8  py-24">
                 <div className=" h-full px-6 md:px-0  max-w-[1200px] w-full  mx-auto">
                     <div className="w-full h-full grid md:grid-cols-12 gap-12">
                             <div className=" col-span-6 flex flex-col justify-center">

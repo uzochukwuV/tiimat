@@ -8,7 +8,7 @@ import FacultyPage from "./pages/Faculty";
 import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
-import { getAllCourse, getAllCurriculum, getAllSemester, getCourse, getFaculties, getFaculty } from "./services/read";
+import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
 import EditCourse from "./admin/EditCourse";
 import AddCourse, {CourseAdmin} from "./admin/AddCourse";
 import AddCurriculum, { CurriculumAdmin } from "./admin/AddCurriculum";
@@ -22,6 +22,7 @@ import { SidebarProvider } from "./components/ui/sidebar";
 import HomeScreen from "./screen/Home";
 import Departments from "./screen/Departments";
 import AboutUs from "./screen/AboutUs";
+import Course from "./screen/Course";
 
 function Home() {
   return (
@@ -44,7 +45,30 @@ const App = () => {
         },
         {
           path:"/departments",
-          element:<Departments />
+          element:<Departments />,
+          loader: async () => {
+            const data =  await getFaculties()
+            const res =  data!.map(async(item:any)=>{
+             const f =  await getCoursesInFaculty(item.id)
+             return {faculty:item, courses:f}
+            })
+            return await Promise.all(res)
+                  
+          },
+        },
+        {
+          path:"/departments/:id",
+          element:<Course />,
+          loader: async ({ params }) => {
+            const course =  await getCourse(params.id as string);
+            const semester = await getAllSemesterInCourse(course?.id!)
+            const res =  semester!.map(async(item:any)=>{
+              const curriculum =  await getAllCurriculumInSemester(item.id)
+              return {semester:item, curriculum:curriculum}
+             })
+            const data = await Promise.all(res)
+            return {course:course, semester:data}
+          },
         },
         {
           path: "/course/:id",

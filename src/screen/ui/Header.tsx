@@ -1,7 +1,7 @@
 
 import Img from "../../assets/logo-1.png"
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { ChevronDown } from "lucide-react";
+// import { ChevronDown } from "lucide-react";
 import Menu from "../../assets/ic-nav-menu-w.svg"
 import { Link, useLocation} from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 function Navigation() {
   const route = useLocation()
   return (
-    <div className={cn(" z-50  fixed top-0 left-0 right-0  ", route.pathname == "/"? " bg-transparent":"bg-white" )}>
+    <div className={cn(" z-50 bg-black fixed top-0 left-0 right-0  backdrop-blur", route.pathname == "/"? "bg-[ rgba(30, 31, 33, .8)]":"bg-transparent" )}>
       {/* bg-[#1e1f21cc] */}
-      <div className=" relative px-6 md:px-24 py-4 flex justify-between items-center ">
+      <div className=" relative px-6 md:px-24 flex justify-between items-center ">
         <div>
           <img src={Img} alt="" width={150} />
         </div>
@@ -23,14 +23,14 @@ function Navigation() {
         </label>
         <div className="hidden md:block peer-has-checked:block">
           <NavigationMenu.Root className=" ">
-            <NavigationMenu.List className={cn(" flex gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#f2f2f2] hover:text-white":"text-[#222] hover:text-black")}>
-              <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
+            <NavigationMenu.List className={cn(" flex gap-8 md:gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#f2f2f2] hover:text-white":"text-[#222] hover:text-black")}>
+              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger >
-                  <Link to={""}>Home</Link>
+                  <Link  viewTransition  to={""}>Home</Link>
 
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
+              {/* <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-2 rounded  font-medium leading-none">
                   Faculties
                   <ChevronDown className="transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180" width={18} />
@@ -58,18 +58,18 @@ function Navigation() {
                     </div>
                   </div>
                 </NavigationMenu.Content>
-              </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
+              </NavigationMenu.Item> */}
+              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link to={"/departments"} >Departments</Link>
+                  <Link  viewTransition to={"/departments"} >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link to={"/about"} >About Us</Link>
+                  <Link  viewTransition to={"/about"} >About Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-xl leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
                   Contact Us
                 </NavigationMenu.Trigger>

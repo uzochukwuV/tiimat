@@ -6,13 +6,15 @@ import Management from "../assets/ic-fintech.svg"
 import ProjectManagement from "../assets/ic-real-estate.svg"
 import CyberSecurity from "../assets/ic-security.svg"
 import Quote from "../assets/ic-quote.svg"
+import { Link, useNavigate } from "react-router-dom"
 
 
 function HomeScreen() {
+    const navigate = useNavigate();
     return (
         <div className=' relative '>
             <Navigation />
-            <section className=' relative bg-white '>
+            <section className=' relative bg-[#222]'>
                 <div className="  absolute top-0 right-0 left-0 h-[80vh]" style={{ background: "rgba(30, 31, 33, .8)" }} >
                     <div className="h-full w-full relative">
                         <div className=" absolute top-[40vh] left-6 md:left-24 w-[40%] min-w-[300px] space-y-4">
@@ -26,15 +28,12 @@ function HomeScreen() {
                                 empower individuals with the skills and knowledge to drive
                                 meaningful change and impact in a globally connected world.
                             </p>
-                            <Button variant={"secondary"} className=" py-6 flex group" >
-                                Get started
-                                <ArrowRight className=' group-hover:translate-x-4 transition  duration-500' />
-                            </Button>
+                           <Button onClick={()=>navigate("/about", {viewTransition:true})} variant={"secondary"} className=" py-6 text-lg rounded-full font-semibold px-12" >Learn More</Button>
                         </div>
                     </div>
                 </div>
                 <div className="">
-                    <video autoPlay={true} loop={true} playsInline={true} className="myVideo h-[80vh] object-cover w-screen"
+                    <video autoPlay={true} loop={true} playsInline={true} className="myVideo  h-[80vh] object-cover w-screen"
                      poster="https://cdn.pixabay.com/photo/2020/04/25/12/14/circle-5090539_960_720.jpg" ><source data-v-423ee4fe="" src="https://cdn.pixabay.com/video/2024/01/24/198018-906226540_large.mp4" type="video/mp4" /></video>
                 </div>
             </section>
@@ -71,24 +70,31 @@ function HomeScreen() {
                                 </div>
                             </div>
                             {
-                                [1, 2, 3, 4, 5, 6].map((d) => <div key={d} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 space-y-8 md:space-y-10 flex flex-col justify-between">
+                                [1, 2, 3, 4, 5].map((d) => <div key={d} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 space-y-8 md:space-y-10 flex flex-col justify-between">
                                     <p className=" text-[#222] font-semibold md:text-xl">Social Media Management</p>
                                     <div>
                                         <img src={CyberSecurity} alt="" />
                                     </div>
                                 </div>)
                             }
+                            <div onClick={()=>navigate("/departments")} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 h-1/2  flex group hover:scale-105 justify-between">
+                                <p className=" text-[#222] font-semibold  md:text-xl">
+                                    More .......
+                                </p>
+                                <ArrowRight className=' group-hover:translate-x-2 transition -translate-x-5 duration-500' />
+                                
+                            </div>
                         </div>
                         <div className=" grid md:grid-cols-2 lg:grid-cols-3 pt-24 gap-16">
                             <div className=" space-y-6">
                                 <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">Join a vibrant community of learners </h3>
-                                <Button variant={"outline"} className=" py-6 text-lg rounded-full font-semibold px-12 border-black border-2" >Join Now</Button>
+                                <Button onClick={()=>navigate("/departments")} variant={"outline"} className=" py-6 text-lg rounded-full font-semibold px-12 border-black border-2" >Join Now</Button>
                             </div>
-                            <div className=" space-y-6">
+                            <div onClick={()=>navigate("/departments",{viewTransition:true})} className=" space-y-6">
                                 <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">High-quality education ensuring great value </h3>
                                 <Button variant={"outline"} className=" py-6 text-lg rounded-full font-semibold px-12 border-black border-2" >Explore Courses</Button>
                             </div>
-                            <div className=" space-y-6">
+                            <div onClick={()=>navigate("/about", {viewTransition:true})} className=" space-y-6">
                                 <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">...Learn from professionals and industrial experts</h3>
                                 <Button variant={"outline"} className="group py-6 text-lg rounded-full font-semibold px-12 border-rose-500 text-rose-500 hover:text-white hover:bg-rose-500 hover:border-rose-500 border-2 " >Tiimat Solution
                                     <ArrowRight className=' group-hover:translate-x-4 transition duration-500' />

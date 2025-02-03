@@ -8,9 +8,10 @@ export const HoverEffect = ({
   className,
 }: {
   items: {
-    title: string
+    name: string
     description: string
-    link: string
+    id: string
+    image:string
   }[]
   className?: string
 }) => {
@@ -20,8 +21,8 @@ export const HoverEffect = ({
     <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-8  lg:grid-cols-3  py-10", className)}>
       {items.map((item, idx) => (
         <Link
-          to={item?.link}
-          key={item?.link}
+          to={item?.id}
+          key={item?.id}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -43,9 +44,9 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+          <Card img={item.image}>
+            <CardTitle>{item.name}</CardTitle>
+            <CardDescription className=" line-clamp-3">{item.description}</CardDescription>
           </Card>
         </Link>
       ))}
@@ -56,18 +57,24 @@ export const HoverEffect = ({
 export const Card = ({
   className,
   children,
+  img,
 }: {
   className?: string
-  children: React.ReactNode
+  children: React.ReactNode,
+  img?: string
 }) => {
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 hover:scale-105 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 hover:scale-105 overflow-hidden bg-[#222] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
         className,
       )}
     >
+      <div className="absolute  inset-0 w-full h-full bg-[#222]/90 ">
+      <img src={img!} alt="" className="absolute -z-40 inset-0 w-full h-full object-cover" />
+      </div>
       <div className="relative z-50">
+      
         <div className="p-4">{children}</div>
       </div>
     </div>

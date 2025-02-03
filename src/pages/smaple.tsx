@@ -3,18 +3,11 @@
 import { Link, useLoaderData } from "react-router-dom";
 // import CourseModal from "../components/course/CourseModal";
 import { useEffect, useState } from "react";
-import {  getAllCurriculum, getAllCurriculumInSemester, getAllSemesterInCourse } from "../services/read";
+import {  getAllCurriculumInSemester, getAllSemesterInCourse } from "../services/read";
 
 const Sample = () => {
   const res = useLoaderData() as any;
 
-  getAllCurriculum()
-    .then((data)=>{
-      console.log(data);
-      
-    })
-  
-  // return ""
   return (
     <>
       <section>
@@ -100,8 +93,6 @@ const Curriculum =({id}:any)=> {
     setLoading(true)
       getAllSemesterInCourse(id)
         .then((data)=> {
-         console.log(data);
-         
           
           setData(data)
           setLoading(false)

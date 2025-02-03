@@ -1,51 +1,18 @@
 
+import { useEffect, useState } from "react"
 import Services from "../assets/bg-services.svg"
 
 import { HoverEffect } from "./ui/Cards"
-
-export const projects = [
-  {
-    title: "Data Analytics",
-    description: "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
-  },
-  {
-    title: "Web Developmet",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
-  },
-  {
-    title: "UI/UX",
-    description: "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
-  },
-  {
-    title: "Graphic Design",
-    description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
-  },
-  {
-    title: "Human Resource Management",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
-  },
-  {
-    title: "Social media Management",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
-  },
-]
-
-
-
+import { getCoursesInFaculty, getFaculties } from "@/services/read"
+import { useLoaderData } from "react-router-dom";
 
 function Departments() {
+   const res = useLoaderData() as any;
+    console.log("es",res);
+  
   return (
-    <div>
+    <div className=" px-8 md:px-0">
+      
       <section className='bg-[#F6F8F9] py-24 '>
         <div className=' max-w-[1200px] mx-auto h-full w-full flex items-end justify-start'>
           <div className=' max-h-[500px] mt-12 '>
@@ -125,9 +92,16 @@ function Departments() {
         </div>
       </section> */}
       <section className=" py-24">
-          <div className="max-w-[1200px] mx-auto ">
-          <HoverEffect items={projects} />
-          </div>
+        { 
+        res.map((item:any)=>{
+          return (
+            <div className=" max-w-[1200px] mx-auto">
+              <h1 className=" text-pretty text-2xl font-semibold mb-8">{item.faculty.name}</h1>
+              <HoverEffect items={item.courses} />
+            </div>
+          )
+        })
+        }
       </section>
       
 

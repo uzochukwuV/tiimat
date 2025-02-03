@@ -250,6 +250,21 @@ export const getSemester = async (document: string) => {
   }
 };
 
+export const getAllCourseInFaculty= async (document: string) => {
+  try {
+    const ref = collection(db, FACULTY);
+    const q = query(ref, where("facultyId", "==", document))
+    const res= (await getDocs(q));
+    
+    return res.docs.map((data)=>{
+      return {...data.data(), id: data.id}
+    })
+  } catch (error) {
+    console.log(error);
+    
+  }
+};
+
 
 export const getAllSemesterInCourse= async (document: string) => {
   try {
