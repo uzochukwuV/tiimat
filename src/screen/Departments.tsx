@@ -10,9 +10,9 @@ function Departments() {
     console.log("es",res);
   
   return (
-    <div className=" px-8 md:px-0">
+    <div className=" ">
       
-      <section className='bg-[#F6F8F9] py-24 '>
+      <section className='bg-[#F6F8F9] py-24 px-8 md:px-0'>
         <div className=' max-w-[1200px] mx-auto h-full w-full flex items-end justify-start'>
           <div className=' max-h-[500px] mt-12 '>
             <h1 className=" text-[24px] max-w-lg mb-12 font-semibold text-pretty antialiased">Building skills, shaping careers, and driving innovation forward.</h1>
@@ -90,7 +90,7 @@ function Departments() {
           </div>
         </div>
       </section> */}
-      <section className=" py-24">
+      <section className=" py-24 px-8 md:px-0">
         { 
         res.map((item:any)=>{
           return (

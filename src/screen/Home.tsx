@@ -77,7 +77,7 @@ function HomeScreen() {
                                     </div>
                                 </div>)
                             }
-                            <div onClick={()=>navigate("/departments")} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 h-1/2  flex group hover:scale-105 justify-between">
+                            <div onClick={()=>navigate("/departments")} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8   flex group hover:scale-105 justify-between">
                                 <p className=" text-[#222] font-semibold  md:text-xl">
                                     More .......
                                 </p>
@@ -124,7 +124,7 @@ function HomeScreen() {
                     </div>
                 </div>
             </section>
-            <section className=' bg-[#F6F8F9] min-h-[600px] py-24'>
+            {/* <section className=' bg-[#F6F8F9] min-h-[600px] py-24'>
                 <div className=" h-full  max-w-[1200px] w-full px-6 md:px-0  mx-auto">
                     <div className="w-full h-full grid md:grid-cols-2 gap-12">
                         <div>
@@ -132,7 +132,7 @@ function HomeScreen() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             
             <section></section>
         </div>
