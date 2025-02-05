@@ -10,14 +10,16 @@ const ContactUs = () => {
         event.preventDefault();
         toast.success("Message sent successfully!");
         // Handle form submission logic here
+        console.log("Form submitted");
+        (event.currentTarget as HTMLFormElement).reset();
     };
 
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto p-8"
+            transition={{ duration: 1.5 }}
+            className="max-w-2xl mx-auto p-8 "
         >
             <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -28,7 +30,7 @@ const ContactUs = () => {
                     <input
                         id="name"
                         type="text"
-                        className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border rounded-md bg-white text-black font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
@@ -40,7 +42,7 @@ const ContactUs = () => {
                     <input
                         id="email"
                         type="email"
-                        className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border rounded-md bg-white text-black font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
@@ -51,14 +53,15 @@ const ContactUs = () => {
                     </Label>
                     <textarea
                         id="message"
-                        className="w-full p-3 border rounded-md h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border rounded-md h-32 resize-none bg-white text-black font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
 
                 <button
+
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 bg-[#333] text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                     Send Message
                     <SendIcon size={18} />
