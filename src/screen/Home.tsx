@@ -1,4 +1,4 @@
-import Navigation from "./ui/Header"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Trust from "./ui/Trust"
@@ -13,7 +13,7 @@ function HomeScreen() {
     const navigate = useNavigate();
     return (
         <div className=' relative '>
-            <Navigation />
+           
             <section className=' relative bg-[#222]'>
                 <div className="  absolute top-0 right-0 left-0 h-[80vh]" style={{ background: "rgba(30, 31, 33, .8)" }} >
                     <div className="h-full w-full relative">

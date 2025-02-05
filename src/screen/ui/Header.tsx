@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 function Navigation() {
   const route = useLocation()
   return (
-    <div className={cn(" z-50 bg-black fixed top-0 left-0 right-0  backdrop-blur", route.pathname == "/"? "bg-[ rgba(30, 31, 33, .8)]":"bg-transparent" )}>
+    <div className={cn(" z-50 bg-black sticky top-0 left-0 right-0  backdrop-blur", route.pathname == "/"? "bg-[ rgba(30, 31, 33, .8)]":"bg-transparent" )}>
       {/* bg-[#1e1f21cc] */}
       <div className=" relative px-6 md:px-24 flex justify-between items-center ">
         <div>
@@ -23,7 +23,7 @@ function Navigation() {
         </label>
         <div className="hidden md:block peer-has-checked:block">
           <NavigationMenu.Root className=" ">
-            <NavigationMenu.List className={cn(" flex gap-8 md:gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#f2f2f2] hover:text-white":"text-[#222] hover:text-black")}>
+            <NavigationMenu.List className={cn(" flex gap-8 md:gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#2f2f2f] hover:text-white":"text-[#222] hover:text-black")}>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger >
                   <Link  viewTransition  to={""}>Home</Link>

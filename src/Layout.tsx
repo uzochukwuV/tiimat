@@ -1,22 +1,13 @@
 import { Outlet } from "react-router-dom";
-
-import { useEffect, useState } from "react";
-import { getAllCourse } from "./services/read";
 import Navigation from "./screen/ui/Header";
 import { Footer } from "./screen/ui/Footer";
 import Faq from "./screen/ui/Faq";
 import FaqImage from "./assets/dept/faq.avif"
 
 
-export const Layout = () => {
-  const [courses, setCourses] = useState([]) as any;
-  useEffect(() => {
-    getAllCourse()
-      .then((data) => {
-        setCourses(data)
-      })
-  }, [])
 
+export const Layout = () => {
+ 
 
   return (
     <>
@@ -37,7 +28,7 @@ export const Layout = () => {
                     </div>
                 </div>
             </section>
-        <Footer courses={courses} />
+        <Footer  />
       </section>
 
     </>

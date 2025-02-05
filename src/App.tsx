@@ -5,7 +5,7 @@ import { Layout } from "./Layout";
 // import Course from './pages/course'
 import FacultyPage from "./pages/Faculty";
 // import AboutPage from "./pages/About";
-import ContactPage from "./pages/Contact";
+// import ContactPage from "./pages/Contact";
 import NotFound from "./NotFound";
 import Sample from "./pages/smaple";
 import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
@@ -23,6 +23,7 @@ import HomeScreen from "./screen/Home";
 import Departments from "./screen/Departments";
 import AboutUs from "./screen/AboutUs";
 import Course from "./screen/Course";
+import ContactUs from "./screen/ContactUs";
 
 function Home() {
   return (
@@ -96,8 +97,8 @@ const App = () => {
           element: <AboutUs />,
         },
         {
-          path: "/contact-us",
-          element: <ContactPage />,
+          path: "/contact",
+          element: <ContactUs />,
         },
       ],
     },

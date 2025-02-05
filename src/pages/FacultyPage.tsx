@@ -31,7 +31,7 @@ function FacultyItem() {
                     <p>{loader?.description}</p>
                 </div>
                 <div className=" min-h-[500px]">
-                    <h3 className=" text-xl mb-4">Courses</h3>
+                    <h3 className=" text-xl mb-4">Departments</h3>
                     <div>
                         <CorseItemComponent id={loader.id} />
                     </div>
@@ -76,8 +76,8 @@ const CorseItemComponent = ({ id }: { id: string }) => {
                 courses.map((data: any) => {
                     return (
                         <Link
-                            to={`/course/${data.id}`}
-                            className=" relative hover:scale-[1.03] w-full flex items-center gap-6 bg-slate-50 w-full h-20 sm:h-24 md:h-32 rounded-xl min-w-[320px] ">
+                            to={`/departments/${data.id}`}
+                            className=" relative hover:scale-[1.03]  flex items-center gap-6 bg-slate-50 w-full h-20 sm:h-24 md:h-32 rounded-xl min-w-[320px] ">
                             <div className="">
                                 <img src={data.image} alt="" className="mask relative w-32 h-20 sm:h-24 md:h-32 rounded-xl object-cover " />
                             </div>
