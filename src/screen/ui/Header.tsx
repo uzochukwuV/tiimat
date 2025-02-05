@@ -71,7 +71,7 @@ function Navigation() {
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  Contact Us
+                <Link  viewTransition to={"/contact"} >Contact Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
             </NavigationMenu.List>
