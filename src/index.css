@@ -277,11 +277,8 @@ html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
     --sidebar-accent-foreground:240 4.8% 95.9%;
     --sidebar-border:240 3.7% 15.9%;
     --sidebar-ring:217.2 91.2% 59.8%;
-
-  
   }
 
-  
 }
 
 
@@ -301,3 +298,11 @@ html.sr .fromTop, html.sr .fromBottom, html.sr .fromRight, html.sr .fromLeft {
   
 }
 
+#menu:checked > #sidebar {
+  transform: translateX(0);
+  display: block;
+}
+
+#sidebar {
+  z-index: 1000;
+}

@@ -14,15 +14,12 @@ function HomeScreen() {
     const navigate = useNavigate();
     return (
         <div className=' relative '>
-           
-            <section className=' relative bg-[#222]'>
-                <div className="  absolute top-0 right-0 left-0 h-[80vh]" style={{ background: "rgba(30, 31, 33, .8)" }} >
+            <section className=' relative -inset-1  bg-[#222]'>
+                <div className="  absolute top-0 right-0  left-0 h-[80vh]" style={{ background: "rgba(30, 31, 33, .8)" }} >
                     <div className="h-full w-full relative">
                         <div className=" absolute top-[40vh] left-6 md:left-24 w-[40%] min-w-[300px] space-y-4">
                             <h1 className=" text-white text-2xl md:text-4xl font-medium tracking-tight leading-snug ">
-
                                 Tiimat Solutions
-
                             </h1>
                             <p className=" block mb-4 text-sm md:text-lg text-zinc-300">
                                 Delivering high-quality, innovative educational programs that
@@ -33,7 +30,7 @@ function HomeScreen() {
                         </div>
                     </div>
                 </div>
-                <div className="">
+                <div className=" z-[20]">
                     <video autoPlay={true} loop={true} playsInline={true} className="myVideo  h-[80vh] object-cover w-screen"
                      poster="https://cdn.pixabay.com/photo/2020/04/25/12/14/circle-5090539_960_720.jpg" ><source data-v-423ee4fe="" src="https://cdn.pixabay.com/video/2024/01/24/198018-906226540_large.mp4" type="video/mp4" /></video>
                 </div>
