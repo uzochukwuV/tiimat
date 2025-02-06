@@ -2,10 +2,9 @@
 import Img from "../../assets/logo-1.png"
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 // import { ChevronDown } from "lucide-react";
-import Menu from "../../assets/ic-nav-menu-w.svg"
 import { Link, useLocation} from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
