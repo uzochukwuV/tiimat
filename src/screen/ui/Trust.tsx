@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Director from '@/assets/dir/director.jpg'
 function Trust() {
     const ismobile = useIsMobile()
     const [slideCount, setSlideCount] = useState(2)
@@ -13,7 +14,7 @@ function Trust() {
         infinite: true,
         slidesToShow: slideCount,
         slidesToScroll: 1,
-        speed: 2000,
+        speed: 5000,
         autoplaySpeed: 2000,
         cssEase: "linear"
     };
@@ -33,41 +34,45 @@ function Trust() {
             <div className=' w-screen mb-6'>
                     {/* slider */}
                     <Slider {...settings} >
-                        <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-efef
+                    <div className=" h-[240px] md:h-[400px] pl-8">
+                            <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
+                                <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
+                                <div className=' rounded-2xl  w-full relative h-full  '>
+                                    <h3 className=' font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl '>Director ,Tiimat Solution</h3>
+                                    <p className=' text-white' >Happy Birthday™ </p>
+                                </div>
                             </div>
                            
                         </div>
                         <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-
-                            </div>
-                            
-                        </div>
-                        <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-
+                            <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
+                                <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
+                                <div className=' rounded-2xl  w-full relative h-full  '>
+                                    <h3 className=' font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl '>Director ,Tiimat Solution</h3>
+                                    <p className=' text-white' >Happy Birthday™ </p>
+                                </div>
                             </div>
                            
                         </div>
                         <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-
+                            <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
+                                <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
+                                <div className=' rounded-2xl  w-full relative h-full  '>
+                                    <h3 className=' font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl '>Director ,Tiimat Solution</h3>
+                                    <p className=' text-white' >Happy Birthday™ </p>
+                                </div>
                             </div>
                            
                         </div>
                         <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-
+                            <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
+                                <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
+                                <div className=' rounded-2xl  w-full relative h-full  '>
+                                    <h3 className=' font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl '>Director ,Tiimat Solution</h3>
+                                    <p className=' text-white' >Happy Birthday™ </p>
+                                </div>
                             </div>
                            
-                        </div>
-                        <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200 rounded-2xl p-6 w-full relative h-full'>
-
-                            </div>
-                            
                         </div>
                     </Slider>
 
@@ -80,11 +85,12 @@ efef
                         </div>
                         <div className=' flex justify-between items-center'>
                             <div className='space-y-2'>
-                                <h4 className='text-black text-xl font-medium'>Name</h4>
-                                <p className=' text-[#333] text-lg'>CEO Tiimat</p>
+                                <h4 className='text-black text-xl font-medium'>Amrasa Peter Ighowofe</h4>
+                                <p className=' text-[#333] text-sm font-medium'>CEO, TIIMAT Solutions</p>
                             </div>
                             <div>
-                                img
+                            <img src={Director} alt="" className='rounded-2xl w-20 h-20 object-cover' />
+                                
                             </div>
                         </div>
                     </div>
