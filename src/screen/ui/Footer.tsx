@@ -46,6 +46,7 @@ return (
             <li><Link to="/departments" className="text-gray-400 hover:text-white">Departments</Link></li>
             <li><Link to="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
             <li><Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
+            <li><Link to="/dashboard" className="text-gray-400 hover:text-white">Dashboard</Link></li>
           </ul>
         </div>
 

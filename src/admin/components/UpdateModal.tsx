@@ -123,6 +123,7 @@ function ProfileForm({
               onChange={handleChange}
               defaultValue={data[item]}
               name={item}
+              className=" bg-white"
             />
           </div>
         );

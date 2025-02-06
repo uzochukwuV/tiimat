@@ -81,7 +81,7 @@ function EditCourse() {
           onChange={updateValue}
           type="text"
           placeholder="Price"
-          className=" mb-2 w-[80vw] px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
+          className=" mb-2 w-[80vw] bg-white px-6 flex-1 block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
         />
         <input
           value={desc}
@@ -89,7 +89,7 @@ function EditCourse() {
           type="text"
           name="description"
           placeholder="Description"
-          className=" px-6 flex-1  w-[80vw] block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
+          className=" px-6 flex-1  w-[80vw] bg-white block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
         />
         <input
           value={image}
@@ -97,14 +97,14 @@ function EditCourse() {
           type="text"
           name="image"
           placeholder="image Link"
-          className=" px-6 flex-1  w-[80vw] block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
+          className=" px-6 flex-1  w-[80vw] bg-white block relative rounded-xl focus:outline-gray-300 ring ring-white  h-14  bg-[var(--background)]"
         />
 
        {
         !loading ?  <button
         type="submit"
         disabled={loading}
-        className=" mt-4 bg-black hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center"
+        className=" mt-4 bg-black  hover:opacity-70 px-4 h-14 rounded-xl text-white flex gap-1 justify-center items-center"
       >
         Add{" "}
         <span>

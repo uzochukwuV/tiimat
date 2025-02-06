@@ -3,7 +3,7 @@ import {Outlet} from "react-router-dom";
 export function AdminLayout() {
     
   
-    return <div className="absolute top-0 right-0 left-0 bottom-0 flex flex-col ">
+    return <div className="absolute top-0 right-0  bg-slate-50 left-0 bottom-0 flex flex-col ">
       <div className=" border-b px-8 py-4">
           <h1 className=" text-lg font-semibold">Short term admin</h1>
       </div>
@@ -15,7 +15,7 @@ export function AdminLayout() {
          <div className=""><Link className=" min-w-40 text-center block text-black hover:underline md:text-start md:shadow md:px-6 md:py-1 " to={"/admin"}>Admin</Link></div> 
          <div className=""><Link className=" min-w-40 text-center block text-black hover:underline md:text-start md:shadow md:px-6 md:py-1 " to={"/admin/course/semester/add"}>Add semester</Link></div> 
         </div>
-      <div className=" col-span-3 px-6 py-8">
+      <div className=" bg-slate-50 col-span-3 px-6 py-8">
       <Outlet />
       </div>
          

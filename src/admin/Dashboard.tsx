@@ -16,7 +16,7 @@ export function Dashboard() {
   bread.shift();
 
   return (
-    <section id="dashboard" className=" absolute top-0 left-0 right-0 bottom-0">
+    <section id="dashboard" className=" bg-slate-200 absolute top-0 left-0 right-0 bottom-0">
       <div className="flex ">
         <AdminSidebar />
         <div className="flex-1 h-screen rounded">

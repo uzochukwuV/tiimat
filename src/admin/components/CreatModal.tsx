@@ -160,7 +160,7 @@ function CreateForm({
               defaultValue={data[item]}
               name={item}
               required
-              className=" text-black placeholder:text-black/80"
+              className=" text-black bg-white placeholder:text-black/80"
             />
           </div>
         );
