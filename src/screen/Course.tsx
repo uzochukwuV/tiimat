@@ -1,7 +1,7 @@
 
 import { Building2, Clock1Icon, StarHalf } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router-dom'
-import f from '../assets/computer.svg'
+
 
 function Course() {
     const res = useLoaderData() as any;
