@@ -5,17 +5,12 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Link, useLocation} from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { MenuIcon } from "lucide-react";
-import { motion } from "framer-motion";
-import { useState } from "react";
 
 
-function Navigation() {
+
+function Navigation({checked, setCheckedFunc}:any) {
   const route = useLocation()
-  const [checked, setChecked] = useState(false)
-  const setCheckedFunc = () => {
-    setChecked(!checked)
-   
-  }
+  
   return (
     <div className={cn(" z-50 bg-black top-0 left-0 right-0  backdrop-blur", route.pathname == "/"? "bg-[ rgba(30, 31, 33, .8)]":"bg-transparent" )}>
       {/* bg-[#1e1f21cc] */}
@@ -28,26 +23,7 @@ function Navigation() {
           <MenuIcon />
         </button>
         <input type="checkbox" id="menu" checked={checked} className="hidden peer"  name="menu" />
-      {
-        checked && <div id="sidebar" className={cn("  z-[100000] left-0 right-0 bottom-0 shadow-lg  md:hidden absolute top-20  h-scree transition-transform duration-300 ease-in-out transform translate-x-0 bg-black/80  backdrop-blur", checked? "w-full h-full":"hidden")}>
-        <div>
-          <div className=" z-50 bg-white text-black backdrop-blur p-8 transform transition-transform">
-            <motion.div
-              initial={{ x: 120 }}
-              animate={{ x: 0 }}
-              exit={{ x: 20 }}
-              transition={{ type: "spring", stiffness: 100 }}
-              className="flex flex-col *:font-medium *:w-full *:flex *:justify-start *:items-center space-y-8 gap-6 w-[300px] rounded-md "
-            >
-              <Link to="" className="text-lg z-50 ">Home</Link>
-              <Link to="/departments" className="text-lg ">Departments</Link>
-              <Link to="/about" className="text-lg ">About Us</Link>
-              <Link to="/contact" className="text-lg ">Contact Us</Link>
-            </motion.div>
-          </div>
-        </div>
-  </div>
-      }
+     
         <div className="hidden md:block peer-has-checked:block">
           <NavigationMenu.Root className=" ">
             <NavigationMenu.List className={cn(" flex gap-8 md:gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#2f2f2f] hover:text-white":"text-[#222] hover:text-black")}>
