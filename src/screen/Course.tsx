@@ -1,6 +1,7 @@
 
 import { Building2, Clock1Icon, StarHalf } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router-dom'
+import f from '../assets/computer.svg'
 
 function Course() {
     const res = useLoaderData() as any;
@@ -31,8 +32,8 @@ function Course() {
             </section>
             <section className=' relative z-20 min-h-[80vh] w-full grid md:grid-cols-6 gap-8 px-6 md:px-24 py-24'>
                 <div className='space-y-8 font-medium text-[#333] col-span-2 text-lg'>
-                    <h2 className=' font-bold  text-2xl'>Details </h2>
-                    <div className=' flex gap-8  md:flex-col'>
+                    <h2 className=' font-bold  md:text-2xl'>Details </h2>
+                    <div className=' flex gap-8 *:text-sm *:md:text-lg text-[#444]  md:flex-col'>
                         <div className=' flex flex-col gap-1'>
                             <span className=' font-bold'>Semesters </span>
                             <span>{res?.semester.length}</span>
@@ -54,8 +55,8 @@ function Course() {
                         res.semester.map((data:any)=> {
                             return <div className=' space-y-12'> 
                                 <div>
-                                <h3 className='font-semibold text-[#333] mb-4 text-xl md:text-2xl'>{data.semester.name}</h3>
-                                <p className=' font-medium text-[#333] text-sm text-pretty'>{data.semester.description}</p>
+                                <h3 className='font-semibold text-[#333] mb-4 text-2xl md:text-2xl'>{data.semester.name}</h3>
+                                <p className=' font-medium text-[#444]  text-pretty tracking-wide leading-snug'>{data.semester.description}</p>
                                 </div>
                                 <div className=' space-y-8'>
                                    
@@ -65,12 +66,12 @@ function Course() {
                                                 console.log(topicList)
                                                 return (
                                                     <div>
-                                                        <h4 className=' font-medium text-lg'>{topics.title}</h4>
+                                                        <h4 className='mb-4 font-medium text-lg'>{topics.title}</h4>
                                                         <div>
-                                                            <ol role='list'>
+                                                            <ol role='list' className=' space-y-2   list-image-[/src/assets/computer.svg]'>
                                                                 {
-                                                                    topicList.map((topic:any)=>{
-                                                                        return <li>
+                                                                    topicList.map((topic:any, i:any)=>{
+                                                                        return <li className={`before:absolute text-[#444] font-medium antialiased text-pretty before:h-2 before:w-2 before:-translate-x-4 before:translate-y-2 before:rounded-full before:content-["${i}"] before:text-white before:bg-green-700`}>
                                                                             {topic}
                                                                         </li>
                                                                     })
