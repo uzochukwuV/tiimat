@@ -1,6 +1,7 @@
 import { sendMessage } from "@/services/read";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 
 
 export const Footer = () => {
@@ -31,11 +32,32 @@ return (
     <div className=" mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
-        <div>
+        <div className=" space-y-4">
           <h3 className="text-xl font-bold mb-4">TIIMAT</h3>
-          <p className="text-gray-400">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ x: 10 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          className="text-gray-400">
             Empowering students through innovative online learning solutions.
-          </p>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ x: 10 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          className="text-gray-400">
+            tiimat@gmail.com
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ x: 10 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          className="text-gray-400">
+            @tiimat_solutions
+          </motion.p>
         </div>
 
         {/* Quick Links */}

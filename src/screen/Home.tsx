@@ -16,19 +16,55 @@ function HomeScreen() {
         <div className=' relative '>
             <section className=' relative -inset-1  bg-[#222]'>
                 <div className="  absolute top-0 right-0  left-0 h-[80vh]" style={{ background: "rgba(30, 31, 33, .8)" }} >
-                    <div className="h-full w-full relative">
-                        <div className=" absolute top-[40vh] left-6 md:left-24 w-[40%] min-w-[300px] space-y-4">
-                            <h1 className=" text-white text-2xl md:text-4xl font-medium tracking-tight leading-snug ">
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                       
+                        transition={{ duration: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="h-full w-full relative"
+                    >
+                        <motion.div 
+                            initial={{ opacity: 0, y: 50 }}
+                            
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="absolute top-[40vh] left-6 md:left-24 w-[40%] min-w-[300px] space-y-4"
+                        >
+                            <motion.h1 
+                                initial={{ opacity: 0, x: -50 }}
+                               
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                className="text-white text-2xl md:text-4xl font-medium tracking-tight leading-snug"
+                            >
                                 Tiimat Solutions
-                            </h1>
-                            <p className=" block mb-4 text-sm md:text-lg text-zinc-300">
+                            </motion.h1>
+                            <motion.p 
+                                initial={{ opacity: 0, x: -50 }}
+                               
+                                transition={{ duration: 0.8, delay: 0.7 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                className="block mb-4 text-sm md:text-lg text-zinc-300"
+                            >
                                 Delivering high-quality, innovative educational programs that
                                 empower individuals with the skills and knowledge to drive
                                 meaningful change and impact in a globally connected world.
-                            </p>
-                           <Button onClick={()=>navigate("/about", {viewTransition:true})} variant={"secondary"} className=" py-6 text-lg rounded-full font-semibold px-12" >Learn More</Button>
-                        </div>
-                    </div>
+                            </motion.p>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.9 }}
+                            >
+                                <Button 
+                                    onClick={()=>navigate("/about", {viewTransition:true})} 
+                                    variant={"secondary"} 
+                                    className="py-6 text-lg rounded-full font-semibold px-12"
+                                >
+                                    Learn More
+                                </Button>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
                 <div className=" z-[20]">
                     <video autoPlay={true} loop={true} playsInline={true} className="myVideo  h-[80vh] object-cover w-screen"
@@ -68,56 +104,119 @@ function HomeScreen() {
                                     </motion.div>
                                 </motion.div>
                             ))}
-                            {
-                                [1, 2, 3, 4, 5].map((d) => <div key={d} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 space-y-8 md:space-y-10 flex flex-col justify-between">
-                                    <p className=" text-[#222] font-semibold md:text-xl">Social Media Management</p>
-                                    <div>
-                                        <img src={CyberSecurity} alt="" />
-                                    </div>
-                                </div>)
-                            }
-                            <div onClick={()=>navigate("/departments")} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8   flex group hover:scale-105 justify-between">
-                                <p className=" text-[#222] font-semibold  md:text-xl">
+                            
+                            <div onClick={()=>navigate("/departments")} className=" bg-[#f6f8f9] rounded-3xl px-6 py-8 h-1/2   flex group hover:scale-105 justify-between">
+                                <p className=" text-[#222] font-semibold  md:text-lg">
                                     More .......
                                 </p>
                                 <ArrowRight className=' group-hover:translate-x-2 transition -translate-x-5 duration-500' />
                                 
                             </div>
                         </div>
-                        <div className=" grid md:grid-cols-2 lg:grid-cols-3 pt-24 gap-16">
-                            <div className=" space-y-6">
-                                <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">Join a vibrant community of learners </h3>
-                                <Button onClick={()=>navigate("/departments")} variant={"outline"} className=" py-6 text-lg rounded-full font-semibold px-12 border-black border-2" >Join Now</Button>
-                            </div>
-                            <div onClick={()=>navigate("/departments",{viewTransition:true})} className=" space-y-6">
-                                <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">High-quality education ensuring great value </h3>
-                                <Button variant={"outline"} className=" py-6 text-lg rounded-full font-semibold px-12 border-black border-2" >Explore Courses</Button>
-                            </div>
-                            <div onClick={()=>navigate("/about", {viewTransition:true})} className=" space-y-6">
-                                <h3 className=" md:text-2xl text-xl font-semibold text-[#333]">...Learn from professionals and industrial experts</h3>
-                                <Button variant={"outline"} className="group py-6 text-lg rounded-full font-semibold px-12 border-rose-500 text-rose-500 hover:text-white hover:bg-rose-500 hover:border-rose-500 border-2 " >Tiimat Solution
-                                    <ArrowRight className=' group-hover:translate-x-4 transition duration-500' />
-                                </Button>
-                            </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 pt-24 gap-16">
+                            {[
+                                {
+                                    title: "Join a vibrant community of learners",
+                                    buttonText: "Join Now",
+                                    onClick: () => navigate("/departments"),
+                                    buttonClass: "border-black border-2"
+                                },
+                                {
+                                    title: "High-quality education ensuring great value",
+                                    buttonText: "Explore Courses",
+                                    onClick: () => navigate("/departments", {viewTransition: true}),
+                                    buttonClass: "border-black border-2"
+                                },
+                                {
+                                    title: "...Learn from professionals and industrial experts",
+                                    buttonText: "Tiimat Solution",
+                                    onClick: () => navigate("/about", {viewTransition: true}),
+                                    buttonClass: "border-rose-500 text-rose-500 hover:text-white hover:bg-rose-500 hover:border-rose-500 border-2"
+                                }
+                            ].map((item, index) => (
+                                <motion.div 
+                                    key={index}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                    className="space-y-6"
+                                    onClick={item.onClick}
+                                >
+                                    <motion.h3 
+                                        whileHover={{ x: 10 }}
+                                        className="md:text-2xl text-xl font-semibold text-[#333]"
+                                    >
+                                        {item.title}
+                                    </motion.h3>
+                                    <motion.div
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                    >
+                                        <Button 
+                                            variant="outline" 
+                                            className={`group py-6 text-lg rounded-full font-semibold px-12 ${item.buttonClass}`}
+                                        >
+                                            {item.buttonText}
+                                            {index === 2 && <ArrowRight className='group-hover:translate-x-4 transition duration-500' />}
+                                        </Button>
+                                    </motion.div>
+                                </motion.div>
+                            ))}
                         </div>
                         <div id="vision" className="md:pt-32 pt-16 grid md:grid-cols-2 gap-8">
                             <div className=" flex gap-6 items-center">
-                                <div className="flex gap-6">
-                                    <div>
+                                <motion.div 
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    className="flex gap-6"
+                                >
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        transition={{ delay: 0.3, duration: 0.5 }}
+                                    >
                                         <img src={Quote} width={70} alt="" />
-                                    </div>
-                                    <div className=" max-w-md space-y-8">
-                                        <h3 className="text-black font-semibold text-3xl tracking-wide">Our vision is to be your technology solutions provider of choice.</h3>
-                                        <h3 className="text-black font-semibold text-3xl tracking-wide">Will you take the leap?</h3>
-                                        <p className="text-lg flex gap-4 font-medium text-start text-rose-500" >
+                                    </motion.div>
+                                    <div className="max-w-md space-y-8">
+                                        <motion.h3 
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.4, duration: 0.5 }}
+                                            className="text-black font-semibold text-3xl tracking-wide"
+                                        >
+                                            Our vision is to be your technology solutions provider of choice.
+                                        </motion.h3>
+                                        <motion.h3 
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.6, duration: 0.5 }}
+                                            className="text-black font-semibold text-3xl tracking-wide"
+                                        >
+                                            Will you take the leap?
+                                        </motion.h3>
+                                        <motion.p 
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            whileHover={{ x: 10 }}
+                                            transition={{ delay: 0.8, duration: 0.5 }}
+                                            className="text-lg flex gap-4 font-medium text-start text-rose-500"
+                                        >
                                             GET STARTED HERE
-                                            <ArrowRight className=' group-hover:translate-x-4 transition duration-500' />
-                                        </p>
+                                            <ArrowRight className='group-hover:translate-x-4 transition duration-500' />
+                                        </motion.p>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                             <div>
-                                <img src="https://cdn.pixabay.com/photo/2021/02/1/12/800/student-6027004_1280.jpg" className=" rounded-3xl object-cover " alt="" />
+                                
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <img src="/src/assets/slider/cost.jpg" className=" rounded-3xl object-cover " alt="" />
+                                </motion.div>
                             </div>
                         </div>
                     </div>

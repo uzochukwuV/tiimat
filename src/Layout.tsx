@@ -3,6 +3,7 @@ import Navigation from "./screen/ui/Header";
 import { Footer } from "./screen/ui/Footer";
 import Faq from "./screen/ui/Faq";
 import FaqImage from "./assets/dept/faq.avif"
+import { motion } from "framer-motion"
 
 
 
@@ -23,7 +24,14 @@ export const Layout = () => {
                                 <Faq />
                             </div>
                             <div className=" h-full col-span-6">
+                            <motion.div
+                                initial={{ opacity: 0, scale:0 }}
+                               
+                                transition={{ delay: 0.6, duration: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                            >
                                 <img src={FaqImage} className=" rounded-3xl object-cover w-full h-full " alt="" />
+                                </motion.div>
                             </div>
                     </div>
                 </div>
