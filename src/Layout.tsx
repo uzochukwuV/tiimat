@@ -32,9 +32,9 @@ export const Layout = () => {
                             </div>
                             <div className=" h-full col-span-6">
                             <motion.div
-                                initial={{ opacity: 0, scale:0 }}
+                                initial={{ opacity: 0, scale:0.8 }}
                                
-                                transition={{ delay: 0.6, duration: 0.5 }}
+                                transition={{ delay: 0.1, duration: 0.5 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                             >
                                 <img src={FaqImage} className=" rounded-3xl object-cover w-full h-full " alt="" />
