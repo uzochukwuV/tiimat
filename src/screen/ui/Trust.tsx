@@ -6,11 +6,11 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Director from '@/assets/dir/director.jpg'
 import { motion } from "framer-motion"
-import PIC1 from '@/assets/slider/Pic1.jpg'
-import PIC2 from '@/assets/slider/Pic2.jpg'
-import PIC3 from '@/assets/slider/Pic3.jpg'
-import PIC4 from '@/assets/slider/Pic4.jpg'
-import PIC5 from '@/assets/slider/Pic5.jpg'
+import PIC1 from '@/assets/slider/pic1.jpg'
+import PIC2 from '@/assets/slider/pic2.jpg'
+import PIC3 from '@/assets/slider/pic3.jpg'
+import PIC4 from '@/assets/slider/pic4.jpg'
+import PIC5 from '@/assets/slider/pic5.jpg'
 function Trust() {
     const ismobile = useIsMobile()
     const [slideCount, setSlideCount] = useState(2)
