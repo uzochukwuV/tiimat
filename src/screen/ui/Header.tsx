@@ -16,7 +16,8 @@ function Navigation({checked, setCheckedFunc}:any) {
       {/* bg-[#1e1f21cc] */}
       <div className="  px-6 md:px-24 flex justify-between items-center ">
         <div>
-          <img src={Img} alt="" width={150} />
+          <Link to={"/"}>
+          <img src={Img} alt="" width={150} /></Link>
         </div>
 
         <button  onClick={setCheckedFunc} className="  md:hidden">  

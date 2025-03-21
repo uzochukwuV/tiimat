@@ -18,6 +18,7 @@ import {
   const FACULTY= "Faculty"
   const SEMESTER="Semester"
   const CURRICULUM="Curriculum"
+  const CERTIFICATE ="Certificate"
 
 export const editAdminCourse=async({payload}:any)=>{
     console.log(payload);
@@ -139,6 +140,15 @@ export const deleteAdminFaculty= async({payload}:{payload:any})=>{
             return deleteDoc(doc(db, FACULTY, item.id))
         })
         return await Promise.all(alldocs)
+    } catch (error) {
+        throw error
+    }
+}
+
+
+export const createAdminCertificate= async({payload}:any)=>{
+    try {
+        await addDoc(collection(db, CERTIFICATE), payload)
     } catch (error) {
         throw error
     }

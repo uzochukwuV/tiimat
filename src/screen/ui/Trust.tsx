@@ -89,7 +89,9 @@ function Trust() {
                             transition={{ delay: 0.3, duration: 0.5 }}
                             whileInView={{ opacity: 1 }}
                         >
-                            <p className='text-xl md:text-2xl text-[#222] font-medium text-pretty tracking-wide'>"Because we are building what we will not only be proud of, but what will become a global export, we hired one of the very best — Chigisoft. The truth is, they have delivered excellently."</p>
+                            <p className='text-xl md:text-2xl text-[#222] font-medium text-pretty tracking-wide'>
+                            At Tiimat Solutions, we are dedicated to providing top-quality tech education and training. Our commitment to excellence ensures that our students receive the best possible learning experience to succeed in the digital world.
+                            </p>
                         </motion.div>
                         <motion.div 
                             className=' flex justify-between items-center'

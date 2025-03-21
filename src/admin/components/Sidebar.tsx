@@ -1,4 +1,4 @@
-import { Book, Calendar, Home, Inbox, InboxIcon } from "lucide-react"
+import { Book, Calendar, Home, Inbox, InboxIcon, VerifiedIcon } from "lucide-react"
 
 import {
   Sidebar,
@@ -33,6 +33,11 @@ const items = [
     title: "Curriculum",
     url: "/dashboard/curriculum",
     icon: Book,
+  },
+  {
+    title:"Certicifate",
+    url:"/dashboard/course/upload/certificate",
+    icon: VerifiedIcon
   },
   {
     title: "Messages",

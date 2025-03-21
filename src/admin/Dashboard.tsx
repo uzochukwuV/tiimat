@@ -16,10 +16,10 @@ export function Dashboard() {
   bread.shift();
 
   return (
-    <section id="dashboard" className=" bg-slate-200 absolute top-0 left-0 right-0 bottom-0">
+    <section id="dashboard" className=" bg-white absolute top-0 left-0 right-0 bottom-0">
       <div className="flex ">
         <AdminSidebar />
-        <div className="flex-1 h-screen rounded">
+        <div className="flex-1   rounded">
           <div className=" h-20 border-b mb-2 flex items-center px-6">
             <Breadcrumb>
               <BreadcrumbList>
@@ -40,9 +40,9 @@ export function Dashboard() {
             </Breadcrumb>
           </div>
           <Outlet />
+          <Toaster />
         </div>
       </div>
-      <Toaster />
     </section>
   );
 }
