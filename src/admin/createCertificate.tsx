@@ -3,6 +3,7 @@ import { pinata } from "@/lib/pinata";
 import { createAdminCertificate } from "@/services/actions";
 import QrCode from "qrcode";
 import {  useRef, useState } from "react";
+import { toast } from "sonner";
 
 
 const SIZE: number = 300;
@@ -27,7 +28,11 @@ export function CreateCertificate() {
           width: SIZE,
         });
         setQrCodeData(qrCodeDataUrl);
-        await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
+        try {
+          await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
+        } catch (error) {
+          toast.error("Failed to create certificate")
+        }
         setIsLoading(false)
       }
   return (

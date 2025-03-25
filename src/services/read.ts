@@ -128,7 +128,7 @@ export const getCertificate = async (document: string) => {
   const data = await getDoc(docref);
   const res = data.data();
 
-  return {id:data.id, ...res}
+  return {id:data.id, ...res} as any
 };
 
 export const getAllCourse = async () => {

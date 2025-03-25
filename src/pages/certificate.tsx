@@ -1,4 +1,5 @@
 import { pinata } from '@/lib/pinata';
+import { getCertificate } from '@/services/read';
 
 import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,13 +9,19 @@ const CertificateVerification = () => {
   const params = useParams()
  
   const [imgSrc, setImgSrc] = useState("")
-
+  const [username, setUsername] = useState("")
+  const [description, setDescription] = useState("")
 
   useEffect(()=>{
     console.log(params.id)
     pinata.gateways.get(params.id!).then((id)=>{
       const newFile = URL.createObjectURL(new Blob([id.data as Blob], {type:id.contentType!}));
       setImgSrc(newFile)
+    })
+    getCertificate(params.id!).then((cert)=>{
+      console.log(cert.username)
+      setUsername(cert.username)
+      setDescription(cert.description)
     })
   },[])
  
@@ -38,6 +45,8 @@ const CertificateVerification = () => {
                 </div>
                 <div className="ml-3">
                   <p className="text-green-700 font-medium">Certificate Verified</p>
+                  <p>{username}</p>
+                  <p>{description}</p>
                 </div>
               </div>
             </div>
