@@ -1,14 +1,12 @@
 import { pinata } from '@/lib/pinata';
-import { getCertificate } from '@/services/read';
+
 import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { toast } from 'sonner';
+
 
 const CertificateVerification = () => {
   const params = useParams()
-  const [loading, setLoading] = useState(false);
-  
-  const [username, setUsername] = useState('');
+ 
   const [imgSrc, setImgSrc] = useState("")
 
 
@@ -23,7 +21,7 @@ const CertificateVerification = () => {
 
   
 
-  if(loading) return <div>Loading...</div>
+ 
 
   return (
     <div className=" min-h-screen py-8">
@@ -46,7 +44,7 @@ const CertificateVerification = () => {
 
             {/* Certificate Image and Username */}
             <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{username}</h3>
+              
               <div className="mb-4">
                 <img 
                   src={imgSrc} 
