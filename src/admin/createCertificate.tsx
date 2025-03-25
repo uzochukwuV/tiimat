@@ -22,11 +22,11 @@ export function CreateCertificate() {
         const newFile = URL.createObjectURL(new Blob([id.data as Blob], {type:id.contentType!}));
         setRed(newFile)
         
-        const qrCodeDataUrl = await QrCode.toDataURL(`${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, {
+        const qrCodeDataUrl = await QrCode.toDataURL(`https://www.tiimatsolutions.com/certificate/${url.IpfsHash}`, {
           width: SIZE,
         });
         setQrCodeData(qrCodeDataUrl);
-        await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`})
+        await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
     }
   return (
     <>

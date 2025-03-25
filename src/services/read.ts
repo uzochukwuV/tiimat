@@ -11,11 +11,13 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { Certificate } from "crypto";
 
 const COURSE ="Course"
 const FACULTY= "Faculty"
 const SEMESTER="Semester"
 const CURRICULUM="Curriculum"
+const CERTIFICATE ="Certificate"
 
 export const addFaculty = async (
   name: string,
@@ -115,6 +117,14 @@ export const getCourse = async (document: string) => {
 
 export const getFaculty = async (document: string) => {
   const docref = doc(db, FACULTY, document);
+  const data = await getDoc(docref);
+  const res = data.data();
+
+  return {id:data.id, ...res}
+};
+
+export const getCertificate = async (document: string) => {
+  const docref = doc(db, CERTIFICATE, document);
   const data = await getDoc(docref);
   const res = data.data();
 

@@ -23,6 +23,7 @@ import AboutUs from "./screen/AboutUs";
 import Course from "./screen/Course";
 import ContactUs from "./screen/ContactUs";
 import CreateCertificate from "./admin/createCertificate";
+import CertificateVerification from "./pages/certificate";
 
 function Home() {
   return (
@@ -55,6 +56,10 @@ const App = () => {
             return await Promise.all(res)
                   
           },
+        },
+        {
+          path:"/certificate/:id",
+          element: <CertificateVerification />
         },
         {
           path:"/departments/:id",
