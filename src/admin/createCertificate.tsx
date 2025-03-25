@@ -19,7 +19,7 @@ export function CreateCertificate() {
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
         const url = await pinata.upload.file(image);
-        const id = await pinata.gateways.get("bafybeicsiq5dmhksyfvamlriztr2tqynilwhv3pckqbrghyb4f5jnembvy")
+        const id = await pinata.gateways.get(url.IpfsHash)
         const newFile = URL.createObjectURL(new Blob([id.data as Blob], {type:id.contentType!}));
         setRed(newFile)
         
