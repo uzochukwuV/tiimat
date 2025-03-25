@@ -11,7 +11,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import { Certificate } from "crypto";
+
 
 const COURSE ="Course"
 const FACULTY= "Faculty"
