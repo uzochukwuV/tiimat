@@ -10,10 +10,11 @@ const SIZE: number = 300;
 export function CreateCertificate() {
     const [qrCodeData,setQrCodeData]=useState<string>("")
     const [reg, setRed] = useState("")
+    const [isLoading, setIsLoading] = useState(false);
     const imageRef = useRef(null);
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        
+        setIsLoading(true)
         const name = (document.getElementById('name') as HTMLInputElement).value
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
@@ -27,7 +28,8 @@ export function CreateCertificate() {
         });
         setQrCodeData(qrCodeDataUrl);
         await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
-    }
+        setIsLoading(false)
+      }
   return (
     <>
      <h1>Create Certificate</h1>
@@ -71,9 +73,10 @@ export function CreateCertificate() {
 
               <button 
                 type="submit"
+                disabled={isLoading}
                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
               >
-                Create Certificate
+                Create Certificate {isLoading && "...."}
               </button>
             </div>
         </form>
