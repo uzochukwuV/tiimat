@@ -132,7 +132,9 @@ export type Course = {
   name: string
   description: string,
   image:string
-  price:string
+  price:string,
+  duration:string,
+  certification:string,
 }
 
 export const courseColumns: ColumnDef<Course>[]=[
@@ -175,6 +177,36 @@ export const courseColumns: ColumnDef<Course>[]=[
     },
   },
   {
+    accessorKey: "duration",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          duration
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    accessorKey: "certification",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          certification
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
     accessorKey: "description",
     header: "description",
     cell:({row})=> {
@@ -204,7 +236,13 @@ export const courseColumns: ColumnDef<Course>[]=[
   {
     id: "actions",
     cell: ({ row }) => {
-      const payment = row.original
+      let payment = row.original
+      if(!payment.duration){
+        payment.duration = "null"
+      }
+      if(!payment.certification){
+        payment.certification = "null"
+      }
  
       return (
         <div className="flex gap-2">

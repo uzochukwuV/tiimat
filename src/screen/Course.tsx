@@ -1,6 +1,6 @@
 
-import { Building2, Clock1Icon, StarHalf } from 'lucide-react';
-import { Link, useLoaderData } from 'react-router-dom'
+import {  Clock1Icon, EyeIcon, StarHalf } from 'lucide-react';
+import { useLoaderData } from 'react-router-dom'
 
 
 function Course() {
@@ -8,6 +8,41 @@ function Course() {
     console.log(res)
     return (
         <div>
+            <input type="checkbox" id="modal-curriculum" className=" hidden" />
+            <div id="dm" className=" transform invisible opacity-0  transition-all duration-300 delay-100 fixed top-0 right-0 left-0 bottom-0 bg-black/20 z-50">
+        	        <div className=" h-full w-full flex justify-center items-center">
+                            <div className=" max-w-[440px] w-full py-8 rounded-2xl bg-white px-6  relative">
+                                <label htmlFor="modal-curriculum" className=" absolute right-6 top-6">
+                                    <EyeIcon />
+                                </label>
+                                <h1 className=" font-bold text-xl mb-6">Request Curriculum Now !!!</h1>
+                                <div>
+                                    <form className=" space-y-4" >
+                                        <div>
+                                            <label htmlFor="username" className=" text-[12px] font-medium mb-1">Your Name</label>
+                                            <input type="text" id="username" className=" block w-full text-black focus:bg-white px-6 h-[40px] rounded-md border border-slate-100 bg-slate-200" />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="email" className=" text-[12px] font-medium mb-1">Email</label>
+                                            <input type="email" id="email" className=" block w-full text-black focus:bg-white px-6 h-[40px] rounded-md border border-slate-100 bg-slate-200" />
+                                        </div>
+                                       
+                                        <div>
+                                            <label htmlFor="course" className=" text-[12px] font-medium mb-1">Interested Course of Study</label>
+                                            <input type="text" id="course" className=" block w-full text-black focus:bg-white px-6 h-[40px] rounded-md border border-slate-100 bg-slate-200" />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="phone" className=" text-[12px] font-medium mb-1">Your Phone Number</label>
+                                            <input type="text" id="phone" className=" block w-full text-black focus:bg-white px-6 h-[40px] rounded-md border border-slate-100 bg-slate-200" />
+                                        </div>
+                                        <div>
+                                            <input type="submit" id="submit" className=" block w-full  px-6 h-[40px] rounded-md border text-slate-100 bg-indigo-600" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+            </div>
             <section
                 className=' relative z-20 bg-[#222] h-[80vh] w-full flex items-center px-6 md:px-24'
             >
@@ -19,10 +54,10 @@ function Course() {
                     <p className='text-white text-sm md:text-base  font-medium tracking-tight leading-snug '>{res?.course.description}</p>
                     <div className=' text-white text-sm md:text-base  font-medium tracking-tight leading-snug  flex justify-between'>
                         <div className=' flex gap-4 items-center'>
-                            <Clock1Icon /> 8 weeks
+                            <Clock1Icon /> {res?.course?.duration} 
                         </div>
                         <div className=' flex gap-4 items-center'>
-                            <StarHalf /> Certification
+                            <StarHalf /> Certification : {res?.course?.certification}
                         </div>
                     </div>
                 </div>
@@ -40,14 +75,18 @@ function Course() {
                         </div>
                         <div className=' flex flex-col gap-1'>
                             <span className=' font-bold'>Certification</span>
-                            <span>NIYTT Certification</span>
+                            <span>
+                                {res.course.certification}
+                            </span>
                         </div>
                         <div className=' flex flex-col gap-1'>
                             <span className=' font-bold'>Duration </span>
-                            <span>8 Weeks</span>
+                            <span>
+                                {res.course.duration}
+                            </span>
                         </div>
 
-                        <Link to={`/faculty/${res.course.facultyId}`}><Building2></Building2> </Link>
+                        
                     </div>
                 </div>
                 <div className=' col-span-4 space-y-8'>
@@ -87,7 +126,11 @@ function Course() {
                             </div>
                         })
                     }
+                    <label htmlFor='modal-curriculum' className=' h-[50px] flex w-[360px] bg-indigo-700 hover:bg-indigo-500 rounded-2xl text-pretty font-bold text-white justify-center items-center '>
+                        Request full Curriculum
+                    </label>
                 </div>
+                
             </section>
         </div>
     )

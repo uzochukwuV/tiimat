@@ -9,6 +9,7 @@ import {
     // getDocs,
     updateDoc,
     deleteDoc,
+    getDocs,
     // query,
     // where,
   } from "firebase/firestore";
@@ -149,6 +150,17 @@ export const deleteAdminFaculty= async({payload}:{payload:any})=>{
 export const createAdminCertificate= async({payload}:any)=>{
     try {
         await addDoc(collection(db, CERTIFICATE), payload)
+    } catch (error) {
+        throw error
+    }
+}
+
+export const getAllCertificate= async()=>{
+    try {
+        const snapshot = await getDocs(collection(db, CERTIFICATE));
+        console.log(snapshot.docs)
+        const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        return data;
     } catch (error) {
         throw error
     }

@@ -35,7 +35,9 @@ function Trust() {
     return (
         <div className=' h-full w-full px-6 md:px-0 '>
             <div className='relative max-w-[1200px]  w-full mx-auto space-y-6 py-8 '>
-                <h3 className='font-medium text-[#333]'>Our solutions affect over <span className=' text-black'>1,000,000</span> people… Trusted by:</h3>
+                <h3 className='font-medium text-[#333]'>
+                    {/* writeup */}
+                      <span className=' text-black'></span></h3>
             </div>
             <div className=' w-screen mb-6'>
                     {/* slider */}
@@ -63,10 +65,7 @@ function Trust() {
                         <div className=" h-[240px] md:h-[400px] pl-8">
                             <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
                                 <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
-                                <div className=' rounded-2xl  w-full relative h-full  '>
-                                    <h3 className=' font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl '>Director ,Tiimat Solution</h3>
-                                    <p className=' text-white' >Happy Birthday™ </p>
-                                </div>
+                                
                             </div>
                            
                         </div>
@@ -101,7 +100,7 @@ function Trust() {
                             whileInView={{ opacity: 1, x:0 }}
                         >
                             <div className='space-y-2'>
-                                <h4 className='text-black text-xl font-medium'>Amrasa Peter Ighowofe</h4>
+                                <h4 className='text-black text-xl font-medium'>Amrasa Peter Ighofowe</h4>
                                 <p className=' text-[#333] text-sm font-medium'>CEO, TIIMAT Solutions {}</p>
                             </div>
                             <motion.div
@@ -136,7 +135,7 @@ function Trust() {
                                 transition={{ delay: 0.6, duration: 0.5 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                             >
-                                <Link to={""} className='text-lg md:text-xl text-rose-600 font-medium flex gap-2 group hover:text-rose-400'>
+                                <Link to={"/about"} className='text-lg md:text-xl text-rose-600 font-medium flex gap-2 group hover:text-rose-400'>
                                     Learn About Tiimat <ArrowRight className='group-hover:translate-x-4 transition duration-500' />
                                 </Link>
                             </motion.div>

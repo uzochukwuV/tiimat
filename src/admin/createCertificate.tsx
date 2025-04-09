@@ -1,9 +1,9 @@
 import { pinata } from "@/lib/pinata";
 
-import { createAdminCertificate } from "@/services/actions";
+import { createAdminCertificate, getAllCertificate } from "@/services/actions";
 import QrCode from "qrcode";
-import {  useRef, useState } from "react";
-import { toast } from "sonner";
+import {  useEffect, useRef, useState } from "react";
+import { toast, Toaster } from "sonner";
 
 
 const SIZE: number = 300;
@@ -29,16 +29,29 @@ export function CreateCertificate() {
         });
         setQrCodeData(qrCodeDataUrl);
         try {
+          console.log({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
           await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
         } catch (error) {
+          console.log(error)
           toast.error("Failed to create certificate")
         }
         setIsLoading(false)
       }
+
+
+      useEffect(() => {
+        getAllCertificate().then((data) => {
+          console.log(data)
+       
+        }).catch((error) => {
+          console.log(error)
+        })
+      }, [])
+    
   return (
     <>
      <h1>Create Certificate</h1>
-  
+    <Toaster />
     <div className=" flex justify-center flex-wrap">
        
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -81,7 +94,7 @@ export function CreateCertificate() {
                 disabled={isLoading}
                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
               >
-                Create Certificate {isLoading && "...."}
+                 {isLoading? " Creating Certificate ....":"Create Certificate"}
               </button>
             </div>
         </form>
@@ -118,6 +131,10 @@ export function CreateCertificate() {
           </div>
         </div>
       )}
+
+      <div>
+
+      </div>
     </div>
     </>
   )

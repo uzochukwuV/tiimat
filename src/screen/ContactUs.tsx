@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Label } from "@radix-ui/react-label";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import { motion } from "framer-motion";
 import { SendIcon } from "lucide-react";
 
@@ -11,7 +11,6 @@ const ContactUs = () => {
         toast.success("Message sent successfully!");
         // Handle form submission logic here
         console.log("Form submitted");
-        (event.currentTarget as HTMLFormElement).reset();
     };
 
     return (
@@ -21,6 +20,7 @@ const ContactUs = () => {
             transition={{ duration: 1.5 }}
             className="max-w-2xl mx-auto p-8 "
         >
+            <Toaster />
             <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
@@ -59,7 +59,7 @@ const ContactUs = () => {
                 </div>
 
                 <button
-
+                    onClick={handleSubmit}
                     type="submit"
                     className="w-full flex items-center justify-center gap-2 bg-[#333] text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >

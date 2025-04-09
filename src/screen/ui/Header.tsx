@@ -30,7 +30,7 @@ function Navigation({checked, setCheckedFunc}:any) {
             <NavigationMenu.List className={cn(" flex gap-8 md:gap-16 items-center justify-between ", route.pathname == "/"? "*:text-[#2f2f2f] hover:text-white":"text-[#222] hover:text-black")}>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger >
-                  <Link  viewTransition  to={""}>Home</Link>
+                  <Link  viewTransition  to={""} className={cn(" px-4 py-2 text-black font-semibold ", route.pathname == "/" ? "rounded-2xl bg-indigo-500 text-white  backdrop-blur-sm":"") }>Home</Link>
 
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
@@ -65,17 +65,17 @@ function Navigation({checked, setCheckedFunc}:any) {
               </NavigationMenu.Item> */}
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/departments"} >Departments</Link>
+                  <Link  viewTransition to={"/departments"} className={cn(" px-4 py-2 text-slate-800 font-semibold ", route.pathname.includes("departments") ? "rounded-2xl bg-indigo-500 text-white  backdrop-blur-sm":"") } >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/about"} >About Us</Link>
+                  <Link  viewTransition to={"/about"} className={cn(" px-4 py-2 text-slate-800 font-semibold ", route.pathname.includes("about") ? "rounded-2xl bg-indigo-500 text-white  backdrop-blur-sm":"") } >About Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                <Link  viewTransition to={"/contact"} >Contact Us</Link>
+                <Link  viewTransition to={"/contact"} className={cn(" px-4 py-2 text-slate-800 font-semibold ", route.pathname.includes("contact") ? "rounded-2xl bg-indigo-500 text-white  backdrop-blur-sm":"") } >Contact Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
             </NavigationMenu.List>
