@@ -12,6 +12,8 @@ export function CreateCertificate() {
     const [qrCodeData,setQrCodeData]=useState<string>("")
     const [reg, setRed] = useState("")
     const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<any[]>([])
+    const [isUp, setIsUp] = useState(false);
     const imageRef = useRef(null);
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -23,6 +25,7 @@ export function CreateCertificate() {
         const id = await pinata.gateways.get(url.IpfsHash)
         const newFile = URL.createObjectURL(new Blob([id.data as Blob], {type:id.contentType!}));
         setRed(newFile)
+        setIsUp(true)
         
         const qrCodeDataUrl = await QrCode.toDataURL(`https://www.tiimatsolutions.com/certificate/${url.IpfsHash}`, {
           width: SIZE,
@@ -30,7 +33,7 @@ export function CreateCertificate() {
         setQrCodeData(qrCodeDataUrl);
         try {
           console.log({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
-          await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
+          await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}/${url.IpfsHash}`, id:url.IpfsHash})
         } catch (error) {
           console.log(error)
           toast.error("Failed to create certificate")
@@ -42,7 +45,8 @@ export function CreateCertificate() {
       useEffect(() => {
         getAllCertificate().then((data) => {
           console.log(data)
-       
+          setData(data)
+          
         }).catch((error) => {
           console.log(error)
         })
@@ -98,10 +102,11 @@ export function CreateCertificate() {
               </button>
             </div>
         </form>
-        <img  src={reg} width={300} alt="" />
-        {qrCodeData && (
-        <div className="  ">
-      
+        
+        {qrCodeData && isUp && (
+        <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-6">
+          <button onClick={()=>setIsUp(false)}>hello</button>
+          <img  src={reg} width={300} alt="" />
           <div className=" ">
           <img
             ref={imageRef}
@@ -131,9 +136,21 @@ export function CreateCertificate() {
           </div>
         </div>
       )}
-
+      <div className=" border-r bg-black mx-6"></div>
       <div>
-
+        <h1>All Certs</h1>
+          {
+            data.map((data:any) => {
+              return (
+                <div key={data.id} className="flex flex-col gap-5 p-4 bg-white rounded-lg shadow-md m-4">
+                  <img src={data.url} alt="" />
+                  <p>{data.id}</p>
+                  <h1>{data.studentName}</h1>
+                  <p>{data.description}</p>
+                </div>
+              )
+            })
+          }
       </div>
     </div>
     </>

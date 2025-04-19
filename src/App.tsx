@@ -24,6 +24,7 @@ import Course from "./screen/Course";
 import ContactUs from "./screen/ContactUs";
 import CreateCertificate from "./admin/createCertificate";
 import CertificateVerification from "./pages/certificate";
+import CheckCertificate from "./screen/ui/checkCertificate";
 
 function Home() {
   return (
@@ -99,6 +100,10 @@ const App = () => {
         {
           path: "/about",
           element: <AboutUs />,
+        },
+        {
+          path: "/check-certificate",
+          element: <CheckCertificate />,
         },
         {
           path: "/contact",

@@ -147,8 +147,9 @@ export const deleteAdminFaculty= async({payload}:{payload:any})=>{
 }
 
 
-export const createAdminCertificate= async({payload}:any)=>{
+export const createAdminCertificate= async(payload:any)=>{
     try {
+        console.log(payload)
         await addDoc(collection(db, CERTIFICATE), payload)
     } catch (error) {
         throw error

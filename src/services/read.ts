@@ -124,11 +124,20 @@ export const getFaculty = async (document: string) => {
 };
 
 export const getCertificate = async (document: string) => {
-  const docref = doc(db, CERTIFICATE, document);
-  const data = await getDoc(docref);
-  const res = data.data();
-
-  return {id:data.id, ...res} as any
+  const ref = collection(db, CERTIFICATE );
+  const q = query(ref, where("id", "==", document))
+  const res = (await getDocs(q));
+  console.log(res.docs.map((data)=>{
+    return {...data.data(), id: data.id}
+  }));
+  
+  const data = res.docs[0]
+  if(!data){
+    return null
+  }  
+  console.log(data.data())
+  console.log(data.id)
+  return {id:data.id, ...data.data()} as any
 };
 
 export const getAllCourse = async () => {
