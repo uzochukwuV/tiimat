@@ -11,6 +11,9 @@ import PIC2 from '@/assets/slider/pic2.jpg'
 import PIC3 from '@/assets/slider/pic3.jpg'
 import PIC4 from '@/assets/slider/pic4.jpg'
 import PIC5 from '@/assets/slider/pic5.jpg'
+import PIC6 from '@/assets/slider/pic8.jpg'
+import PIC7 from '@/assets/slider/pic7.jpg'
+import PIC8 from '@/assets/slider/pic6.jpg'
 function Trust() {
     const ismobile = useIsMobile()
     const [slideCount, setSlideCount] = useState(2)
@@ -43,7 +46,7 @@ function Trust() {
                     {/* slider */}
                     <Slider {...settings} >
                         {
-                            [PIC1, PIC2, PIC3, PIC4, PIC5].map((data)=>{
+                            [   PIC1, PIC2, PIC3, PIC4, PIC5, PIC6, PIC7,PIC8].reverse().map((data)=>{
                                 return (
                                     <div className="h-[240px] md:h-[400px] pl-8 transform transition-transform duration-500 hover:scale-95">
                                         <div className='bg-zinc-200 rounded-2xl p-6 w-full relative h-full transition-all duration-500 hover:shadow-xl'>

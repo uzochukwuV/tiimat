@@ -62,6 +62,7 @@ export default function Landing() {
                             </Link>
                         </div>
                     </div>
+                    
                     <div className="md:p-4 ">
                         <div className=" md:grid md:grid-cols-2 md:px-16 md:pt-6">
                             {
