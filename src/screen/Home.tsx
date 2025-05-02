@@ -66,14 +66,14 @@ function HomeScreen() {
                             
                             transition={{ duration: 0.8, delay: 0.3 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="absolute top-[40vh] left-6 md:left-24 w-[40%] min-w-[300px] space-y-4"
+                            className="absolute top-[30vh] left-6 md:left-24 w-[60%] min-w-[300px] space-y-4"
                         >
                             <motion.h1 
                                 initial={{ opacity: 0, x: -50 }}
                                
                                 transition={{ duration: 0.8, delay: 0.5 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                className="text-white text-2xl md:text-4xl font-medium tracking-tight leading-snug"
+                                className="text-white text-2xl md:text-8xl font-medium tracking-tight leading-snug"
                             >
                                 Tiimat Solutions
                             </motion.h1>
@@ -96,7 +96,7 @@ function HomeScreen() {
                                 <Button 
                                     onClick={()=>navigate("/about", {viewTransition:true})} 
                                     variant={"secondary"} 
-                                    className="py-6 text-lg bg-indigo-600 text-white rounded-full font-semibold px-12"
+                                    className="py-6 text-lg bg-indigo-600 text-white rounded-2xl font-semibold px-12"
                                 >
                                     Learn More
                                 </Button>
