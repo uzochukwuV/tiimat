@@ -16,7 +16,7 @@ export function Dashboard() {
   const bread = navigate.pathname.split("/");
   bread.shift();
 
-  const navigate = useNavigate()
+  const route = useNavigate()
 
 
   useEffect(()=>{
@@ -35,7 +35,7 @@ export function Dashboard() {
         key = prompt("Authentication key:");
         if (key === null) {
           alert("Authentication cancelled.");
-            navigate("/")
+          route("/")
         }
         key = key.trim();
         if (key === "productivity") {
@@ -44,7 +44,7 @@ export function Dashboard() {
           break;
         } else {
           alert("Incorrect key. Please try again.");
-          navigate("/")
+          route("/")
         }
       } while (true);
     }
