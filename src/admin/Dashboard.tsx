@@ -30,10 +30,10 @@ export function Dashboard() {
     console.log(authKey);
   
     if (authKey !== "productivity") {
-      let key;
+      let key="";
       do {
         key = prompt("Authentication key:");
-        if (key === null) {
+        if (key === "") {
           alert("Authentication cancelled.");
           route("/")
         }
