@@ -37,7 +37,7 @@ export function Dashboard() {
           alert("Authentication cancelled.");
           route("/")
         }
-        key = key.trim();
+        key = key!.trim();
         if (key === "productivity") {
           window.localStorage.setItem("auth", key);
           window.location.reload();
