@@ -9,6 +9,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Toaster } from "@/components/ui/sonner";
+import { useEffect } from "react";
 
 export function Dashboard() {
   const navigate = useLocation();
