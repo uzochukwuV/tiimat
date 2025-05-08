@@ -15,6 +15,40 @@ export function Dashboard() {
   const bread = navigate.pathname.split("/");
   bread.shift();
 
+
+  useEffect(()=>{
+    
+    authenticate();
+    
+  },[])
+
+  function authenticate() {
+    let authKey = window.localStorage.getItem("auth");
+    console.log(authKey);
+  
+    if (authKey !== "productivity") {
+      let key;
+      do {
+        key = prompt("Authentication key:");
+        if (key === null) {
+          alert("Authentication cancelled.");
+          break; // Exit if user clicks Cancel
+        }
+        key = key.trim();
+        if (key === "productivity") {
+          window.localStorage.setItem("auth", key);
+          window.location.reload();
+          break;
+        } else {
+          alert("Incorrect key. Please try again.");
+        }
+      } while (true);
+    }
+  }
+  
+ 
+  
+
   return (
     <section id="dashboard" className=" bg-white absolute top-0 left-0 right-0 bottom-0">
       <div className="flex ">
