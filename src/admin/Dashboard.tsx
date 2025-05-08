@@ -1,5 +1,5 @@
 import { AdminSidebar } from "./components/Sidebar";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,6 +15,8 @@ export function Dashboard() {
   const navigate = useLocation();
   const bread = navigate.pathname.split("/");
   bread.shift();
+
+  const navigate = useNavigate()
 
 
   useEffect(()=>{
@@ -33,7 +35,7 @@ export function Dashboard() {
         key = prompt("Authentication key:");
         if (key === null) {
           alert("Authentication cancelled.");
-          break; // Exit if user clicks Cancel
+            navigate("/")
         }
         key = key.trim();
         if (key === "productivity") {
@@ -42,6 +44,7 @@ export function Dashboard() {
           break;
         } else {
           alert("Incorrect key. Please try again.");
+          navigate("/")
         }
       } while (true);
     }
