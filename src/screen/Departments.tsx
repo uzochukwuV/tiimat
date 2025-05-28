@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap, Code, Play, Palette, DollarSign, Star, Volume1Icon } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router-dom';
 
-const getIcon = (courseName) => {
+const getIcon = (courseName:string) => {
   if (courseName.toLowerCase().includes('ui') || courseName.toLowerCase().includes('design')) {
     return <Palette className="w-5 h-5" />;
   }
@@ -26,12 +26,12 @@ const getIcon = (courseName) => {
   return <Code className="w-5 h-5" />;
 };
 
-const HoverEffect = ({ items, className = "" }) => {
+const HoverEffect = ({ items, className = "" }: any) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ${className}`}>
-      {items.map((item, idx) => (
+      {items.map((item:any, idx:any) => (
         <motion.div
           key={item.id}
           className="group cursor-pointer"
@@ -48,7 +48,7 @@ const HoverEffect = ({ items, className = "" }) => {
   );
 };
 
-const Card = ({ item, isHovered }) => {
+const Card = ({ item, isHovered }:any) => {
   const [glitchActive, setGlitchActive] = useState(false);
 
   useEffect(() => {
@@ -232,7 +232,7 @@ function Departments() {
       {/* Departments Section */}
       <section className="relative py-20 px-8 md:px-0 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          {res.map((item, index) => (
+          {res.map((item:any, index:any) => (
             <motion.div
               key={item.faculty.id}
               className="mb-16 last:mb-0"

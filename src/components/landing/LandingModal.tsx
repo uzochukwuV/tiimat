@@ -3,7 +3,7 @@ import { sendMessage } from "../../services/read";
 
 
 function LandingModal() {
-    const [formState, setFormState] = useState({}) as any;
+    const [formState, setFormState] = useState({"title":"Course request"}) as any;
     const [ishidden, sethidden] = useState(false)
     
     useEffect(()=>{
@@ -15,7 +15,7 @@ function LandingModal() {
     }, [])
     const submitForm = ()=> {
         console.log(formState);
-        sendMessage("Connect", formState.name, formState.email, formState.phone)
+        sendMessage(formState)
             .then(()=>{
                 alert("message sent")
                 window.sessionStorage.setItem("modalM", "true")
@@ -78,7 +78,7 @@ function LandingModal() {
                             <input onChange={onChange} value={formState.phone || ""} type="text"  id="phone" name="phone" placeholder="+234 XXXXXXXXX" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <button onClick={submitForm} className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
+                            <button onClick={submitForm} className="hover:border-white w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
                         </div>
                     </div>
                 </div>

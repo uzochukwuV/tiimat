@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Users,
-  Target,
-  Eye,
   Award,
   Zap,
   Rocket,
@@ -16,7 +14,7 @@ import {
   Quote,
   Sparkles,
   Star,
-  CheckCircle,
+
 } from 'lucide-react';
 
 // Placeholder for actual image if you decide to use one in the Hero section

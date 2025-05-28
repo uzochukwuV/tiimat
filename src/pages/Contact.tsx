@@ -2,14 +2,14 @@ import { useState } from "react";
 import { sendMessage } from "../services/read";
 
 const ContactPage = () => {
-    const [formState, setFormState] = useState({}) as any;
+    const [formState, setFormState] = useState({"title":"Course request"}) as any;
     
 
     const submitForm = ()=> {
         console.log(formState);
         if(formState.name === '') return
         if(formState.email === '') return
-        sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
+        sendMessage(formState)
             .then(()=>{
                 alert("message sent")
                 

@@ -1,7 +1,7 @@
 import { sendMessage } from "@/services/read";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Facebook, Instagram, Twitter, XIcon, ArrowRight, Mail, Send } from "lucide-react";
+import { MapPin, Facebook, Instagram,  XIcon, ArrowRight, Mail, Send } from "lucide-react";
 
 export const Footer = () => {
   const [formState, setFormState] = useState({}) as any;

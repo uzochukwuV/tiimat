@@ -5,7 +5,7 @@ import { sendMessage } from "../../services/read";
 
 
 function CourseModal() {
-    const [formState, setFormState] = useState({}) as any;
+    const [formState, setFormState] = useState({"title":"Course request"}) as any;
     const [ishidden, sethidden] = useState(false)
     
     useEffect(()=>{
@@ -18,7 +18,7 @@ function CourseModal() {
     const submitForm = ()=> {
         
         console.log(formState);
-        sendMessage("Connect", formState.name, formState.email, formState.phone, formState.location, formState.info)
+        sendMessage(formState)
             .then(()=>{
                 alert("message sent")
                 window.sessionStorage.setItem("modalM", "true")
@@ -87,7 +87,7 @@ function CourseModal() {
                             <input value={formState.location || ""} onChange={onChange} type="text" name="location"  id="location" placeholder="" className="w-full px-6 flex-1 block relative rounded-xl focus:outline-gray-300   h-14 border " />
                         </div>
                         <div>
-                            <button onClick={submitForm} className="hover:border-white block w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
+                            <button onClick={submitForm} className="hover:border-white  w-full h-14 hover:opacity-90 border border-white px-4 py-2 rounded-xl block bg-black text-white">Submit</button>
                         </div>
                     </div>
                 </div>

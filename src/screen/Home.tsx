@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, EyeIcon, X } from "lucide-react"
+import { ArrowRight, X } from "lucide-react"
 import Trust from "./ui/Trust"
 import Management from "../assets/ic-fintech.svg"
 import ProjectManagement from "../assets/ic-real-estate.svg"
