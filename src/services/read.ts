@@ -211,21 +211,21 @@ export const addCurriculum = async (
   }
 };
 
-export const sendMessage = async (
-  title: string,
+export const sendMessage = async (params:
+  {title: string,
   name?: string,
   email?: string,
   phone?: string,
   location?: string,
-  info?: string
+  info?: string}
 ) => {
   await addDoc(collection(db, "Message"), {
-    title: title,
-    name: name || "",
-    email: email || "",
-    phone: phone || "",
-    location: location || "",
-    info: info || "",
+    title: params.title ||"",
+    name: params.name || "",
+    email: params.email || "",
+    phone: params.phone || "",
+    location: params.location || "",
+    info: params.info || "",
   });
 
   const docref = collection(db, "Message");

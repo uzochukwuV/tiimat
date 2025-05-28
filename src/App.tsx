@@ -6,7 +6,6 @@ import { Layout } from "./Layout";
 import FacultyPage from "./pages/Faculty";
 
 import NotFound from "./NotFound";
-import Sample from "./pages/smaple";
 import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
 import {CourseAdmin} from "./admin/AddCourse";
 import  { CurriculumAdmin } from "./admin/AddCurriculum";
@@ -76,13 +75,7 @@ const App = () => {
             return {course:course, semester:data}
           },
         },
-        {
-          path: "/course/:id",
-          element: <Sample />,
-          loader: async ({ params }) => {
-            return await getCourse(params.id as string);
-          },
-        },
+       
         {
           path: "/faculty",
           element: <FacultyPage />,
@@ -154,55 +147,7 @@ const App = () => {
         
       ]
     },
-    // {
-    //   path:"admin/",
-    //   element: <AdminLayout />,
-    //   children:[
-    //     {
-    //       path:"",
-    //       element: <AdminView />,
-    //       loader: async () => {
-    //         return await getFaculties();
-    //       },
-         
-    //     },
-    //     {
-    //       path:"course/add",
-    //       element: <AddCourse />,
-    //       loader: async () => {
-    //         return await getAllCourse();
-    //       },
-    //     },
-    //     {
-    //       path:"course/edit",
-    //       element: <EditCourse />,
-    //       loader: async () => {
-    //         return await getAllCourse();
-    //       },
-    //     },
-    //     {
-    //       path:"course/semester/add",
-    //       element: <AddSemester />,
-    //       loader: async () => {
-    //         return await getAllCourse();
-    //       },
-    //     },
-        
-    //     {
-    //       path:"course/edit/curriculum",
-    //       element: <AddCurriculum />,
-    //       loader: async () => {
-    //         return await getAllSemester();
-    //       },
-    //     },
-    //     {
-    //       path:"faculty/add",
-    //       element: <AddFaculty />,
-          
-    //     },
-        
-    //   ]
-    // },
+   
     {
       path: "*",
       element: <NotFound />,

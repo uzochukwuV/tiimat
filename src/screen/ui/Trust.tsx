@@ -42,40 +42,7 @@ function Trust() {
                     {/* writeup */}
                       <span className=' text-black'></span></h3>
             </div>
-            <div className=' w-screen mb-6'>
-                    {/* slider */}
-                    <Slider {...settings} >
-                        {
-                            [   PIC1, PIC2, PIC3, PIC4, PIC5, PIC6, PIC7,PIC8].reverse().map((data)=>{
-                                return (
-                                    <div className="h-[240px] md:h-[400px] pl-8 transform transition-transform duration-500 hover:scale-95">
-                                        <div className='bg-zinc-200 rounded-2xl p-6 w-full relative h-full transition-all duration-500 hover:shadow-xl'>
-                                            <img 
-                                                src={data} 
-                                                alt="" 
-                                                className='absolute rounded-2xl top-0 left-0 right-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105' 
-                                            />
-                                            <div className='rounded-2xl w-full relative h-full'>
-                                                <h3 className='font-semibold text-pretty text-[#fff] backdrop:blur-sm text-xl transform transition-all duration-500 hover:translate-y-[-5px]'></h3>
-                                                <p className='text-white transform transition-all duration-500 hover:translate-y-[-5px]'></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                        
-                        <div className=" h-[240px] md:h-[400px] pl-8">
-                            <div className=' bg-zinc-200  rounded-2xl p-6 w-full relative h-full'>
-                                <img src={Director} alt="" className=' absolute  rounded-2xl top-0 left-0 right-0 w-full h-full object-cover' />
-                                
-                            </div>
-                           
-                        </div>
-                        
-                    </Slider>
-
-                </div>
+           
             <div className=' relative h-full flex justify-center items-center'>
                 <div className="grid md:grid-cols-2 max-w-[1000px] w-full gap-24">
                     <motion.div 
@@ -144,6 +111,54 @@ function Trust() {
                             </motion.div>
                         </motion.div>
                     </div>
+                </div>
+            </div>
+             <div className='w-screen mb-12'>
+                <div className='max-w-[1400px] mx-auto'>
+                    <Slider {...settings}>
+                        {[PIC2, PIC3, PIC4, PIC5, PIC6, PIC7, PIC8,PIC1].map((data, index) => (
+                            <div key={index} className="h-[300px] md:h-[500px] pl-4 pr-4">
+                                <div className='group relative h-full overflow-hidden rounded-xl bg-gradient-to-b from-indigo-50 to-white border border-indigo-100'>
+                                    <img 
+                                        src={data} 
+                                        alt="Education Moment" 
+                                        className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+                                    />
+                                    <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent'>
+                                        <div className='absolute bottom-0 left-0 right-0 p-6 transform transition-all duration-500 translate-y-6 group-hover:translate-y-0'>
+                                            <div className='space-y-2'>
+                                                <h3 className='font-semibold text-xl md:text-2xl text-white'>
+                                                    Learning Excellence
+                                                </h3>
+                                                <div className='h-0.5 w-12 bg-indigo-400'></div>
+                                                <p className='text-indigo-50 text-sm md:text-base max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
+                                                    Empowering minds through innovative education and technology
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        
+                        <div className="h-[300px] md:h-[500px] pl-4 pr-4">
+                            <div className='group relative h-full overflow-hidden rounded-xl bg-gradient-to-b from-indigo-50 to-white border border-indigo-100'>
+                                <img 
+                                    src={Director} 
+                                    alt="Director" 
+                                    className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' 
+                                />
+                                <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent'>
+                                    <div className='absolute bottom-0 left-0 right-0 p-6'>
+                                        <h3 className='font-semibold text-xl md:text-2xl text-white'>
+                                            Leadership & Vision
+                                        </h3>
+                                        <div className='h-0.5 w-12 bg-indigo-400 mt-2'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Slider>
                 </div>
             </div>
         </div>

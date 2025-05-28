@@ -7,6 +7,7 @@ import FaqImage from "./assets/dept/faq.avif"
 import { motion } from "framer-motion"
 import { cn } from "./lib/utils";
 import { useState } from "react";
+import { Toaster } from "./components/ui/sonner";
 
 
 
@@ -64,6 +65,7 @@ export const Layout = () => {
              </div>
                  }
         <Footer  />
+        <Toaster />
       </section>
 
     </>

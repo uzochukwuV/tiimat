@@ -58,7 +58,7 @@ const CorseItemComponent = ({ id }: { id: string }) => {
             })
     }, [id])
     if (loading) return <>
-        {loading && courses.length < 1 && [1, 2, 3, 4, 5, 6, 7].map(() => <div
+        {loading && courses.length < 1 && [1, 2, 3, 4, 5, 6, 7].map((i) => <div key={i}
 
             className="h-10 relative flex-1 hover:scale-[1.03] flex items-center gap-6 bg-slate-50 w-full rounded-xl min-w-md ">
             <div>
@@ -77,6 +77,7 @@ const CorseItemComponent = ({ id }: { id: string }) => {
                     return (
                         <Link
                             to={`/departments/${data.id}`}
+                            key={data.id}
                             className=" relative hover:scale-[1.03]  flex items-center gap-6 bg-slate-50 w-full h-20 sm:h-24 md:h-32 rounded-xl min-w-[320px] ">
                             <div className="">
                                 <img src={data.image} alt="" className="mask relative w-32 h-20 sm:h-24 md:h-32 rounded-xl object-cover " />
