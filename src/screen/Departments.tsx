@@ -4,26 +4,26 @@ import { ArrowUpRight, Zap, Code, Play, Palette, DollarSign, Star, Volume1Icon }
 import { Link, useLoaderData } from 'react-router-dom';
 
 const getIcon = (courseName:string) => {
-  if (courseName.toLowerCase().includes('ui') || courseName.toLowerCase().includes('design')) {
-    return <Palette className="w-5 h-5" />;
-  }
-  if (courseName.toLowerCase().includes('video') || courseName.toLowerCase().includes('editing')) {
-    return <Play className="w-5 h-5" />;
-  }
-  if (courseName.toLowerCase().includes('animation') || courseName.toLowerCase().includes('3d')) {
-    return <Zap className="w-5 h-5" />;
-  }
-  if (courseName.toLowerCase().includes('manage')) {
-    return <DollarSign className="w-5 h-5" />;
-  }
-  if(courseName.toLowerCase().includes('assistant')){
-    return <Volume1Icon className="w-5 h-5" />;
-  }
-  if (courseName.toLowerCase().includes('code') || courseName.toLowerCase().includes('programming')) {
-    return <Code className="w-5 h-5" />;
-  }
+  // if (courseName.toLowerCase().includes('ui') || courseName.toLowerCase().includes('design')) {
+  //   return <Palette className="w-5 h-5" />;
+  // }
+  // if (courseName.toLowerCase().includes('video') || courseName.toLowerCase().includes('editing')) {
+  //   return <Play className="w-5 h-5" />;
+  // }
+  // if (courseName.toLowerCase().includes('animation') || courseName.toLowerCase().includes('3d')) {
+  //   return <Zap className="w-5 h-5" />;
+  // }
+  // if (courseName.toLowerCase().includes('manage')) {
+  //   return <DollarSign className="w-5 h-5" />;
+  // }
+  // if(courseName.toLowerCase().includes('assistant')){
+  //   return <Volume1Icon className="w-5 h-5" />;
+  // }
+  // if (courseName.toLowerCase().includes('code') || courseName.toLowerCase().includes('programming')) {
+  //   return <Code className="w-5 h-5" />;
+  // }
 
-  return <Code className="w-5 h-5" />;
+  return "";
 };
 
 const HoverEffect = ({ items, className = "" }: any) => {
@@ -209,8 +209,8 @@ function Departments() {
             {/* Tech Stats */}
             <div className="flex items-center justify-center space-x-12 mt-12">
               {[
-                { label: 'Active Courses', value: '50+' },
-                { label: 'Students', value: '10K+' },
+                { label: 'Active Courses', value: '10+' },
+                { label: 'Students', value: '10+' },
                 { label: 'Success Rate', value: '95%' }
               ].map((stat, idx) => (
                 <motion.div
