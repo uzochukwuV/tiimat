@@ -77,7 +77,9 @@ export function Dashboard() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <Outlet />
+          <div className=" bg-white">
+            <Outlet />
+          </div>
           <Toaster />
         </div>
       </div>

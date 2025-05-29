@@ -24,6 +24,8 @@ import ContactUs from "./screen/ContactUs";
 import CreateCertificate from "./admin/createCertificate";
 import CertificateVerification from "./pages/certificate";
 import CheckCertificate from "./screen/ui/checkCertificate";
+import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
+import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
 
 function Home() {
   return (
@@ -139,6 +141,21 @@ const App = () => {
             return getAllCurriculum()
           }
         },
+        {
+          path:"semester/:id/",
+          element: <SemesterCourseAdmin />,
+          loader: async ({params}) => {
+             return getAllSemesterInCourse(params.id as string)
+          }
+        },
+        {
+          path:"curriculum/:id/",
+          element: <CurriculumInTrimesterAdmin />,
+          loader: async ({params}) => {
+             return getAllCurriculumInSemester(params.id as string)
+          }
+        },
+        
         {
           path:"course/upload/certificate",
           element: <CreateCertificate />,

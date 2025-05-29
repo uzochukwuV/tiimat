@@ -17,6 +17,8 @@ import { UpdateModal } from "../components/UpdateModal"
 import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
 import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
 import { toast } from "sonner"
+import { useLocation, useNavigate } from "react-router-dom"
+
 // import { toast } from "sonner"
 
  
@@ -90,7 +92,8 @@ export const facultyColums: ColumnDef<Faculty>[] = [
     id: "actions",
     cell: ({ row }) => {
       const payment = row.original
- 
+      
+      const navigate = useNavigate()
       return (
         <div className="flex gap-2">
         <DropdownMenu>
@@ -103,6 +106,12 @@ export const facultyColums: ColumnDef<Faculty>[] = [
           
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+             <DropdownMenuItem
+             onClick={() => {
+             
+                navigate(`dashboard/semester/${payment.id}`)
+              
+             }}>  Go To Semester </DropdownMenuItem>
             <DropdownMenuItem
              onClick={() => {
               let confirmDelete = confirm(`you are about to delete ${payment.name}`)
@@ -115,6 +124,8 @@ export const facultyColums: ColumnDef<Faculty>[] = [
               
              }}
             >Delete</DropdownMenuItem>
+            
+           
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminFaculty} />
@@ -243,7 +254,7 @@ export const courseColumns: ColumnDef<Course>[]=[
       if(!payment.certification){
         payment.certification = "null"
       }
- 
+        const navigate = useNavigate()
       return (
         <div className="flex gap-2">
         <DropdownMenu>
@@ -255,6 +266,12 @@ export const courseColumns: ColumnDef<Course>[]=[
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+             <DropdownMenuItem
+             onClick={() => {
+             
+                navigate(`/dashboard/semester/${payment.id}`)
+              
+             }}>  Go To Semester </DropdownMenuItem>
             <DropdownMenuItem
              onClick={() => {
               let confirmDelete = confirm(`you are about to delete ${payment.name}`)
@@ -340,7 +357,7 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
     id: "actions",
     cell: ({ row }) => {
       const payment = row.original
- 
+      const navigate = useNavigate()
       return (
         <div className="flex gap-2">
         <DropdownMenu>
@@ -352,6 +369,12 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className=" bg-white text-black">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+             onClick={() => {
+             
+                navigate(`/dashboard/curriculum/${payment.id}`)
+              
+             }}>  Go To Currculums </DropdownMenuItem>
             <DropdownMenuItem
              onClick={() => {
               let confirmDelete = confirm(`you are about to delete ${payment.name}`)
