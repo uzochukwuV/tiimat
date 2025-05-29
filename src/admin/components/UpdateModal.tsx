@@ -53,11 +53,11 @@ export function UpdateModal({ data, action }: any) {
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
+    <Drawer  open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button variant="outline">Edit </Button>
       </DrawerTrigger>
-      <DrawerContent color="#fff" className=" bg-white">
+      <DrawerContent color="#fff" className=" bg-white w-full md:min-w-[800px]">
         <DrawerHeader className="text-left">
           <DrawerTitle>Edit</DrawerTitle>
           <DrawerDescription>
@@ -117,9 +117,10 @@ function ProfileForm({
         return (
           <div className="grid gap-2">
             <Label htmlFor={item}>{item}</Label>
-            <Input
+             <Input
               type="text"
               id={item}
+              height={item.includes("topic") ? 200: 100}
               onChange={handleChange}
               defaultValue={data[item]}
               name={item}

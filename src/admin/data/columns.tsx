@@ -281,6 +281,7 @@ export type Trimester = {
   id: string
   name: string
   description: string,
+  
 }
 
 
@@ -324,6 +325,7 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
       )
     },
   },
+   
   {
     accessorKey: "description",
     header: "description",
@@ -377,6 +379,7 @@ export type Curriculum = {
   id: string
   title: string
   topics: string,
+  course: string,
 }
 
 
@@ -405,8 +408,7 @@ export const curriculumColumns: ColumnDef<Curriculum>[]=[
     enableSorting: false,
     enableHiding: false,
   },
-  
-  {
+   {
     accessorKey: "title",
     header: ({ column }) => {
       return (
@@ -421,6 +423,23 @@ export const curriculumColumns: ColumnDef<Curriculum>[]=[
       )
     },
   },
+  
+  {
+    accessorKey: "semesterId",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Course
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  
   {
     accessorKey: "topics",
     header: "topics",
