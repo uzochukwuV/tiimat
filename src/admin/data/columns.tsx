@@ -17,7 +17,7 @@ import { UpdateModal } from "../components/UpdateModal"
 import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
 import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
 import { toast } from "sonner"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 // import { toast } from "sonner"
 

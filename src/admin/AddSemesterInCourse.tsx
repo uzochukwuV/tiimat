@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react"
-import {  getAllCourse, getAllSemesterInCourse } from "../services/read";
+import {  getAllCourse } from "../services/read";
 import { useLoaderData } from "react-router-dom";
 import { Trimester, trimesterColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
