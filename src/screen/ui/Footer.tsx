@@ -1,11 +1,21 @@
-import { sendMessage } from "@/services/read";
-import { useState } from "react";
+import { getAppData, sendMessage } from "@/services/read";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Facebook, Instagram,  XIcon, ArrowRight, Mail, Send } from "lucide-react";
+import { MapPin, Facebook, Instagram,  XIcon, ArrowRight, Mail, Send, LinkedinIcon } from "lucide-react";
+import { AppDataType } from "@/services/types";
 
 export const Footer = () => {
   const [formState, setFormState] = useState({}) as any;
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [appData, setAppData] = useState<AppDataType| null>(null);
+
+  useEffect(() => {
+    getAppData().then((data) => {
+     setAppData(data as any);
+    })
+    // Reset form state on unmount
+   
+  }, []);
 
   const submitForm = async () => {
     if (!formState.email) return;
@@ -66,13 +76,13 @@ export const Footer = () => {
               {/* Social Links */}
               <div className="flex gap-3 pt-2">
                 {[
-                  { icon: Facebook, href: "https://facebook.com", color: "hover:bg-indigo-600" },
-                  { icon: Instagram, href: "https://instagram.com/tiimat_solutions", color: "hover:bg-gradient-to-r hover:from-white hover:to-pink-500" },
-                  { icon: XIcon, href: "https://twitter.com", color: "hover:bg-sky-500" }
+                  { icon: Facebook, href: appData?.facebook, color: "hover:bg-indigo-600" },
+                  { icon: Instagram, href: appData?.instagram, color: "hover:bg-gradient-to-r hover:from-white hover:to-pink-500" },
+                  { icon: LinkedinIcon, href: appData?.linkedin, color: "hover:bg-sky-500" }
                 ].map(({ icon: Icon, href, color }, index) => (
                   <Link
                     key={index}
-                    to={href}
+                    to={href!}
                     target="_blank"
                     className={`p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 ${color} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/25`}
                   >
