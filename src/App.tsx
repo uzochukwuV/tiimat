@@ -26,8 +26,8 @@ import CertificateVerification from "./pages/certificate";
 import CheckCertificate from "./screen/ui/checkCertificate";
 import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
 import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
-import { updateAppData } from "./services/actions";
-import { AppDataType } from "./services/types";
+// import { updateAppData } from "./services/actions";
+// import { AppDataType } from "./services/types";
 
 function Home() {
   return (
