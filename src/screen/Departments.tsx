@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Zap, Code, Play, Palette, DollarSign, Star, Volume1Icon } from 'lucide-react';
+import { ArrowUpRight,  Code, Star } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const getIcon = (courseName:string) => {
@@ -23,7 +23,7 @@ const getIcon = (courseName:string) => {
   //   return <Code className="w-5 h-5" />;
   // }
 
-  return "";
+  return <div className=' hidden'>{courseName}</div>;
 };
 
 const HoverEffect = ({ items, className = "" }: any) => {
@@ -84,7 +84,7 @@ const Card = ({ item, isHovered }:any) => {
         {/* Price Tag */}
         <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 border border-gray-200 shadow-sm">
           <div className="flex items-center space-x-1 text-indigo-600">
-            <DollarSign className="w-4 h-4" />
+            {/* <DollarSign className="w-4 h-4" /> */}
             <span className="text-sm font-bold">₦{parseInt(item.price).toLocaleString()}</span>
           </div>
         </div>
