@@ -3,8 +3,12 @@ import { Label } from "@radix-ui/react-label";
 import { toast, Toaster } from "sonner";
 import { motion } from "framer-motion";
 import { SendIcon, MailIcon, UserIcon, MessageSquareIcon, PhoneIcon, MapPinIcon, ClockIcon } from "lucide-react";
+import { useLoaderData } from 'react-router-dom';
 
 const ContactUs = () => {
+    const loader = useLoaderData() as any;
+
+    console.log("Contact Us Loader Data:", loader);
     const [formData, setFormData] = useState({
         name: '',
         email: '',

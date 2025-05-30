@@ -4,7 +4,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 // import { ChevronDown } from "lucide-react";
 import { Link, useLocation} from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { MenuIcon } from "lucide-react";
+import { AwardIcon, MenuIcon } from "lucide-react";
 
 
 
@@ -68,11 +68,7 @@ function Navigation({checked, setCheckedFunc}:any) {
                   <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
-                <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("check") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Check Certificate</Link>
-                </NavigationMenu.Trigger>
-              </NavigationMenu.Item>
+              
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
                   <Link  viewTransition to={"/about"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("about") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >About Us</Link>
@@ -81,6 +77,13 @@ function Navigation({checked, setCheckedFunc}:any) {
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
                 <Link  viewTransition to={"/contact"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("contact") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Contact Us</Link>
+                </NavigationMenu.Trigger>
+              </NavigationMenu.Item>
+              <NavigationMenu.Item className=" text-base leading-10 font-medium " >
+                <NavigationMenu.Trigger>
+                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("check") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >
+                    <AwardIcon color="white" fill="#444" />
+                  </Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
             </NavigationMenu.List>

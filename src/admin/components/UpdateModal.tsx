@@ -116,7 +116,10 @@ function ProfileForm({
       {keys.map((item) => {
         return (
           <div className="grid gap-2">
-            <Label htmlFor={item}>{item}</Label>
+           {
+            item.includes("createdAt") || item.includes("updatedAt") ? null: (
+              <div>
+                 <Label htmlFor={item}>{item}</Label>
              <Input
               type="text"
               id={item}
@@ -126,6 +129,9 @@ function ProfileForm({
               name={item}
               className=" bg-white"
             />
+              </div>
+            )
+           }
           </div>
         );
       })}

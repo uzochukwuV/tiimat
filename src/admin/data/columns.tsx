@@ -14,7 +14,7 @@ import {
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateModal } from "../components/UpdateModal"
-import { editAdminCourse, editAdminCurriculum, editAdminFaculty } from "@/services/actions"
+import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editTrimesterFaculty } from "@/services/actions"
 import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
@@ -389,7 +389,7 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
             >Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <UpdateModal data={payment} action={editAdminCourse} />
+        <UpdateModal data={payment} action={editTrimesterFaculty} />
         </div>
       )
     },

@@ -18,6 +18,33 @@ const FACULTY= "Faculty"
 const SEMESTER="Semester"
 const CURRICULUM="Curriculum"
 const CERTIFICATE ="Certificate"
+const MESSAGE = "Message"
+const APPDATA = "AppData"
+const STUDENT = "Student"
+const PROJECTS = "Projects"
+
+
+export const getAppData = async () => {
+  try {
+    const res = await getDocs(collection(db, APPDATA));
+    return res.docs.map((data)=>{
+      return {...data.data(), id: data.id}
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMessage = async () => {
+  try {
+    const res = await getDocs(collection(db, MESSAGE));
+    return res.docs.map((data)=>{
+      return {...data.data(), id: data.id}
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export const addFaculty = async (
   name: string,

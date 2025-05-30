@@ -14,12 +14,27 @@ import {
     // where,
   } from "firebase/firestore";
   import { db } from "../firebase";
-  
-  const COURSE ="Course"
-  const FACULTY= "Faculty"
-  const SEMESTER="Semester"
-  const CURRICULUM="Curriculum"
-  const CERTIFICATE ="Certificate"
+import { COURSE, FACULTY, SEMESTER, CURRICULUM, CERTIFICATE, APPDATA, MESSAGE } from "./constants";
+import {AppDataType} from "./types"
+
+export const updateAppData = async (payload: AppDataType) => {
+  try {
+    const docRef = doc(db, APPDATA, "appData");
+    await updateDoc(docRef, payload as any);
+  } catch (error) {
+    console.error("Error updating app data:", error);
+    throw error;
+  }
+}
+
+export const createMessage = async (payload: any) => {
+  try {
+    await addDoc(collection(db, MESSAGE), payload);
+  } catch (error) {
+    console.error("Error creating message:", error);
+    throw error;
+  }
+}
 
 export const editAdminCourse=async({payload}:any)=>{
     console.log(payload);

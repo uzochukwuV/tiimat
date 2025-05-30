@@ -6,7 +6,7 @@ import { Layout } from "./Layout";
 import FacultyPage from "./pages/Faculty";
 
 import NotFound from "./NotFound";
-import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
+import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getAppData, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
 import {CourseAdmin} from "./admin/AddCourse";
 import  { CurriculumAdmin } from "./admin/AddCurriculum";
 import  { FacultyAdmin } from "./admin/AddFaculty";
@@ -26,6 +26,8 @@ import CertificateVerification from "./pages/certificate";
 import CheckCertificate from "./screen/ui/checkCertificate";
 import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
 import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
+import { updateAppData } from "./services/actions";
+import { AppDataType } from "./services/types";
 
 function Home() {
   return (
@@ -103,6 +105,26 @@ const App = () => {
         {
           path: "/contact",
           element: <ContactUs />,
+           loader: async () => {
+            // Example mock object for AppDataTpe
+
+const mockAppData: AppDataType = {
+    address: "123 Main St, Cityville",
+    phone: "+1 234 567 8900",
+    email: "info@example.com",
+
+    facebook: "https://facebook.com/example",
+    twitter: "https://twitter.com/example",
+    instagram: "https://instagram.com/example",
+    linkedin: "https://linkedin.com/company/example",
+
+    about: "We are a leading company in our industry.",
+    officeHours: "Mon-Fri 9am-5pm",
+    motto: "Innovation and Excellence"
+};
+            await updateAppData(mockAppData)
+            return await getAppData();
+          },
         },
       ],
     },

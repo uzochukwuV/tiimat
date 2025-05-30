@@ -1,0 +1,10 @@
+
+export const COURSE ="Course"
+export const FACULTY= "Faculty"
+export const SEMESTER="Semester"
+export const CURRICULUM="Curriculum"
+export const CERTIFICATE ="Certificate"
+export const MESSAGE = "Message"
+export const APPDATA = "AppData"
+export const STUDENT = "Student"
+export const PROJECTS = "Projects"
