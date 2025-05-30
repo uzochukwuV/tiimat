@@ -1,7 +1,7 @@
 import { getAppData, sendMessage } from "@/services/read";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Facebook, Instagram,  XIcon, ArrowRight, Mail, Send, LinkedinIcon } from "lucide-react";
+import { MapPin, Facebook, Instagram,   ArrowRight, Mail, Send, LinkedinIcon } from "lucide-react";
 import { AppDataType } from "@/services/types";
 
 export const Footer = () => {
