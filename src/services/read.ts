@@ -13,15 +13,7 @@ import {
 import { db } from "../firebase";
 
 
-const COURSE ="Course"
-const FACULTY= "Faculty"
-const SEMESTER="Semester"
-const CURRICULUM="Curriculum"
-const CERTIFICATE ="Certificate"
-const MESSAGE = "Message"
-const APPDATA = "AppData"
-const STUDENT = "Student"
-const PROJECTS = "Projects"
+import { COURSE, FACULTY, SEMESTER, CURRICULUM, CERTIFICATE, APPDATA, MESSAGE } from "./constants";
 
 
 export const getAppData = async () => {
