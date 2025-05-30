@@ -108,22 +108,8 @@ const App = () => {
            loader: async () => {
             // Example mock object for AppDataTpe
 
-const mockAppData: AppDataType = {
-    address: "123 Main St, Cityville",
-    phone: "+1 234 567 8900",
-    email: "info@example.com",
 
-    facebook: "https://facebook.com/example",
-    twitter: "https://twitter.com/example",
-    instagram: "https://instagram.com/example",
-    linkedin: "https://linkedin.com/company/example",
-
-    about: "We are a leading company in our industry.",
-    officeHours: "Mon-Fri 9am-5pm",
-    motto: "Innovation and Excellence"
-};
-            await updateAppData(mockAppData)
-            return await getAppData();
+            return [];
           },
         },
       ],
