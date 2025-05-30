@@ -14,10 +14,108 @@ import {
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateModal } from "../components/UpdateModal"
-import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editTrimesterFaculty } from "@/services/actions"
+import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editTrimesterFaculty, updateAppData } from "@/services/actions"
 import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
+
+import { AppDataType } from "@/services/types"
+
+// Example columns for AppDataType
+export const appDataColumns: ColumnDef<AppDataType>[] = [
+  {
+    id: "details",
+header: "Details",
+cell: ({ row }) => {
+  const data = row.original;
+  return (
+    <div className="rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 shadow-lg p-6">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-blue-100 text-blue-600 rounded-full w-[150px] py-3 px-4">location_on</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Address</div>
+            <div className="font-medium text-gray-800">{data.address}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-green-100 text-green-600 rounded-full w-[150px] py-3 px-4">call</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Phone</div>
+            <div className="font-medium text-gray-800">{data.phone}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-red-100 text-red-600 rounded-full w-[150px] py-3 px-4">email</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Email</div>
+            <div className="font-medium text-gray-800">{data.email}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-blue-100 text-blue-700 rounded-full w-[150px] py-3 px-4">facebook</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Facebook</div>
+            <div className="font-medium text-gray-800 truncate">{data.facebook}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-blue-50 text-blue-400 rounded-full w-[150px] py-3 px-4">twitter</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Twitter</div>
+            <div className="font-medium text-gray-800 truncate">{data.twitter}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-pink-100 text-pink-500 rounded-full w-[150px] py-3 px-4">instagram</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Instagram</div>
+            <div className="font-medium text-gray-800 truncate">{data.instagram}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-blue-200 text-blue-800 rounded-full w-[150px] py-3 px-4">linkedin</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">LinkedIn</div>
+            <div className="font-medium text-gray-800 truncate">{data.linkedin}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="material-icons bg-yellow-100 text-yellow-600 rounded-full w-[150px] py-3 px-4">emoji_objects</span>
+          <div>
+            <div className="text-xs text-gray-400 font-semibold">Motto</div>
+            <div className="font-medium text-gray-800 italic">{data.motto}</div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-6">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-icons text-gray-400">schedule</span>
+          <span className="text-xs text-gray-500 font-semibold">Office Hours</span>
+        </div>
+        <div className="font-medium text-gray-800 mb-2">{data.officeHours}</div>
+        <div className="text-xs text-gray-500 font-semibold mb-1">About</div>
+        <div className="text-gray-700 italic">{data.about.slice(0, 120)}...</div>
+      </div>
+    </div>
+  );
+},
+ 
+},
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      let payment = row.original
+      
+      return (
+        <div className="flex gap-2">
+        
+        <UpdateModal data={payment} action={updateAppData} />
+        </div>
+      )
+    },
+  },
+]
 
 // import { toast } from "sonner"
 

@@ -6,7 +6,7 @@ import { Layout } from "./Layout";
 import FacultyPage from "./pages/Faculty";
 
 import NotFound from "./NotFound";
-import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
+import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getAppData, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
 import {CourseAdmin} from "./admin/AddCourse";
 import  { CurriculumAdmin } from "./admin/AddCurriculum";
 import  { FacultyAdmin } from "./admin/AddFaculty";
@@ -26,8 +26,7 @@ import CertificateVerification from "./pages/certificate";
 import CheckCertificate from "./screen/ui/checkCertificate";
 import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
 import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
-// import { updateAppData } from "./services/actions";
-// import { AppDataType } from "./services/types";
+import { AppAdmin } from "./admin/AddApp";
 
 function Home() {
   return (
@@ -107,9 +106,7 @@ const App = () => {
           element: <ContactUs />,
            loader: async () => {
             // Example mock object for AppDataTpe
-
-
-            return [];
+            return await getAppData();
           },
         },
       ],
@@ -127,6 +124,15 @@ const App = () => {
           element:<FacultyAdmin />,
           loader: async()=>{
             return await getFaculties()
+          }
+        },
+        {
+          path:"app",
+          element:<AppAdmin />,
+          loader: async()=>{
+            // Example mock object for AppDataTpe
+
+            return  [await getAppData()]
           }
         },
         {

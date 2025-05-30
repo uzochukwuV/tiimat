@@ -4,9 +4,10 @@ import { toast, Toaster } from "sonner";
 import { motion } from "framer-motion";
 import { SendIcon, MailIcon, UserIcon, MessageSquareIcon, PhoneIcon, MapPinIcon, ClockIcon } from "lucide-react";
 import { useLoaderData } from 'react-router-dom';
+import { AppDataType } from '@/services/types';
 
 const ContactUs = () => {
-    const loader = useLoaderData() as any;
+    const loader = useLoaderData() as AppDataType;
 
     console.log("Contact Us Loader Data:", loader);
     const [formData, setFormData] = useState({
@@ -102,9 +103,8 @@ const ContactUs = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-slate-800 mb-1">Address</h3>
-                                        <p className="text-slate-600 text-sm leading-relaxed">
-                                            Top floor, Peculiar Plaza, 123 Haruk Road,<br />
-                                            by Y-junction Rumuigbo, Port Harcourt
+                                        <p className="text-slate-600 text-sm line-clamp-2 leading-relaxed">
+                                           {loader.address}
                                         </p>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@ const ContactUs = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-slate-800 mb-1">Phone</h3>
-                                        <p className="text-slate-600 text-sm">+234 (0) 123 456 7890</p>
+                                        <p className="text-slate-600 text-sm">{loader.phone}</p>
                                     </div>
                                 </div>
 
@@ -125,7 +125,7 @@ const ContactUs = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-slate-800 mb-1">Email</h3>
-                                        <p className="text-slate-600 text-sm">hello@tiimat.edu.ng</p>
+                                        <p className="text-slate-600 text-sm">{loader.email}</p>
                                     </div>
                                 </div>
 
@@ -136,8 +136,7 @@ const ContactUs = () => {
                                     <div>
                                         <h3 className="font-semibold text-slate-800 mb-1">Office Hours</h3>
                                         <p className="text-slate-600 text-sm">
-                                            Mon - Fri: 8:00 AM - 6:00 PM<br />
-                                            Sat: 9:00 AM - 2:00 PM
+                                           {loader.officeHours}
                                         </p>
                                     </div>
                                 </div>

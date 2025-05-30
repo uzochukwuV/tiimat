@@ -1,4 +1,4 @@
-import { Book, Calendar, Home, Inbox, InboxIcon, VerifiedIcon } from "lucide-react"
+import { AppWindowMac, Book, Calendar, Home, Inbox, InboxIcon, VerifiedIcon } from "lucide-react"
 
 import {
   Sidebar,
@@ -15,9 +15,14 @@ import { Link } from "react-router-dom"
 // Menu items.
 const items = [
   {
-    title: "Schools",
+    title: "Faculty",
     url: "/dashboard",
     icon: Home,
+  },
+  {
+    title: "App ",
+    url: "/dashboard/app",
+    icon: AppWindowMac,
   },
   {
     title: "Courses",

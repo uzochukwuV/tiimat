@@ -17,9 +17,9 @@ import {
 import { COURSE, FACULTY, SEMESTER, CURRICULUM, CERTIFICATE, APPDATA, MESSAGE } from "./constants";
 import {AppDataType} from "./types"
 
-export const updateAppData = async (payload: AppDataType) => {
+export const updateAppData = async ({payload}: {payload:AppDataType}) => {
   try {
-    const docRef = doc(db, APPDATA, "appData");
+    const docRef = doc(db, APPDATA, "appdata");
     await updateDoc(docRef, payload as any);
   } catch (error) {
     console.error("Error updating app data:", error);

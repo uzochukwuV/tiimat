@@ -39,7 +39,7 @@ export function UpdateModal({ data, action }: any) {
         <DialogTrigger asChild>
           <Button variant="outline">Edit</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:min-w-[425px] md:min-w-[600px] lg:min-w-[800px]">
           <DialogHeader>
             <DialogTitle>Edit</DialogTitle>
             <DialogDescription>
@@ -57,7 +57,7 @@ export function UpdateModal({ data, action }: any) {
       <DrawerTrigger asChild>
         <Button variant="outline">Edit </Button>
       </DrawerTrigger>
-      <DrawerContent color="#fff" className=" bg-white w-full md:min-w-[800px]">
+      <DrawerContent color="#fff" className=" bg-white w-[800px]">
         <DrawerHeader className="text-left">
           <DrawerTitle>Edit</DrawerTitle>
           <DrawerDescription>
@@ -111,13 +111,14 @@ function ProfileForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className={cn("grid items-start gap-4", className)}
+      style={{scrollbarColor: "transparent", scrollbarWidth: "none"}}
+      className={cn("grid items-start max-h-[600px] overflow-scroll w-full gap-4", className)}
     >
       {keys.map((item) => {
         return (
-          <div className="grid gap-2">
+          <div className="grid gap-2 max-h-[600px] ">
            {
-            item.includes("createdAt") || item.includes("updatedAt") ? null: (
+            item.includes("createdAt") || item.includes("updatedAt") || item.includes("id") ? null: (
               <div>
                  <Label htmlFor={item}>{item}</Label>
              <Input

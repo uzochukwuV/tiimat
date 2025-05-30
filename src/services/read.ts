@@ -18,10 +18,12 @@ import { COURSE, FACULTY, SEMESTER, CURRICULUM, CERTIFICATE, APPDATA, MESSAGE } 
 
 export const getAppData = async () => {
   try {
-    const res = await getDocs(collection(db, APPDATA));
-    return res.docs.map((data)=>{
-      return {...data.data(), id: data.id}
-    })
+    const res =  await getDoc(doc(db, APPDATA, "appdata"));
+    console.log(res.data());
+    return {
+      id: res.id,
+      ...res.data(),
+    }
   } catch (error) {
     console.log(error);
   }
