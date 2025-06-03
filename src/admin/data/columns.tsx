@@ -396,7 +396,8 @@ export type Trimester = {
   id: string
   name: string
   description: string,
-  
+  certificates: string,
+  duration: string
 }
 
 
@@ -435,6 +436,36 @@ export const trimesterColumns: ColumnDef<Trimester>[]=[
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+   {
+    accessorKey: "duration",	
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Duration
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    accessorKey: "certificates",  
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Certificates
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

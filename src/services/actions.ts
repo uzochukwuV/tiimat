@@ -56,7 +56,8 @@ export const editAdminFaculty=async({payload}:any)=>{
 
 export const editTrimesterFaculty=async({payload}:any)=>{
     try {
-       return await updateDoc(doc(db, SEMESTER, payload.id), payload);
+       return await updateDoc(doc(db, SEMESTER, payload.id), {   certificates:"none",
+            duration:'4 weeks', ...payload});
     } catch (error) {
         throw error
     }
@@ -95,6 +96,7 @@ export const deleteAdminCourses= async({payload}:{payload:any})=>{
 export const createAdminCurriculum= async({payload}:any)=>{
     try {
         await addDoc(collection(db, CURRICULUM), {
+          
             ...payload,
             createdAt: (new Date()).toUTCString()
         })
@@ -119,6 +121,7 @@ export const deleteAdminCurriculum= async({payload}:{payload:any})=>{
 export const createAdminTimester= async({payload}:any)=>{
     try {
         await addDoc(collection(db, SEMESTER), {
+           
             ...payload,
             createdAt: (new Date()).toUTCString()
         })

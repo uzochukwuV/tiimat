@@ -254,6 +254,9 @@ function Course() {
                                             <p className="text-slate-600 leading-relaxed text-lg">
                                                 {semesterData.semester.description}
                                             </p>
+                                            <p className="text-slate-500 leading-relaxed mt-6">
+                                                {semesterData.semester.duration} | {semesterData.semester.certificates}    
+                                            </p>
                                         </div>
 
                                         <div className="space-y-8">

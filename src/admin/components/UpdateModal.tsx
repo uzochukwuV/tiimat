@@ -118,7 +118,7 @@ function ProfileForm({
         return (
           <div className="grid gap-2 max-h-[600px] ">
            {
-            item.includes("createdAt") || item.includes("updatedAt") || item.includes("id") ? null: (
+            item.includes("createdAt") || item.includes("updatedAt") || item.toLowerCase().includes("id") ? null: (
               <div>
                  <Label htmlFor={item}>{item}</Label>
              <Input

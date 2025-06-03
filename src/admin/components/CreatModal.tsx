@@ -150,7 +150,10 @@ function CreateForm({
       {keys.map((item) => {
         return (
           <div key={item} className="grid gap-2">
-            <Label htmlFor={item} className="text-black">
+           {
+            item.toLowerCase().includes("id") ? null : (
+             <>
+               <Label htmlFor={item} className="text-black">
               {item}
             </Label>
             <Input
@@ -162,6 +165,9 @@ function CreateForm({
               required
               className=" text-black bg-white placeholder:text-black/80"
             />
+             </>
+            )
+           }
           </div>
         );
       })}
