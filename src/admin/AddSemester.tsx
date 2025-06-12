@@ -21,13 +21,13 @@ export function TrimesterAdmin() {
       })
   }, [])
   const handleDelete=async ( payload:any)=>{
-    console.log(payload)
+  
     try {
       await deleteAdminTrimester({payload:payload})
       toast("Item deleted Successfully")
       // navigate(0)
     } catch (error) {
-      console.log(error)
+
       toast("Item delete error try again")
     }
    

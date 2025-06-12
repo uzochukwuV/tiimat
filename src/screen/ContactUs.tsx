@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Label } from "@radix-ui/react-label";
 import { toast, Toaster } from "sonner";
 import { motion } from "framer-motion";
@@ -9,7 +9,10 @@ import { AppDataType } from '@/services/types';
 const ContactUs = () => {
     const loader = useLoaderData() as AppDataType;
 
-    console.log("Contact Us Loader Data:", loader);
+    useEffect(() => {
+       window.scrollTo(0, 0)
+      }, []);
+   
     const [formData, setFormData] = useState({
         name: '',
         email: '',

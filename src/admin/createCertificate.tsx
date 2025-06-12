@@ -32,10 +32,10 @@ export function CreateCertificate() {
         });
         setQrCodeData(qrCodeDataUrl);
         try {
-          console.log({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}${url.IpfsHash}`, id:url.IpfsHash})
+        
           await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}/${url.IpfsHash}`, id:url.IpfsHash})
         } catch (error) {
-          console.log(error)
+        
           toast.error("Failed to create certificate")
         }
         setIsLoading(false)
@@ -44,11 +44,11 @@ export function CreateCertificate() {
 
       useEffect(() => {
         getAllCertificate().then((data) => {
-          console.log(data)
+          
           setData(data)
           
         }).catch((error) => {
-          console.log(error)
+          
         })
       }, [])
     

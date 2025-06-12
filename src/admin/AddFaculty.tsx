@@ -12,13 +12,13 @@ export function FacultyAdmin() {
   const loader = useLoaderData() as Faculty[];
   // const navigate = useNavigate()
   const handleDelete=async ( payload:any)=>{
-    console.log(payload)
+
     try {
       await deleteAdminCurriculum({payload:payload})
       toast("Item deleted Successfully")
       // navigate(0)
     } catch (error) {
-      console.log(error)
+   
       toast("Item delete error try again")
     }
    

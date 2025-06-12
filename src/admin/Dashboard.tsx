@@ -27,7 +27,7 @@ export function Dashboard() {
 
   function authenticate() {
     let authKey = window.localStorage.getItem("auth");
-    console.log(authKey);
+  
   
     if (authKey !== "productivity") {
       let key: string|null;

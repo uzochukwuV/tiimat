@@ -32,7 +32,7 @@ export function UpdateModal({ data, action }: any) {
   // const isDesktop = useMediaQuery("(min-width: 768px)")
   const isDesktop = true;
 
-  console.log(data)
+ 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>

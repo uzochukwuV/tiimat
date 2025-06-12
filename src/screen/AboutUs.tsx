@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Users,
@@ -26,6 +26,9 @@ export const AboutUs = () => {
   const ceoName = "Amrasa Peter Ighofowe";
   const ceoQuote = "At Tiimat Solutions, we are dedicated to providing top-quality tech education and training. Our commitment to excellence ensures that our students receive the best possible learning experience to succeed in the digital world.";
 
+  useEffect(() => {
+     window.scrollTo(0, 0)
+    }, []);
   const values = [
     { icon: Star, title: "Excellence", description: "Committing to the highest standards in education and student support." },
     { icon: Sparkles, title: "Innovation", description: "Pioneering cutting-edge learning experiences and embracing new technologies." },

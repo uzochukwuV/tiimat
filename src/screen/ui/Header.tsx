@@ -30,7 +30,7 @@ function Navigation({checked, setCheckedFunc}:any) {
             <NavigationMenu.List className={cn(" flex gap-1 sm:gap-2 md:gap-3 lg:gap-8 items-center justify-between ", route.pathname == "/"? "*:text-[#2f2f2f] hover:text-white":"text-[#222] hover:text-black/40")}>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger >
-                  <Link  viewTransition  to={""} className={cn(" px-4 py-2 text-black/40 font-semibold ", route.pathname == "/" ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") }>Home</Link>
+                  <Link  viewTransition  to={""} className={cn(" px-4 py-2 text-black font-semibold  ", route.pathname == "/" ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") }>Home</Link>
 
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
@@ -65,23 +65,23 @@ function Navigation({checked, setCheckedFunc}:any) {
               </NavigationMenu.Item> */}
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
+                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/about"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("about") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >About Us</Link>
+                  <Link  viewTransition to={"/about"} className={cn(" px-5 py-2  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("about") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >About Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                <Link  viewTransition to={"/contact"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("contact") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Contact Us</Link>
+                <Link  viewTransition to={"/contact"} className={cn(" px-5 py-2  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("contact") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Contact Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               <NavigationMenu.Item className=" text-base leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-5 py-2  font-semibold ", route.pathname.includes("check") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >
+                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-5 py-2  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("check") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >
                     <AwardIcon color="white" fill="#444" />
                   </Link>
                 </NavigationMenu.Trigger>

@@ -1,6 +1,6 @@
 import {  useEffect, useState } from "react"
 import {  getAllCourse } from "../services/read";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { Trimester, trimesterColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
 import { createAdminTimester, deleteAdminTrimester } from "@/services/actions";
@@ -10,6 +10,7 @@ import { toast } from "sonner";
 
 export function SemesterCourseAdmin() {
   const loader = useLoaderData() as Trimester[];
+  const params = useParams()
   // const navigate = useNavigate()
 
   const [option, setOption] = useState({})
@@ -34,8 +35,20 @@ export function SemesterCourseAdmin() {
     }
    
   }
+
+  const createTrimtester = async ({payload}:any)=>{
+    try {
+      await createAdminTimester({payload:{...payload, courseId:params.id}})
+      toast("Item created Successfully")
+      // navigate(0)
+    }
+    catch (error) {
+      console.log(error)
+      toast("Item create error try again")
+    }
+  }
   
   return (<>
-      <DataTable columns={trimesterColumns} data={loader} deleteItems={handleDelete} create={createAdminTimester} optionInput={option} id="courseId"  />
+      <DataTable columns={trimesterColumns} data={loader} deleteItems={handleDelete} create={createTrimtester} optionInput={option} id="courseId"  />
   </>)
 }

@@ -2,7 +2,7 @@
 import {  ArrowRight, Award, BookOpen, Calendar, CheckCircle, Clock, X } from 'lucide-react';
 import { useLoaderData } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Course() {
     const res = useLoaderData() as any;
@@ -13,6 +13,10 @@ function Course() {
         course: '',
         phone: ''
     });
+    useEffect(() => {
+       window.scrollTo(0, 0)
+       console.log(res.semester.sort((a:any, b:any) => Number(a.index) > Number(b.index)? 1 : -1))
+      }, []);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData(prev => ({
@@ -25,6 +29,7 @@ function Course() {
         e.preventDefault();
         // Handle form submission
         console.log('Form submitted:', formData);
+        
         setIsModalOpen(false);
         setFormData({ name: '', email: '', course: '', phone: '' });
     };
@@ -234,7 +239,7 @@ function Course() {
 
                         {/* Course Content */}
                         <div className="lg:col-span-8 space-y-12">
-                            {res?.semester.map((semesterData: any, semesterIndex: number) => (
+                            {res?.semester.sort((a:any, b:any) => Number(a.index) > Number(b.index)? 1 : -1).map((semesterData: any, semesterIndex: number) => (
                                 <motion.div
                                     key={semesterIndex}
                                     initial={{ opacity: 0, y: 30 }}

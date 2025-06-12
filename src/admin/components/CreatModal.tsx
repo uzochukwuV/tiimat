@@ -94,12 +94,12 @@ function CreateForm({
   const [loading, setLoading] = React.useState(false);
   const keys = Object.keys(data);
   // const navigate = useNavigate();
-  console.log("input", optionInput)
+ 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    console.log(formState)
+  
     try {
       await action({ payload: formState });
       toast("Created Successfull");

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight,  Code, Star } from 'lucide-react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const getIcon = (courseName:string) => {
   // if (courseName.toLowerCase().includes('ui') || courseName.toLowerCase().includes('design')) {
@@ -28,7 +28,7 @@ const getIcon = (courseName:string) => {
 
 const HoverEffect = ({ items, className = "" }: any) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
+   const router = useNavigate()
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ${className}`}>
       {items.map((item:any, idx:any) => (
@@ -40,6 +40,7 @@ const HoverEffect = ({ items, className = "" }: any) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: idx * 0.1 }}
+          onClick={()=>router(`/departments/${item.id}`) }
         >
           <Card item={item} isHovered={hoveredIndex === idx} />
         </motion.div>
@@ -172,7 +173,11 @@ const Card = ({ item, isHovered }:any) => {
 
 function Departments() {
    const res = useLoaderData() as any;
-    
+   const router = useNavigate()
+
+   useEffect(() => {
+   window.scrollTo(0, 0)
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
@@ -240,6 +245,7 @@ function Departments() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              // onClick={()=> router(`/departments/${item.course.id}`)}
             >
               {/* Faculty Header */}
               <div className="mb-12">
@@ -263,6 +269,7 @@ function Departments() {
                     className="hidden md:flex items-center space-x-2 bg-white border border-gray-200 text-indigo-600 hover:text-indigo-700 px-5 py-2 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
+                    onClick={()=> router(`/faculty/${item.faculty.id}`) }
                   >
                     <span>View All Courses</span>
                     <ArrowUpRight className="w-5 h-5" />

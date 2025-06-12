@@ -6,7 +6,9 @@ export const sampleContext = createContext(null!) as any;
 function FacultyItem() {
     const loader = useLoaderData() as any;
 
-
+    useEffect(() => {
+   window.scrollTo(0, 0)
+  }, []);
 
     return <>
 
