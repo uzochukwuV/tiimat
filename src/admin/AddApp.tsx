@@ -12,7 +12,7 @@ import { AppDataType } from "@/services/types";
 export function AppAdmin() {
   const loader = useLoaderData() as AppDataType[];
   // const navigate = useNavigate()
-  const handleDelete=async ( payload:any)=>{
+  const handleDelete=async ()=>{
   
     try {
     //   await deleteAdminCurriculum({payload:payload})

@@ -1,9 +1,9 @@
-import {  useEffect, useState } from "react"
-import {  getAllCourse } from "../services/read";
+
+
 import { useLoaderData, useParams } from "react-router-dom";
-import { Message, MessageColumns, Trimester, trimesterColumns } from "./data/columns";
+import { Message, MessageColumns } from "./data/columns";
 import { DataTable } from "./data/data-table";
-import { createAdminTimester, createMessage, deleteAdminTrimester } from "@/services/actions";
+import {  createMessage, deleteAdminTrimester } from "@/services/actions";
 import { toast } from "sonner";
 
 
@@ -12,8 +12,6 @@ export function MessageAdmin() {
   const loader = useLoaderData() as Message[];
   const params = useParams()
   // const navigate = useNavigate()
-
-  const [option, setOption] = useState({})
 
   const handleDelete=async ( payload:any)=>{
     console.log(payload)
@@ -43,6 +41,6 @@ export function MessageAdmin() {
   }
   
   return (<>
-      <DataTable columns={MessageColumns} data={loader} deleteItems={handleDelete} create={createTrimtester} optionInput={option} id="courseId"  />
+      <DataTable columns={MessageColumns} data={loader} deleteItems={handleDelete} create={createTrimtester} optionInput={[]} id="courseId"  />
   </>)
 }

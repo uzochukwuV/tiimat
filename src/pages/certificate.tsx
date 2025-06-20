@@ -1,9 +1,9 @@
-import { pinata } from '@/lib/pinata';
+
 import { getCertificate } from '@/services/read';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CheckCircle, Download, Share2 } from 'lucide-react';
-import {updateCerts} from "@/lib/supabase";
+
 
 const CertificateVerification = () => {
   const params = useParams();
@@ -38,10 +38,6 @@ const CertificateVerification = () => {
       if (imgSrc) URL.revokeObjectURL(imgSrc);
     };
   }, [params.id]);
-
-  async function updateAllCert(){
-    await updateAllCert()
-  }
 
   const handleDownload = () => {
     const link = document.createElement('a');

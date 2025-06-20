@@ -63,9 +63,9 @@ function Navigation({checked, setCheckedFunc}:any) {
                   </div>
                 </NavigationMenu.Content>
               </NavigationMenu.Item> */}
-              <NavigationMenu.Item className=" text-base border-2 border-indigo-500 rounded-xl bg-white text-black leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base border-2  text-black leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2 border-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && "  ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
+                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2 border-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && "  text-white ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               
