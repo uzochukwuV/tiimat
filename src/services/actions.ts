@@ -71,6 +71,14 @@ export const editAdminCurriculum=async({payload}:any)=>{
     }
 }
 
+export const editAdminMessage=async({payload}:any)=>{
+    try {
+       return await updateDoc(doc(db, MESSAGE, payload.id), payload);
+    } catch (error) {
+        throw error
+    }
+}
+
 export const createAdminCourse= async({payload}:{payload:any})=>{
     console.log(payload)
     try {
@@ -177,8 +185,7 @@ export const createAdminCertificate= async(payload:any)=>{
 export const getAllCertificate= async()=>{
     try {
         const snapshot = await getDocs(collection(db, CERTIFICATE));
-        console.log(snapshot.docs)
-        const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        const data = snapshot.docs.map((doc) => ({   id: doc.id,...doc.data(), }));
         return data;
     } catch (error) {
         throw error

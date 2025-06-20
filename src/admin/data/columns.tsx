@@ -14,8 +14,8 @@ import {
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateModal } from "../components/UpdateModal"
-import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editTrimesterFaculty, updateAppData } from "@/services/actions"
-import { delCurriculum, deleteCourse, deleteFaculty, delSemester } from "@/services/read"
+import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editAdminMessage, editTrimesterFaculty, updateAppData } from "@/services/actions"
+import { delCurriculum, deleteCourse, deleteFaculty, delMessage, delSemester } from "@/services/read"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
 
@@ -652,6 +652,128 @@ export const curriculumColumns: ColumnDef<Curriculum>[]=[
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminCurriculum} />
+        </div>
+      )
+    },
+  },
+]
+
+
+
+
+
+export type Message = {
+  id: string;
+  title: string;
+  email: string;
+  location: string;
+  phone:string;
+  info:string;
+  name:string
+}
+
+
+
+
+export const MessageColumns: ColumnDef<Message>[]=[
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+   {
+    accessorKey: "title",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Title
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  
+  {
+    accessorKey: "email",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Email
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  
+  {
+    accessorKey: "info",
+    header: "info",
+    cell:({row})=> {
+      const value = row.getValue<string>("info") || "error";
+
+      return <div className="" >{value}</div>
+    }
+  },
+  
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      const payment = row.original
+ 
+      return (
+        <div className="flex gap-2">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild >
+            <Button  variant="ghost" className="h-8 w-8 p-0 hover:bg-slate-200">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className=" bg-white text-black">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+           
+            
+            
+            <DropdownMenuItem
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.title}`)
+              if(confirmDelete){
+                delMessage(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
+              
+             }}
+            >Delete</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <UpdateModal data={payment} action={editAdminMessage} />
         </div>
       )
     },

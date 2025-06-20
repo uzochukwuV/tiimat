@@ -33,7 +33,7 @@ function Course() {
         setIsModalOpen(false);
         setFormData({ name: '', email: '', course: '', phone: '' });
     };
-
+    console.log(res.semester)
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
             {/* Modal */}

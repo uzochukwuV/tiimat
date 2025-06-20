@@ -3,6 +3,7 @@ import { getCertificate } from '@/services/read';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CheckCircle, Download, Share2 } from 'lucide-react';
+import {updateCerts} from "@/lib/supabase";
 
 const CertificateVerification = () => {
   const params = useParams();
@@ -16,13 +17,11 @@ const CertificateVerification = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const [imageResponse, certResponse] = await Promise.all([
-          pinata.gateways.get(params.id!),
-          getCertificate(params.id!)
-        ]);
+        const certResponse = await getCertificate(params.id!)
+      
         
-        const newFile = URL.createObjectURL(new Blob([imageResponse.data as Blob], {type: imageResponse.contentType!}));
-        setImgSrc(newFile);
+       
+        setImgSrc(certResponse.url);
         setUsername(certResponse.username);
         setDescription(certResponse.description);
       } catch (err) {
@@ -39,6 +38,10 @@ const CertificateVerification = () => {
       if (imgSrc) URL.revokeObjectURL(imgSrc);
     };
   }, [params.id]);
+
+  async function updateAllCert(){
+    await updateAllCert()
+  }
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -88,6 +91,7 @@ const CertificateVerification = () => {
               </div>
               <div className="ml-4">
                 <h2 className="text-lg font-medium text-gray-900">Certificate Verified</h2>
+                
                 <p className="text-sm text-gray-500">This certificate has been successfully verified on our platform</p>
               </div>
             </div>

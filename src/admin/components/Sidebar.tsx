@@ -46,7 +46,7 @@ const items = [
   },
   {
     title: "Messages",
-    url: "#",
+    url: "/dashboard/message",
     icon: InboxIcon,
   },
 ]

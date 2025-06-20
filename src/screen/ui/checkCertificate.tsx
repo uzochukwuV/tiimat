@@ -1,7 +1,9 @@
-import { pinata } from "@/lib/pinata";
+
 import { getCertificate } from "@/services/read";
 import { useState } from "react";
 import { CheckCircle, XCircle, Loader2, Download } from "lucide-react";
+
+
 
 function CheckCertificate() {
     const [certificateImage, setCertificateImage] = useState("");
@@ -9,6 +11,8 @@ function CheckCertificate() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const [verificationStatus, setVerificationStatus] = useState<"unverified" | "verified" | "error">("unverified");
+
+     
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,11 +35,7 @@ function CheckCertificate() {
                 throw new Error("Certificate not found");
             }
 
-            // Fetch certificate image
-            const imageResponse = await pinata.gateways.get(data.id);
-            const imageUrl = URL.createObjectURL(new Blob([imageResponse.data as Blob], { type: imageResponse.contentType! }));
-            
-            setCertificateImage(imageUrl);
+            setCertificateImage(data.url);
             setCertificateData(data);
             setVerificationStatus("verified");
         } catch (err) {
@@ -57,7 +57,7 @@ function CheckCertificate() {
         link.click();
         document.body.removeChild(link);
     };
-
+ {/* <button className=' text-black border-1 border-purple-50' onClick={updateCert}>update</button> */}
     return (
         <div className="min-h-[500px] bg-gradient-to-br from-blue-50 to-indigo-100">
             <div className="container mx-auto px-4 py-12">
@@ -66,14 +66,14 @@ function CheckCertificate() {
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-800 mb-4">
                             Certificate Verification
-                        </h1>
+                        </h1>s
                         <p className="text-lg text-gray-600">
                             Verify the authenticity of your digital certificate
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="bg-white rounded-xl min-w-[600px] min-h-[400px] shadow-lg p-8 mb-12 grid place-items-center">
+                        <form onSubmit={handleSubmit} className="space-y-6 w-full">
                             <div>
                                 <label htmlFor="certificate-id" className="block text-gray-700 text-lg mb-2 font-medium">
                                     Certificate ID
@@ -81,7 +81,7 @@ function CheckCertificate() {
                                 <input
                                     type="text"
                                     id="certificate-id"
-                                    className="w-full px-6 py-3 text-lg border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className="w-full px-6 py-3 bg-white text-lg border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                     placeholder="Enter certificate ID"
                                     disabled={isLoading}
                                 />
@@ -139,7 +139,7 @@ function CheckCertificate() {
                                             Certificate ID
                                         </h4>
                                         <p className="text-gray-900 font-medium">
-                                            {certificateData.id}
+                                            {certificateData.id.slice(0,12)}...
                                         </p>
                                     </div>
                                     <div>

@@ -6,7 +6,7 @@ import { Layout } from "./Layout";
 import FacultyPage from "./pages/Faculty";
 
 import NotFound from "./NotFound";
-import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getAppData, getCourse, getCoursesInFaculty, getFaculties, getFaculty } from "./services/read";
+import { getAllCourse, getAllCurriculum, getAllCurriculumInSemester, getAllSemester, getAllSemesterInCourse, getAppData, getCourse, getCoursesInFaculty, getFaculties, getFaculty, getMessage } from "./services/read";
 import {CourseAdmin} from "./admin/AddCourse";
 import  { CurriculumAdmin } from "./admin/AddCurriculum";
 import  { FacultyAdmin } from "./admin/AddFaculty";
@@ -27,6 +27,7 @@ import CheckCertificate from "./screen/ui/checkCertificate";
 import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
 import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
 import { AppAdmin } from "./admin/AddApp";
+import { MessageAdmin } from "./admin/Message";
 
 function Home() {
   return (
@@ -174,6 +175,13 @@ const App = () => {
           path:"course/upload/certificate",
           element: <CreateCertificate />,
           
+        },
+        {
+          path:"message",
+          element: <MessageAdmin />,
+           loader: async () => {
+             return getMessage()
+          }
         },
         
       ]

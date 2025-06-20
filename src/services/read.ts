@@ -195,6 +195,25 @@ export const updateCourse = async (
   return res.data();
 };
 
+export const updateCertificate = async (
+  document: string,
+  description: string,
+  studentName: string,
+  url: string
+) => {
+  const docref = doc(db, CERTIFICATE, document);
+  const update = await updateDoc(docref, {
+    description: description,
+    studentName: studentName,
+    url: url
+  });
+  console.log(update);
+
+  const res = await getDoc(docref);
+
+  return res.data();
+};
+
 export const addSemester = async (
   document: string,
   name: string,
@@ -350,6 +369,17 @@ export const delSemester=async(id:string)=>{
   
   try {
     const docdel = await deleteDoc(doc(db, SEMESTER, id));
+    console.log(docdel);
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+
+export const delMessage =async (id:string)=>{
+  try {
+    const docdel = await deleteDoc(doc(db, MESSAGE, id));
     console.log(docdel);
     
   } catch (error) {
