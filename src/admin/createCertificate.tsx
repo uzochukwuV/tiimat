@@ -47,8 +47,6 @@ export function CreateCertificate() {
           
           setData(data)
           
-        }).catch((error) => {
-          
         })
       }, [])
     
