@@ -15,9 +15,9 @@ function Navigation({checked, setCheckedFunc}:any) {
     <div className={cn(" z-50 bg-black top-0 left-0 right-0  ", route.pathname == "/"? "bg-transparent absolute":"bg-transparent backdrop-blur" )}>
       {/* bg-[#1e1f21cc] */}
       <div className="  px-6 md:px-24 flex justify-between items-center ">
-        <div className=" bg-white px-4 rounded">
+        <div className=" bg-white px-4 rounded-2xl">
           <Link to={"/"}>
-          <img src={Img} alt="" width={150} /></Link>
+          <img src={Img} alt="" width={100} /></Link>
         </div>
 
         <button  onClick={setCheckedFunc} className="  md:hidden">  
