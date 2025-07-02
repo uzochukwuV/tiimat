@@ -817,6 +817,7 @@ export const CertificateColumns: ColumnDef<Certificate>[]=[
     enableSorting: false,
     enableHiding: false,
   },
+ 
    {
     accessorKey: "studentName",
     header: ({ column }) => {
@@ -832,7 +833,17 @@ export const CertificateColumns: ColumnDef<Certificate>[]=[
       )
     },
   },
-  
+   {
+    accessorKey: "id",
+    header: "id",
+    cell:({row})=> {
+      const value = row.getValue<string>("id") || "error";
+
+      return <div className="w-20 h-fit overflow-scroll line-clamp-6 border-b"  style={{scrollbarColor: "tansparent", scrollbarWidth:"none"}} >
+        <p>{value}</p>
+      </div>
+    }
+  },
  
   
   {

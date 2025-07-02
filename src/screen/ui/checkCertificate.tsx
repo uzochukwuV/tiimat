@@ -1,7 +1,8 @@
 
 import { getCertificate } from "@/services/read";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle, XCircle, Loader2, Download } from "lucide-react";
+import { getAllCertificate } from "@/services/actions";
 
 
 
@@ -11,7 +12,13 @@ function CheckCertificate() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const [verificationStatus, setVerificationStatus] = useState<"unverified" | "verified" | "error">("unverified");
+    
 
+    useEffect(()=> {
+        getAllCertificate().then((data) => {
+            console.log(data);
+        }   )
+    })
      
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -34,8 +41,12 @@ function CheckCertificate() {
             if (!data) {
                 throw new Error("Certificate not found");
             }
-
-            setCertificateImage(data.url);
+            
+            // Fetch the image as a blob and convert to data URL
+            const response = await fetch(data.url);
+            const blob = await response.blob();
+            const imageUrl = URL.createObjectURL(blob);
+            setCertificateImage(imageUrl);
             setCertificateData(data);
             setVerificationStatus("verified");
         } catch (err) {
@@ -66,7 +77,7 @@ function CheckCertificate() {
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-800 mb-4">
                             Certificate Verification
-                        </h1>s
+                        </h1>
                         <p className="text-lg text-gray-600">
                             Verify the authenticity of your digital certificate
                         </p>

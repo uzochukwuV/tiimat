@@ -146,7 +146,7 @@ export const getFaculty = async (document: string) => {
 
 export const getCertificate = async (document: string) => {
   const ref = collection(db, CERTIFICATE );
-  const q = query(ref, where("id", "==", document))
+  const q = query(ref, where("id", "==", document));
   const res = (await getDocs(q));
   console.log(res.docs.map((data)=>{
     return {...data.data(), id: data.id}

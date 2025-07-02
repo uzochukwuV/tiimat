@@ -112,7 +112,7 @@ export const createAdminCourse= async({payload}:{payload:any})=>{
 }
 
 export const deleteAdminCourses= async({payload}:{payload:any})=>{
-    console.log(payload)
+   
     try {
         const alldocs = payload.map((item:any)=> {
             return deleteDoc(doc(db, COURSE, item.id))
@@ -123,6 +123,16 @@ export const deleteAdminCourses= async({payload}:{payload:any})=>{
     }
 }
 
+export const deleteAdminCertificate = async ({payload}:{payload:any}) =>{
+     try {
+        const alldocs = payload.map((item:any)=> {
+            return deleteDoc(doc(db, CERTIFICATE, item.id))
+        })
+        return await Promise.all(alldocs)
+    } catch (error) {
+        throw error
+    }
+}
 
 export const createAdminCurriculum= async({payload}:any)=>{
     try {
