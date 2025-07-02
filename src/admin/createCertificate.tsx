@@ -1,9 +1,10 @@
-import { pinata } from "@/lib/pinata";
 
-import { createAdminCertificate, getAllCertificate } from "@/services/actions";
+
+import { uploadFile } from "@/lib/supabase";
+import { createAdminCertificate } from "@/services/actions";
 import QrCode from "qrcode";
-import {  useEffect, useRef, useState } from "react";
-import { toast, Toaster } from "sonner";
+import {   useRef, useState } from "react";
+
 
 
 const SIZE: number = 300;
@@ -12,7 +13,6 @@ export function CreateCertificate() {
     const [qrCodeData,setQrCodeData]=useState<string>("")
     const [reg, setRed] = useState("")
     const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState<any[]>([])
     const [isUp, setIsUp] = useState(false);
     const imageRef = useRef(null);
     const handleSubmit = async (e: React.FormEvent) => {
@@ -21,39 +21,27 @@ export function CreateCertificate() {
         const name = (document.getElementById('name') as HTMLInputElement).value
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
-        const url = await pinata.upload.file(image);
-        const id = await pinata.gateways.get(url.IpfsHash)
-        const newFile = URL.createObjectURL(new Blob([id.data as Blob], {type:id.contentType!}));
+        const res = await uploadFile("tiimat", "certificate", image);
+        
+        const newFile = URL.createObjectURL(image);
         setRed(newFile)
         setIsUp(true)
+        await createAdminCertificate({studentName : name, description:description,url: res.fullPath, id:res.id})
         
-        const qrCodeDataUrl = await QrCode.toDataURL(`https://www.tiimatsolutions.com/certificate/${url.IpfsHash}`, {
+        const qrCodeDataUrl = await QrCode.toDataURL(`https://www.tiimatsolutions.com/certificate/${res.id}`, {
           width: SIZE,
         });
         setQrCodeData(qrCodeDataUrl);
-        try {
-        
-          await createAdminCertificate({studentName : name, description:description,url: `${import.meta.env.VITE_GATEWAY_URL}/${url.IpfsHash}`, id:url.IpfsHash})
-        } catch (error) {
-        
-          toast.error("Failed to create certificate")
-        }
         setIsLoading(false)
       }
 
 
-      useEffect(() => {
-        getAllCertificate().then((data) => {
-          
-          setData(data)
-          
-        })
-      }, [])
+     
     
   return (
     <>
-     <h1>Create Certificate</h1>
-    <Toaster />
+     <h1 className=" px-6">Create Certificate</h1>
+    
     <div className=" flex justify-center flex-wrap">
        
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -134,22 +122,8 @@ export function CreateCertificate() {
           </div>
         </div>
       )}
-      <div className=" border-r bg-black mx-6"></div>
-      <div>
-        <h1>All Certs</h1>
-          {
-            data.map((data:any) => {
-              return (
-                <div key={data.id} className="flex flex-col gap-5 p-4 bg-white rounded-lg shadow-md m-4">
-                  <img src={data.url} alt="" />
-                  <p>{data.id}</p>
-                  <h1>{data.studentName}</h1>
-                  <p>{data.description}</p>
-                </div>
-              )
-            })
-          }
-      </div>
+    
+     
     </div>
     </>
   )

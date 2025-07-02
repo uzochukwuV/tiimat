@@ -12,7 +12,7 @@ function Navigation({checked, setCheckedFunc}:any) {
   const route = useLocation()
   
   return (
-    <div className={cn(" z-50 bg-black top-0 left-0 right-0  ", route.pathname == "/"? "bg-transparent absolute":"bg-transparent backdrop-blur" )}>
+    <div className={cn(" z-50 py-6 bg-black top-0 left-0 right-0  ", route.pathname == "/"? "bg-transparent absolute":"bg-transparent backdrop-blur" )}>
       {/* bg-[#1e1f21cc] */}
       <div className="  px-6 md:px-24 flex justify-between items-center ">
         <div className=" bg-white px-4 rounded-2xl">
@@ -27,10 +27,10 @@ function Navigation({checked, setCheckedFunc}:any) {
      
         <div className="hidden md:block peer-has-checked:block">
           <NavigationMenu.Root className=" ">
-            <NavigationMenu.List className={cn(" flex gap-1 sm:gap-2 md:gap-3 lg:gap-8 items-center justify-between ", route.pathname == "/"? "*:text-[#2f2f2f] hover:text-white":"text-[#222] hover:text-black/40")}>
-              <NavigationMenu.Item className=" text-base border-2 rounded-md leading-10 font-medium " >
+            <NavigationMenu.List className={cn(" flex gap-1 sm:gap-2 md:gap-3 lg:gap-8 items-center justify-between ", route.pathname == "/"? " text-white/50":"")}>
+              <NavigationMenu.Item className=" text-base hover:bg-blue-600 hover:text-white  rounded-md leading-10 font-medium " >
                 <NavigationMenu.Trigger >
-                  <Link  viewTransition  to={""} className={cn(" px-4 py-2 text-black font-semibold  ", route.pathname == "/" ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") }>Home</Link>
+                  <Link  viewTransition  to={""} className={cn(" px-4 py-2  font-semibold  ", route.pathname == "/" ? "rounded-lg  ":"") }>Home</Link>
 
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
@@ -63,26 +63,26 @@ function Navigation({checked, setCheckedFunc}:any) {
                   </div>
                 </NavigationMenu.Content>
               </NavigationMenu.Item> */}
-              <NavigationMenu.Item className=" text-base border-2 rounded-md text-black leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base hover:bg-blue-600 hover:text-white  rounded-md  leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2 border-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && "  text-white ", route.pathname.includes("departments") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Departments</Link>
+                  <Link  viewTransition to={"/departments"} className={cn(" px-5 py-2  border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/departments" && "  text-black/50 ", route.pathname.includes("departments") ? "rounded-lg    backdrop-blur-sm":"") } >Departments</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
               
-              <NavigationMenu.Item className=" text-base border-2 rounded-md leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base hover:bg-blue-600 hover:text-white  rounded-md leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/about"} className={cn(" px-5 py-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("about") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >About Us</Link>
+                  <Link  viewTransition to={"/about"} className={cn(" px-5 py-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/about" && " text-black/50 ", route.pathname.includes("about") ? "rounded-lg    backdrop-blur-sm":"") } >About Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-base border-2 rounded-md leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base hover:bg-blue-600 hover:text-white  rounded-md leading-10 font-medium " >
                 <NavigationMenu.Trigger>
-                <Link  viewTransition to={"/contact"} className={cn(" px-5 py-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("contact") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >Contact Us</Link>
+                <Link  viewTransition to={"/contact"} className={cn(" px-5 py-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/contact" && " text-black/50 ", route.pathname.includes("contact") ? "rounded-lg    backdrop-blur-sm":"") } >Contact Us</Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>
-              <NavigationMenu.Item className=" text-base border-2 rounded-md leading-10 font-medium " >
+              <NavigationMenu.Item className=" text-base  hover:text-white py-1   rounded-md  font-medium " >
                 <NavigationMenu.Trigger>
-                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-5 py-2 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("check") ? "rounded-lg text-indigo-600   backdrop-blur-sm":"") } >
-                    <AwardIcon color="white" fill="#444" />
+                  <Link  viewTransition to={"/check-certificate"} className={cn(" px-2 py-0 border-indigo-500 shadow-sm  font-semibold ", route.pathname == "/" && " text-white ", route.pathname.includes("check") ? "rounded-lg    backdrop-blur-sm":"") } >
+                    <AwardIcon color="blue" fill="#11aaff" />
                   </Link>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>

@@ -28,6 +28,8 @@ import { SemesterCourseAdmin } from "./admin/AddSemesterInCourse";
 import { CurriculumInTrimesterAdmin } from "./admin/AddCurriculumInTrimester";
 import { AppAdmin } from "./admin/AddApp";
 import { MessageAdmin } from "./admin/Message";
+import { CerticicateAdmin } from "./admin/AddCertificate";
+import { getAllCertificate } from "./services/actions";
 
 function Home() {
   return (
@@ -163,6 +165,14 @@ const App = () => {
              return getAllSemesterInCourse(params.id as string)
           }
         },
+        {
+          path:"certificate",
+          element: <CerticicateAdmin />,
+          loader: async () => {
+             return getAllCertificate()
+          }
+        },
+        
         {
           path:"curriculum/:id/",
           element: <CurriculumInTrimesterAdmin />,

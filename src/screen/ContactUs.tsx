@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SendIcon, MailIcon, UserIcon, MessageSquareIcon, PhoneIcon, MapPinIcon, ClockIcon } from "lucide-react";
 import { useLoaderData } from 'react-router-dom';
 import { AppDataType } from '@/services/types';
+import { sendMessage } from '@/services/read';
 
 const ContactUs = () => {
     const loader = useLoaderData() as AppDataType;
@@ -15,6 +16,7 @@ const ContactUs = () => {
    
     const [formData, setFormData] = useState({
         name: '',
+        title: 'Contact Us',
         email: '',
         phone: '',
         subject: '',
@@ -35,7 +37,7 @@ const ContactUs = () => {
         setIsSubmitting(true);
         
         // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await sendMessage(formData);
         
         toast.success("Message sent successfully! We'll get back to you soon.", {
             description: "Thank you for reaching out to TIIMAT."
@@ -45,6 +47,7 @@ const ContactUs = () => {
         setFormData({
             name: '',
             email: '',
+            title: 'Contact Us',
             phone: '',
             subject: '',
             message: ''

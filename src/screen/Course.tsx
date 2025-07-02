@@ -4,6 +4,8 @@ import { useLoaderData } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+import { sendMessage } from '@/services/read';
+
 function Course() {
     const res = useLoaderData() as any;
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +13,7 @@ function Course() {
         name: '',
         email: '',
         course: '',
+        title: 'Request Curriculum',
         phone: ''
     });
     useEffect(() => {
@@ -25,15 +28,16 @@ function Course() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit =async (e: React.FormEvent) => {
         e.preventDefault();
         // Handle form submission
+        await sendMessage(formData);
         console.log('Form submitted:', formData);
         
         setIsModalOpen(false);
-        setFormData({ name: '', email: '', course: '', phone: '' });
+        setFormData({ name: '', email: '', course: '', title:"" ,phone: '' });
     };
-    console.log(res.semester)
+    
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
             {/* Modal */}

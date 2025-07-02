@@ -14,7 +14,7 @@ import {
 import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateModal } from "../components/UpdateModal"
-import { editAdminCourse, editAdminCurriculum, editAdminFaculty, editAdminMessage, editTrimesterFaculty, updateAppData } from "@/services/actions"
+import { editAdminCertificate, editAdminCourse, editAdminCurriculum, editAdminFaculty, editAdminMessage, editTrimesterFaculty, updateAppData } from "@/services/actions"
 import { delCurriculum, deleteCourse, deleteFaculty, delMessage, delSemester } from "@/services/read"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
@@ -774,6 +774,137 @@ export const MessageColumns: ColumnDef<Message>[]=[
           </DropdownMenuContent>
         </DropdownMenu>
         <UpdateModal data={payment} action={editAdminMessage} />
+        </div>
+      )
+    },
+  },
+]
+
+
+
+
+export type Certificate = {
+  id: string;
+  studentName: string;
+  uuid: string;
+  description: string;
+  url:string;
+}
+
+
+
+
+export const CertificateColumns: ColumnDef<Certificate>[]=[
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+   {
+    accessorKey: "studentName",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Student Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  
+ 
+  
+  {
+    accessorKey: "url",
+    header: "info",
+    cell:({row})=> {
+      const value = row.getValue<string>("url") || "error";
+
+      return <div className="w-40 line-clamp-6" >{value}</div>
+    }
+  },
+   {
+    accessorKey: "uuid",
+    header: "uuid",
+    cell:({row})=> {
+      const value = row.getValue<string>("uuid") || "error";
+
+      return <div className="w-20 line-clamp-6" >{value}</div>
+    }
+  },
+   {
+    accessorKey: "description",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-base font-semibold "
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Description
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      const payment = row.original
+      if(!payment.uuid){
+        payment.uuid ="hello"
+      }
+ 
+      return (
+        <div className="flex gap-2">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild >
+            <Button  variant="ghost" className="h-8 w-8 p-0 hover:bg-slate-200">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className=" bg-white text-black">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+           
+            
+            
+            <DropdownMenuItem
+             onClick={() => {
+              let confirmDelete = confirm(`you are about to delete ${payment.studentName}`)
+              if(confirmDelete){
+                delMessage(payment.id)
+                toast("Deleted", {
+                  className:"bg-blue-50"
+                })
+              }
+              
+             }}
+            >Delete</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <UpdateModal data={payment} action={editAdminCertificate} />
         </div>
       )
     },

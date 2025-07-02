@@ -10,12 +10,14 @@ import {
     updateDoc,
     deleteDoc,
     getDocs,
+    
     // query,
     // where,
   } from "firebase/firestore";
   import { db } from "../firebase";
 import { COURSE, FACULTY, SEMESTER, CURRICULUM, CERTIFICATE, APPDATA, MESSAGE } from "./constants";
 import {AppDataType} from "./types"
+
 
 export const updateAppData = async ({payload}: {payload:AppDataType}) => {
   try {
@@ -66,6 +68,27 @@ export const editTrimesterFaculty=async({payload}:any)=>{
 export const editAdminCurriculum=async({payload}:any)=>{
     try {
        return await updateDoc(doc(db, CURRICULUM, payload.id), payload);
+    } catch (error) {
+        throw error
+    }
+}
+
+export const editAdminCertificate=async({payload}:any)=>{
+    try {
+        console.log(payload)
+        console.log("editAdminCertificate", payload.id)
+        if (payload.id) {
+            const certsSnapshot = await getDocs(collection(db, CERTIFICATE));
+            
+            const certs = certsSnapshot.docs.map(doc => ({ iud: doc.id, id: doc.id, ...doc.data() }));
+            console.log(certs)
+            const existing = certs.find(c => c.id === payload.id);
+          
+            console.log(existing)
+             return await updateDoc(doc(db, CERTIFICATE, existing?.iud!), payload);
+        }
+      
+      return  await updateDoc(doc(db, CERTIFICATE, payload.id!), payload);
     } catch (error) {
         throw error
     }

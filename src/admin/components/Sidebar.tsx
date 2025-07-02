@@ -40,8 +40,13 @@ const items = [
     icon: Book,
   },
   {
-    title:"Certicifate",
+    title:"Certicifate Create",
     url:"/dashboard/course/upload/certificate",
+    icon: VerifiedIcon
+  },
+  {
+    title:"Certicifate",
+    url:"/dashboard/certificate",
     icon: VerifiedIcon
   },
   {
