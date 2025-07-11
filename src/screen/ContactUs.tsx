@@ -20,7 +20,7 @@ const ContactUs = () => {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        info: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -50,7 +50,7 @@ const ContactUs = () => {
             title: 'Contact Us',
             phone: '',
             subject: '',
-            message: ''
+            info: ''
         });
         
         setIsSubmitting(false);
@@ -248,9 +248,9 @@ const ContactUs = () => {
                                         Message
                                     </Label>
                                     <textarea
-                                        id="message"
-                                        name="message"
-                                        value={formData.message}
+                                        id="info"
+                                        name="info"
+                                        value={formData.info}
                                         onChange={handleInputChange}
                                         className="w-full p-4 border border-slate-200 rounded-xl h-32 resize-none bg-white/50 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-300 placeholder-slate-400"
                                         placeholder="Tell us how we can help you..."

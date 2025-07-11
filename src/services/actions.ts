@@ -218,7 +218,7 @@ export const createAdminCertificate= async(payload:any)=>{
 export const getAllCertificate= async()=>{
     try {
         const snapshot = await getDocs(collection(db, CERTIFICATE));
-        const data = snapshot.docs.map((doc) => ({   id: doc.id,...doc.data(), }));
+        const data = snapshot.docs.map((doc) => ({   id: doc.id, ...doc.data(), }))
         return data;
     } catch (error) {
         throw error

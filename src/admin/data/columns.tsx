@@ -786,6 +786,7 @@ export const MessageColumns: ColumnDef<Message>[]=[
 export type Certificate = {
   id: string;
   studentName: string;
+  certificateId: string;
   uuid: string;
   description: string;
   url:string;
@@ -856,10 +857,10 @@ export const CertificateColumns: ColumnDef<Certificate>[]=[
     }
   },
    {
-    accessorKey: "uuid",
-    header: "uuid",
+    accessorKey: "certificateId",
+    header: "certificateId",
     cell:({row})=> {
-      const value = row.getValue<string>("uuid") || "error";
+      const value = row.getValue<string>("certificateId");
 
       return <div className="w-20 line-clamp-6" >{value}</div>
     }
@@ -883,9 +884,7 @@ export const CertificateColumns: ColumnDef<Certificate>[]=[
     id: "actions",
     cell: ({ row }) => {
       const payment = row.original
-      if(!payment.uuid){
-        payment.uuid ="hello"
-      }
+     
  
       return (
         <div className="flex gap-2">

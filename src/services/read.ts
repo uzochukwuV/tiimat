@@ -259,7 +259,7 @@ export const sendMessage = async (params:
   location?: string,
   info?: string}
 ) => {
-  await addDoc(collection(db, "Message"), {
+  const res4 = await addDoc(collection(db, MESSAGE), {
     title: params.title ||"",
     name: params.name || "",
     email: params.email || "",
@@ -267,6 +267,7 @@ export const sendMessage = async (params:
     location: params.location || "",
     info: params.info || "",
   });
+  console.log(res4)
 
   const docref = collection(db, "Message");
 
