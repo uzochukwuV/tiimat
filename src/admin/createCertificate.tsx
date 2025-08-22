@@ -21,16 +21,10 @@ export function CreateCertificate() {
         const name = (document.getElementById('name') as HTMLInputElement).value
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
-        let res = null
+       
         try {
-             res = await uploadFile("tiimatbucket", "certificates", image);
-        }catch (e){
-            console.log(e)
-            console.log("Error from upload")
-            alert("Error uploaidng file")
-        }
-        
-        const newFile = URL.createObjectURL(image);
+             let res = await uploadFile("tiimatbucket", "certificates", image);
+             const newFile = URL.createObjectURL(image);
         setRed(newFile)
         setIsUp(true)
         try{
@@ -44,6 +38,13 @@ export function CreateCertificate() {
           width: SIZE,
         });
         setQrCodeData(qrCodeDataUrl);
+        }catch (e){
+            console.log(e)
+            console.log("Error from upload")
+            alert("Error uploaidng file")
+        }
+        
+       
         setIsLoading(false)
       }
 
