@@ -21,7 +21,7 @@ export function CreateCertificate() {
         const name = (document.getElementById('name') as HTMLInputElement).value
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
-       
+       console.log(image)
         try {
              let res = await uploadFile("tiimatbucket", "certificates", image);
              const newFile = URL.createObjectURL(image);
