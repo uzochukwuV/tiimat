@@ -20,7 +20,7 @@ export async function updateCerts(){
 export async function uploadFile(bucketName:string, path:string, file:any) {
   const { data, error } = await supabase.storage
     .from(bucketName)
-    .upload(path, file, {
+    .upload(path + file.name, file, {
       cacheControl: '3600',
       upsert: false, // prevent overwriting
     });
