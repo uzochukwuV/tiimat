@@ -21,13 +21,25 @@ export function CreateCertificate() {
         const name = (document.getElementById('name') as HTMLInputElement).value
         const description = (document.getElementById('description') as HTMLInputElement).value
         const image = (document.getElementById('image') as HTMLInputElement).files![0]
-        const res = await uploadFile("tiimatbucket", "certificates", image);
+        let res = null
+        try {
+             res = await uploadFile("tiimatbucket", "certificates", image);
+        }catch (e){
+            console.log(e)
+            console.log("Error from upload")
+            alert("Error uploaidng file")
+        }
         
         const newFile = URL.createObjectURL(image);
         setRed(newFile)
         setIsUp(true)
-        await createAdminCertificate({studentName : name, description:description,url: res.fullPath, id:res.id})
-        
+        try{
+            await createAdminCertificate({studentName : name, description:description,url: res.fullPath, id:res.id})
+        }catch (e){
+            console.log(e)
+            console.log("Error from certificate creation")
+            alert("Error adding certificate")
+        }
         const qrCodeDataUrl = await QrCode.toDataURL(`https://www.tiimatsolutions.com/certificate/${res.id}`, {
           width: SIZE,
         });
