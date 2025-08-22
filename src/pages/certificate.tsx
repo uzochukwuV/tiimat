@@ -3,7 +3,7 @@ import { getCertificate } from '@/services/read';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CheckCircle, Download, Share2 } from 'lucide-react';
-
+import {getPublicUrl} from "@lib/supabase";
 
 const CertificateVerification = () => {
   const params = useParams();
@@ -19,9 +19,9 @@ const CertificateVerification = () => {
         setIsLoading(true);
         const certResponse = await getCertificate(params.id!)
       
-        
+        const url = await getPublicUrl("tiimatbucket", certResponse.url.replace("tiimatbucket/", "")
        
-        setImgSrc(certResponse.url);
+        setImgSrc(url);
         setUsername(certResponse.username);
         setDescription(certResponse.description);
       } catch (err) {
